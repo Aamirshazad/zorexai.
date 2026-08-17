@@ -14,18 +14,20 @@ export function generateStaticParams() {
     .map((page) => ({ slug: page.route.split('/') }));
 }
 
-function routeFromParams(slug?: string[]) {
-  return slug?.join('/') ?? '';
+function routeFromParams(slug: string[]) {
+  return slug.join('/');
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug?: string[] }> }): Promise<Metadata> {
-  const route = routeFromParams((await params).slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string[] }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const route = routeFromParams(slug);
   const page = pageByRoute.get(route);
   return page ? createPageMetadata(page) : {};
 }
 
-export default async function Page({ params }: { params: Promise<{ slug?: string[] }> }) {
-  const route = routeFromParams((await params).slug);
+export default async function Page({ params }: { params: Promise<{ slug: string[] }> }) {
+  const { slug } = await params;
+  const route = routeFromParams(slug);
   const Component = pageComponents[route];
   const page = pageByRoute.get(route);
   if (!Component || !page) return notFound();

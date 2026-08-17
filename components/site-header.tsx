@@ -23,9 +23,11 @@ export function SiteHeader() {
   const triggerRef = useRef<HTMLButtonElement | null>(null);
   const firstMenuItemRef = useRef<HTMLAnchorElement | null>(null);
 
-  useEffect(() => {
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
     setOpen(false);
-  }, [pathname]);
+  }
 
   useEffect(() => {
     if (!open) return;
