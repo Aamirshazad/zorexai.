@@ -35,7 +35,6 @@ import TermsPage from '@/components/pages/terms';
 
 export const pageComponents: Record<string, ComponentType> = {
   '': HomePage,
-  index: HomePage,
   about: AboutPage,
   blog: BlogPage,
   'blog-agentic-systems': BlogAgenticSystemsPage,

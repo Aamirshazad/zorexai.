@@ -37,16 +37,13 @@ const manifestPages = manifest as PageMeta[];
 
 export const pages = manifestPages.filter((page) => page.route !== '404');
 export const pageByRoute = new Map(pages.map((page) => [page.route, page]));
-if (pageByRoute.has('')) {
-  pageByRoute.set('index', pageByRoute.get('')!);
-}
 
 export function getCanonicalUrl(route: string): string {
   return route ? `${SITE_URL}/${route}` : `${SITE_URL}/`;
 }
 
 export function getPageKind(route: string): PageKind {
-  if (!route || route === 'index') return 'home';
+  if (!route) return 'home';
   if (route === 'about') return 'about';
   if (route === 'contact') return 'contact';
   if (route === 'services') return 'services';
