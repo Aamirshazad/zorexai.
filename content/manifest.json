@@ -1,0 +1,247 @@
+[
+  {
+    "route": "404",
+    "title": "Page Not Found — Zorex AI",
+    "description": "",
+    "ogImage": "/og-default.jpg"
+  },
+  {
+    "route": "about",
+    "title": "About Zorex AI | Building AI Systems Around Business Functions",
+    "description": "Learn how Zorex AI identifies operational bottlenecks, designs business-specific AI systems, and deploys them into real workflows.",
+    "ogImage": "/og-default.jpg",
+    "kind": "about"
+  },
+  {
+    "route": "blog-agentic-systems",
+    "title": "Agentic AI Systems: Architecture & Business Use Cases | Zorex AI",
+    "description": "A practical look at agentic AI systems, including multi-step planning, tool use, governance, and where autonomous workflows create real business value.",
+    "ogImage": "/og-default.jpg",
+    "publishedAt": "2024-10-24",
+    "author": "Dr. Aris Thorne",
+    "kind": "article"
+  },
+  {
+    "route": "blog-ai-commerce",
+    "title": "AI for Commerce Operations: Support & Workflow Automation | Zorex AI",
+    "description": "Explore how AI systems can improve commerce support and operations through intelligent routing, context retrieval, and workflow execution.",
+    "ogImage": "/og-default.jpg",
+    "kind": "article"
+  },
+  {
+    "route": "blog-cognitive-infrastructure",
+    "title": "Cognitive AI Infrastructure: Beyond Basic RAG | Zorex AI",
+    "description": "Explore the architecture behind context-aware AI systems, including retrieval, semantic routing, and multi-step reasoning for business workflows.",
+    "ogImage": "/og-default.jpg",
+    "publishedAt": "2024-11-05",
+    "author": "Dr. Aris Thorne",
+    "kind": "article"
+  },
+  {
+    "route": "blog-intelligent-process",
+    "title": "Intelligent Process Automation Beyond Static Workflows | Zorex AI",
+    "description": "Learn how intelligent systems can improve rule-heavy business processes by handling classification, decisions, exceptions, and workflow execution.",
+    "ogImage": "/og-default.jpg",
+    "publishedAt": "2025-01-18",
+    "author": "Dr. Aris Thorne",
+    "kind": "article"
+  },
+  {
+    "route": "blog-llm-security",
+    "title": "Securing Enterprise AI & LLM Systems | Zorex AI",
+    "description": "Practical guidance on securing business AI systems through access controls, deployment boundaries, validation, governance, and auditability.",
+    "ogImage": "/og-default.jpg",
+    "publishedAt": "2024-12-12",
+    "author": "Elena Rostova",
+    "kind": "article"
+  },
+  {
+    "route": "blog",
+    "title": "AI Systems & Automation Insights | Zorex AI",
+    "description": "Read practical insights on agentic systems, AI automation, workflow design, integration, governance, and building AI systems for real business functions.",
+    "ogImage": "/og-default.jpg",
+    "kind": "blog"
+  },
+  {
+    "route": "case-studies",
+    "title": "AI Systems Case Studies | Zorex AI",
+    "description": "Explore examples of Zorex AI systems applied to business workflows, including support, operations, reporting, and customer-facing processes.",
+    "ogImage": "/og-default.jpg",
+    "kind": "case-studies"
+  },
+  {
+    "route": "case-study-echocommerce",
+    "title": "EchoCommerce AI Support Case Study | Zorex AI",
+    "description": "See how an AI support workflow was designed for commerce operations, from intent handling and information retrieval to faster ticket resolution.",
+    "ogImage": "/og-default.jpg",
+    "kind": "case-study"
+  },
+  {
+    "route": "case-study-novus",
+    "title": "Novus Operations AI Case Study | Zorex AI",
+    "description": "See how an intelligent process system was applied to reduce manual operational work and improve the speed and consistency of onboarding workflows.",
+    "ogImage": "/og-default.jpg",
+    "kind": "case-study"
+  },
+  {
+    "route": "case-study-viralgrowth",
+    "title": "ViralGrowth AI Workflow Case Study | Zorex AI",
+    "description": "See how AI-driven workflow execution was applied to sales follow-up and pipeline operations to reduce repetitive work and improve consistency.",
+    "ogImage": "/og-default.jpg",
+    "kind": "case-study"
+  },
+  {
+    "route": "contact",
+    "title": "Contact Zorex AI | Identify High-Value AI Opportunities",
+    "description": "Talk with Zorex AI about the workflows, bottlenecks, and business functions where a purpose-built AI system could create measurable operational value.",
+    "ogImage": "/og-default.jpg",
+    "kind": "contact"
+  },
+  {
+    "route": "",
+    "title": "Zorex AI | Vertical AI Systems for Business Functions",
+    "description": "Zorex AI builds business-specific AI systems that automate workflows, improve execution, and create operational capacity across meaningful business functions.",
+    "ogImage": "/og-default.jpg",
+    "kind": "home"
+  },
+  {
+    "route": "industries",
+    "title": "Industries | AI Systems for Business Operations | Zorex AI",
+    "description": "Explore how Zorex AI applies business-specific AI systems to operational workflows across industries where repetitive work and bottlenecks limit scale.",
+    "ogImage": "/og-default.jpg",
+    "kind": "industries"
+  },
+  {
+    "route": "industry-b2b-ecommerce",
+    "title": "AI for B2B E-commerce | Zorex AI",
+    "description": "Explore AI systems for B2B e-commerce workflows, including inventory operations, order routing, support, and other repeatable process work.",
+    "ogImage": "/og-default.jpg",
+    "kind": "industry"
+  },
+  {
+    "route": "industry-b2b-finance",
+    "title": "AI for Finance Operations | Zorex AI",
+    "description": "Explore AI systems for finance workflows such as transaction processing, reconciliation, compliance checks, reporting, and operational decision support.",
+    "ogImage": "/og-default.jpg",
+    "kind": "industry"
+  },
+  {
+    "route": "industry-b2b-saas",
+    "title": "AI for B2B SaaS Operations | Zorex AI",
+    "description": "Explore AI systems for B2B SaaS workflows across sales, customer operations, support, reporting, and internal business processes.",
+    "ogImage": "/og-default.jpg",
+    "kind": "industry"
+  },
+  {
+    "route": "industry-commercial-real-estate",
+    "title": "AI for Commercial Real Estate | Zorex AI",
+    "description": "Explore AI systems for commercial real estate workflows, including research, document-heavy operations, lead processes, and internal execution.",
+    "ogImage": "/og-default.jpg",
+    "kind": "industry"
+  },
+  {
+    "route": "industry-digital-marketing",
+    "title": "AI for Digital Marketing Operations | Zorex AI",
+    "description": "Explore AI systems for digital marketing workflows, from research and content operations to campaign execution, reporting, and customer response.",
+    "ogImage": "/og-default.jpg",
+    "kind": "industry"
+  },
+  {
+    "route": "industry-law-firms",
+    "title": "AI for Law Firm Operations | Zorex AI",
+    "description": "Explore AI systems for law firm workflows involving document-heavy work, research, intake, client operations, and repeatable administrative processes.",
+    "ogImage": "/og-default.jpg",
+    "kind": "industry"
+  },
+  {
+    "route": "industry-logistics",
+    "title": "AI for Logistics & Supply Chain | Zorex AI",
+    "description": "Explore AI systems for logistics workflows including routing, document processing, exception handling, customer operations, and supply chain coordination.",
+    "ogImage": "/og-default.jpg",
+    "kind": "industry"
+  },
+  {
+    "route": "industry-manufacturing",
+    "title": "AI for Manufacturing Operations | Zorex AI",
+    "description": "Explore AI systems for manufacturing workflows involving production operations, quality processes, planning, documentation, and internal coordination.",
+    "ogImage": "/og-default.jpg",
+    "kind": "industry"
+  },
+  {
+    "route": "industry-medical-practices",
+    "title": "AI for Medical Practice Operations | Zorex AI",
+    "description": "Explore AI systems for medical practice workflows including intake, documentation, scheduling, communication, and other repeatable operations.",
+    "ogImage": "/og-default.jpg",
+    "kind": "industry"
+  },
+  {
+    "route": "privacy",
+    "title": "Privacy Policy | Zorex AI",
+    "description": "Read the Zorex AI privacy policy and learn how information submitted through the website is handled, protected, and governed.",
+    "ogImage": "/og-default.jpg",
+    "kind": "legal"
+  },
+  {
+    "route": "process",
+    "title": "How Zorex AI Works | From Business Problem to AI System",
+    "description": "See how Zorex AI moves from workflow discovery and system design through implementation, deployment, measurement, and continuous improvement.",
+    "ogImage": "/og-default.jpg",
+    "kind": "process"
+  },
+  {
+    "route": "service-agentic-ai",
+    "title": "Agentic AI Systems for Business Workflows | Zorex AI",
+    "description": "Design and deploy AI systems that can plan multi-step work, use business tools, coordinate actions, and operate within defined governance boundaries.",
+    "ogImage": "/og-default.jpg",
+    "kind": "service"
+  },
+  {
+    "route": "service-ai-automations",
+    "title": "AI Workflow Automation Services | Zorex AI",
+    "description": "Build intelligent automations for business workflows that involve classification, document understanding, routing, decisions, exceptions, and follow-through.",
+    "ogImage": "/og-default.jpg",
+    "kind": "service"
+  },
+  {
+    "route": "service-ai-integration",
+    "title": "AI Integration for Existing Business Systems | Zorex AI",
+    "description": "Connect AI capabilities to existing CRM, ERP, support, and internal systems so teams can improve workflows without replacing the tools they already use.",
+    "ogImage": "/og-default.jpg",
+    "kind": "service"
+  },
+  {
+    "route": "service-api-integrations",
+    "title": "API Integration & Workflow Connectivity | Zorex AI",
+    "description": "Connect business systems and APIs so data moves reliably between workflows, reducing manual transfer work and improving operational consistency.",
+    "ogImage": "/og-default.jpg",
+    "kind": "service"
+  },
+  {
+    "route": "service-llm-applications",
+    "title": "Custom LLM Applications for Business | Zorex AI",
+    "description": "Build domain-specific LLM applications around business knowledge, workflows, retrieval, and controlled actions instead of generic chat experiences.",
+    "ogImage": "/og-default.jpg",
+    "kind": "service"
+  },
+  {
+    "route": "service-vertical-ai",
+    "title": "Vertical AI Systems for Industry Workflows | Zorex AI",
+    "description": "Build business-specific AI systems around the workflows, context, constraints, and operating requirements of a particular industry or business function.",
+    "ogImage": "/og-default.jpg",
+    "kind": "service"
+  },
+  {
+    "route": "services",
+    "title": "AI Systems & Automation Services | Zorex AI",
+    "description": "Explore Zorex AI services for agentic systems, workflow automation, AI integration, connected operations, and business-specific AI implementations.",
+    "ogImage": "/og-default.jpg",
+    "kind": "services"
+  },
+  {
+    "route": "terms",
+    "title": "Terms of Service | Zorex AI",
+    "description": "Read the Zorex AI terms governing website use, project engagements, software implementation, and related professional services.",
+    "ogImage": "/og-default.jpg",
+    "kind": "legal"
+  }
+]
