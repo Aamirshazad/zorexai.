@@ -7,7 +7,7 @@ import {
   LayoutDashboard, ListFilter, ListTodo, Lock, LockOpen, Mail, Megaphone, Menu, Mic2, Minus, Monitor,
   MoveUpRight, Network, NotepadText, Package, PanelsTopLeft, PlugZap, Quote, Radio, ReceiptText,
   RefreshCcwDot, RefreshCw, Repeat2, Rocket, Route, Router, ScanText, Search, SearchX, Send, Server,
-  Settings, Shield, ShieldCheck, ShoppingCart, Shuffle, Star, Stethoscope, Store, Table2, TimerOff,
+  Settings, Shield, ShieldCheck, ShoppingCart, Shuffle, Sparkles, Star, Stethoscope, Store, Table2, TimerOff,
   TrendingDown, TrendingUp, TriangleAlert, Truck, UserPlus, UserRoundX, Workflow, Wrench, X, Zap,
   type LucideProps,
 } from 'lucide-react';
@@ -21,7 +21,7 @@ const icons = {
   LayoutDashboard, ListFilter, ListTodo, Lock, LockOpen, Mail, Megaphone, Menu, Mic2, Minus, Monitor,
   MoveUpRight, Network, NotepadText, Package, PanelsTopLeft, PlugZap, Quote, Radio, ReceiptText,
   RefreshCcwDot, RefreshCw, Repeat2, Rocket, Route, Router, ScanText, Search, SearchX, Send, Server,
-  Settings, Shield, ShieldCheck, ShoppingCart, Shuffle, Star, Stethoscope, Store, Table2, TimerOff,
+  Settings, Shield, ShieldCheck, ShoppingCart, Shuffle, Sparkles, Star, Stethoscope, Store, Table2, TimerOff,
   TrendingDown, TrendingUp, TriangleAlert, Truck, UserPlus, UserRoundX, Workflow, Wrench, X, Zap,
 };
 

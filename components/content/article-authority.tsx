@@ -11,7 +11,7 @@ export function ArticleAuthority({ route }: Props) {
 
   return (
     <section aria-labelledby="article-quick-answers" className="max-w-3xl mx-auto px-gutter pb-card-gap">
-      <div className="rounded-2xl border border-outline-variant bg-surface-container-low p-6 md:p-8">
+      <div className="reveal rounded-2xl border border-outline-variant bg-surface-container-low p-6 md:p-8">
         <p className="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-3">Practical takeaway</p>
         <p className="font-body-lg text-body-lg text-on-surface mb-8">{article.takeaway}</p>
 

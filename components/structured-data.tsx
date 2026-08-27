@@ -1,5 +1,5 @@
-import Script from 'next/script';
 import {
+  DEFAULT_DESCRIPTION,
   DEFAULT_LOGO,
   getBreadcrumbItems,
   getCanonicalUrl,
@@ -14,6 +14,7 @@ const organization = {
   '@id': `${SITE_URL}/#organization`,
   name: SITE_NAME,
   alternateName: 'Zorex',
+  description: DEFAULT_DESCRIPTION,
   url: SITE_URL,
   logo: `${SITE_URL}${DEFAULT_LOGO}`,
   sameAs: ['https://www.linkedin.com/company/zorex-ai'],
@@ -64,7 +65,7 @@ function contentEntity(page: PageMeta) {
       image: [toAbsoluteImage(page.ogImage)],
       mainEntityOfPage: { '@id': `${url}#webpage` },
       datePublished: page.publishedAt,
-      ...(page.author ? { author: { '@type': 'Person', name: page.author } } : { author: { '@id': `${SITE_URL}/#organization` } }),
+      ...(page.author ? { author: { '@type': 'Organization', name: page.author } } : { author: { '@id': `${SITE_URL}/#organization` } }),
       publisher: { '@id': `${SITE_URL}/#organization` },
       inLanguage: 'en-US',
     };
@@ -141,9 +142,13 @@ function buildGraph(page: PageMeta) {
 }
 
 export function StructuredData({ page }: { page: PageMeta }) {
+  // Plain inline <script> (not next/script) so the JSON-LD is present in the
+  // statically prerendered HTML and visible to crawlers that don't run JS.
   return (
-    <Script id={`zorex-structured-data-${page.route || 'home'}`} type="application/ld+json">
-      {JSON.stringify(buildGraph(page))}
-    </Script>
+    <script
+      id={`zorex-structured-data-${page.route || 'home'}`}
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(buildGraph(page)) }}
+    />
   );
 }

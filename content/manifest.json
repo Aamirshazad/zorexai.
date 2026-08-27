@@ -7,8 +7,8 @@
   },
   {
     "route": "about",
-    "title": "About Zorex AI | Building AI Systems Around Business Functions",
-    "description": "Learn how Zorex AI identifies operational bottlenecks, designs business-specific AI systems, and deploys them into real workflows.",
+    "title": "About Zorex AI | AI Software Company",
+    "description": "Zorex AI is an AI software company. We design, build, deploy, and continuously improve AI-powered systems, agentic systems, and AI integrated with existing systems for real business functions.",
     "ogImage": "/og-default.jpg",
     "kind": "about"
   },
@@ -18,7 +18,7 @@
     "description": "A practical look at agentic AI systems, including multi-step planning, tool use, governance, and where autonomous workflows create real business value.",
     "ogImage": "/og-default.jpg",
     "publishedAt": "2024-10-24",
-    "author": "Dr. Aris Thorne",
+    "author": "Zorex AI Team",
     "kind": "article"
   },
   {
@@ -26,6 +26,8 @@
     "title": "AI for Commerce Operations: Support & Workflow Automation | Zorex AI",
     "description": "Explore how AI systems can improve commerce support and operations through intelligent routing, context retrieval, and workflow execution.",
     "ogImage": "/og-default.jpg",
+    "publishedAt": "2025-02-10",
+    "author": "Zorex AI Team",
     "kind": "article"
   },
   {
@@ -34,7 +36,7 @@
     "description": "Explore the architecture behind context-aware AI systems, including retrieval, semantic routing, and multi-step reasoning for business workflows.",
     "ogImage": "/og-default.jpg",
     "publishedAt": "2024-11-05",
-    "author": "Dr. Aris Thorne",
+    "author": "Zorex AI Team",
     "kind": "article"
   },
   {
@@ -43,7 +45,7 @@
     "description": "Learn how intelligent systems can improve rule-heavy business processes by handling classification, decisions, exceptions, and workflow execution.",
     "ogImage": "/og-default.jpg",
     "publishedAt": "2025-01-18",
-    "author": "Dr. Aris Thorne",
+    "author": "Zorex AI Team",
     "kind": "article"
   },
   {
@@ -52,7 +54,7 @@
     "description": "Practical guidance on securing business AI systems through access controls, deployment boundaries, validation, governance, and auditability.",
     "ogImage": "/og-default.jpg",
     "publishedAt": "2024-12-12",
-    "author": "Elena Rostova",
+    "author": "Zorex AI Team",
     "kind": "article"
   },
   {
@@ -99,8 +101,8 @@
   },
   {
     "route": "",
-    "title": "Zorex AI | Vertical AI Systems for Business Functions",
-    "description": "Zorex AI builds business-specific AI systems that automate workflows, improve execution, and create operational capacity across meaningful business functions.",
+    "title": "Zorex AI | AI Software Company for Business Functions",
+    "description": "Zorex AI is an AI software company that designs, builds, deploys, and continuously improves AI-powered systems, agentic systems, and AI integrated with existing systems for real business functions.",
     "ogImage": "/og-default.jpg",
     "kind": "home"
   },
@@ -232,8 +234,8 @@
   },
   {
     "route": "services",
-    "title": "AI Systems & Automation Services | Zorex AI",
-    "description": "Explore Zorex AI services for agentic systems, workflow automation, AI integration, connected operations, and business-specific AI implementations.",
+    "title": "AI Software Services | Zorex AI",
+    "description": "Explore Zorex AI services: AI agentic systems, AI integration with existing systems, and vertical AI systems — designed, built, deployed, and continuously improved for real business functions.",
     "ogImage": "/og-default.jpg",
     "kind": "services"
   },

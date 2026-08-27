@@ -3,7 +3,7 @@ import manifest from '@/content/manifest.json';
 export const SITE_URL = 'https://zorex.ai';
 export const SITE_NAME = 'Zorex AI';
 export const DEFAULT_DESCRIPTION =
-  'Zorex AI builds business-specific AI systems that automate workflows, improve execution, and create operational capacity.';
+  'Zorex AI is an AI software company that designs, builds, deploys, and continuously improves AI-powered systems, agentic systems, and AI integrated with existing systems for real business functions.';
 export const DEFAULT_OG_IMAGE = '/og-default.jpg';
 export const DEFAULT_LOGO = '/zorex-logo.png';
 

@@ -37,7 +37,7 @@ export function BusinessAIFAQ() {
   return (
     <section className="py-section-padding px-gutter bg-surface-container-low border-y border-outline-variant/30" aria-labelledby="business-ai-questions">
       <div className="max-w-container-max mx-auto">
-        <div className="max-w-3xl mb-card-gap">
+        <div className="reveal max-w-3xl mb-card-gap">
           <p className="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-3">Buying guidance</p>
           <h2 id="business-ai-questions" className="font-headline-lg text-headline-lg text-primary-container mb-4">
             Questions to answer before building an AI system
@@ -47,9 +47,9 @@ export function BusinessAIFAQ() {
           </p>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="reveal reveal-delay-1 grid gap-4 md:grid-cols-2">
           {questions.map((item) => (
-            <details key={item.question} className="group rounded-xl border border-outline-variant bg-surface p-6">
+            <details key={item.question} className="group card-lift rounded-xl border border-outline-variant bg-surface p-6">
               <summary className="cursor-pointer list-none pr-8 font-headline-md text-lg text-primary-container focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary">
                 <span className="inline-flex items-start justify-between gap-4 w-full">
                   {item.question}
@@ -61,7 +61,7 @@ export function BusinessAIFAQ() {
           ))}
         </div>
 
-        <div className="mt-10 flex flex-wrap gap-4">
+        <div className="reveal reveal-delay-2 mt-10 flex flex-wrap gap-4">
           <Link href="/process" className="text-secondary hover:text-primary underline underline-offset-4">See how we approach implementation</Link>
           <Link href="/contact" className="text-secondary hover:text-primary underline underline-offset-4">Discuss a workflow</Link>
         </div>
