@@ -3,8 +3,8 @@ import type { ReactNode } from 'react';
 /**
  * Section layout vocabulary.
  *
- * Before this existed every section on every page opened the same way — a
- * centred eyebrow, an h2, then a three-column card grid — which made a long
+ * Before this existed every section on every page opened the same way a
+ * centred eyebrow, an h2, then a three-column card grid which made a long
  * page read as one repeated block. `SectionShell` fixes the outer geometry so
  * spacing stays consistent, and `SectionHeading` offers deliberately different
  * *rhythms* (centred / left / split / stacked-rail) so consecutive sections can
@@ -47,7 +47,7 @@ export function SectionShell({
   );
 }
 
-/* The eyebrow is the DocketBar — the site's signature device. The brand voice
+/* The eyebrow is the DocketBar the site's signature device. The brand voice
    is a filed record: labelled and ruled. A mono label, then a hairline that
    runs out to the measure's edge, with the gold reserved for accents
    (indexes, icons) rather than the label itself. */

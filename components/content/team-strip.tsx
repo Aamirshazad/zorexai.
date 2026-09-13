@@ -4,7 +4,7 @@ import { SectionHeading, SectionShell } from '@/components/ui/section';
 import { company, initials, leadership, teamComposition } from '@/content/company';
 
 /**
- * "Who will actually work on this" — placed immediately before the closing CTA,
+ * "Who will actually work on this" placed immediately before the closing CTA,
  * because it is the last question a buyer asks themselves before making contact.
  *
  * The homepage previously asserted a headcount in the hero and then never showed

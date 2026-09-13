@@ -1,52 +1,64 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #00224e;
-  --color-primary-container: #193868;
+  /* ------------------------------------------------------------------ */
+  /* Material-era token names, remapped to the imagine.art ink/wash     */
+  /* palette so every legacy page renders on-theme without per-page      */
+  /* rewrites. New pages use the --ink/--page-wash tokens below.         */
+  /* ------------------------------------------------------------------ */
+  --color-primary: #141414;
+  --color-primary-container: #141414;
   --color-on-primary: #ffffff;
-  --color-on-primary-container: #87a2d9;
-  --color-primary-fixed: #d7e2ff;
-  --color-primary-fixed-dim: #abc7ff;
-  --color-on-primary-fixed: #001b3f;
-  --color-on-primary-fixed-variant: #294677;
-  --color-secondary: #745a27;
-  --color-secondary-container: #fedb9b;
+  --color-on-primary-container: #c9c9c9;
+  --color-primary-fixed: #e5ece5;
+  --color-primary-fixed-dim: #b3b3b3;
+  --color-on-primary-fixed: #141414;
+  --color-on-primary-fixed-variant: #2a2a2c;
+  --color-secondary: #141414;
+  --color-secondary-container: #eaeee8;
   --color-on-secondary: #ffffff;
-  --color-on-secondary-container: #795f2b;
-  --color-secondary-fixed: #ffdea4;
-  --color-secondary-fixed-dim: #e4c285;
-  --color-on-secondary-fixed: #261900;
-  --color-on-secondary-fixed-variant: #5a4312;
-  --color-tertiary: #272317;
-  --color-tertiary-container: #3d382b;
+  --color-on-secondary-container: #141414;
+  --color-secondary-fixed: #e5ece5;
+  --color-secondary-fixed-dim: #d6ddd2;
+  --color-tertiary: #343836;
+  --color-tertiary-container: #2e3230;
   --color-on-tertiary: #ffffff;
-  --color-on-tertiary-container: #aaa190;
-  --color-on-tertiary-fixed: #1f1b10;
-  --color-on-tertiary-fixed-variant: #4c4638;
-  --color-surface: #fcf9f8;
-  --color-surface-bright: #fcf9f8;
-  --color-surface-dim: #dcd9d9;
-  --color-surface-container: #f0eded;
-  --color-surface-container-low: #f6f3f2;
-  --color-surface-container-high: #eae7e7;
-  --color-surface-container-highest: #e4e2e1;
+  --color-on-tertiary-container: #c9c9c9;
+  --color-on-tertiary-fixed: #141414;
+  --color-on-tertiary-fixed-variant: #2a2a2c;
+  --color-surface: #f3f6f1;
+  --color-surface-bright: #f3f6f1;
+  --color-surface-dim: #e5ece5;
+  --color-surface-container: #eaeee8;
+  --color-surface-container-low: #f3f6f1;
+  --color-surface-container-high: #e5ece5;
+  --color-surface-container-highest: #dee9e0;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-variant: #e4e2e1;
-  --color-on-surface: #1b1c1c;
-  --color-on-surface-variant: #44474f;
-  --color-surface-tint: #425e90;
-  --color-outline: #747780;
-  --color-outline-variant: #c4c6d0;
+  --color-surface-variant: #e5ece5;
+  --color-on-surface: #141414;
+  --color-on-surface-variant: #5b5b5b;
+  --color-surface-tint: #45525a;
+  --color-outline: #6e6e6e;
+  --color-outline-variant: #d8dcd4;
   --color-error: #ba1a1a;
   --color-error-container: #ffdad6;
   --color-on-error: #ffffff;
   --color-on-error-container: #93000a;
-  --color-inverse-surface: #303030;
-  --color-inverse-on-surface: #f3f0ef;
-  --color-inverse-primary: #abc7ff;
-  --color-accent-gold: #E2C08D;
-  --color-accent-tan: #FDFCFB;
-  --color-accent-navy: #193868;
+  --color-inverse-surface: #343836;
+  --color-inverse-on-surface: #ffffff;
+  --color-inverse-primary: #c4d2d3;
+  /* Sand-tone accent for icons sitting on ink/charcoal chips (was gold). */
+  --color-accent-gold: #e2ded1;
+  --color-accent-tan: #f3f6f1;
+  --color-accent-navy: #141414;
+  /* imagine.art-style ink scale (home page, header, footer). */
+  --color-ink: #141414;
+  --color-ink-heading: #2a2a2c;
+  --color-ink-2: #5b5b5b;
+  --color-ink-3: #6e6e6e;
+  --color-page-wash: #f3f6f1;
+  --color-panel: #ffffff;
+  --color-panel-2: #eaeee8;
   --spacing-section-padding: 120px;
   --spacing-container-max: 1280px;
   --spacing-card-gap: 32px;
@@ -54,19 +66,39 @@
   --spacing-gutter: 24px;
   --spacing-stack-sm: 8px;
   --spacing-stack-lg: 24px;
-  --font-family-headline-xl: Manrope, ui-sans-serif, system-ui, sans-serif;
-  --font-family-headline-lg: Manrope, ui-sans-serif, system-ui, sans-serif;
-  --font-family-headline-md: Manrope, ui-sans-serif, system-ui, sans-serif;
+  /* Instrument Sans carries all headings/labels across the site now;
+     body text keeps Manrope for continuity on long-form copy. */
+  --font-family-headline-xl: 'Instrument Sans', Manrope, ui-sans-serif, system-ui, sans-serif;
+  --font-family-headline-lg: 'Instrument Sans', Manrope, ui-sans-serif, system-ui, sans-serif;
+  --font-family-headline-md: 'Instrument Sans', Manrope, ui-sans-serif, system-ui, sans-serif;
   --font-family-body-md: Manrope, ui-sans-serif, system-ui, sans-serif;
   --font-family-body-lg: Manrope, ui-sans-serif, system-ui, sans-serif;
-  --font-family-label-sm: Manrope, ui-sans-serif, system-ui, sans-serif;
+  --font-family-label-sm: 'Instrument Sans', Manrope, ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
   color-scheme: light;
+  /* ------------------------------------------------------------------ */
+  /* imagine.art-style token layer home page, header, footer.         */
+  /* New names so the legacy Material tokens (used by other pages)       */
+  /* remain untouched.                                                   */
+  /* ------------------------------------------------------------------ */
+  --page-wash: #f3f6f1;
+  --panel: #ffffff;
+  --panel-2: #eaeee8;
+  /* Sage tile surface for the capabilities-style bento (imagine.art --tile). */
+  --tile: #e5ece5;
+  --ink: #141414;
+  --ink-heading: #2a2a2c;
+  --ink-2: #5b5b5b;
+  /* #6e6e6e keeps the muted tone while passing WCAG AA (4.68:1) on the wash. */
+  --ink-3: #6e6e6e;
+  --line: #00000014;
+  --line-strong: #00000024;
+  --line-tertiary: #0000003;
 }
 
-/* Responsive section rhythm — one variable drives every py-section-padding
+/* Responsive section rhythm one variable drives every py-section-padding
    section, so tightening it here tightens vertical spacing site-wide. */
 @media (max-width: 1024px) {
   :root {
@@ -88,8 +120,8 @@ html {
 
 body {
   margin: 0;
-  background: #fcf9f8;
-  color: #1b1c1c;
+  background: #f3f6f1;
+  color: #141414;
   overflow-x: clip;
   font-family: Manrope, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   text-rendering: optimizeLegibility;
@@ -102,7 +134,7 @@ body {
 }
 
 /* ------------------------------------------------------------------ */
-/* Motion system — behaviors adapted from the imagine.art/mcp design  */
+/* Motion system behaviors adapted from the imagine.art/mcp design  */
 /* ------------------------------------------------------------------ */
 
 /* Infinite logo/content marquee (pause on hover, edge fade via mask). */
@@ -138,7 +170,7 @@ body {
   -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
-/* Scroll-reveal hooks — enabled site-wide by <RevealObserver /> in the layout,
+/* Scroll-reveal hooks enabled site-wide by <RevealObserver /> in the layout,
    which adds `.js-reveal` to <html> once JS is running. Scoping the hidden state
    under `.js-reveal` keeps content visible for crawlers / no-JS renders. */
 .js-reveal .reveal {
@@ -155,6 +187,12 @@ body {
   opacity: 1;
   transform: none;
 }
+
+/* LCP protection: above-the-fold text never waits for JS. H1s and hero
+   subheads render in the initial paint (the largest contentful paint on
+   every page is headline text), so they simply don't carry `.reveal` —
+   the reveal dance stays for below-fold content, where a late paint
+   costs nothing. */
 
 .reveal-delay-1 { --reveal-delay: 0.08s; }
 .reveal-delay-2 { --reveal-delay: 0.16s; }
@@ -179,7 +217,7 @@ body {
 }
 
 /* ------------------------------------------------------------------ */
-/* Dark boxes — the mcp-style dark surfaces on light sections         */
+/* Dark boxes the mcp-style dark surfaces on light sections         */
 /* ------------------------------------------------------------------ */
 
 .dark-box {
@@ -240,7 +278,7 @@ body {
 
 .card-lift:hover {
   transform: translateY(-6px);
-  box-shadow: 0 24px 48px -24px rgba(0, 34, 78, 0.28);
+  box-shadow: 0 24px 48px -24px rgba(20, 20, 20, 0.18);
 }
 
 .btn-lift {
@@ -261,7 +299,7 @@ body {
 }
 
 /* ------------------------------------------------------------------ */
-/* Morphing header — transparent bar → floating glass pill on scroll    */
+/* Morphing header transparent bar → floating wash-glass pill        */
 /* ------------------------------------------------------------------ */
 
 .site-header {
@@ -301,13 +339,13 @@ body {
 .site-header.is-scrolled .header-inner {
   max-width: min(1180px, 100vw - 32px);
   padding-inline: 20px;
-  background: rgba(253, 252, 251, 0.82);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  backdrop-filter: blur(24px) saturate(180%);
-  border-color: rgba(0, 34, 78, 0.08);
+  background: rgba(243, 246, 241, 0.85);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  backdrop-filter: blur(24px) saturate(160%);
+  border-color: var(--line);
   border-radius: 22px;
   box-shadow:
-    0 20px 48px rgba(0, 34, 78, 0.12),
+    0 20px 48px rgba(20, 20, 20, 0.08),
     inset 0 1px rgba(255, 255, 255, 0.6);
 }
 
@@ -316,22 +354,22 @@ body {
   align-items: center;
   border-radius: 10px;
   padding: 6px 14px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #44474f;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--ink-2);
   cursor: pointer;
   white-space: nowrap;
   transition: color 0.22s ease, background 0.22s ease;
 }
 
 .nav-link:hover {
-  color: #00224e;
-  background: rgba(0, 34, 78, 0.06);
+  color: var(--ink);
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .nav-link[aria-current='page'] {
-  color: #00224e;
-  background: rgba(0, 34, 78, 0.08);
+  color: var(--ink);
+  background: rgba(0, 0, 0, 0.07);
 }
 
 /* Animated burger */
@@ -371,24 +409,24 @@ body {
 }
 
 /* ------------------------------------------------------------------ */
-/* Section backdrops — soft radial glow + masked grid (mcp pattern)     */
+/* Section backdrops soft radial glow + masked grid (mcp pattern)     */
 /* ------------------------------------------------------------------ */
 
 .section-glow {
-  background: radial-gradient(46% 52% at 50% 0%, rgba(254, 219, 155, 0.35), transparent 72%);
+  background: radial-gradient(46% 52% at 50% 0%, rgba(196, 210, 211, 0.4), transparent 72%);
 }
 
 .section-grid {
   background-image:
-    linear-gradient(to right, rgba(0, 34, 78, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 34, 78, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(20, 20, 20, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(20, 20, 20, 0.045) 1px, transparent 1px);
   background-size: 46px 46px;
   mask-image: radial-gradient(ellipse 84% 72% at 50% 42%, #000 38%, transparent 100%);
   -webkit-mask-image: radial-gradient(ellipse 84% 72% at 50% 42%, #000 38%, transparent 100%);
 }
 
 /* Light-line variant of .section-grid for dark (bg-primary) sections.
-   Pages apply `opacity-20` on top, giving ~5% effective line opacity —
+   Pages apply `opacity-20` on top, giving ~5% effective line opacity
    the same visual weight as .section-grid on light backdrops. */
 .section-grid-inverse {
   background-image:
@@ -400,6 +438,584 @@ body {
 }
 
 
+@layer components {
+/* ------------------------------------------------------------------ */
+/* imagine.art-style UI layer typography, grain panels, ink buttons  */
+/* ------------------------------------------------------------------ */
+
+/* Typography scale (Instrument Sans applied via .font-ui in layout). */
+.font-ui {
+  font-family: var(--font-instrument), Manrope, ui-sans-serif, system-ui, sans-serif;
+}
+
+.display-type {
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  color: var(--ink-heading);
+}
+
+.section-title {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  color: var(--ink-heading);
+}
+
+/* Headings on grain surfaces take the grain foreground. Without this the
+   ink-heading color above (unlayered, so stronger than Tailwind's
+   text-white) renders dark-on-dark inside the teal/charcoal CTA bands. */
+.grain .display-type,
+.grain .section-title,
+.grain .lede {
+  color: var(--grain-fg, #fff);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* Body copy on washed surfaces. */
+.body-ink {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+/* Section lede 18px intro paragraph under section headings
+   (imagine.art .lede pattern). */
+.lede {
+  max-width: 46ch;
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+
+/* Muted ink scale one variable drives the muted tone of display spans. */
+.h-muted {
+  color: var(--ink-3);
+}
+
+/* Hero waves video (bitnomial pattern) full-bleed background cover.
+   The square 1500×1500 waves loop fills the hero edge to edge
+   (object-fit: cover); a light wash scrim over it keeps ink type
+   readable while the waves stay visible across the full width. */
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-media video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Soft wash scrim over the full video waves show through everywhere,
+   type stays readable, and the bottom edge blends into the page. */
+.hero-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(243, 246, 241, 0.55) 0%, rgba(243, 246, 241, 0.38) 55%, var(--page-wash) 100%);
+}
+
+/* Grain panels signature textured surfaces. Each variant sets its own
+   color stops; .grain layers a radial highlight, a linear wash, and an
+   SVG turbulence noise tile via ::after (overlay blend, 28% opacity). */
+.grain {
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
+  border-radius: 26px;
+  padding: clamp(18px, 2.6vw, 38px);
+  color: var(--grain-fg, inherit);
+  background:
+    radial-gradient(140% 70% at 50% -10%, var(--grain-1) 0%, transparent 62%),
+    linear-gradient(180deg, var(--grain-1) 0%, var(--grain-2) 48%, var(--grain-3) 100%);
+}
+
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.28;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.03 0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.grain > * {
+  position: relative;
+  z-index: 1;
+}
+
+.grain-mineral {
+  --grain-1: #c4d2d3; --grain-2: #bccbcd; --grain-3: #b2c3c5;
+  --grain-fg: #16201f;
+  --grain-chip: #0000000f; --grain-chip-bd: #0000001a;
+}
+
+.grain-sand {
+  --grain-1: #e2ded1; --grain-2: #dad6c7; --grain-3: #d2cebd;
+  --grain-fg: #221f16;
+  --grain-chip: #0000000f; --grain-chip-bd: #0000001a;
+}
+
+.grain-charcoal {
+  --grain-1: #343836; --grain-2: #2e3230; --grain-3: #272b29;
+  --grain-fg: #fff;
+  --grain-chip: #ffffff1a; --grain-chip-bd: #ffffff29;
+}
+
+.grain-olive {
+  --grain-1: #545a54; --grain-2: #4d534d; --grain-3: #454b45;
+  --grain-fg: #fff;
+  --grain-chip: #ffffff1a; --grain-chip-bd: #ffffff29;
+}
+
+.grain-teal {
+  --grain-1: #2a3838; --grain-2: #243030; --grain-3: #1e2929;
+  --grain-fg: #fff;
+  --grain-chip: #ffffff1a; --grain-chip-bd: #ffffff29;
+}
+
+.grain-steel {
+  --grain-1: #45525a; --grain-2: #3d4a52; --grain-3: #36434a;
+  --grain-fg: #fff;
+  --grain-chip: #ffffff1a; --grain-chip-bd: #ffffff29;
+}
+
+/* Media card (mc) pattern label / title / body with hover-reveal copy. */
+.mc-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 6px;
+}
+
+.mc-title {
+  font-size: clamp(16px, 1.5vw, 19px);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.mc-body {
+  margin: 10px 0 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  opacity: 0.72;
+}
+
+/* Arrow chip top-right corner affordance on link cards. */
+.mc-arrow {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  z-index: 1;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  color: currentColor;
+  background: var(--grain-chip, rgba(0, 0, 0, 0.04));
+  border: 1px solid var(--grain-chip-bd, var(--line));
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Linked grain/panel cards gentle hover scale (imagine.art mc pattern). */
+a.mc-card {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+a.mc-card:hover,
+a.mc-card:focus-visible {
+  transform: scale(1.015);
+}
+
+a.mc-card:hover .mc-arrow,
+a.mc-card:focus-visible .mc-arrow {
+  transform: translate(2px, -2px);
+}
+
+/* Roomier grain padding for large panels (comparisons, pricing). */
+.grain-roomy {
+  padding: clamp(24px, 4vw, 48px);
+}
+
+/* Diagonal-split panel features section hero tile: two-tone
+   background using a skewed linear-gradient seam (non-square look). */
+.diag-split {
+  background:
+    radial-gradient(120% 130% at 100% 0%, var(--grain-2) 0%, transparent 55%),
+    linear-gradient(150deg, var(--grain-1) 0%, var(--grain-3) 100%);
+}
+
+/* Bento tile grid "Safe, secure" section pattern from imagine.art/business:
+   2-col grid of tall grain tiles, numbered label, bottom-right glass icon chip. */
+.bento {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.tile {
+  position: relative;
+  grid-column: span 1;
+  background-color: var(--grain-2);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--grain-fg);
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  padding: 32px;
+  overflow: hidden;
+}
+
+.tile-wide {
+  grid-column: span 2;
+  min-height: 280px;
+}
+
+.tile-n {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: currentColor;
+  opacity: 0.55;
+}
+
+.tile-title {
+  margin-top: 12px;
+  font-size: clamp(20px, 1.8vw, 26px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.tile-body {
+  margin-top: 10px;
+  max-width: 34ch;
+  font-size: 15px;
+  line-height: 1.55;
+  color: currentColor;
+  opacity: 0.72;
+}
+
+.tile-graphic {
+  margin-top: auto;
+  align-self: flex-end;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  color: currentColor;
+}
+
+/* Frosted-glass tile chip inset spec highlights + ring (imagine.art
+   .glass .glass-on-light, backdrop-filter kept for photo backgrounds). */
+.glass-chip {
+  background: var(--glass-tint, #ffffff47);
+  -webkit-backdrop-filter: blur(5px) saturate(210%) brightness(1.06);
+  backdrop-filter: blur(5px) saturate(210%) brightness(1.06);
+  box-shadow:
+    inset 1.5px 1.5px 0 -0.5px #fff,
+    inset -1.5px -1.5px 0 -0.5px #ffffff8c,
+    inset 0 0 0 1px #ffffff80,
+    inset 0 0 10px #ffffff29,
+    0 4px 14px #10141417;
+  border: 0;
+}
+
+/* Capabilities bento "Built for success" pattern from
+   imagine.art/business/solutions: sage tiles on a 6-col grid, icon chip
+   top, title + body bottom-anchored. */
+.bfs-bento {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+
+/* Flow rail connected phase stepper (imagine.art .flow pattern,
+   extended with step copy). Vertical timeline on mobile, horizontal
+   rail on desktop; hairline connectors span the gaps between chips. */
+.flow-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.flow-step {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.flow-chip-node {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: var(--panel);
+  border: 1px solid var(--line-strong);
+  color: var(--ink);
+}
+
+.flow-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 27px;
+  top: 56px;
+  width: 1px;
+  height: 36px;
+  background: var(--line-strong);
+}
+
+.flow-step-text {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (min-width: 1024px) {
+  .flow-rail {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .flow-step {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .flow-step:not(:last-child)::after {
+    left: 56px;
+    top: 27px;
+    width: 24px;
+    height: 1px;
+  }
+}
+
+.bfs-tile {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  background: var(--tile);
+  border-radius: 24px;
+  padding: 30px;
+  min-height: 216px;
+}
+
+.bfs-tile-wide {
+  grid-column: span 3;
+  min-height: 260px;
+}
+
+.bfs-icon {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--ink);
+  flex: 0 0 auto;
+}
+
+.bfs-title {
+  margin-top: auto;
+  padding-top: 26px;
+  font-size: clamp(18px, 1.6vw, 22px);
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.bfs-body {
+  margin-top: 9px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-3);
+  max-width: 42ch;
+}
+
+@media (max-width: 1000px) {
+  .bfs-bento {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bfs-tile,
+  .bfs-tile-wide {
+    grid-column: span 1;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 620px) {
+  .bfs-bento {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .bento {
+    grid-template-columns: 1fr;
+  }
+
+  .tile {
+    min-height: 240px;
+    padding: 24px;
+  }
+
+  .tile-wide {
+    grid-column: span 1;
+  }
+}
+
+/* Hairline chip small uppercase label pill on panels. */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+/* Chip on grain surfaces uses each variant's chip tokens. */
+.chip-grain {
+  border-color: var(--grain-chip-bd, var(--line));
+  background: var(--grain-chip, transparent);
+  color: inherit;
+}
+
+/* Ink buttons 48px height, 10px radius, hairline secondary. */
+.btn-ink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  padding-inline: 22px;
+  border-radius: 10px;
+  border: 0;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: #fff;
+  background: var(--ink);
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out, background-color 0.2s ease-out;
+  white-space: nowrap;
+}
+
+.btn-ink:hover {
+  background: #2a2a2c;
+  opacity: 0.92;
+}
+
+.btn-ink:active {
+  transform: translateY(1px);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  padding-inline: 22px;
+  border-radius: 10px;
+  border: 1px solid var(--line-strong);
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  background: transparent;
+  transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+  white-space: nowrap;
+}
+
+.btn-ghost:hover {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: var(--line-tertiary);
+}
+
+/* Small pill CTA for the header. */
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 40px;
+  padding-inline: 18px;
+  border-radius: 22px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #fff;
+  background: var(--ink);
+  white-space: nowrap;
+  transition: box-shadow 0.2s ease-out, transform 0.2s ease-out;
+}
+
+.nav-cta:hover {
+  box-shadow: 0 0 0 6px rgba(20, 20, 20, 0.08);
+  transform: scale(1.02);
+}
+
+/* Full-bleed grain section (final CTA) square edges, section padding. */
+.cta-bleed {
+  border-radius: 0;
+  padding-block: clamp(96px, 12vw, 160px);
+  padding-inline: 20px;
+}
+
+}
+/* Skip link / focus --------------------------------------------------- */
 .skip-link {
   position: fixed;
   left: 1rem;

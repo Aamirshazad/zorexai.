@@ -9,30 +9,21 @@ const facts: { label: string; value: string; icon: IconName }[] = [
 ];
 
 /**
- * A thin band of verifiable facts about how we operate — team size, tenure,
+ * A thin band of verifiable facts about how we operate team size, tenure,
  * delivery model, ownership. Deliberately not metrics about client results: we
  * publish what we can stand behind and leave out what we cannot.
+ *
+ * Restyled onto the ink/wash token layer for the current design system.
  */
-export function TrustBar({ tone = 'light' }: { tone?: 'light' | 'dark' }) {
-  const dark = tone === 'dark';
-
+export function TrustBar() {
   return (
-    <section
-      className={`px-5 sm:px-8 ${dark ? 'bg-primary-container' : 'bg-surface-container-lowest border-y border-outline-variant/25'}`}
-    >
-      <dl className="max-w-container-max mx-auto grid grid-cols-2 divide-outline-variant/25 lg:grid-cols-4 lg:divide-x">
+    <section className="border-y border-[var(--line)] px-5 sm:px-8">
+      <dl className="mx-auto grid max-w-container-max grid-cols-2 divide-[var(--line)] font-ui lg:grid-cols-4 lg:divide-x">
         {facts.map((fact) => (
           <div key={fact.label} className="flex flex-col gap-1 px-1 py-6 lg:px-7">
-            <Icon
-              name={fact.icon}
-              className={`mb-1.5 size-4 ${dark ? 'text-accent-gold' : 'text-secondary'}`}
-            />
-            <dt className={`font-headline-md text-base ${dark ? 'text-white' : 'text-primary-container'}`}>
-              {fact.value}
-            </dt>
-            <dd className={`font-body-sm text-xs leading-5 ${dark ? 'text-white/55' : 'text-on-surface-variant'}`}>
-              {fact.label}
-            </dd>
+            <Icon name={fact.icon} className="mb-1.5 size-4 text-ink-3" aria-hidden />
+            <dt className="text-base font-medium text-ink">{fact.value}</dt>
+            <dd className="text-xs leading-5 text-ink-2">{fact.label}</dd>
           </div>
         ))}
       </dl>

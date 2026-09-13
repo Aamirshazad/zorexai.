@@ -4,7 +4,7 @@
  * Shared between the case-studies index and the homepage evidence band so the
  * two can never drift apart. Client names and figures are withheld deliberately:
  * we do not publish a metric we cannot evidence, and we do not attribute a quote
- * to a person who has not approved it. What is left is still specific — the
+ * to a person who has not approved it. What is left is still specific the
  * problem, the system, and the change in how the work moves.
  *
  * `shift` is the compressed before/after used where there is only room for one
@@ -20,7 +20,7 @@ export type Engagement = {
   service: string;
   serviceIcon: IconName;
   industry: string;
-  /** Role and company type only — never a name. */
+  /** Role and company type only never a name. */
   who: string;
   problem: string;
   built: string;
@@ -76,7 +76,7 @@ export const engagements: Engagement[] = [
     industry: 'Healthcare',
     who: 'Practice Manager, specialist medical group',
     problem:
-      'Recalls, pre-appointment preparation, and post-visit follow-up were all manual, so they slipped whenever the front desk got busy — which was most days. The privacy constraints ruled out the obvious off-the-shelf tools.',
+      'Recalls, pre-appointment preparation, and post-visit follow-up were all manual, so they slipped whenever the front desk got busy which was most days. The privacy constraints ruled out the obvious off-the-shelf tools.',
     built:
       'A system inside the practice’s own environment that prepares and sends the routine communications, holds anything clinical for staff approval, and writes every action back to the record. Nothing leaves the boundary the practice already operates under.',
     changed:

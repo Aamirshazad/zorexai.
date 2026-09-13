@@ -11,8 +11,8 @@ export type RiskAnswer = {
 /**
  * The questions a buyer asks internally before signing, answered in the open.
  *
- * Laid out as a definition list — question on the left rail, answer on the
- * right, separated by hairlines — rather than as an accordion (the FAQ block
+ * Laid out as a definition list question on the left rail, answer on the
+ * right, separated by hairlines rather than as an accordion (the FAQ block
  * already owns that shape) or as cards (three pages already do). Nothing is
  * hidden behind a click here on purpose: these are the answers that reduce
  * perceived risk, so they should be readable in one scroll.

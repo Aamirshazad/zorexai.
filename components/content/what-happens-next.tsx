@@ -4,7 +4,7 @@ import { company, leadership, whatHappensNext, whatToPrepare } from '@/content/c
 const primaryContact = leadership[0];
 
 /**
- * Section 12 — trust at the moment of decision. Every unknown a buyer carries
+ * Section 12 trust at the moment of decision. Every unknown a buyer carries
  * into a contact form: what happens next, how fast, who they will speak with,
  * what it obligates them to, and what to bring.
  */
@@ -54,7 +54,7 @@ export function WhatHappensNext({ compact = false }: { compact?: boolean }) {
               <h3 className="font-headline-md text-lg">{"Who you will be talking to"}</h3>
             </div>
             <p className="font-body-md text-sm text-primary-fixed-dim leading-relaxed mb-4">
-              {"Discovery calls are led by "}<strong className="text-on-primary">{primaryContact.name}</strong>{", "}{primaryContact.role.toLowerCase()}{" — not a sales rep working from a script. "}{primaryContact.focus}
+              {"Discovery calls are led by "}<strong className="text-on-primary">{primaryContact.name}</strong>{", "}{primaryContact.role.toLowerCase()}{" not a sales rep working from a script. "}{primaryContact.focus}
             </p>
             <ul className="space-y-2 font-body-sm text-sm text-white/80">
               <li className="flex items-start gap-2"><Icon name="CircleCheck" className="text-accent-gold text-sm mt-0.5 shrink-0" /><span>{company.responseCommitment}</span></li>

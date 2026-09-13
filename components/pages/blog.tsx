@@ -1,32 +1,33 @@
 import Link from 'next/link';
 import { Icon } from '@/components/ui/icon';
+import { Reveal } from '@/components/ui/reveal';
 import { FinalCta } from '@/components/content/final-cta';
 import { OptimizedImage } from '@/components/ui/optimized-image';
+import { SmartForm } from '@/components/ui/smart-form';
 
 export default function PageContent() {
   return <>
-<main>
+<main className="font-ui bg-page-wash">
   {/* ── Hero ─────────────────────────────────────────────────────── */}
-  <section className="relative pt-28 sm:pt-36 pb-16 sm:pb-24 px-5 sm:px-8 overflow-hidden bg-surface-bright border-b border-outline-variant/30">
-    <div className="absolute inset-0 section-grid pointer-events-none" aria-hidden="true"></div>
-    <div className="absolute inset-x-0 top-0 h-[420px] section-glow pointer-events-none" aria-hidden="true"></div>
-    <div className="max-w-container-max mx-auto relative z-10 flex flex-col items-center justify-center text-center pt-4 pb-12">
-      <div className="flex flex-col items-center max-w-4xl">
-        <span className="reveal inline-flex items-center gap-2 px-6 py-2 bg-secondary-container text-on-secondary-fixed-variant rounded-full font-label-sm mb-8 shadow-sm uppercase tracking-wider">
-          <Icon name="Sparkles" className="text-sm icon-fill" />{"Strategic Insights"}
-        </span>
-        <h1 className="reveal reveal-delay-1 font-headline-xl text-headline-xl text-primary-container mb-6 leading-[1.15]">{"The Zorex Intelligence"}<br /><span className="text-secondary">{"Blog"}</span></h1>
-        <p className="reveal reveal-delay-2 font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-12 leading-relaxed">{"Expert analysis on agentic systems, AI integration, and the operational strategies that help businesses scale."}</p>
-        <div className="reveal reveal-delay-3 flex flex-wrap items-center justify-center gap-3">
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-surface-container-lowest border border-outline-variant/40 rounded-full font-label-sm text-xs uppercase tracking-widest text-on-surface-variant"><Icon name="Bot" className="text-secondary text-xs" />{"Agentic Systems"}</span>
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-surface-container-lowest border border-outline-variant/40 rounded-full font-label-sm text-xs uppercase tracking-widest text-on-surface-variant"><Icon name="PlugZap" className="text-secondary text-xs" />{"AI Integration"}</span>
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-surface-container-lowest border border-outline-variant/40 rounded-full font-label-sm text-xs uppercase tracking-widest text-on-surface-variant"><Icon name="Layers3" className="text-secondary text-xs" />{"Vertical AI"}</span>
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-surface-container-lowest border border-outline-variant/40 rounded-full font-label-sm text-xs uppercase tracking-widest text-on-surface-variant"><Icon name="Workflow" className="text-secondary text-xs" />{"Operations"}</span>
-        </div>
+  <section className="relative pt-28 sm:pt-40 pb-16 sm:pb-24 px-5 sm:px-8 overflow-hidden border-b border-[var(--line)]">
+    <div className="max-w-container-max mx-auto relative z-10">
+      <div className="flex flex-col items-center max-w-4xl mx-auto text-center">
+        <Reveal delay={0.08}>
+          <h1 className="display-type mb-6">The Zorex Intelligence <span className="opacity-60">Blog</span></h1>
+        </Reveal>
+        <Reveal delay={0.16}>
+          <p className="body-ink max-w-2xl mb-10">Expert analysis on agentic systems, AI integration, and the operational strategies that help businesses scale.</p>
+        </Reveal>
+        <Reveal delay={0.24}>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <span className="chip font-ui"><Icon name="Bot" className="text-[14px]" aria-hidden />Agentic Systems</span>
+            <span className="chip font-ui"><Icon name="PlugZap" className="text-[14px]" aria-hidden />AI Integration</span>
+            <span className="chip font-ui"><Icon name="Layers3" className="text-[14px]" aria-hidden />Vertical AI</span>
+            <span className="chip font-ui"><Icon name="Workflow" className="text-[14px]" aria-hidden />Operations</span>
+          </div>
+        </Reveal>
       </div>
     </div>
-    <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/4 w-[600px] h-[600px] bg-secondary-container/20 rounded-full blur-3xl -z-10"></div>
-    <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[800px] h-[800px] bg-primary-fixed/20 rounded-full blur-3xl -z-10"></div>
   </section>
 
   {/* ── Featured articles ────────────────────────────────────────── */}
@@ -34,7 +35,7 @@ export default function PageContent() {
     <div className="max-w-container-max mx-auto">
       <Link className="reveal group block mb-12 no-underline bg-surface-container-lowest border border-outline-variant/30 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 md:flex" href="/blog-agentic-systems">
         <div className="md:w-1/2 h-64 md:h-auto overflow-hidden relative flex-shrink-0">
-          <OptimizedImage src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1200" alt="Agentic Systems" width={1200} height={800} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <OptimizedImage src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1200" alt="Agentic Systems" width={1200} height={800} priority={true} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
           <div className="absolute inset-0 bg-gradient-to-r from-transparent to-primary/10"></div>
         </div>
         <div className="p-10 md:p-14 flex flex-col justify-center md:w-1/2">
@@ -148,13 +149,18 @@ export default function PageContent() {
       <Icon name="Mail" className="text-4xl text-secondary mb-6" />
       <h2 className="font-headline-md text-headline-md text-primary-container mb-4">{"Get AI insights that actually move the needle"}</h2>
       <p className="font-body-lg text-body-lg text-on-surface-variant mb-8">{"One email per month. Just the frameworks, case studies, and technical breakdowns we use with our own clients."}</p>
-      <form action="https://formspree.io/f/xpwdjqgz" className="flex flex-col sm:flex-row items-center gap-4 max-w-md mx-auto" id="newsletter-form" method="POST">
-        <input name="_subject" type="hidden" value="Newsletter Signup (Blog)" />
+      <SmartForm
+        id="newsletter-form"
+        subject="Newsletter Signup (Blog)"
+        className="flex flex-col sm:flex-row items-center gap-4 max-w-md mx-auto"
+        submitLabel="Subscribe"
+        submitClassName="btn-lift w-full sm:w-auto px-8 py-4 bg-primary-container text-on-primary rounded-full font-label-sm uppercase tracking-wider hover:bg-primary shadow-md whitespace-nowrap"
+        successTitle="You're subscribed."
+        successBody="One email a month, only the frameworks and breakdowns we actually use. Unsubscribe anytime."
+      >
         <label htmlFor="newsletter-email" className="sr-only">Business email</label>
         <input id="newsletter-email" className="flex-1 w-full px-5 py-4 rounded-full border border-outline-variant bg-surface-container-lowest focus:ring-2 focus:ring-primary focus:border-transparent outline-none text-sm" name="email" placeholder="your@email.com" autoComplete="email" inputMode="email" required={true} type="email" />
-        <input name="_gotcha" type="text" tabIndex={-1} autoComplete="off" className="absolute left-[-9999px] h-px w-px overflow-hidden" aria-hidden="true" />
-        <button className="btn-lift w-full sm:w-auto px-8 py-4 bg-primary-container text-on-primary rounded-full font-label-sm uppercase tracking-wider hover:bg-primary shadow-md whitespace-nowrap" type="submit">{"Subscribe"}</button>
-      </form>
+      </SmartForm>
       <p className="text-xs text-on-surface-variant mt-3">{"Practical systems and operations insights, delivered periodically. Unsubscribe anytime."}</p>
     </div>
   </section>

@@ -10,7 +10,7 @@ export const authorityArticles: Record<string, AuthorityArticle> = {
   'blog-agentic-systems': {
     route: 'blog-agentic-systems',
     takeaway:
-      'Agentic systems are most useful when a business process contains multiple decisions, tools, exceptions, and a clear business outcome—not simply because a workflow can be connected to an LLM.',
+      'Agentic systems are most useful when a business process contains multiple decisions, tools, exceptions, and a clear business outcome not simply because a workflow can be connected to an LLM.',
     questions: [
       'When is an agentic system more appropriate than rules-based automation?',
       'What should a business automate before introducing autonomous decision-making?',
@@ -28,7 +28,7 @@ export const authorityArticles: Record<string, AuthorityArticle> = {
   'blog-ai-commerce': {
     route: 'blog-ai-commerce',
     takeaway:
-      'Commerce automation creates the most value when AI is connected to real operational context—orders, policies, inventory, customer history, and escalation rules—rather than used as a standalone chat interface.',
+      'Commerce automation creates the most value when AI is connected to real operational context orders, policies, inventory, customer history, and escalation rules rather than used as a standalone chat interface.',
     questions: [
       'Which commerce support workflows are good candidates for AI automation?',
       'Where should automated customer decisions stop and human review begin?',
@@ -46,7 +46,7 @@ export const authorityArticles: Record<string, AuthorityArticle> = {
   'blog-cognitive-infrastructure': {
     route: 'blog-cognitive-infrastructure',
     takeaway:
-      'Reliable business AI depends on the quality of context, routing, system boundaries, and evaluation—not simply on adding a retrieval layer to a language model.',
+      'Reliable business AI depends on the quality of context, routing, system boundaries, and evaluation not simply on adding a retrieval layer to a language model.',
     questions: [
       'Why does basic RAG break down on complex business questions?',
       'How should context be selected when multiple business systems contain relevant information?',

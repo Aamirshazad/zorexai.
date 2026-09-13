@@ -35,35 +35,35 @@ const questions = [
 
 export function BusinessAIFAQ() {
   return (
-    <section className="py-section-padding px-gutter bg-surface-container-low border-y border-outline-variant/30" aria-labelledby="business-ai-questions">
+    <section className="py-section-padding px-5 sm:px-8" aria-labelledby="business-ai-questions">
       <div className="max-w-container-max mx-auto">
-        <div className="reveal max-w-3xl mb-card-gap">
-          <p className="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-3">Buying guidance</p>
-          <h2 id="business-ai-questions" className="font-headline-lg text-headline-lg text-primary-container mb-4">
+        <div className="reveal max-w-3xl mb-10">
+          <p className="eyebrow mb-3">Buying guidance</p>
+          <h2 id="business-ai-questions" className="section-title mb-4">
             Questions to answer before building an AI system
           </h2>
-          <p className="font-body-lg text-body-lg text-on-surface-variant">
+          <p className="body-ink">
             The right starting point is the business function, not the model. These are the questions we use to determine whether an AI system is a sensible intervention.
           </p>
         </div>
 
         <div className="reveal reveal-delay-1 grid gap-4 md:grid-cols-2">
           {questions.map((item) => (
-            <details key={item.question} className="group card-lift rounded-xl border border-outline-variant bg-surface p-6">
-              <summary className="cursor-pointer list-none pr-8 font-headline-md text-lg text-primary-container focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary">
+            <details key={item.question} className="group rounded-[20px] border border-[var(--line)] bg-panel p-6 transition-colors hover:border-[var(--line-strong)]">
+              <summary className="cursor-pointer list-none pr-8 font-medium text-[15.5px] leading-snug text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink">
                 <span className="inline-flex items-start justify-between gap-4 w-full">
                   {item.question}
-                  <span aria-hidden="true" className="text-secondary transition-transform group-open:rotate-45">+</span>
+                  <span aria-hidden="true" className="text-ink-3 transition-transform group-open:rotate-45">+</span>
                 </span>
               </summary>
-              <p className="pt-4 font-body-md text-on-surface-variant leading-7">{item.answer}</p>
+              <p className="pt-4 mc-body">{item.answer}</p>
             </details>
           ))}
         </div>
 
         <div className="reveal reveal-delay-2 mt-10 flex flex-wrap gap-4">
-          <Link href="/process" className="text-secondary hover:text-primary underline underline-offset-4">See how we approach implementation</Link>
-          <Link href="/contact" className="text-secondary hover:text-primary underline underline-offset-4">Discuss a workflow</Link>
+          <Link href="/process" className="text-sm font-medium text-ink border-b border-[var(--line-strong)] pb-0.5 hover:border-ink transition-colors">See how we approach implementation</Link>
+          <Link href="/contact" className="text-sm font-medium text-ink border-b border-[var(--line-strong)] pb-0.5 hover:border-ink transition-colors">Discuss a workflow</Link>
         </div>
       </div>
     </section>

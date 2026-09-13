@@ -17,7 +17,7 @@ export type FrictionItem = {
  *
  * Replaces the three-equal-cards treatment this content used to have. Rows read
  * top-to-bottom like a list of findings rather than three interchangeable
- * options, and the sticky rail keeps the framing visible while they scroll —
+ * options, and the sticky rail keeps the framing visible while they scroll
  * so the reader always knows what the list is a list *of*.
  */
 export function FrictionList({

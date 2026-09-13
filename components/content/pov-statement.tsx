@@ -7,7 +7,7 @@ import { leadership } from '@/content/company';
  *
  * This exists as its own rhythm because a genuine methodological opinion loses
  * force when it is chopped into three equal cards next to two other opinions.
- * One claim, stated once, at size — then the reasoning underneath it.
+ * One claim, stated once, at size then the reasoning underneath it.
  */
 export function PovStatement({
   eyebrow = 'How We Think',

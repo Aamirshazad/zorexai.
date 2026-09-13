@@ -1,7 +1,7 @@
 [
   {
     "route": "404",
-    "title": "Page Not Found — Zorex AI",
+    "title": "Page Not Found Zorex AI",
     "description": "",
     "ogImage": "/og-default.jpg"
   },
@@ -235,7 +235,7 @@
   {
     "route": "services",
     "title": "AI Software Services | Zorex AI",
-    "description": "Explore Zorex AI services: AI agentic systems, AI integration with existing systems, and vertical AI systems — designed, built, deployed, and continuously improved for real business functions.",
+    "description": "Explore Zorex AI services: AI agentic systems, AI integration with existing systems, and vertical AI systems designed, built, deployed, and continuously improved for real business functions.",
     "ogImage": "/og-default.jpg",
     "kind": "services"
   },

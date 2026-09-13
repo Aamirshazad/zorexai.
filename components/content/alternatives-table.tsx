@@ -12,7 +12,7 @@ export type Alternative = {
  * Alternatives laid out as a comparison, not as three more cards.
  *
  * The reader is choosing between hiring, stacking tools, building in-house, and
- * hiring us — so the honest shape for that content is a side-by-side where each
+ * hiring us so the honest shape for that content is a side-by-side where each
  * alternative's real limitation sits directly opposite our answer. Renders as a
  * table on desktop and stacked pairs on mobile.
  */

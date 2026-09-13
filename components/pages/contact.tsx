@@ -1,42 +1,60 @@
 import Script from 'next/script';
+import Link from 'next/link';
 import { Icon } from '@/components/ui/icon';
+import { Reveal } from '@/components/ui/reveal';
+import { SmartForm } from '@/components/ui/smart-form';
+import { company, whatHappensNext } from '@/content/company';
 
 export default function PageContent() {
   return <>
-<main>
+<main className="font-ui bg-page-wash">
   {/* ── Hero ─────────────────────────────────────────────────────── */}
-  <section className="relative pt-28 sm:pt-36 pb-12 sm:pb-16 px-5 sm:px-8 overflow-hidden bg-surface-bright border-b border-outline-variant/30">
-    <div className="absolute inset-0 section-grid pointer-events-none" aria-hidden="true"></div>
-    <div className="absolute inset-x-0 top-0 h-[420px] section-glow pointer-events-none" aria-hidden="true"></div>
-    <div className="max-w-container-max mx-auto relative z-10 flex flex-col items-center justify-center text-center pt-4 pb-8">
-      <div className="flex flex-col items-center max-w-4xl">
-        <span className="reveal inline-flex items-center gap-2 px-6 py-2 bg-secondary-container text-on-secondary-fixed-variant rounded-full font-label-sm mb-8 shadow-sm uppercase tracking-wider">
-          <Icon name="Zap" className="text-sm icon-fill" />{"Free Strategy Call"}
-        </span>
-        <h1 className="reveal reveal-delay-1 font-headline-xl text-headline-xl text-primary-container mb-6 leading-[1.15]">{"Let's find the system"}<br /><span className="text-secondary">{"worth building first."}</span></h1>
-        <p className="reveal reveal-delay-2 font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-10 leading-relaxed">{"Bring the workflow, bottleneck, or operational problem. We'll determine whether an intelligent system is actually worth building, and where it creates the most leverage."}</p>
-        <div className="reveal reveal-delay-3 flex flex-wrap items-center justify-center gap-3">
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-surface-container-lowest border border-outline-variant/40 rounded-full font-label-sm text-xs uppercase tracking-widest text-on-surface-variant"><Icon name="Bot" className="text-secondary text-xs" />{"AI Agentic Systems"}</span>
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-surface-container-lowest border border-outline-variant/40 rounded-full font-label-sm text-xs uppercase tracking-widest text-on-surface-variant"><Icon name="PlugZap" className="text-secondary text-xs" />{"AI Integration"}</span>
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-surface-container-lowest border border-outline-variant/40 rounded-full font-label-sm text-xs uppercase tracking-widest text-on-surface-variant"><Icon name="Layers3" className="text-secondary text-xs" />{"Vertical AI Systems"}</span>
-        </div>
+  <section className="relative pt-28 sm:pt-40 pb-12 sm:pb-16 px-5 sm:px-8 overflow-hidden border-b border-[var(--line)]">
+    <div className="max-w-container-max mx-auto relative z-10">
+      <div className="flex flex-col items-center max-w-4xl mx-auto text-center">
+        <Reveal delay={0.08}>
+          <h1 className="display-type mb-6">Let&apos;s find the system <span className="opacity-60">worth building first.</span></h1>
+        </Reveal>
+        <Reveal delay={0.16}>
+          <p className="body-ink max-w-2xl mb-10">Bring the workflow, bottleneck, or operational problem. We&apos;ll determine whether an intelligent system is actually worth building, and where it creates the most leverage.</p>
+        </Reveal>
+        <Reveal delay={0.24}>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <span className="chip font-ui"><Icon name="Bot" className="text-[14px]" aria-hidden />AI Agentic Systems</span>
+            <span className="chip font-ui"><Icon name="PlugZap" className="text-[14px]" aria-hidden />AI Integration</span>
+            <span className="chip font-ui"><Icon name="Layers3" className="text-[14px]" aria-hidden />Vertical AI Systems</span>
+          </div>
+        </Reveal>
       </div>
     </div>
-    <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/4 w-[600px] h-[600px] bg-secondary-container/20 rounded-full blur-3xl -z-10"></div>
-    <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[800px] h-[800px] bg-primary-fixed/20 rounded-full blur-3xl -z-10"></div>
   </section>
 
   {/* ── What the call covers ─────────────────────────────────────── */}
-  <section className="py-12 px-5 sm:px-8 bg-surface">
+  <section className="py-12 px-5 sm:px-8">
     <div className="max-w-container-max mx-auto">
       <div className="reveal dark-box p-6 sm:p-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          <div className="flex flex-col items-center"><p className="font-headline-md text-headline-md text-accent-gold mb-1">{"30 minutes"}</p><p className="font-label-sm text-[10px] text-white/55 uppercase tracking-wider">{"A focused working session"}</p></div>
-          <div className="flex flex-col items-center"><p className="font-headline-md text-headline-md text-white mb-1">{"Your workflow"}</p><p className="font-label-sm text-[10px] text-white/55 uppercase tracking-wider">{"We map where the friction is"}</p></div>
-          <div className="flex flex-col items-center"><p className="font-headline-md text-headline-md text-white mb-1">{"Honest assessment"}</p><p className="font-label-sm text-[10px] text-white/55 uppercase tracking-wider">{"Whether AI fits — or doesn't"}</p></div>
-          <div className="flex flex-col items-center"><p className="font-headline-md text-headline-md text-white mb-1">{"Clear next steps"}</p><p className="font-label-sm text-[10px] text-white/55 uppercase tracking-wider">{"What we'd build and what it takes"}</p></div>
+          <div className="flex flex-col items-center"><p className="font-headline-md text-headline-md text-accent-gold mb-1">{company.callLength}</p><p className="font-label-sm text-[10px] text-white/55 uppercase tracking-wider">A focused working session</p></div>
+          <div className="flex flex-col items-center"><p className="font-headline-md text-headline-md text-white mb-1">Your workflow</p><p className="font-label-sm text-[10px] text-white/55 uppercase tracking-wider">We map where the friction is</p></div>
+          <div className="flex flex-col items-center"><p className="font-headline-md text-headline-md text-white mb-1">Honest assessment</p><p className="font-label-sm text-[10px] text-white/55 uppercase tracking-wider">Whether AI fits or doesn&apos;t</p></div>
+          <div className="flex flex-col items-center"><p className="font-headline-md text-headline-md text-white mb-1">Clear next steps</p><p className="font-label-sm text-[10px] text-white/55 uppercase tracking-wider">What we&apos;d build and what it takes</p></div>
         </div>
       </div>
+    </div>
+  </section>
+
+  {/* ── What happens after you submit ────────────────────────────── */}
+  <section className="pb-4 px-5 sm:px-8">
+    <div className="max-w-container-max mx-auto">
+      <ol className="reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 list-none">
+        {whatHappensNext.map((item, index) => (
+          <li key={item.step} className={`bg-panel rounded-[16px] border border-[var(--line)] p-5 flex flex-col${index > 0 ? '' : ''}`}>
+            <span className="font-ui text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-3 mb-3">{item.step}</span>
+            <h2 className="font-ui text-[14.5px] font-medium text-ink mb-1.5 leading-snug">{item.title}</h2>
+            <p className="font-ui text-xs leading-relaxed text-ink-2">{item.body}</p>
+          </li>
+        ))}
+      </ol>
     </div>
   </section>
 
@@ -44,117 +62,123 @@ export default function PageContent() {
   <section className="max-w-container-max mx-auto px-5 sm:px-8 py-section-padding">
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-card-gap">
       <div className="lg:col-span-7 space-y-8">
-        <div className="reveal bg-surface-container-lowest rounded-2xl p-8 border border-surface-container-highest shadow-sm">
-          <div className="flex items-center justify-between mb-8 pb-6 border-b border-surface-container-highest">
-            <h2 className="font-headline-md text-headline-md text-primary-container">{"Strategy Session"}</h2>
+        <div className="reveal bg-panel rounded-2xl p-8 border border-[var(--line)]">
+          <div className="flex items-center justify-between mb-8 pb-6 border-b border-[var(--line)]">
+            <h2 className="font-ui text-xl font-medium text-ink">Strategy Session</h2>
+            <span className="font-ui text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-3">{company.callLength} • Free • No obligation</span>
           </div>
-          <form action="https://formspree.io/f/xpwdjqgz" className="space-y-10" id="strategy-form" method="POST">
+          <SmartForm
+            id="strategy-form"
+            subject="Strategy Call Request (Website)"
+            className="space-y-10"
+            submitLabel="Confirm Strategy Call"
+            submitClassName="btn-ink w-full font-ui"
+            successTitle="Request received."
+            successBody="We read these ourselves expect a reply within one business day with a time to talk. If you'd rather pick a time right now, the calendar below is live."
+          >
             <div className="space-y-6">
-              <h3 className="font-label-sm text-outline uppercase tracking-wider">{"01. Contact Details"}</h3>
+              <h3 className="font-ui text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-3">01. Contact Details</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label htmlFor="name" className="block font-label-sm text-on-surface">{"Full Name *"}</label>
-                  <input className="w-full px-4 py-3 rounded-lg border border-surface-container-highest bg-surface-container-low focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" id="name" name="name" placeholder="John Doe" autoComplete="name" required={true} type="text" />
+                  <label htmlFor="name" className="block font-ui text-sm text-ink">Full Name *</label>
+                  <input className="w-full px-4 py-3 rounded-[10px] border border-[var(--line-strong)] bg-[var(--page-wash)] focus:ring-2 focus:ring-ink/70 focus:border-transparent transition-all outline-none font-ui text-sm" id="name" name="name" placeholder="John Doe" autoComplete="name" required={true} type="text" />
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="email" className="block font-label-sm text-on-surface">{"Business Email *"}</label>
-                  <input className="w-full px-4 py-3 rounded-lg border border-surface-container-highest bg-surface-container-low focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" id="email" name="email" placeholder="j.doe@company.com" autoComplete="email" inputMode="email" required={true} type="email" />
+                  <label htmlFor="email" className="block font-ui text-sm text-ink">Business Email *</label>
+                  <input className="w-full px-4 py-3 rounded-[10px] border border-[var(--line-strong)] bg-[var(--page-wash)] focus:ring-2 focus:ring-ink/70 focus:border-transparent transition-all outline-none font-ui text-sm" id="email" name="email" placeholder="j.doe@company.com" autoComplete="email" inputMode="email" required={true} type="email" />
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="company" className="block font-label-sm text-on-surface">{"Company Name"}</label>
-                  <input className="w-full px-4 py-3 rounded-lg border border-surface-container-highest bg-surface-container-low focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" id="company" name="company" placeholder="Your Company" autoComplete="organization" type="text" />
+                  <label htmlFor="company" className="block font-ui text-sm text-ink">Company Name</label>
+                  <input className="w-full px-4 py-3 rounded-[10px] border border-[var(--line-strong)] bg-[var(--page-wash)] focus:ring-2 focus:ring-ink/70 focus:border-transparent transition-all outline-none font-ui text-sm" id="company" name="company" placeholder="Your Company" autoComplete="organization" type="text" />
                 </div>
               </div>
             </div>
             <div className="space-y-6">
-              <h3 className="font-label-sm text-outline uppercase tracking-wider">{"02. Discovery & Qualification"}</h3>
+              <h3 className="font-ui text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-3">02. Discovery &amp; Qualification</h3>
               <div className="space-y-6">
                 <div className="space-y-2">
-                  <label htmlFor="bottleneck" className="block font-label-sm text-on-surface">{"What is the primary operational bottleneck you're looking to solve with AI?"}</label>
-                  <textarea className="w-full px-4 py-3 rounded-lg border border-surface-container-highest bg-surface-container-low focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none resize-none" id="bottleneck" name="bottleneck" placeholder="Describe your current challenges and goals..." aria-describedby="bottleneck-help" rows={4}></textarea>
+                  <label htmlFor="bottleneck" className="block font-ui text-sm text-ink">What is the primary operational bottleneck you&apos;re looking to solve with AI?</label>
+                  <textarea className="w-full px-4 py-3 rounded-[10px] border border-[var(--line-strong)] bg-[var(--page-wash)] focus:ring-2 focus:ring-ink/70 focus:border-transparent transition-all outline-none resize-none font-ui text-sm" id="bottleneck" name="bottleneck" placeholder="Describe your current challenges and goals..." rows={4} />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-end">
                   <div className="space-y-2">
-                    <label htmlFor="ai_adoption" className="block font-label-sm text-on-surface">{"Current AI adoption"}</label>
-                    <select className="w-full px-4 py-3 rounded-lg border border-surface-container-highest bg-surface-container-low focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" id="ai_adoption" name="ai_adoption">
-                      <option value="none">{"We haven't used AI yet"}</option>
-                      <option value="some">{"We use some AI tools but nothing custom"}</option>
-                      <option value="advanced">{"We have AI in place and want to go further"}</option>
+                    <label htmlFor="ai_adoption" className="block font-ui text-sm text-ink">Current AI adoption</label>
+                    <select className="w-full px-4 py-3 rounded-[10px] border border-[var(--line-strong)] bg-[var(--page-wash)] focus:ring-2 focus:ring-ink/70 focus:border-transparent transition-all outline-none font-ui text-sm" id="ai_adoption" name="ai_adoption" defaultValue="none">
+                      <option value="none">We haven&apos;t used AI yet</option>
+                      <option value="some">We use some AI tools but nothing custom</option>
+                      <option value="advanced">We have AI in place and want to go further</option>
                     </select>
                   </div>
                   <div className="space-y-2">
-                    <label htmlFor="timeline" className="block font-label-sm text-on-surface">{"When are you looking to move?"}</label>
-                    <select className="w-full px-4 py-3 rounded-lg border border-surface-container-highest bg-surface-container-low focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" id="timeline" name="timeline">
-                      <option value="immediate">{"As soon as possible"}</option>
-                      <option value="1-3">{"Next 1–3 months"}</option>
-                      <option value="3-6">{"3–6 months"}</option>
-                      <option value="exploring">{"Just exploring for now"}</option>
+                    <label htmlFor="timeline" className="block font-ui text-sm text-ink">When are you looking to move?</label>
+                    <select className="w-full px-4 py-3 rounded-[10px] border border-[var(--line-strong)] bg-[var(--page-wash)] focus:ring-2 focus:ring-ink/70 focus:border-transparent transition-all outline-none font-ui text-sm" id="timeline" name="timeline" defaultValue="1-3">
+                      <option value="immediate">As soon as possible</option>
+                      <option value="1-3">Next 1–3 months</option>
+                      <option value="3-6">3–6 months</option>
+                      <option value="exploring">Just exploring for now</option>
                     </select>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="pt-8 border-t border-surface-container-highest">
-              <button className="btn-lift w-full bg-primary-container text-on-primary font-label-sm uppercase py-4 rounded-lg hover:bg-primary-container/90 shadow-md flex items-center justify-center gap-2" id="submit-btn" type="submit">{"Confirm Strategy Call"}<Icon name="ArrowRight" className="text-sm" /></button>
-              <p className="text-center text-xs text-outline mt-4">{"By submitting, you agree to our terms. All conversations are confidential."}</p>
-            </div>
-          </form>
+            <p className="text-center font-ui text-xs text-ink-3 mt-4">By submitting, you agree to our <Link className="underline underline-offset-2" href="/terms">terms</Link>. All conversations are confidential we&apos;ll sign an NDA before any technical discussion.</p>
+          </SmartForm>
         </div>
       </div>
 
       <div className="lg:col-span-5 space-y-card-gap">
-        <div className="reveal reveal-delay-1 card-lift bg-[#FDFBF7] rounded-2xl p-8 border border-[#E5E1D8]">
-          <h3 className="font-headline-md text-headline-md text-primary-container mb-6">{"What to Expect"}</h3>
+        <div className="reveal reveal-delay-1 card-lift bg-panel rounded-2xl p-8 border border-[var(--line)]">
+          <h3 className="font-ui text-lg font-medium text-ink mb-6">What to Expect</h3>
           <ul className="space-y-6">
             <li className="flex gap-4">
-              <div className="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center shrink-0"><Icon name="Cpu" className="text-on-secondary-container" /></div>
+              <div className="w-10 h-10 rounded-full border border-[var(--line-strong)] flex items-center justify-center shrink-0"><Icon name="Cpu" className="text-ink-2" /></div>
               <div>
-                <h4 className="font-body-md font-bold text-primary-container mb-1">{"An honest assessment of leverage."}</h4>
-                <p className="font-body-sm text-on-surface-variant text-sm">{"Where AI creates real leverage in your business to acquire clients and scale, and where it doesn't."}</p>
+                <h4 className="font-ui text-sm font-bold text-ink mb-1">An honest assessment of leverage.</h4>
+                <p className="font-ui text-sm text-ink-2">Where AI creates real leverage in your business to acquire clients and scale, and where it doesn&apos;t.</p>
               </div>
             </li>
             <li className="flex gap-4">
-              <div className="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center shrink-0"><Icon name="TrendingUp" className="text-on-secondary-container" /></div>
+              <div className="w-10 h-10 rounded-full border border-[var(--line-strong)] flex items-center justify-center shrink-0"><Icon name="TrendingUp" className="text-ink-2" /></div>
               <div>
-                <h4 className="font-body-md font-bold text-primary-container mb-1">{"A plain-English explanation."}</h4>
-                <p className="font-body-sm text-on-surface-variant text-sm">{"What we'd build, how it works, and exactly what it connects to in your stack."}</p>
+                <h4 className="font-ui text-sm font-bold text-ink mb-1">A plain-English explanation.</h4>
+                <p className="font-ui text-sm text-ink-2">What we&apos;d build, how it works, and exactly what it connects to in your stack.</p>
               </div>
             </li>
             <li className="flex gap-4">
-              <div className="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center shrink-0"><Icon name="Workflow" className="text-on-secondary-container" /></div>
+              <div className="w-10 h-10 rounded-full border border-[var(--line-strong)] flex items-center justify-center shrink-0"><Icon name="Workflow" className="text-ink-2" /></div>
               <div>
-                <h4 className="font-body-md font-bold text-primary-container mb-1">{"Realistic timeline and investment."}</h4>
-                <p className="font-body-sm text-on-surface-variant text-sm">{"Clear expectations on what it takes to launch, before you commit to anything."}</p>
+                <h4 className="font-ui text-sm font-bold text-ink mb-1">Realistic timeline and investment.</h4>
+                <p className="font-ui text-sm text-ink-2">Clear expectations on what it takes to launch, before you commit to anything.</p>
               </div>
             </li>
           </ul>
         </div>
 
-        <div className="reveal reveal-delay-2 card-lift bg-primary-container rounded-2xl p-8 text-on-primary">
+        <div className="reveal reveal-delay-2 card-lift bg-ink rounded-2xl p-8 text-white">
           <div className="flex items-start gap-4 mb-4">
-            <Icon name="CircleHelp" className="text-[#D4AF37] text-3xl" />
-            <h4 className="font-headline-md text-2xl mt-1">{"Who You'll Speak With"}</h4>
+            <Icon name="CircleHelp" className="text-accent-gold text-3xl" />
+            <h4 className="font-ui text-2xl font-medium mt-1">Who You&apos;ll Speak With</h4>
           </div>
-          <p className="font-body-md text-primary-fixed-dim leading-relaxed mb-6">{"Every discovery call is led by a senior member of the Zorex build team, not a sales rep. You'll speak with someone who has actually designed and deployed the kind of system you're exploring."}</p>
+          <p className="font-ui text-sm leading-relaxed text-white/70 mb-6">Every discovery call is led by a senior member of the Zorex build team, not a sales rep. You&apos;ll speak with someone who has actually designed and deployed the kind of system you&apos;re exploring.</p>
           <div className="pt-6 border-t border-white/10">
-            <p className="font-body-sm text-white/80">{"All conversations are confidential. We're happy to sign an NDA before any technical discussion. Just ask."}</p>
+            <p className="font-ui text-sm text-white/80">All conversations are confidential. We&apos;re happy to sign an NDA before any technical discussion. Just ask.</p>
           </div>
         </div>
 
-        <div className="reveal bg-surface-container-lowest rounded-2xl p-8 border border-surface-container-highest shadow-sm">
-          <h3 className="font-headline-md text-2xl text-primary-container mb-6">{"Direct Contact"}</h3>
+        <div className="reveal bg-panel rounded-2xl p-8 border border-[var(--line)]">
+          <h3 className="font-ui text-lg font-medium text-ink mb-6">Direct Contact</h3>
           <div className="space-y-4">
             <div className="flex items-center gap-4">
-              <Icon name="Mail" className="text-secondary text-2xl" />
-              <a className="font-body-md text-on-surface hover:text-primary transition-colors no-underline" href="mailto:hello@zorex.com">{"hello@zorex.com"}</a>
+              <Icon name="Mail" className="text-ink-2 text-2xl" />
+              <a className="font-ui text-sm text-ink hover:text-ink-2 transition-colors no-underline" href={`mailto:${company.email}`}>{company.email}</a>
             </div>
             <div className="flex items-center gap-4">
-              <Icon name="CalendarCheck2" className="text-secondary text-2xl" />
-              <a className="font-body-md text-primary font-semibold hover:text-primary-container transition-colors no-underline" href="https://calendly.com/amiralicomsats3/30min" target="_blank" rel="noopener noreferrer">{"Book a Call on Calendly"}</a>
+              <Icon name="CalendarCheck2" className="text-ink-2 text-2xl" />
+              <a className="font-ui text-sm font-medium text-ink hover:text-ink-2 transition-colors no-underline" href={`${company.calendly}?hide_gdpr_banner=1`} target="_blank" rel="noopener noreferrer">Book a {company.callLength} call directly</a>
             </div>
             <div className="flex items-center gap-4">
-              <Icon name="BriefcaseBusiness" className="text-secondary text-2xl" />
-              <a className="font-body-md text-on-surface hover:text-primary transition-colors no-underline" href="https://linkedin.com/company/zorex-ai" target="_blank" rel="noopener noreferrer">{"Zorex on LinkedIn"}</a>
+              <Icon name="BriefcaseBusiness" className="text-ink-2 text-2xl" />
+              <a className="font-ui text-sm text-ink hover:text-ink-2 transition-colors no-underline" href={company.linkedin} target="_blank" rel="noopener noreferrer">Zorex on LinkedIn</a>
             </div>
           </div>
         </div>
@@ -162,14 +186,14 @@ export default function PageContent() {
     </div>
   </section>
 
-  {/* ── Calendly ─────────────────────────────────────────────────── */}
+  {/* ── Calendly direct booking for high-intent visitors ────────── */}
   <section className="max-w-container-max mx-auto px-5 sm:px-8 pb-section-padding">
-    <div className="reveal bg-surface-container-lowest rounded-2xl p-8 border border-surface-container-highest shadow-sm">
-      <div className="flex flex-col md:flex-row items-center justify-between mb-8 pb-6 border-b border-surface-container-highest gap-4">
-        <h2 className="font-headline-md text-headline-md text-primary-container">{"Prefer to Book Directly?"}</h2>
-        <span className="font-label-sm text-secondary uppercase tracking-wider">{"Skip the form. Pick a time."}</span>
+    <div className="reveal bg-panel rounded-2xl p-8 border border-[var(--line)]">
+      <div className="flex flex-col md:flex-row items-center justify-between mb-8 pb-6 border-b border-[var(--line)] gap-4">
+        <h2 className="font-ui text-xl font-medium text-ink">Prefer to Book Directly?</h2>
+        <span className="font-ui text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-3">Skip the form. Pick a time.</span>
       </div>
-      <div className="calendly-inline-widget" data-url="https://calendly.com/amiralicomsats3/30min?hide_gdpr_banner=1&background_color=fcf9f8&text_color=1b1c1c&primary_color=193868" style={{"minWidth": "320px", "height": "700px"}}></div>
+      <div className="calendly-inline-widget" data-url={`${company.calendly}?hide_gdpr_banner=1&background_color=f3f6f1&text_color=141414&primary_color=141414`} style={{"minWidth": "320px", "height": "700px"}}></div>
       <Script id="calendly-widget" src="https://assets.calendly.com/assets/external/widget.js" strategy="lazyOnload" />
     </div>
   </section>

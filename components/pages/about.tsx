@@ -1,30 +1,30 @@
 import Link from 'next/link';
 import { Icon } from '@/components/ui/icon';
+import { Reveal } from '@/components/ui/reveal';
 import { FinalCta } from '@/components/content/final-cta';
 import { OptimizedImage } from '@/components/ui/optimized-image';
 
 export default function PageContent() {
   return <>
-<main>
+<main className="font-ui bg-page-wash">
   {/* ── Hero ─────────────────────────────────────────────────────── */}
-  <section className="relative pt-28 sm:pt-36 pb-16 sm:pb-24 px-5 sm:px-8 overflow-hidden bg-surface-bright border-b border-outline-variant/30">
-    <div className="absolute inset-0 section-grid pointer-events-none" aria-hidden="true"></div>
-    <div className="absolute inset-x-0 top-0 h-[420px] section-glow pointer-events-none" aria-hidden="true"></div>
-    <div className="max-w-container-max mx-auto relative z-10 flex flex-col items-center justify-center text-center pt-4 pb-12">
-      <div className="flex flex-col items-center max-w-4xl">
-        <span className="reveal inline-flex items-center gap-2 px-6 py-2 bg-secondary-container text-on-secondary-fixed-variant rounded-full font-label-sm mb-8 shadow-sm uppercase tracking-wider">
-          <Icon name="Sparkles" className="text-sm icon-fill" />{"About Zorex AI"}
-        </span>
-        <h1 className="reveal reveal-delay-1 font-headline-xl text-headline-xl text-primary-container mb-6 leading-[1.15]">{"We build the systems"}<br /><span className="text-secondary">{"your growth depends on."}</span></h1>
-        <p className="reveal reveal-delay-2 font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-12 leading-relaxed">{"Zorex AI is an AI software company. We design, build, deploy, and continuously improve AI-powered systems — agentic systems and AI integrated with existing systems — for real business functions."}</p>
-        <div className="reveal reveal-delay-3 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link className="btn-lift w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-primary-container text-on-primary rounded-full font-label-sm uppercase tracking-wider hover:bg-primary shadow-md hover:shadow-lg" href="/contact">{"Book a Strategy Call"}<Icon name="ArrowRight" className="ml-2 text-sm" /></Link>
-          <Link className="btn-lift w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-primary-container text-primary-container rounded-full font-label-sm uppercase tracking-wider hover:bg-surface-container" href="/process">{"See How We Work"}</Link>
-        </div>
+  <section className="relative pt-28 sm:pt-40 pb-16 sm:pb-24 px-5 sm:px-8 overflow-hidden border-b border-[var(--line)]">
+    <div className="max-w-container-max mx-auto relative z-10">
+      <div className="flex flex-col items-center max-w-4xl mx-auto text-center">
+        <Reveal delay={0.08}>
+          <h1 className="display-type mb-6">We build the systems <span className="opacity-60">your growth depends on.</span></h1>
+        </Reveal>
+        <Reveal delay={0.16}>
+          <p className="body-ink max-w-2xl mb-10">Zorex AI is an AI software company. We design, build, deploy, and continuously improve AI-powered systems agentic systems and AI integrated with existing systems for real business functions.</p>
+        </Reveal>
+        <Reveal delay={0.24}>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Link className="btn-ink w-full sm:w-auto" href="/contact">Book a Strategy Call<Icon name="ArrowRight" className="ml-1 size-4" aria-hidden /> </Link>
+            <Link className="btn-ghost w-full sm:w-auto" href="/process">See How We Work</Link>
+          </div>
+        </Reveal>
       </div>
     </div>
-    <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/4 w-[600px] h-[600px] bg-secondary-container/20 rounded-full blur-3xl -z-10"></div>
-    <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[800px] h-[800px] bg-primary-fixed/20 rounded-full blur-3xl -z-10"></div>
   </section>
 
   {/* ── Why we exist ─────────────────────────────────────────────── */}
@@ -60,7 +60,7 @@ export default function PageContent() {
         <Link className="reveal reveal-delay-1 card-lift group bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/20 no-underline flex flex-col" href="/service-ai-integration">
           <div className="w-14 h-14 bg-primary-fixed rounded-2xl flex items-center justify-center mb-6 group-hover:bg-secondary-container transition-colors"><Icon name="PlugZap" className="text-primary-container group-hover:text-on-secondary-container text-2xl transition-colors" /></div>
           <h3 className="font-headline-md text-2xl text-primary-container mb-3">{"AI Integration"}</h3>
-          <p className="font-body-md text-on-surface-variant mb-6">{"Connecting AI to the systems you already run — CRM, ERP, support desk, data — without rip-and-replace."}</p>
+          <p className="font-body-md text-on-surface-variant mb-6">{"Connecting AI to the systems you already run CRM, ERP, support desk, data without rip-and-replace."}</p>
           <span className="mt-auto inline-flex items-center gap-2 font-label-sm uppercase tracking-wider text-primary-container group-hover:gap-3 transition-all">{"Explore Integration"}<Icon name="ArrowRight" className="text-sm" /></span>
         </Link>
         <Link className="reveal reveal-delay-2 card-lift group bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/20 no-underline flex flex-col" href="/service-vertical-ai">
@@ -110,7 +110,7 @@ export default function PageContent() {
       <div className="reveal text-center max-w-3xl mx-auto mb-16">
         <span className="font-label-sm text-label-sm text-secondary uppercase tracking-widest block mb-4">{"The Team"}</span>
         <h2 className="font-headline-lg text-headline-lg text-primary-container">{"A small, senior team. You work with the builders."}</h2>
-        <p className="font-body-lg text-body-lg text-on-surface-variant mt-4">{"Zorex is a focused team of AI engineers and systems architects. We don't outsource or offshore your core build, and we don't hand you off to a bench — the people who design your system are the people who build and support it."}</p>
+        <p className="font-body-lg text-body-lg text-on-surface-variant mt-4">{"Zorex is a focused team of AI engineers and systems architects. We don't outsource or offshore your core build, and we don't hand you off to a bench the people who design your system are the people who build and support it."}</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="reveal card-lift bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/30 text-center">

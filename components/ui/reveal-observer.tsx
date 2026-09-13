@@ -4,8 +4,8 @@ import { useEffect } from 'react';
 
 /**
  * Site-wide scroll-reveal driver. Adds `.js-reveal` to <html> (which arms the
- * CSS `.reveal` hidden state) and observes every `.reveal` element — including
- * ones added later by client-side navigations — adding `.revealed` when each
+ * CSS `.reveal` hidden state) and observes every `.reveal` element including
+ * ones added later by client-side navigations adding `.revealed` when each
  * scrolls into view.
  */
 export function RevealObserver() {

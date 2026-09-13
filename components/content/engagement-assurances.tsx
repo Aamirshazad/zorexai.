@@ -4,7 +4,7 @@ import { engagementAssurances } from '@/content/company';
 
 /**
  * Section 4 risk reduction. Answers the questions a buyer is already asking
- * silently — scope, ownership, failure, communication, support, security —
+ * silently scope, ownership, failure, communication, support, security
  * without manufacturing fear about what happens if they do nothing.
  */
 export function EngagementAssurances({

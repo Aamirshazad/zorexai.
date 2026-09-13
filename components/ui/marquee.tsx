@@ -3,7 +3,7 @@
 import type { ReactNode } from 'react';
 
 /**
- * Infinite horizontal marquee — content is duplicated once and translated
+ * Infinite horizontal marquee content is duplicated once and translated
  * -50% on a loop (see `.animate-marquee` in globals.css). Pauses on hover.
  */
 export function Marquee({

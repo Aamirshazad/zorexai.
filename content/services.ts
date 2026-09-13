@@ -3,7 +3,7 @@
  *
  * Shared between the services page (full scope rows) and the About page
  * (one-line index) so the two can never drift apart. `oneLine` is a restatement
- * of `summary`, never a stronger claim than it — the same rule
+ * of `summary`, never a stronger claim than it the same rule
  * content/engagements.ts applies to `shift` versus `changed`.
  *
  * What is deliberately NOT in this file, per the site-wide honesty rule:
@@ -30,7 +30,7 @@ export const services: Service[] = [
     href: '/service-agentic-ai',
     name: 'AI Agentic Systems',
     icon: 'Bot',
-    oneLine: 'Agents that carry a whole workflow — read, decide, act, escalate the genuine exceptions.',
+    oneLine: 'Agents that carry a whole workflow read, decide, act, escalate the genuine exceptions.',
     summary:
       'Systems that carry a whole workflow rather than answering a single prompt: they read the request, gather the context they need from your systems, take the action, and hand back the genuine exceptions with the reasoning attached.',
     includes: ['Task and tool design', 'Retrieval over your own content', 'Escalation and audit trails', 'Evaluation harness before launch'],
@@ -52,7 +52,7 @@ export const services: Service[] = [
     icon: 'Route',
     oneLine: 'Orchestration for processes that need judgment, not just if-then rules.',
     summary:
-      'End-to-end orchestration for processes that need context and judgment, not just if-then rules — the work that rules engines and no-code builders can start but never finish.',
+      'End-to-end orchestration for processes that need context and judgment, not just if-then rules the work that rules engines and no-code builders can start but never finish.',
     includes: ['Process mapping with your operators', 'Decision logic and thresholds', 'Human-in-the-loop checkpoints', 'Monitoring and alerting'],
     bestFor: 'Multi-step processes that stall whenever a case does not match the template.',
   },
@@ -72,7 +72,7 @@ export const services: Service[] = [
     icon: 'Network',
     oneLine: 'Retrieval, evaluation, and guardrails built as engineering, with a measurable accuracy bar.',
     summary:
-      'Retrieval, prompting, and guardrails treated as engineering with a measurable accuracy bar — because the difference between a demo and a system is what happens on the inputs nobody anticipated.',
+      'Retrieval, prompting, and guardrails treated as engineering with a measurable accuracy bar because the difference between a demo and a system is what happens on the inputs nobody anticipated.',
     includes: ['Retrieval architecture', 'Evaluation sets and regression testing', 'Guardrails and refusal behaviour', 'Cost and latency budgets'],
     bestFor: 'Internal knowledge tools, drafting and review workflows, anything where quality has to hold at volume.',
   },

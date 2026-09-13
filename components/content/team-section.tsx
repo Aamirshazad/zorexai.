@@ -15,7 +15,7 @@ export function TeamSection() {
         <div className="reveal max-w-3xl mb-14">
           <span className="font-label-sm text-label-sm text-secondary uppercase tracking-widest block mb-4">{"The Team"}</span>
           <h2 className="font-headline-lg text-headline-lg text-primary-container mb-4">{"A team of "}{company.headcount}{". You work with the people who build it."}</h2>
-          <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">{company.structure}{" The people who scope your system are the people who build and support it — there is no handoff to a delivery team you have not met."}</p>
+          <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">{company.structure}{" The people who scope your system are the people who build and support it there is no handoff to a delivery team you have not met."}</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
@@ -61,7 +61,7 @@ export function TeamSection() {
               </div>
             ))}
           </div>
-          <p className="font-body-sm text-xs text-outline mt-8 pt-6 border-t border-outline-variant/30 leading-relaxed">{company.coverage}{" Discovery, architecture, and build stay in-house — we do not subcontract delivery."}</p>
+          <p className="font-body-sm text-xs text-outline mt-8 pt-6 border-t border-outline-variant/30 leading-relaxed">{company.coverage}{" Discovery, architecture, and build stay in-house we do not subcontract delivery."}</p>
         </div>
       </div>
     </section>

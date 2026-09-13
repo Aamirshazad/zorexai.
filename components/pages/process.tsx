@@ -1,62 +1,55 @@
 import Link from 'next/link';
-import { Icon } from '@/components/ui/icon';
+import { Icon, type IconName } from '@/components/ui/icon';
+import { Reveal } from '@/components/ui/reveal';
 import { FinalCta } from '@/components/content/final-cta';
 import { FourPhases } from '@/components/content/four-phases';
 
+const commitments: Array<{ icon: IconName; title: string; copy: string }> = [
+  { icon: 'Workflow', title: 'One Proven Path', copy: 'Audit, design, build, deploy the same sequence on every engagement, so nothing gets skipped.' },
+  { icon: 'Search', title: 'Audit First', copy: 'We map the workflow end to end before anything is built, so the system fits the work not the other way around.' },
+  { icon: 'ShieldCheck', title: 'Tested Before Launch', copy: 'The system runs in shadow mode alongside your team, validated on real work, then rolled out in stages.' },
+  { icon: 'FolderCheck', title: 'You Own It', copy: 'Documentation, training, and full handoff included the system is yours, with no lock-in.' },
+];
+
 export default function PageContent() {
   return <>
-<main>
+<main className="font-ui bg-page-wash">
   {/* ── Hero ─────────────────────────────────────────────────────── */}
-  <section className="relative pt-28 sm:pt-36 pb-16 sm:pb-24 px-5 sm:px-8 overflow-hidden bg-surface-bright border-b border-outline-variant/30">
-    <div className="absolute inset-0 section-grid pointer-events-none" aria-hidden="true"></div>
-    <div className="absolute inset-x-0 top-0 h-[420px] section-glow pointer-events-none" aria-hidden="true"></div>
-    <div className="max-w-container-max mx-auto relative z-10 flex flex-col items-center justify-center text-center pt-4 pb-12">
-      <div className="flex flex-col items-center max-w-4xl">
-        <span className="reveal inline-flex items-center gap-2 px-6 py-2 bg-secondary-container text-on-secondary-fixed-variant rounded-full font-label-sm mb-8 shadow-sm uppercase tracking-wider">
-          <Icon name="Workflow" className="text-sm icon-fill" />{"How We Work"}
-        </span>
-        <h1 className="reveal reveal-delay-1 font-headline-xl text-headline-xl text-primary-container mb-6 leading-[1.15]">{"From business problem"}<br /><span className="text-secondary">{"to deployed AI system."}</span></h1>
-        <p className="reveal reveal-delay-2 font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-12 leading-relaxed">{"We start with the workflow and the outcome, not the technology. Then we design, build, validate, and deploy the system around your operation."}</p>
-        <div className="reveal reveal-delay-3 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link className="btn-lift w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-primary-container text-on-primary rounded-full font-label-sm uppercase tracking-wider hover:bg-primary shadow-md hover:shadow-lg" href="/contact">{"Book a Strategy Call"}<Icon name="ArrowRight" className="ml-2 text-sm" /></Link>
-          <Link className="btn-lift w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-primary-container text-primary-container rounded-full font-label-sm uppercase tracking-wider hover:bg-surface-container" href="/case-studies">{"See Our Work"}</Link>
-        </div>
+  <section className="relative pt-28 sm:pt-40 pb-16 sm:pb-24 px-5 sm:px-8 overflow-hidden border-b border-[var(--line)]">
+    <div className="max-w-container-max mx-auto relative z-10">
+      <div className="flex flex-col items-center max-w-4xl mx-auto text-center">
+        <Reveal delay={0.08}>
+          <h1 className="display-type mb-6">From business problem <span className="opacity-60">to deployed AI system.</span></h1>
+        </Reveal>
+        <Reveal delay={0.16}>
+          <p className="body-ink max-w-2xl mb-10">We start with the workflow and the outcome, not the technology. Then we design, build, validate, and deploy the system around your operation.</p>
+        </Reveal>
+        <Reveal delay={0.24}>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Link className="btn-ink w-full sm:w-auto" href="/contact">Book a Strategy Call<Icon name="ArrowRight" className="ml-1 size-4" aria-hidden /> </Link>
+            <Link className="btn-ghost w-full sm:w-auto" href="/case-studies">See Our Work</Link>
+          </div>
+        </Reveal>
       </div>
     </div>
-    <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/4 w-[600px] h-[600px] bg-secondary-container/20 rounded-full blur-3xl -z-10"></div>
-    <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[800px] h-[800px] bg-primary-fixed/20 rounded-full blur-3xl -z-10"></div>
   </section>
 
-  {/* ── Engagement commitments ───────────────────────────────────── */}
-  <section className="relative py-section-padding px-5 sm:px-8 bg-surface overflow-hidden">
-    <div className="absolute inset-0 section-grid pointer-events-none" aria-hidden="true"></div>
-    <div className="max-w-container-max mx-auto relative z-10">
-      <div className="reveal text-center max-w-3xl mx-auto mb-16">
-        <span className="font-label-sm text-label-sm text-secondary uppercase tracking-widest block mb-4">{"Built Into Every Engagement"}</span>
-        <h2 className="font-headline-lg text-headline-lg text-primary-container mb-4">{"Four things you can count on."}</h2>
-        <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">{"Whatever the system, the engagement runs on the same commitments — a proven sequence, an audit before any build, validation before launch, and full ownership at the end."}</p>
+  {/* ── Engagement commitments capabilities bento (imagine.art "Built for success" pattern) ── */}
+  <section className="py-section-padding px-5 sm:px-8">
+    <div className="max-w-container-max mx-auto">
+      <div className="reveal max-w-[640px] mb-14">
+        <span className="eyebrow mb-4 block">{"Built Into Every Engagement"}</span>
+        <h2 className="section-title mb-4">{"Four things "}{" "}<span className="h-muted">{"you can count on."}</span></h2>
+        <p className="lede mt-5">{"Whatever the system, the engagement runs on the same commitments a proven sequence, an audit before any build, validation before launch, and full ownership at the end."}</p>
       </div>
-      <div className="reveal reveal-delay-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-        <div className="card-lift bg-surface-container-lowest rounded-2xl border border-outline-variant/30 p-7 flex flex-col">
-          <div className="w-11 h-11 bg-primary-container rounded-xl flex items-center justify-center mb-5"><Icon name="Workflow" className="text-accent-gold text-xl" /></div>
-          <h3 className="font-headline-md text-lg text-primary-container mb-2">{"One Proven Path"}</h3>
-          <p className="font-body-md text-sm text-on-surface-variant leading-relaxed">{"Audit, design, build, deploy — the same sequence on every engagement, so nothing gets skipped."}</p>
-        </div>
-        <div className="card-lift bg-surface-container-lowest rounded-2xl border border-outline-variant/30 p-7 flex flex-col">
-          <div className="w-11 h-11 bg-primary-container rounded-xl flex items-center justify-center mb-5"><Icon name="Search" className="text-accent-gold text-xl" /></div>
-          <h3 className="font-headline-md text-lg text-primary-container mb-2">{"Audit First"}</h3>
-          <p className="font-body-md text-sm text-on-surface-variant leading-relaxed">{"We map the workflow end to end before anything is built, so the system fits the work — not the other way around."}</p>
-        </div>
-        <div className="card-lift bg-surface-container-lowest rounded-2xl border border-outline-variant/30 p-7 flex flex-col">
-          <div className="w-11 h-11 bg-primary-container rounded-xl flex items-center justify-center mb-5"><Icon name="ShieldCheck" className="text-accent-gold text-xl" /></div>
-          <h3 className="font-headline-md text-lg text-primary-container mb-2">{"Tested Before Launch"}</h3>
-          <p className="font-body-md text-sm text-on-surface-variant leading-relaxed">{"The system runs in shadow mode alongside your team, validated on real work, then rolled out in stages."}</p>
-        </div>
-        <div className="card-lift bg-surface-container-lowest rounded-2xl border border-outline-variant/30 p-7 flex flex-col">
-          <div className="w-11 h-11 bg-primary-container rounded-xl flex items-center justify-center mb-5"><Icon name="FolderCheck" className="text-accent-gold text-xl" /></div>
-          <h3 className="font-headline-md text-lg text-primary-container mb-2">{"You Own It"}</h3>
-          <p className="font-body-md text-sm text-on-surface-variant leading-relaxed">{"Documentation, training, and full handoff included — the system is yours, with no lock-in."}</p>
-        </div>
+      <div className="bfs-bento">
+        {commitments.map((item, i) => (
+          <div key={item.title} className={`reveal ${i === 1 || i === 2 ? 'reveal-delay-1' : i === 3 ? 'reveal-delay-2' : ''} bfs-tile bfs-tile-wide`}>
+            <span className="bfs-icon"><Icon name={item.icon} size={18} /></span>
+            <h3 className="bfs-title">{item.title}</h3>
+            <p className="bfs-body">{item.copy}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -101,7 +94,7 @@ export default function PageContent() {
   <FourPhases />
 
   {/* ── Governance & security ────────────────────────────────────── */}
-  <section className="py-section-padding px-5 sm:px-8 bg-surface-container border-t border-outline-variant/20">
+  <section id="security" className="py-section-padding px-5 sm:px-8 bg-surface-container border-t border-outline-variant/20">
     <div className="max-w-container-max mx-auto">
       <div className="reveal text-center max-w-3xl mx-auto mb-16">
         <span className="font-label-sm text-label-sm text-secondary uppercase tracking-widest block mb-4">{"Enterprise Trust"}</span>

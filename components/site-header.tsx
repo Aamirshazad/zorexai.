@@ -65,10 +65,10 @@ export function SiteHeader() {
   };
 
   return (
-    <header className={`site-header ${scrolled || open ? 'is-scrolled' : ''}`}>
+    <header className={`site-header font-ui ${scrolled || open ? 'is-scrolled' : ''}`}>
       <nav className="header-inner" aria-label="Primary navigation">
-        <Link href="/" className="shrink-0 text-xl font-extrabold tracking-tight text-primary" aria-label="Zorex AI home">
-          Zorex<span className="text-secondary"> AI</span>
+        <Link href="/" className="shrink-0 text-xl font-semibold tracking-tight text-ink" aria-label="Zorex AI home">
+          Zorex<span className="text-ink-3"> AI</span>
         </Link>
 
         <div className="hidden items-center gap-1 lg:flex">
@@ -87,7 +87,7 @@ export function SiteHeader() {
           })}
           <Link
             href="/contact"
-            className="btn-lift ml-3 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-on-primary hover:bg-primary-container"
+            className="nav-cta ml-3"
           >
             Book Strategy Call
           </Link>
@@ -96,7 +96,7 @@ export function SiteHeader() {
         <button
           ref={triggerRef}
           type="button"
-          className="menu-toggle inline-flex size-11 items-center justify-center rounded-full border border-outline-variant/50 text-primary lg:hidden"
+          className="menu-toggle inline-flex size-11 items-center justify-center rounded-full border border-[var(--line-strong)] text-ink lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? 'Close navigation menu' : 'Open navigation menu'}
@@ -107,7 +107,7 @@ export function SiteHeader() {
       </nav>
 
       {open && (
-        <div id="mobile-menu" className="mobile-menu-in absolute inset-x-4 top-[calc(100%-8px)] z-40 max-h-[calc(100dvh-96px)] overflow-y-auto rounded-3xl border border-stone-200 bg-[#FDFCFB] shadow-[0_24px_60px_-24px_rgba(0,34,78,0.35)] lg:hidden">
+        <div id="mobile-menu" className="mobile-menu-in font-ui absolute inset-x-4 top-[calc(100%-8px)] z-40 max-h-[calc(100dvh-96px)] overflow-y-auto rounded-3xl border border-[var(--line)] bg-[var(--page-wash)] shadow-[0_24px_60px_-24px_rgba(20,20,20,0.18)] lg:hidden">
           <div className="flex flex-col px-5 py-4">
             {navigation.map((item, index) => {
               const active = isActive(pathname, item.href);
@@ -118,7 +118,7 @@ export function SiteHeader() {
                   href={item.href}
                   onClick={closeMenu}
                   aria-current={active ? 'page' : undefined}
-                  className={`border-b border-stone-200/80 py-4 text-base font-semibold transition-colors hover:text-primary ${active ? 'text-primary' : 'text-on-surface'}`}
+                  className={`border-b border-[var(--line)] py-4 text-base font-medium transition-colors hover:text-ink ${active ? 'text-ink' : 'text-ink-2'}`}
                 >
                   {item.label}
                 </Link>
@@ -127,7 +127,7 @@ export function SiteHeader() {
             <Link
               href="/contact"
               onClick={closeMenu}
-              className="btn-lift mt-4 mb-2 inline-flex items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-bold text-on-primary hover:bg-primary-container"
+              className="nav-cta mt-4 mb-2"
             >
               Book Strategy Call
             </Link>

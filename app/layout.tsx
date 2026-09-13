@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Manrope } from 'next/font/google';
+import { Instrument_Sans, Manrope } from 'next/font/google';
 import './globals.css';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
@@ -13,10 +13,17 @@ const manrope = Manrope({
   preload: true,
 });
 
+const instrumentSans = Instrument_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-instrument',
+  preload: true,
+});
+
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#FDFCFB',
+  themeColor: '#f3f6f1',
   colorScheme: 'light',
 };
 
@@ -40,21 +47,21 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     siteName: 'Zorex AI',
-    title: 'Zorex AI — AI Software Company',
-    description: 'AI-powered systems, agentic systems, and AI integrated with your existing systems — designed, built, deployed, and continuously improved for real business functions.',
+    title: 'Zorex AI AI Software Company',
+    description: 'AI-powered systems, agentic systems, and AI integrated with your existing systems designed, built, deployed, and continuously improved for real business functions.',
     images: [{ url: '/og-default.jpg', width: 1200, height: 630, alt: 'Zorex AI' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Zorex AI — AI Software Company',
-    description: 'AI-powered systems, agentic systems, and AI integrated with your existing systems — designed, built, deployed, and continuously improved for real business functions.',
+    title: 'Zorex AI AI Software Company',
+    description: 'AI-powered systems, agentic systems, and AI integrated with your existing systems designed, built, deployed, and continuously improved for real business functions.',
     images: ['/og-default.jpg'],
   },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={manrope.className}>
+    <html lang="en" className={`${manrope.className} ${instrumentSans.variable}`}>
       <body>
         <RevealObserver />
         <a className="skip-link" href="#main-content">Skip to content</a>
