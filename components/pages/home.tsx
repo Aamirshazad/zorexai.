@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { preload } from 'react-dom';
 import { Icon } from '@/components/ui/icon';
 import { Reveal, RevealGroup } from '@/components/ui/reveal';
 import { Marquee } from '@/components/ui/marquee';
@@ -21,12 +22,17 @@ const marqueeItems = [
 ];
 
 export default function PageContent() {
+  // Hero video gets first network priority — React hoists these preload
+  // tags into <head> ahead of every other resource the page requests,
+  // so the waves are in flight before anything else renders.
+  preload('/videos/hero-waves-mobile.mp4', { as: 'video' });
+  preload('/videos/hero-waves.mp4', { as: 'video' });
   return <>
 <main className="font-ui bg-page-wash">
   {/* ── Hero ─────────────────────────────────────────────────────── */}
   <section className="relative px-5 sm:px-8 pt-36 sm:pt-44 pb-16 sm:pb-24 overflow-hidden">
     <div className="hero-media" aria-hidden="true">
-      <video autoPlay muted loop playsInline preload="metadata">
+      <video autoPlay muted loop playsInline preload="auto" disablePictureInPicture>
         <source src="/videos/hero-waves-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
         <source src="/videos/hero-waves.mp4" type="video/mp4" />
       </video>

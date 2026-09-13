@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { Icon, type IconName } from '@/components/ui/icon';
 import { OptimizedImage } from '@/components/ui/optimized-image';
-import { industries } from '@/content/industries';
 import { ProofStrip } from '@/components/content/proof-strip';
 
 const functions: Array<{
@@ -39,7 +38,7 @@ export default function PageContent() {
         <p className="reveal reveal-delay-2 body-ink max-w-2xl mb-10">Route by what you run a business function, or the industry you operate in. Both lead to the same systems, scoped to your workflows.</p>
         <div className="reveal reveal-delay-3 flex flex-col sm:flex-row items-center justify-center gap-3">
           <Link className="btn-ink w-full sm:w-auto" href="/contact">Book a Strategy Call<Icon name="ArrowRight" className="ml-1 size-4" aria-hidden /> </Link>
-          <a className="btn-ghost w-full sm:w-auto" href="#industries">Browse by Industry</a>
+          <a className="btn-ghost w-full sm:w-auto" href="#verticals">Browse by Function</a>
         </div>
       </div>
     </div>
@@ -67,39 +66,6 @@ export default function PageContent() {
           </Link>
         ))}
       </div>
-    </div>
-  </section>
-
-  {/* ── The nine industries complete index (was: 6 of 9 reachable) ── */}
-  <section className="py-section-padding px-5 sm:px-8 border-t border-[var(--line)]" id="industries">
-    <div className="max-w-container-max mx-auto">
-      <div className="reveal mb-10 sm:mb-14 max-w-[640px]">
-        <span className="eyebrow mb-4 block">By Industry</span>
-        <h2 className="section-title mb-4">Nine industries<span className="h-muted"> same layer, different vocabulary.</span></h2>
-        <p className="lede mt-5">Generic assistants fail in specialized operations because the exceptions are the job and they differ in every sector. Each page below is written for yours.</p>
-      </div>
-      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 list-none">
-        {industries.map((industry, i) => (
-          <li key={industry.href}>
-            <Link
-              href={industry.href}
-              className={`reveal ${i % 3 === 1 ? 'reveal-delay-1' : i % 3 === 2 ? 'reveal-delay-2' : ''} group flex h-full flex-col rounded-[20px] border border-[var(--line)] bg-panel p-6 transition-colors hover:border-[var(--line-strong)] hover:bg-panel-2 no-underline`}
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <div className="size-9 border border-[var(--line-strong)] rounded-[10px] flex items-center justify-center shrink-0">
-                  <Icon name={industry.icon} className="text-ink text-sm" aria-hidden />
-                </div>
-                <span className="mc-title text-base">{industry.name}</span>
-              </div>
-              <p className="mc-body text-[13px] flex-1">{industry.oneLine}</p>
-              <div className="mt-5 pt-4 border-t border-[var(--line)] flex items-center justify-between">
-                <span className="font-ui text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-3">{industry.meta}</span>
-                <Icon name="ArrowRight" className="size-4 text-ink transition-transform group-hover:translate-x-1" aria-hidden />
-              </div>
-            </Link>
-          </li>
-        ))}
-      </ul>
     </div>
   </section>
 
