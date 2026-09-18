@@ -2,8 +2,9 @@ import Script from 'next/script';
 import Link from 'next/link';
 import { Icon } from '@/components/ui/icon';
 import { Reveal } from '@/components/ui/reveal';
+import { Breadcrumbs } from '@/components/ui/breadcrumbs';
 import { SmartForm } from '@/components/ui/smart-form';
-import { company, whatHappensNext } from '@/content/company';
+import { company, whatHappensNext, whatToPrepare } from '@/content/company';
 
 export default function PageContent() {
   return <>
@@ -12,6 +13,7 @@ export default function PageContent() {
   <section className="relative pt-28 sm:pt-40 pb-12 sm:pb-16 px-5 sm:px-8 overflow-hidden border-b border-[var(--line)]">
     <div className="max-w-container-max mx-auto relative z-10">
       <div className="flex flex-col items-center max-w-4xl mx-auto text-center">
+        <Breadcrumbs route="contact" className="justify-center mb-8" />
         <Reveal delay={0.08}>
           <h1 className="display-type mb-6">Let&apos;s find the system <span className="opacity-60">worth building first.</span></h1>
         </Reveal>
@@ -34,10 +36,10 @@ export default function PageContent() {
     <div className="max-w-container-max mx-auto">
       <div className="reveal dark-box p-6 sm:p-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          <div className="flex flex-col items-center"><p className="font-headline-md text-headline-md text-accent-gold mb-1">{company.callLength}</p><p className="font-label-sm text-[10px] text-white/55 uppercase tracking-wider">A focused working session</p></div>
-          <div className="flex flex-col items-center"><p className="font-headline-md text-headline-md text-white mb-1">Your workflow</p><p className="font-label-sm text-[10px] text-white/55 uppercase tracking-wider">We map where the friction is</p></div>
-          <div className="flex flex-col items-center"><p className="font-headline-md text-headline-md text-white mb-1">Honest assessment</p><p className="font-label-sm text-[10px] text-white/55 uppercase tracking-wider">Whether AI fits or doesn&apos;t</p></div>
-          <div className="flex flex-col items-center"><p className="font-headline-md text-headline-md text-white mb-1">Clear next steps</p><p className="font-label-sm text-[10px] text-white/55 uppercase tracking-wider">What we&apos;d build and what it takes</p></div>
+          <div className="flex flex-col items-center"><p className="mc-title text-white/70 mb-1">{company.callLength}</p><p className="text-[10px] text-white/55 uppercase tracking-wider">A focused working session</p></div>
+          <div className="flex flex-col items-center"><p className="mc-title text-white mb-1">Your workflow</p><p className="text-[10px] text-white/55 uppercase tracking-wider">We map where the friction is</p></div>
+          <div className="flex flex-col items-center"><p className="mc-title text-white mb-1">Honest assessment</p><p className="text-[10px] text-white/55 uppercase tracking-wider">Whether AI fits or doesn&apos;t</p></div>
+          <div className="flex flex-col items-center"><p className="mc-title text-white mb-1">Clear next steps</p><p className="text-[10px] text-white/55 uppercase tracking-wider">What we&apos;d build and what it takes</p></div>
         </div>
       </div>
     </div>
@@ -58,11 +60,34 @@ export default function PageContent() {
     </div>
   </section>
 
+  {/* ── What to bring ────────────────────────────────────────────── */}
+  {/* Lifted from content/company.ts, where it had been written and then left
+      unreachable inside an orphaned component. It answers the last blocker
+      before someone books: "I do not have this scoped well enough yet." */}
+  <section className="pb-12 px-5 sm:px-8">
+    <div className="max-w-container-max mx-auto">
+      <div className="reveal rounded-[22px] border border-[var(--line)] bg-panel p-8">
+        <h2 className="eyebrow mb-6">What to bring, so the first call is useful</h2>
+        <ul className="grid grid-cols-1 gap-x-10 gap-y-4 list-none sm:grid-cols-2">
+          {whatToPrepare.map((item) => (
+            <li key={item} className="flex items-start gap-3 text-[14px] leading-[1.6] text-ink-2">
+              <Icon name="CircleCheck" className="mt-0.5 size-4 shrink-0 text-ink-2" aria-hidden />
+              {item}
+            </li>
+          ))}
+        </ul>
+        <p className="mt-6 border-t border-[var(--line)] pt-5 text-sm text-ink-3">
+          Rough answers are enough. If you can describe the workflow in a sentence, we can map it.
+        </p>
+      </div>
+    </div>
+  </section>
+
   {/* ── Form + sidebar ───────────────────────────────────────────── */}
   <section className="max-w-container-max mx-auto px-5 sm:px-8 py-section-padding">
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-card-gap">
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
       <div className="lg:col-span-7 space-y-8">
-        <div className="reveal bg-panel rounded-2xl p-8 border border-[var(--line)]">
+        <div className="reveal bg-panel rounded-[22px] p-8 border border-[var(--line)]">
           <div className="flex items-center justify-between mb-8 pb-6 border-b border-[var(--line)]">
             <h2 className="font-ui text-xl font-medium text-ink">Strategy Session</h2>
             <span className="font-ui text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-3">{company.callLength} • Free • No obligation</span>
@@ -74,7 +99,7 @@ export default function PageContent() {
             submitLabel="Confirm Strategy Call"
             submitClassName="btn-ink w-full font-ui"
             successTitle="Request received."
-            successBody="We read these ourselves expect a reply within one business day with a time to talk. If you'd rather pick a time right now, the calendar below is live."
+            successBody="We read these ourselves, so expect a reply within one business day with a time to talk. If you'd rather pick a time right now, the calendar below is live."
           >
             <div className="space-y-6">
               <h3 className="font-ui text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-3">01. Contact Details</h3>
@@ -121,20 +146,24 @@ export default function PageContent() {
                 </div>
               </div>
             </div>
-            <p className="text-center font-ui text-xs text-ink-3 mt-4">By submitting, you agree to our <Link className="underline underline-offset-2" href="/terms">terms</Link>. All conversations are confidential we&apos;ll sign an NDA before any technical discussion.</p>
+            <p className="text-center font-ui text-xs text-ink-3 mt-4">
+              By submitting, you agree to our <Link className="underline underline-offset-2" href="/terms">terms</Link> and
+              acknowledge our <Link className="underline underline-offset-2" href="/privacy">privacy policy</Link>. All
+              conversations are confidential, and we will sign an NDA before any technical discussion.
+            </p>
           </SmartForm>
         </div>
       </div>
 
-      <div className="lg:col-span-5 space-y-card-gap">
-        <div className="reveal reveal-delay-1 card-lift bg-panel rounded-2xl p-8 border border-[var(--line)]">
+      <div className="lg:col-span-5 space-y-8">
+        <div className="reveal reveal-delay-1 card-lift bg-panel rounded-[22px] p-8 border border-[var(--line)]">
           <h3 className="font-ui text-lg font-medium text-ink mb-6">What to Expect</h3>
           <ul className="space-y-6">
             <li className="flex gap-4">
               <div className="w-10 h-10 rounded-full border border-[var(--line-strong)] flex items-center justify-center shrink-0"><Icon name="Cpu" className="text-ink-2" /></div>
               <div>
                 <h4 className="font-ui text-sm font-bold text-ink mb-1">An honest assessment of leverage.</h4>
-                <p className="font-ui text-sm text-ink-2">Where AI creates real leverage in your business to acquire clients and scale, and where it doesn&apos;t.</p>
+                <p className="font-ui text-sm text-ink-2">Where an AI system creates real leverage in your operation, and where a process change or nothing at all would serve you better.</p>
               </div>
             </li>
             <li className="flex gap-4">
@@ -154,9 +183,9 @@ export default function PageContent() {
           </ul>
         </div>
 
-        <div className="reveal reveal-delay-2 card-lift bg-ink rounded-2xl p-8 text-white">
+        <div className="reveal reveal-delay-2 card-lift bg-ink rounded-[22px] p-8 text-white">
           <div className="flex items-start gap-4 mb-4">
-            <Icon name="CircleHelp" className="text-accent-gold text-3xl" />
+            <Icon name="CircleHelp" className="text-white/70 text-3xl" />
             <h4 className="font-ui text-2xl font-medium mt-1">Who You&apos;ll Speak With</h4>
           </div>
           <p className="font-ui text-sm leading-relaxed text-white/70 mb-6">Every discovery call is led by a senior member of the Zorex build team, not a sales rep. You&apos;ll speak with someone who has actually designed and deployed the kind of system you&apos;re exploring.</p>
@@ -165,7 +194,7 @@ export default function PageContent() {
           </div>
         </div>
 
-        <div className="reveal bg-panel rounded-2xl p-8 border border-[var(--line)]">
+        <div className="reveal bg-panel rounded-[22px] p-8 border border-[var(--line)]">
           <h3 className="font-ui text-lg font-medium text-ink mb-6">Direct Contact</h3>
           <div className="space-y-4">
             <div className="flex items-center gap-4">
@@ -174,7 +203,7 @@ export default function PageContent() {
             </div>
             <div className="flex items-center gap-4">
               <Icon name="CalendarCheck2" className="text-ink-2 text-2xl" />
-              <a className="font-ui text-sm font-medium text-ink hover:text-ink-2 transition-colors no-underline" href={`${company.calendly}?hide_gdpr_banner=1`} target="_blank" rel="noopener noreferrer">Book a {company.callLength} call directly</a>
+              <a className="font-ui text-sm font-medium text-ink hover:text-ink-2 transition-colors no-underline" href={`${company.calendly}?hide_gdpr_banner=1`} target="_blank" rel="noopener noreferrer">Book a {company.callLengthShort} call directly</a>
             </div>
             <div className="flex items-center gap-4">
               <Icon name="BriefcaseBusiness" className="text-ink-2 text-2xl" />
@@ -186,16 +215,41 @@ export default function PageContent() {
     </div>
   </section>
 
-  {/* ── Calendly direct booking for high-intent visitors ────────── */}
+  {/* ── Calendly direct booking, behind an opt-in disclosure ──────── */}
+  {/* The page previously ran a full qualifying form and a 700px embedded
+      calendar side by side, which split attention at the highest-intent moment
+      and made the primary action ambiguous. The calendar is still here for
+      people who already know they want a slot, but it is now a deliberate
+      choice: closed by default, one click to open, and the form stays the
+      default path. */}
   <section className="max-w-container-max mx-auto px-5 sm:px-8 pb-section-padding">
-    <div className="reveal bg-panel rounded-2xl p-8 border border-[var(--line)]">
-      <div className="flex flex-col md:flex-row items-center justify-between mb-8 pb-6 border-b border-[var(--line)] gap-4">
-        <h2 className="font-ui text-xl font-medium text-ink">Prefer to Book Directly?</h2>
-        <span className="font-ui text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-3">Skip the form. Pick a time.</span>
+    <details className="reveal group rounded-[22px] border border-[var(--line)] bg-panel">
+      <summary className="flex cursor-pointer list-none flex-col gap-3 p-8 sm:flex-row sm:items-center sm:justify-between">
+        <span className="flex items-center gap-3">
+          <span className="flex size-10 shrink-0 items-center justify-center rounded-full border border-[var(--line-strong)]">
+            <Icon name="CalendarCheck2" className="size-4 text-ink" aria-hidden />
+          </span>
+          <span>
+            <span className="block font-ui text-lg font-medium text-ink">Prefer to book directly?</span>
+            <span className="block font-ui text-sm text-ink-2">Skip the form and pick a time that suits you.</span>
+          </span>
+        </span>
+        <span
+          aria-hidden="true"
+          className="font-ui text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-3 transition-transform group-open:rotate-45"
+        >
+          +
+        </span>
+      </summary>
+      <div className="border-t border-[var(--line)] p-8 pt-6">
+        <div
+          className="calendly-inline-widget"
+          data-url={`${company.calendly}?hide_gdpr_banner=1&background_color=f3f6f1&text_color=141414&primary_color=141414`}
+          style={{ minWidth: '320px', height: '700px' }}
+        ></div>
+        <Script id="calendly-widget" src="https://assets.calendly.com/assets/external/widget.js" strategy="lazyOnload" />
       </div>
-      <div className="calendly-inline-widget" data-url={`${company.calendly}?hide_gdpr_banner=1&background_color=f3f6f1&text_color=141414&primary_color=141414`} style={{"minWidth": "320px", "height": "700px"}}></div>
-      <Script id="calendly-widget" src="https://assets.calendly.com/assets/external/widget.js" strategy="lazyOnload" />
-    </div>
+    </details>
   </section>
 </main>
   </>;

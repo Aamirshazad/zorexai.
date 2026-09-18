@@ -10,15 +10,15 @@ export function ArticleAuthority({ route }: Props) {
   if (!article) return null;
 
   return (
-    <section aria-labelledby="article-quick-answers" className="max-w-3xl mx-auto px-gutter pb-card-gap">
-      <div className="reveal rounded-2xl border border-outline-variant bg-surface-container-low p-6 md:p-8">
-        <p className="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-3">Practical takeaway</p>
-        <p className="font-body-lg text-body-lg text-on-surface mb-8">{article.takeaway}</p>
+    <section aria-labelledby="article-quick-answers" className="max-w-3xl mx-auto px-5 sm:px-8 pb-8">
+      <div className="reveal rounded-[22px] border border-[var(--line)] bg-page-wash p-6 md:p-8">
+        <p className="eyebrow uppercase tracking-widest text-ink-2 mb-3">Practical takeaway</p>
+        <p className="lede text-ink mb-8">{article.takeaway}</p>
 
-        <h2 id="article-quick-answers" className="font-headline-md text-headline-md text-primary mb-4">
+        <h2 id="article-quick-answers" className="mc-title text-ink mb-4">
           Questions this guide answers
         </h2>
-        <ul className="space-y-3 mb-8 list-disc pl-5 text-on-surface-variant">
+        <ul className="space-y-3 mb-8 list-disc pl-5 text-ink-2">
           {article.questions.map((question) => (
             <li key={question}>{question}</li>
           ))}
@@ -26,20 +26,20 @@ export function ArticleAuthority({ route }: Props) {
 
         <div className="grid gap-6 md:grid-cols-2">
           <div>
-            <h3 className="font-label-sm uppercase tracking-widest text-primary mb-3">Relevant capabilities</h3>
+            <h3 className="uppercase tracking-widest text-ink mb-3">Relevant capabilities</h3>
             <div className="flex flex-col gap-2">
               {article.serviceLinks.map((item) => (
-                <Link key={item.href} href={item.href} className="text-secondary hover:text-primary underline-offset-4 hover:underline">
+                <Link key={item.href} href={item.href} className="text-ink-2 hover:text-ink underline-offset-4 hover:underline">
                   {item.label}
                 </Link>
               ))}
             </div>
           </div>
           <div>
-            <h3 className="font-label-sm uppercase tracking-widest text-primary mb-3">Continue reading</h3>
+            <h3 className="uppercase tracking-widest text-ink mb-3">Continue reading</h3>
             <div className="flex flex-col gap-2">
               {article.related.map((item) => (
-                <Link key={item.href} href={item.href} className="text-secondary hover:text-primary underline-offset-4 hover:underline">
+                <Link key={item.href} href={item.href} className="text-ink-2 hover:text-ink underline-offset-4 hover:underline">
                   {item.label}
                 </Link>
               ))}

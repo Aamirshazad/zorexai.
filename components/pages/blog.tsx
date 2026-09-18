@@ -1,172 +1,248 @@
 import Link from 'next/link';
-import { Icon } from '@/components/ui/icon';
-import { Reveal } from '@/components/ui/reveal';
+import { Icon, type IconName } from '@/components/ui/icon';
+import { Breadcrumbs } from '@/components/ui/breadcrumbs';
 import { FinalCta } from '@/components/content/final-cta';
-import { OptimizedImage } from '@/components/ui/optimized-image';
 import { SmartForm } from '@/components/ui/smart-form';
+import { getPageKind, pages } from '@/lib/site-data';
+
+/**
+ * /blog
+ *
+ * Two things were wrong here beyond the retired token set.
+ *
+ * 1. The topic chips did not match the articles. The chips read "Agentic
+ *    Systems / AI Integration / Vertical AI / Operations" while the posts were
+ *    labelled "AI Agentic Systems / AI Integration / Security / Automation" — two
+ *    chips led nowhere and two posts belonged to no chip. Categories are now
+ *    derived from the posts themselves, so a chip exists only if a post uses it.
+ *
+ * 2. Titles, descriptions and dates were hand-typed here as well as being held
+ *    in content/manifest.json, so the two could drift. Everything below is read
+ *    from the manifest, which is already the metadata source of truth.
+ *
+ * There is no hero image and no per-card thumbnail. The posts have no real
+ * artwork, and the previous version filled the gap with Unsplash photography
+ * presented as article imagery. A typographic list is the honest option.
+ */
+
+/** Category per article, and the read-time shown on the card. */
+const ARTICLE_META: Record<string, { category: string; readTime: string }> = {
+  'blog-agentic-systems': { category: 'Agentic Systems', readTime: '12 min read' },
+  'blog-ai-commerce': { category: 'AI Integration', readTime: '10 min read' },
+  'blog-cognitive-infrastructure': { category: 'AI Integration', readTime: '11 min read' },
+  'blog-intelligent-process': { category: 'Automation', readTime: '9 min read' },
+  'blog-llm-security': { category: 'Security', readTime: '10 min read' },
+};
+
+const CATEGORY_ICON: Record<string, IconName> = {
+  'Agentic Systems': 'Bot',
+  'AI Integration': 'PlugZap',
+  Automation: 'Workflow',
+  Security: 'ShieldCheck',
+};
+
+const dateFormatter = new Intl.DateTimeFormat('en-US', {
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+
+const articles = pages
+  .filter((page) => getPageKind(page.route) === 'article')
+  .map((page) => ({
+    route: page.route,
+    href: `/${page.route}`,
+    title: page.title.split(' | ')[0],
+    description: page.description,
+    publishedAt: page.publishedAt,
+    category: ARTICLE_META[page.route]?.category ?? 'Insights',
+    readTime: ARTICLE_META[page.route]?.readTime,
+  }))
+  // Newest first, so the list stays correct when a post is added.
+  .sort((a, b) => (b.publishedAt ?? '').localeCompare(a.publishedAt ?? ''));
+
+const categories = Array.from(new Set(articles.map((article) => article.category)));
+const [featured, ...rest] = articles;
+
+function formatDate(value?: string) {
+  if (!value) return null;
+  return dateFormatter.format(new Date(value));
+}
 
 export default function PageContent() {
-  return <>
-<main className="font-ui bg-page-wash">
-  {/* ── Hero ─────────────────────────────────────────────────────── */}
-  <section className="relative pt-28 sm:pt-40 pb-16 sm:pb-24 px-5 sm:px-8 overflow-hidden border-b border-[var(--line)]">
-    <div className="max-w-container-max mx-auto relative z-10">
-      <div className="flex flex-col items-center max-w-4xl mx-auto text-center">
-        <Reveal delay={0.08}>
-          <h1 className="display-type mb-6">The Zorex Intelligence <span className="opacity-60">Blog</span></h1>
-        </Reveal>
-        <Reveal delay={0.16}>
-          <p className="body-ink max-w-2xl mb-10">Expert analysis on agentic systems, AI integration, and the operational strategies that help businesses scale.</p>
-        </Reveal>
-        <Reveal delay={0.24}>
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            <span className="chip font-ui"><Icon name="Bot" className="text-[14px]" aria-hidden />Agentic Systems</span>
-            <span className="chip font-ui"><Icon name="PlugZap" className="text-[14px]" aria-hidden />AI Integration</span>
-            <span className="chip font-ui"><Icon name="Layers3" className="text-[14px]" aria-hidden />Vertical AI</span>
-            <span className="chip font-ui"><Icon name="Workflow" className="text-[14px]" aria-hidden />Operations</span>
-          </div>
-        </Reveal>
-      </div>
-    </div>
-  </section>
+  return (
+    <>
+      <main className="font-ui bg-page-wash">
+        {/* ── Hero ─────────────────────────────────────────────────────── */}
+        <section className="relative pt-28 sm:pt-36 pb-16 sm:pb-24 px-5 sm:px-8 overflow-hidden border-b border-[var(--line)]">
+          <div className="absolute inset-0 section-grid pointer-events-none" aria-hidden="true"></div>
+          <div className="absolute inset-x-0 top-0 h-[420px] section-glow pointer-events-none" aria-hidden="true"></div>
 
-  {/* ── Featured articles ────────────────────────────────────────── */}
-  <section className="py-section-padding px-5 sm:px-8 bg-background">
-    <div className="max-w-container-max mx-auto">
-      <Link className="reveal group block mb-12 no-underline bg-surface-container-lowest border border-outline-variant/30 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 md:flex" href="/blog-agentic-systems">
-        <div className="md:w-1/2 h-64 md:h-auto overflow-hidden relative flex-shrink-0">
-          <OptimizedImage src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1200" alt="Agentic Systems" width={1200} height={800} priority={true} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-primary/10"></div>
-        </div>
-        <div className="p-10 md:p-14 flex flex-col justify-center md:w-1/2">
-          <div className="flex items-center gap-3 mb-5">
-            <span className="bg-primary-fixed text-primary-container font-label-sm text-xs px-3 py-1 rounded-full uppercase tracking-widest flex items-center gap-1.5"><Icon name="Bot" className="text-xs" />{"Agentic Systems"}</span>
-            <span className="text-xs font-label-sm text-outline uppercase tracking-wider">{"Featured"}</span>
-          </div>
-          <h2 className="font-headline-md text-headline-md text-primary-container mb-4 leading-tight group-hover:text-secondary transition-colors duration-300">{"Agentic Systems: Architecting the Future of Enterprise Intelligence"}</h2>
-          <p className="font-body-md text-body-md text-on-surface-variant mb-6">{"The paradigm is shifting from programmed instructions to autonomous reasoning. Discover how businesses are deploying agentic workflows to scale capacity without adding overhead."}</p>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3 text-xs font-label-sm text-outline uppercase tracking-widest">
-              <span>{"Zorex AI Team"}</span>
-              <span className="w-1 h-1 bg-secondary rounded-full"></span>
-              <span>{"October 24, 2024"}</span>
-              <span className="w-1 h-1 bg-secondary rounded-full"></span>
-              <span>{"12 min read"}</span>
+          <div className="max-w-container-max mx-auto relative z-10 flex flex-col items-center text-center">
+            <Breadcrumbs route="blog" className="mb-8" />
+            <div className="flex flex-col items-center max-w-3xl">
+              <h1 className="display-type mb-6">
+                Notes on building AI systems <span className="opacity-60">that survive contact with operations.</span>
+              </h1>
+              <p className="body-ink max-w-2xl mb-6">
+                We publish when there is something specific worth saying, not on a schedule. What follows is how we
+                approach agentic systems, integration, and the operational problems that make a build worth doing.
+              </p>
+              {/* Chips are derived from the articles below, so every category
+                  shown here actually has a post behind it. */}
+              <ul className="flex flex-wrap items-center justify-center gap-2 list-none">
+                {categories.map((category) => (
+                  <li key={category} className="chip font-ui">
+                    <Icon name={CATEGORY_ICON[category] ?? 'FileText'} className="text-[14px]" aria-hidden />
+                    {category}
+                  </li>
+                ))}
+              </ul>
             </div>
-            <span className="inline-flex items-center gap-1 text-secondary font-label-sm text-xs uppercase tracking-wider group-hover:gap-2 transition-all">{"Read"}<Icon name="ArrowRight" className="text-sm" /></span>
           </div>
-        </div>
-      </Link>
+        </section>
 
-      <Link className="reveal group block no-underline bg-surface-container-lowest border border-outline-variant/30 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 md:flex" href="/blog-ai-commerce">
-        <div className="md:w-1/2 h-64 md:h-auto overflow-hidden relative flex-shrink-0">
-          <div className="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" style={{"backgroundImage": "url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=1200')"}}></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-primary/10"></div>
-        </div>
-        <div className="p-10 md:p-14 flex flex-col justify-center md:w-1/2">
-          <div className="flex items-center gap-3 mb-5">
-            <span className="bg-primary-fixed text-primary-container font-label-sm text-xs px-3 py-1 rounded-full uppercase tracking-widest flex items-center gap-1.5"><Icon name="Bot" className="text-xs" />{"AI Agentic Systems"}</span>
-          </div>
-          <h2 className="font-headline-md text-headline-md text-primary-container mb-4 leading-tight group-hover:text-secondary transition-colors duration-300">{"AI-Driven Commerce: Scaling Global Support and Operations"}</h2>
-          <p className="font-body-md text-body-md text-on-surface-variant mb-6">{"Explore how business-specific AI systems can improve customer support workflows by combining context, routing, and controlled execution."}</p>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3 text-xs font-label-sm text-outline uppercase tracking-widest">
-              <span>{"Zorex AI Team"}</span>
-              <span className="w-1 h-1 bg-secondary rounded-full"></span>
-              <span>{"February 10, 2025"}</span>
-              <span className="w-1 h-1 bg-secondary rounded-full"></span>
-              <span>{"10 min read"}</span>
+        {/* ─ Featured ─────────────────────────────────────────────────── */}
+        {featured && (
+          <section className="py-section-padding px-5 sm:px-8">
+            <div className="max-w-container-max mx-auto">
+              <Link
+                href={featured.href}
+                className="reveal card-lift group flex flex-col rounded-[26px] border border-[var(--line)] bg-panel p-8 no-underline md:p-12 lg:flex-row lg:items-center lg:gap-16"
+              >
+                <div className="lg:w-3/5">
+                  <div className="mb-5 flex flex-wrap items-center gap-3">
+                    <span className="chip">
+                      <Icon name={CATEGORY_ICON[featured.category] ?? 'FileText'} className="text-[14px]" aria-hidden />
+                      {featured.category}
+                    </span>
+                    <span className="font-ui text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-3">
+                      Most recent
+                    </span>
+                  </div>
+                  <h2 className="section-title mb-4 text-balance">{featured.title}</h2>
+                  <p className="lede mb-6 max-w-2xl">{featured.description}</p>
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[13px] text-ink-3">
+                    <span>Zorex AI</span>
+                    {formatDate(featured.publishedAt) && (
+                      <>
+                        <span aria-hidden="true">&middot;</span>
+                        <span>{formatDate(featured.publishedAt)}</span>
+                      </>
+                    )}
+                    {featured.readTime && (
+                      <>
+                        <span aria-hidden="true">&middot;</span>
+                        <span>{featured.readTime}</span>
+                      </>
+                    )}
+                  </div>
+                </div>
+                <div className="mt-8 shrink-0 lg:mt-0">
+                  <span className="inline-flex items-center gap-2 text-sm font-medium text-ink group-hover:gap-3 transition-all">
+                    Read the article
+                    <Icon name="ArrowRight" className="size-4" aria-hidden />
+                  </span>
+                </div>
+              </Link>
             </div>
-            <span className="inline-flex items-center gap-1 text-secondary font-label-sm text-xs uppercase tracking-wider group-hover:gap-2 transition-all">{"Read"}<Icon name="ArrowRight" className="text-sm" /></span>
-          </div>
-        </div>
-      </Link>
-    </div>
-  </section>
+          </section>
+        )}
 
-  {/* ── More articles ────────────────────────────────────────────── */}
-  <section className="py-12 px-5 sm:px-8 bg-surface-bright border-t border-outline-variant/20">
-    <div className="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-      <Link className="reveal group block no-underline bg-surface-container-lowest border border-outline-variant/30 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col" href="/blog-cognitive-infrastructure">
-        <div className="h-48 overflow-hidden relative flex-shrink-0">
-          <div className="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" style={{"backgroundImage": "url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200')"}}></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-        </div>
-        <div className="p-8 flex flex-col flex-grow">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="bg-primary-fixed text-primary-container font-label-sm text-[10px] px-2 py-1 rounded-full uppercase tracking-widest flex items-center gap-1.5"><Icon name="PlugZap" className="text-[10px]" />{"AI Integration"}</span>
-          </div>
-          <h3 className="font-headline-md text-xl text-primary-container mb-3 leading-tight group-hover:text-secondary transition-colors duration-300">{"Beyond RAG: Architecting True Cognitive Infrastructure"}</h3>
-          <p className="font-body-md text-sm text-on-surface-variant mb-6 flex-grow">{"Deep technical dive into vector databases, semantic routing, and how Zorex builds multi-agent systems that synthesize context dynamically."}</p>
-          <div className="flex items-center justify-between mt-auto">
-            <div className="flex items-center gap-2 text-[10px] font-label-sm text-outline uppercase tracking-widest"><span>{"November 05, 2024"}</span></div>
-            <span className="inline-flex items-center text-secondary font-label-sm text-[10px] uppercase tracking-wider group-hover:pr-1 transition-all">{"Read"}<Icon name="ArrowRight" className="text-xs ml-1" /></span>
-          </div>
-        </div>
-      </Link>
+        {/* ── More articles ────────────────────────────────────────────── */}
+        {rest.length > 0 && (
+          <section className="pb-section-padding px-5 sm:px-8">
+            <div className="max-w-container-max mx-auto">
+              <h2 className="eyebrow mb-8">More from the archive</h2>
+              <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-2">
+                {rest.map((article, index) => (
+                  <Link
+                    key={article.href}
+                    href={article.href}
+                    className={`reveal${index > 0 ? ` reveal-delay-${Math.min(index, 2)}` : ''} card-lift group flex flex-col rounded-[22px] border border-[var(--line)] bg-panel p-8 no-underline`}
+                  >
+                    <div className="mb-5 flex flex-wrap items-center gap-3">
+                      <span className="chip">
+                        <Icon name={CATEGORY_ICON[article.category] ?? 'FileText'} className="text-[14px]" aria-hidden />
+                        {article.category}
+                      </span>
+                    </div>
+                    <h3 className="mc-title mb-3 text-xl text-ink">{article.title}</h3>
+                    <p className="mc-body mb-6 flex-grow text-[13.5px]">{article.description}</p>
+                    <div className="mt-auto flex flex-wrap items-center justify-between gap-3 border-t border-[var(--line)] pt-5">
+                      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[12.5px] text-ink-3">
+                        {formatDate(article.publishedAt) && <span>{formatDate(article.publishedAt)}</span>}
+                        {article.readTime && (
+                          <>
+                            <span aria-hidden="true">&middot;</span>
+                            <span>{article.readTime}</span>
+                          </>
+                        )}
+                      </div>
+                      <span className="inline-flex items-center gap-2 text-[13px] font-medium text-ink group-hover:gap-3 transition-all">
+                        Read
+                        <Icon name="ArrowRight" className="size-4" aria-hidden />
+                      </span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
 
-      <Link className="reveal reveal-delay-1 group block no-underline bg-surface-container-lowest border border-outline-variant/30 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col" href="/blog-llm-security">
-        <div className="h-48 overflow-hidden relative flex-shrink-0">
-          <div className="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" style={{"backgroundImage": "url('https://images.unsplash.com/photo-1563206767-5b18f218e8de?auto=format&fit=crop&q=80&w=1200')"}}></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-        </div>
-        <div className="p-8 flex flex-col flex-grow">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="bg-error-container text-on-error-container font-label-sm text-[10px] px-2 py-1 rounded-full uppercase tracking-widest flex items-center gap-1.5"><Icon name="ShieldCheck" className="text-[10px]" />{"Security"}</span>
-          </div>
-          <h3 className="font-headline-md text-xl text-primary-container mb-3 leading-tight group-hover:text-secondary transition-colors duration-300">{"Zero-Trust AI: Securing Enterprise LLM Deployments"}</h3>
-          <p className="font-body-md text-sm text-on-surface-variant mb-6 flex-grow">{"Addressing the biggest enterprise objection: data privacy. Self-hosted models, VPC deployments, and deterministic guardrails."}</p>
-          <div className="flex items-center justify-between mt-auto">
-            <div className="flex items-center gap-2 text-[10px] font-label-sm text-outline uppercase tracking-widest"><span>{"December 12, 2024"}</span></div>
-            <span className="inline-flex items-center text-secondary font-label-sm text-[10px] uppercase tracking-wider group-hover:pr-1 transition-all">{"Read"}<Icon name="ArrowRight" className="text-xs ml-1" /></span>
-          </div>
-        </div>
-      </Link>
+              <p className="reveal mt-10 text-sm text-ink-3">
+                Looking for something specific that is not here?{' '}
+                <Link href="/contact" className="footer-link font-medium text-ink border-b border-[var(--line-strong)] hover:border-ink transition-colors">
+                  Ask us directly
+                </Link>{' '}
+                and we will point you at the closest thing we have — or write it.
+              </p>
+            </div>
+          </section>
+        )}
 
-      <Link className="reveal reveal-delay-2 group block no-underline bg-surface-container-lowest border border-outline-variant/30 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col" href="/blog-intelligent-process">
-        <div className="h-48 overflow-hidden relative flex-shrink-0">
-          <div className="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" style={{"backgroundImage": "url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200')"}}></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-        </div>
-        <div className="p-8 flex flex-col flex-grow">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="bg-primary-fixed text-on-primary-fixed font-label-sm text-[10px] px-2 py-1 rounded-full uppercase tracking-widest flex items-center gap-1.5"><Icon name="Workflow" className="text-[10px]" />{"Automation"}</span>
+        {/* ── Newsletter ───────────────────────────────────────────────── */}
+        <section className="py-section-padding px-5 sm:px-8 border-t border-[var(--line)]">
+          <div className="reveal max-w-2xl mx-auto text-center">
+            <Icon name="Mail" className="text-3xl text-ink-2 mb-6" aria-hidden />
+            <h2 className="section-title mb-4">One email a month, when there is something to say.</h2>
+            <p className="lede mx-auto mb-8">
+              The frameworks and technical breakdowns we use on live engagements. No drip sequence, no product
+              announcements, and nothing we have not actually built.
+            </p>
+            <SmartForm
+              id="newsletter-form"
+              subject="Newsletter Signup"
+              className="flex flex-col sm:flex-row items-center gap-3 max-w-md mx-auto"
+              submitLabel="Subscribe"
+              submitClassName="btn-ink w-full sm:w-auto"
+              successTitle="You're on the list."
+              successBody="One email a month at most, and only when there is something specific to share. Unsubscribe by replying to any of them."
+            >
+              <label htmlFor="newsletter-email" className="sr-only">Business email</label>
+              <input
+                id="newsletter-email"
+                className="flex-1 w-full px-5 h-12 rounded-[10px] border border-[var(--line-strong)] bg-panel text-ink placeholder:text-ink-3 focus:ring-2 focus:ring-ink/70 focus:border-transparent outline-none text-sm"
+                name="email"
+                placeholder="your@email.com"
+                autoComplete="email"
+                inputMode="email"
+                required={true}
+                type="email"
+              />
+            </SmartForm>
+            <p className="text-xs text-ink-3 mt-4">
+              Your address is used for this list only. See our <Link className="underline underline-offset-2" href="/privacy">privacy policy</Link>.
+            </p>
           </div>
-          <h3 className="font-headline-md text-xl text-primary-container mb-3 leading-tight group-hover:text-secondary transition-colors duration-300">{"The End of Static Workflows: Intelligent Process Automation"}</h3>
-          <p className="font-body-md text-sm text-on-surface-variant mb-6 flex-grow">{"How decision-layer AI replaces brittle logic trees, featuring the mathematics of error reduction and ROI horizons."}</p>
-          <div className="flex items-center justify-between mt-auto">
-            <div className="flex items-center gap-2 text-[10px] font-label-sm text-outline uppercase tracking-widest"><span>{"January 18, 2025"}</span></div>
-            <span className="inline-flex items-center text-secondary font-label-sm text-[10px] uppercase tracking-wider group-hover:pr-1 transition-all">{"Read"}<Icon name="ArrowRight" className="text-xs ml-1" /></span>
-          </div>
-        </div>
-      </Link>
-    </div>
-  </section>
+        </section>
 
-  {/* ── Newsletter ───────────────────────────────────────────────── */}
-  <section className="py-section-padding px-5 sm:px-8 bg-surface-container border-t border-outline-variant/20">
-    <div className="reveal max-w-2xl mx-auto text-center">
-      <Icon name="Mail" className="text-4xl text-secondary mb-6" />
-      <h2 className="font-headline-md text-headline-md text-primary-container mb-4">{"Get AI insights that actually move the needle"}</h2>
-      <p className="font-body-lg text-body-lg text-on-surface-variant mb-8">{"One email per month. Just the frameworks, case studies, and technical breakdowns we use with our own clients."}</p>
-      <SmartForm
-        id="newsletter-form"
-        subject="Newsletter Signup (Blog)"
-        className="flex flex-col sm:flex-row items-center gap-4 max-w-md mx-auto"
-        submitLabel="Subscribe"
-        submitClassName="btn-lift w-full sm:w-auto px-8 py-4 bg-primary-container text-on-primary rounded-full font-label-sm uppercase tracking-wider hover:bg-primary shadow-md whitespace-nowrap"
-        successTitle="You're subscribed."
-        successBody="One email a month, only the frameworks and breakdowns we actually use. Unsubscribe anytime."
-      >
-        <label htmlFor="newsletter-email" className="sr-only">Business email</label>
-        <input id="newsletter-email" className="flex-1 w-full px-5 py-4 rounded-full border border-outline-variant bg-surface-container-lowest focus:ring-2 focus:ring-primary focus:border-transparent outline-none text-sm" name="email" placeholder="your@email.com" autoComplete="email" inputMode="email" required={true} type="email" />
-      </SmartForm>
-      <p className="text-xs text-on-surface-variant mt-3">{"Practical systems and operations insights, delivered periodically. Unsubscribe anytime."}</p>
-    </div>
-  </section>
-
-  {/* ── Final CTA ────────────────────────────────────────────────── */}
-  <FinalCta heading={"Ready to automate your operations?"} body={"Schedule a strategy call to identify where an AI system could improve your most important business workflow."} />
-</main>
-  </>;
+        <FinalCta
+          heading="Ready to remove the work slowing growth?"
+          body="Bring one workflow that consumes your team's time. We will tell you whether a system is worth building for it."
+          secondaryLabel="See what we build"
+          secondaryHref="/services"
+        />
+      </main>
+    </>
+  );
 }

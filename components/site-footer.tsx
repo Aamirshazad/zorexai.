@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Icon } from '@/components/ui/icon';
 import { industries } from '@/content/industries';
+import { services } from '@/content/services';
 
 const footerColumns = [
   {
@@ -16,13 +17,15 @@ const footerColumns = [
     heading: 'Company',
     links: [
       { href: '/process', label: 'Process' },
+      { href: '/faq', label: 'FAQ' },
       { href: '/about', label: 'About' },
       { href: '/contact', label: 'Contact' },
     ],
   },
   {
-    heading: 'Legal',
+    heading: 'Reference',
     links: [
+      { href: '/security', label: 'Security & governance' },
       { href: '/privacy', label: 'Privacy Policy' },
       { href: '/terms', label: 'Terms of Service' },
     ],
@@ -36,7 +39,7 @@ export function SiteFooter() {
         <div>
           <Link href="/" className="text-2xl font-semibold tracking-tight text-ink transition-opacity hover:opacity-80">Zorex<span className="text-ink-3"> AI</span></Link>
           <p className="body-ink mt-4 max-w-xl">An AI software company. We design, build, deploy, and continuously improve AI systems for real business functions.</p>
-          <a className="group mt-5 inline-flex items-center gap-2 text-sm font-medium text-ink transition-colors hover:text-ink-2" href="mailto:hello@zorex.com">
+          <a className="footer-link group gap-2 text-sm font-medium text-ink transition-colors hover:text-ink-2" href="mailto:hello@zorex.com">
             <Icon name="Mail" className="size-4 transition-transform group-hover:-translate-y-0.5" aria-hidden />
             hello@zorex.com
           </a>
@@ -46,31 +49,53 @@ export function SiteFooter() {
             {footerColumns.map((column) => (
               <div key={column.heading}>
                 <h3 className="eyebrow mb-4">{column.heading}</h3>
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col">
                   {column.links.map((item) => (
-                    <Link key={item.href} href={item.href} className="text-sm text-ink-2 transition-colors duration-200 hover:text-ink">{item.label}</Link>
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="footer-link text-sm text-ink-2 transition-colors duration-200 hover:text-ink"
+                    >
+                      {item.label}
+                    </Link>
                   ))}
                 </div>
               </div>
             ))}
           </div>
-          {/* Every industry page, reachable six of nine were orphaned before
-              this column existed. */}
+
+          {/* Both deep catalogues, linked in full. Six of the nine industry pages
+              were unreachable from anywhere but the sitemap before these two
+              blocks existed. */}
+          <div className="mt-8">
+            <h3 className="eyebrow mb-4">What We Build</h3>
+            <ul className="grid grid-cols-1 gap-x-6 gap-y-1 sm:grid-cols-2">
+              {services.map((service) => (
+                <li key={service.href}>
+                  <Link href={service.href} className="footer-link text-[13px] text-ink-3 transition-colors duration-200 hover:text-ink">
+                    {service.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <div className="mt-8">
             <h3 className="eyebrow mb-4">Industries We Serve</h3>
-            <ul className="grid grid-cols-2 gap-x-6 gap-y-2 sm:grid-cols-3">
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-1 sm:grid-cols-3">
               {industries.map((industry) => (
                 <li key={industry.href}>
-                  <Link href={industry.href} className="text-[13px] text-ink-3 transition-colors duration-200 hover:text-ink">
+                  <Link href={industry.href} className="footer-link text-[13px] text-ink-3 transition-colors duration-200 hover:text-ink">
                     {industry.name}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
+
           <Link href="/contact" className="nav-cta mt-8">
             <Icon name="CalendarCheck2" className="size-4" aria-hidden />
-            Book a Call
+            Book a Strategy Call
           </Link>
         </div>
       </div>

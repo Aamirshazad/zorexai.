@@ -66,7 +66,7 @@ export function FourPhases({ showProcessLink = false }: { showProcessLink?: bool
             <h2 className="section-title">
               A clear path <span className="h-muted">from audit to ownership.</span>
             </h2>
-            <p className="lede mt-5">Every engagement moves down the same rail audit first, design around what the audit finds, build and test against real work, then hand you the keys.</p>
+            <p className="lede mt-5">Every engagement moves down the same rail: audit first, design around what the audit finds, build and test against real work, then hand you the keys.</p>
           </div>
         </div>
         <ol className="reveal reveal-delay-1 flex flex-col">
@@ -104,7 +104,7 @@ export function FourPhases({ showProcessLink = false }: { showProcessLink?: bool
         </ol>
         {showProcessLink && (
           <div className="reveal text-center mt-12">
-            <Link className="inline-flex items-center gap-2 text-sm font-medium text-ink border-b border-[var(--line-strong)] pb-0.5 hover:border-ink transition-colors group" href="/process">See Full Process<Icon name="ArrowRight" className="group-hover:translate-x-1 transition-transform size-4" aria-hidden /> </Link>
+            <Link className="footer-link gap-2 border-b border-[var(--line-strong)] pb-0.5 font-medium text-ink transition-colors hover:border-ink group" href="/process">See Full Process<Icon name="ArrowRight" className="group-hover:translate-x-1 transition-transform size-4" aria-hidden /> </Link>
           </div>
         )}
       </div>

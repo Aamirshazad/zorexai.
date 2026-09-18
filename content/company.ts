@@ -2,19 +2,21 @@
  * Single source of truth for company, team, and engagement facts.
  *
  * ─────────────────────────────────────────────────────────────────────────────
- * REPLACE BEFORE LAUNCH everything marked `PLACEHOLDER` below is written to
- * be accurate for a 10–13 person senior firm, but the specifics are not yet
- * confirmed. Update them here once and every page follows.
+ * HONESTY RULES FOR THIS FILE
  *
- *   1. `company.foundedYear`            confirm the real founding year
- *   2. `company.responseCommitment`     a promise the team must actually keep
- *   3. every `PLACEHOLDER` team member  real name, role, background line
- *   4. `teamComposition` counts         must add up to the real headcount
+ *   1. Nothing here may be invented. If a fact is not confirmed, it does not
+ *      ship — not as a placeholder, not as a "written to be plausible" value.
+ *   2. Security and compliance items are written as practices we follow, never
+ *      as certifications we hold.
+ *   3. Deliberately absent, because inventing them would be dishonest: client
+ *      names, client metrics, testimonials, award claims, and audit
+ *      attestations (SOC 2 / HIPAA / ISO).
  *
- * Deliberately NOT in this file, because inventing it would be dishonest:
- * client names, client metrics, testimonials, award claims, and audit
- * attestations (SOC 2 / HIPAA / ISO). Security items below are written as
- * practices we follow, never as certifications we hold.
+ * OUTSTANDING CONFIRMATIONS (update here, every page follows):
+ *   - `company.foundedYear`   confirm the real founding year
+ *   - `company.responseCommitment`  a promise the team can actually keep
+ *   - `teamComposition` counts  must add up to the real headcount
+ *   - `leadership`             add real named people as they are confirmed
  * ─────────────────────────────────────────────────────────────────────────────
  */
 
@@ -23,7 +25,16 @@ import type { IconName } from '@/components/ui/icon';
 export const company = {
   name: 'Zorex AI',
   legalName: 'Zorex AI',
-  /** PLACEHOLDER confirm. Used for "operating since" framing, not a claim of scale. */
+  /**
+   * One-sentence category + audience statement. This is the line every page's
+   * title tag, hero eyebrow, and AI-answer definition is derived from, so the
+   * site states what it is and who it serves in the same words everywhere.
+   */
+  positioning: 'Zorex AI is an AI software company for operations teams that have outgrown manual work.',
+  /** Long-form description, used for meta descriptions and schema. */
+  description:
+    'Zorex AI is an AI software company that designs, builds, deploys, and continuously improves AI-powered systems, agentic systems, and AI integrated with existing systems for real business functions.',
+  /** PLACEHOLDER — confirm. Used for "operating since" framing, not a claim of scale. */
   foundedYear: 2022,
   headcount: 12,
   headcountLabel: '12 people',
@@ -32,11 +43,16 @@ export const company = {
   coverage: 'Working hours overlap US Eastern and Central European time.',
   email: 'hello@zorex.com',
   linkedin: 'https://linkedin.com/company/zorex-ai',
-  calendly: 'https://calendly.com/amiralicomsats3/30min',
+  calendly: 'https://calendly.com/zorexai/30min',
   callLength: '30 minutes',
-  /** CTA chips everywhere must use THIS the homepage once said 45 while the
-      contact page said 30; buyers noticed. Any new duration copy reads this. */
-  /** PLACEHOLDER this is a commitment the team must keep. Remove if it cannot be. */
+  /**
+   * Adjectival form for sentences like "a 30-minute call". Kept separate from
+   * `callLength` because interpolating that value into a noun phrase produces
+   * "a 30 minutes call".
+   */
+  callLengthShort: '30-minute',
+  /** CTA chips everywhere must use `callLength`. Any new duration copy reads it. */
+  /** PLACEHOLDER — this is a commitment the team must keep. Remove if it cannot be. */
   responseCommitment: 'Every enquiry gets a reply within one business day.',
 } as const;
 
@@ -65,9 +81,16 @@ export type TeamMember = {
 };
 
 /**
- * Named leadership. These are the people a client actually deals with.
- * Aamir Shahzad is real and leads discovery calls; the other three are
- * PLACEHOLDER slots replace the name and background, keep the role shape.
+ * Named leadership — the people a client actually deals with.
+ *
+ * IMPORTANT: this array previously carried four entries, three of which were
+ * invented names written to "be plausible" for a firm of this size. They are
+ * removed. Fabricated people on an About page are the single fastest way to
+ * lose a technical buyer, and they were one import away from shipping.
+ *
+ * Add a person here only when the name, role, and background are real and they
+ * have agreed to be listed. Until then the About page renders `teamComposition`
+ * below, which describes the bench by discipline without inventing anyone.
  */
 export const leadership: TeamMember[] = [
   {
@@ -77,57 +100,35 @@ export const leadership: TeamMember[] = [
     background: 'Computer science background; a decade building integration-heavy software before moving full-time into applied AI.',
     icon: 'Compass',
   },
-  {
-    name: 'Hira Qureshi',
-    role: 'Head of AI Engineering',
-    focus: 'Model selection, evaluation harnesses, and the accuracy bar a system has to clear before it ships.',
-    background: 'Machine learning engineering; built retrieval and evaluation pipelines for production LLM systems.',
-    icon: 'Brain',
-    placeholder: true,
-  },
-  {
-    name: 'Daniel Okafor',
-    role: 'Head of Delivery',
-    focus: 'Scope, timelines, and the weekly rhythm the person who tells you early if something is slipping.',
-    background: 'Delivery management for enterprise software integrations across finance and logistics operations.',
-    icon: 'ClipboardCheck',
-    placeholder: true,
-  },
-  {
-    name: 'Sana Iqbal',
-    role: 'Head of Platform & Security',
-    focus: 'Deployment topology, access control, audit logging, and how your data is handled end to end.',
-    background: 'Platform and infrastructure engineering; cloud architecture and secure multi-tenant deployments.',
-    icon: 'ShieldCheck',
-    placeholder: true,
-  },
 ];
 
 /**
- * The rest of the team, by discipline. Counts below plus leadership must equal
- * `company.headcount`. PLACEHOLDER confirm the real split.
+ * The rest of the team, by discipline.
+ *
+ * There is deliberately no `count` field here. The previous version carried
+ * counts that did not add up to `company.headcount`, and publishing a headcount
+ * breakdown that fails basic arithmetic is the kind of detail a technical buyer
+ * notices. Until the real split is confirmed, the disciplines are described
+ * without inventing how many people sit in each one; the total headcount stays
+ * the single quantified claim.
  */
-export const teamComposition: { count: number; discipline: string; detail: string; icon: IconName }[] = [
+export const teamComposition: { discipline: string; detail: string; icon: IconName }[] = [
   {
-    count: 4,
     discipline: 'AI engineers',
     detail: 'Agent design, retrieval, evaluation, and the prompt-and-tool layer that makes behaviour predictable.',
     icon: 'Bot',
   },
   {
-    count: 2,
     discipline: 'Integration engineers',
-    detail: 'CRM, ERP, support desk, and data-warehouse work the connective tissue that decides whether a system is usable.',
+    detail: 'CRM, ERP, support desk, and data-warehouse work: the connective tissue that decides whether a system is usable.',
     icon: 'PlugZap',
   },
   {
-    count: 1,
     discipline: 'Data engineer',
     detail: 'Pipelines, schema work, and the data quality problems that surface once a system starts running for real.',
     icon: 'Database',
   },
   {
-    count: 1,
     discipline: 'Operations analyst',
     detail: 'Workflow mapping and success criteria, so what gets built matches how the work actually happens.',
     icon: 'Search',
@@ -180,7 +181,7 @@ export const whatHappensNext: { step: string; title: string; body: string }[] = 
   },
   {
     step: '02',
-    title: `A ${company.callLength} call with an engineer`,
+    title: `A ${company.callLengthShort} call with an engineer`,
     body: 'Not a sales qualification call. You describe the workflow; we ask about volumes, systems, and where the judgment calls happen.',
   },
   {

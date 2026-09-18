@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "check": "npm run lint && npm run typecheck && npm run build"
+    "copy": "node scripts/check-copy.cjs",
+    "check": "npm run copy && npm run lint && npm run typecheck && npm run build"
   },
   "dependencies": {
     "@swc/helpers": "^0.5.23",

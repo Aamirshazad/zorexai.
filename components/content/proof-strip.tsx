@@ -118,7 +118,7 @@ export function ProofStrip() {
 
         <div className="reveal reveal-delay-2 mt-10">
           <Link
-            className="inline-flex items-center gap-2 border-b border-[var(--line-strong)] pb-0.5 text-sm font-medium text-ink transition-colors hover:border-ink"
+            className="footer-link gap-2 border-b border-[var(--line-strong)] pb-0.5 text-sm font-medium text-ink transition-colors hover:border-ink"
             href="/case-studies"
           >
             Read the Write-ups

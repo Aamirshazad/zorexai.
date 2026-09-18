@@ -94,15 +94,22 @@
   },
   {
     "route": "contact",
-    "title": "Contact Zorex AI | Identify High-Value AI Opportunities",
-    "description": "Talk with Zorex AI about the workflows, bottlenecks, and business functions where a purpose-built AI system could create measurable operational value.",
+    "title": "Contact Zorex AI | Book a Strategy Call",
+    "description": "Bring the workflow, bottleneck, or operational problem. Zorex AI will tell you honestly whether an AI system is worth building, and what it would take.",
     "ogImage": "/og-default.jpg",
     "kind": "contact"
   },
   {
+    "route": "faq",
+    "title": "AI System FAQ | Zorex AI",
+    "description": "Answers to what Zorex AI builds, what an AI system costs, how long a build takes, what you own at the end, and how to start with a strategy call.",
+    "ogImage": "/og-default.jpg",
+    "kind": "faq"
+  },
+  {
     "route": "",
-    "title": "Zorex AI | AI Software Company for Business Functions",
-    "description": "Zorex AI is an AI software company that designs, builds, deploys, and continuously improves AI-powered systems, agentic systems, and AI integrated with existing systems for real business functions.",
+    "title": "Zorex AI | AI Systems for Operations Teams",
+    "description": "Zorex AI designs, builds, deploys, and continuously improves AI systems for operations teams that have outgrown manual work. Agentic systems, AI integration with existing tools, and industry-specific systems.",
     "ogImage": "/og-default.jpg",
     "kind": "home"
   },
@@ -238,6 +245,13 @@
     "description": "Explore Zorex AI services: AI agentic systems, AI integration with existing systems, and vertical AI systems designed, built, deployed, and continuously improved for real business functions.",
     "ogImage": "/og-default.jpg",
     "kind": "services"
+  },
+  {
+    "route": "security",
+    "title": "Security & Governance | Zorex AI",
+    "description": "How Zorex AI scopes system access, handles client data, controls agent permissions, validates before launch, and logs every action. Written as practices, not certifications.",
+    "ogImage": "/og-default.jpg",
+    "kind": "security"
   },
   {
     "route": "terms",

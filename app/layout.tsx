@@ -29,8 +29,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: 'Zorex AI | AI Software Company for Business Functions',
-  description: 'Zorex AI is an AI software company. We design, build, deploy, and continuously improve AI-powered systems, agentic systems, and AI integrated with existing systems for real business functions.',
+  title: 'Zorex AI | AI Systems for Operations Teams',
+  description:
+    'Zorex AI designs, builds, deploys, and continuously improves AI systems for operations teams that have outgrown manual work. Agentic systems, AI integration with existing tools, and industry-specific systems.',
   applicationName: 'Zorex AI',
   authors: [{ name: 'Zorex AI' }],
   publisher: 'Zorex AI',
@@ -47,14 +48,18 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     siteName: 'Zorex AI',
-    title: 'Zorex AI AI Software Company',
-    description: 'AI-powered systems, agentic systems, and AI integrated with your existing systems designed, built, deployed, and continuously improved for real business functions.',
+    // This previously read "Zorex AI AI Software Company": the brand name ends
+    // in "AI", so appending another "AI" produced a doubled word.
+    title: 'Zorex AI: AI Systems for Operations Teams',
+    description:
+      'AI systems, agentic systems, and AI integrated with your existing tools, designed, built, deployed, and continuously improved for real business functions.',
     images: [{ url: '/og-default.jpg', width: 1200, height: 630, alt: 'Zorex AI' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Zorex AI AI Software Company',
-    description: 'AI-powered systems, agentic systems, and AI integrated with your existing systems designed, built, deployed, and continuously improved for real business functions.',
+    title: 'Zorex AI: AI Systems for Operations Teams',
+    description:
+      'AI systems, agentic systems, and AI integrated with your existing tools, designed, built, deployed, and continuously improved for real business functions.',
     images: ['/og-default.jpg'],
   },
 };

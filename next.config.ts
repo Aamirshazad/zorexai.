@@ -20,9 +20,11 @@ const nextConfig: NextConfig = {
   },
   images: {
     formats: ['image/avif', 'image/webp'],
-    remotePatterns: [
-      { protocol: 'https', hostname: 'images.unsplash.com' },
-    ],
+    // No remotePatterns: the site no longer loads remote imagery. Everything is
+    // either local to /public, or drawn as inline SVG (see
+    // components/content/system-architecture.tsx). Stock photography is gone
+    // from the site because it was captioned as client dashboards and company
+    // photographs, which a technical buyer reads as a credibility signal.
   },
   async headers() {
     return [

@@ -55,7 +55,9 @@
   --color-ink: #141414;
   --color-ink-heading: #2a2a2c;
   --color-ink-2: #5b5b5b;
-  --color-ink-3: #6e6e6e;
+  /* Kept in step with --ink-3 in :root (see the note there): #686868 is the
+     value that clears WCAG AA on both the page wash and the sage tile. */
+  --color-ink-3: #686868;
   --color-page-wash: #f3f6f1;
   --color-panel: #ffffff;
   --color-panel-2: #eaeee8;
@@ -91,8 +93,12 @@
   --ink: #141414;
   --ink-heading: #2a2a2c;
   --ink-2: #5b5b5b;
-  /* #6e6e6e keeps the muted tone while passing WCAG AA (4.68:1) on the wash. */
-  --ink-3: #6e6e6e;
+  /* WCAG AA on EVERY surface, not just one. #6e6e6e reaches 4.68:1 on the page
+     wash (#f3f6f1) but only 4.24:1 on the sage tile (#e5ece5) used by .tile and
+     the bento sections — a real AA failure on every muted line sitting on sage.
+     #686868 clears 4.63:1 on sage and 5.11:1 on the wash, and stays lighter than
+     --ink-2 (#5b5b5b) so the three-step muted hierarchy still reads. */
+  --ink-3: #686868;
   --line: #00000014;
   --line-strong: #00000024;
   --line-tertiary: #0000003;
@@ -1050,21 +1056,11 @@ a.mc-card:focus-visible .mc-arrow {
   }
 }
 
-/* Shared typography tokens. */
-.text-headline-xl { font-size: 64px; line-height: 1.1; letter-spacing: -0.02em; font-weight: 800; }
-.text-headline-lg { font-size: 48px; line-height: 1.2; letter-spacing: -0.01em; font-weight: 700; }
-.text-headline-md { font-size: 32px; line-height: 1.3; font-weight: 700; }
-
-@media (max-width: 1024px) {
-  .text-headline-xl { font-size: 52px; }
-  .text-headline-lg { font-size: 40px; }
-}
-
-@media (max-width: 640px) {
-  .text-headline-xl { font-size: 40px; }
-  .text-headline-lg { font-size: 32px; }
-  .text-headline-md { font-size: 26px; }
-}
+/* The legacy Material typography classes (.text-headline-xl / -lg / -md) were
+   removed here. They were the last remaining piece of the second design system:
+   every page now uses .display-type, .section-title, or .mc-title, and these
+   classes existed only to give the retired pages a weight-700 heading scale
+   that no longer matches anything. Verified unused before removal. */
 
 /* Prevent oversized third-party or pasted content from overflowing. */
 main img, article img { max-width: 100%; height: auto; }
@@ -1081,4 +1077,190 @@ button, a { -webkit-tap-highlight-color: transparent; }
 /* Preserve focus visibility on high-contrast/forced-colors displays. */
 @media (forced-colors: active) {
   :focus-visible { outline: 2px solid Highlight; }
+}
+
+/* ------------------------------------------------------------------ */
+/* Primary navigation: dropdown groups                                  */
+/* ------------------------------------------------------------------ */
+/* The header previously exposed six flat links, which left 6 service and 9
+   industry pages reachable only from the footer. These panels put the whole
+   catalogue one hover/focus away without widening the bar. */
+
+.nav-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-menu-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-menu-caret {
+  transition: transform 0.22s ease;
+}
+
+.nav-menu[data-open='true'] .nav-menu-caret {
+  transform: rotate(180deg);
+}
+
+.nav-menu-panel {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  z-index: 60;
+  width: max-content;
+  max-width: min(660px, calc(100vw - 40px));
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(243, 246, 241, 0.95);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  backdrop-filter: blur(24px) saturate(160%);
+  box-shadow: 0 24px 60px -28px rgba(20, 20, 20, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%) translateY(-6px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.24s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0.2s;
+}
+
+.nav-menu[data-open='true'] .nav-menu-panel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.nav-menu-grid {
+  display: grid;
+  gap: 2px;
+  grid-template-columns: repeat(2, minmax(232px, 1fr));
+}
+
+.nav-menu-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-height: 54px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.nav-menu-item:hover,
+.nav-menu-item:focus-visible {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.nav-menu-item-label {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+}
+
+.nav-menu-item-desc {
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--ink-3);
+}
+
+.nav-menu-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 8px;
+  padding: 10px 12px 2px;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+.nav-menu-footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* ------------------------------------------------------------------ */
+/* Breadcrumbs                                                          */
+/* ------------------------------------------------------------------ */
+/* 25 pages sit under service / industry / case-study / insight parents and
+   none of them showed a trail. Breadcrumbs are also the visible counterpart of
+   the BreadcrumbList JSON-LD, so the structured data matches what a person sees. */
+
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  font-size: 12.5px;
+  color: var(--ink-3);
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.breadcrumbs li {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.breadcrumbs a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding-inline: 2px;
+  color: var(--ink-2);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumbs a:hover {
+  color: var(--ink);
+}
+
+.breadcrumbs [aria-current='page'] {
+  color: var(--ink-3);
+}
+
+.breadcrumbs-sep {
+  color: var(--ink-3);
+  opacity: 0.6;
+}
+
+/* ------------------------------------------------------------------ */
+/* Tap targets                                                          */
+/* ------------------------------------------------------------------ */
+/* WCAG 2.2 SC 2.5.8 (Target Size, Minimum) requires 24x24 CSS px. Inline text
+   links in the footer and the "see all" affordances measured 19-23px tall
+   because their hit area was the text box alone. This grows the hit area
+   without changing the visual line height. */
+
+.tap-target {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
 }

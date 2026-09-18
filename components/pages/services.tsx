@@ -1,16 +1,11 @@
 import Link from 'next/link';
 import { Icon, type IconName } from '@/components/ui/icon';
+import { Breadcrumbs } from '@/components/ui/breadcrumbs';
 import { FinalCta } from '@/components/content/final-cta';
 import { BusinessAIFAQ } from '@/components/content/business-ai-faq';
 import { SecurityPosture } from '@/components/content/security-posture';
+import { FourPhases } from '@/components/content/four-phases';
 import { services } from '@/content/services';
-
-const lifecycle = [
-  { icon: 'Layers3' as IconName, step: '01', title: 'Design & Build', copy: 'We map the workflow first, then design and build the system around the steps your team actually takes.' },
-  { icon: 'PlugZap' as IconName, step: '02', title: 'Integrate', copy: 'The system connects to the CRM, ERP, and tools you already run nothing to rip out, nothing to re-key.' },
-  { icon: 'Rocket' as IconName, step: '03', title: 'Deploy', copy: 'Validated alongside your team, then rolled out in stages with monitoring from day one.' },
-  { icon: 'RefreshCw' as IconName, step: '04', title: 'Improve', copy: 'After go-live, the system is tuned as your workflows, volumes, and models evolve.' },
-];
 
 const grains = ['grain-olive', 'grain-teal', 'grain-steel', 'grain-mineral', 'grain-sand', 'grain-charcoal'];
 
@@ -78,43 +73,26 @@ export default function PageContent() {
     <div className="absolute inset-0 section-grid pointer-events-none" aria-hidden="true"></div>
     <div className="absolute inset-x-0 top-0 h-[420px] section-glow pointer-events-none" aria-hidden="true"></div>
     <div className="max-w-container-max mx-auto relative z-10 flex flex-col items-center justify-center text-center pt-4 pb-12">
+      <Breadcrumbs route="services" className="justify-center mb-6" />
       <div className="flex flex-col items-center max-w-4xl">
         <h1 className="display-type mb-6">AI systems, engineered <span className="opacity-60">for the work you actually run.</span></h1>
-        <p className="reveal reveal-delay-2 body-ink max-w-2xl mb-12">We design, build, deploy, and continuously improve AI-powered systems around the workflows that consume your team&apos;s time. Six services, one operating model.</p>
+        <p className="reveal reveal-delay-2 body-ink max-w-2xl mb-12">Six services, one operating model. We map the workflow that consumes your team&apos;s time, then design, build, deploy, and keep improving the system that runs it.</p>
         <div className="reveal reveal-delay-3 flex flex-col sm:flex-row items-center justify-center gap-3">
-          <Link className="btn-ink w-full sm:w-auto" href="/contact">Book a Strategy Call<Icon name="ArrowRight" className="ml-1 size-4" aria-hidden /> </Link>
+          <Link className="btn-ink w-full sm:w-auto" href="/contact">Book a Strategy Call<Icon name="ArrowRight" className="ml-1 size-4" aria-hidden /></Link>
           <Link className="btn-ghost w-full sm:w-auto" href="/case-studies">See Our Work</Link>
         </div>
       </div>
     </div>
-    <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/4 w-[600px] h-[600px] bg-secondary-container/20 rounded-full blur-3xl -z-10"></div>
-    <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[800px] h-[800px] bg-primary-fixed/20 rounded-full blur-3xl -z-10"></div>
   </section>
 
-  {/* ── Delivery lifecycle ────────────────────────────────────────── */}
-  <section className="py-section-padding px-5 sm:px-8">
-    <div className="max-w-container-max mx-auto">
-      <div className="reveal max-w-[640px] mb-14">
-        <span className="eyebrow mb-4 block">The Delivery Lifecycle</span>
-        <h2 className="section-title mb-4">Four stages. <span className="h-muted">One continuous cycle.</span></h2>
-        <p className="lede mt-5">Every system we deliver moves through the same path and stays on it. Improvement feeds back into design for as long as the system runs.</p>
-      </div>
-      <div className="bfs-bento">
-        {lifecycle.map((item, i) => (
-          <div key={item.step} className={`reveal reveal-delay-${i === 0 ? 1 : i === 1 ? 2 : i === 2 ? 1 : 2} bfs-tile ${i < 2 ? 'bfs-tile-wide' : ''}`}>
-            <span className="bfs-icon"><Icon name={item.icon} size={18} /></span>
-            <h3 className="bfs-title">{item.step} {item.title}</h3>
-            <p className="bfs-body">{item.copy}</p>
-          </div>
-        ))}
-        <div className="reveal reveal-delay-1 bfs-tile">
-          <span className="bfs-icon"><Icon name="Repeat2" size={18} /></span>
-          <h3 className="bfs-title">The cycle starts again</h3>
-          <p className="bfs-body">Improve feeds back into Design &amp; Build the system keeps getting sharper as your workflows, volumes, and models evolve.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  {/* ── Delivery lifecycle: the shared FourPhases component ───────── */}
+  {/* This page previously rendered its own five-tile lifecycle reading
+      "Design & Build / Integrate / Deploy / Improve", while the homepage and
+      /process showed "Workflow Audit / System Design / Build & Test /
+      Deploy & Measure". Two different sequences, on a site whose central claim
+      is one proven path. The bespoke version is gone: this is now the single
+      source of the process model across every page. */}
+  <FourPhases showProcessLink />
 
   {/* ── All six services driven by content/services.ts ─────────── */}
   <section className="py-section-padding px-5 sm:px-8" id="core-services">
@@ -212,7 +190,6 @@ export default function PageContent() {
             return (
               <div key={plan.title} className="reveal reveal-delay-1 grain grain-charcoal grain-roomy flex flex-col text-center">
                 <div className="flex flex-col h-full">
-                  <span className="chip chip-grain absolute top-5 right-5">Most Popular</span>
                   <div className="size-12 rounded-full border border-[var(--grain-chip-bd)] bg-[var(--grain-chip)] flex items-center justify-center mx-auto mb-6"><Icon name={plan.icon} className="text-lg" aria-hidden /></div>
                   <h3 className="mc-title text-xl mb-1">{plan.title}</h3>
                   <p className="mc-body text-[13px] mb-4">{plan.sub}</p>
@@ -243,13 +220,53 @@ export default function PageContent() {
           );
         })}
       </div>
-      <p className="reveal text-center text-sm text-ink-2 mt-8">Every engagement is scoped to your exact needs after a discovery call. <Link className="text-ink font-medium border-b border-[var(--line-strong)] pb-0.5 hover:border-ink transition-colors" href="/contact">Book your free strategy call →</Link></p>
+      {/* Pricing mechanics.
+          The page listed durations and "scoped after discovery call" and nothing
+          else, which left the cost question unanswered at the exact point a
+          buyer is weighing it. These three lines answer it truthfully without
+          publishing a price list, because scope genuinely drives cost. */}
+      <div className="reveal mt-10 rounded-[22px] border border-[var(--line)] bg-panel p-8">
+        <h3 className="eyebrow mb-6">How Pricing Works</h3>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+          {[
+            {
+              icon: 'FileCheck2' as IconName,
+              title: 'Fixed price, not hourly',
+              body: 'Discovery produces a written scope with deliverables, sequence, and a price. Changes after that are quoted separately and are your call.',
+            },
+            {
+              icon: 'Gauge' as IconName,
+              title: 'No open meters',
+              body: 'You are not billed for our internal rework, and the system we build carries no per-seat or per-call charge.',
+            },
+            {
+              icon: 'RefreshCcwDot' as IconName,
+              title: 'Retainers are cancellable',
+              body: 'Ongoing optimization is a rolling monthly agreement. It is support for a working system, not a lock-in.',
+            },
+          ].map((item) => (
+            <div key={item.title} className="flex flex-col">
+              <span className="mb-3 flex size-9 items-center justify-center rounded-[10px] border border-[var(--line)] bg-[var(--panel-2)]">
+                <Icon name={item.icon} className="size-4 text-ink-2" aria-hidden />
+              </span>
+              <h4 className="mc-title mb-2 text-[15px] text-ink">{item.title}</h4>
+              <p className="mc-body text-[13px]">{item.body}</p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-8 border-t border-[var(--line)] pt-5 text-sm text-ink-2">
+          Every engagement is scoped to your exact needs after a discovery call.{' '}
+          <Link className="footer-link font-medium text-ink border-b border-[var(--line-strong)] hover:border-ink transition-colors" href="/contact">
+            Book a Strategy Call
+          </Link>
+        </p>
+      </div>
     </div>
   </section>
 
   {/* ── Security posture on the conversion path + Final CTA + FAQ ── */}
   <SecurityPosture />
-  <FinalCta variant="grain" heading={"Ready to remove the work slowing growth?"} body={"Tell us the bottleneck. We'll tell you which of the systems fits, what it takes to launch, and whether it's worth building."} />
+  <FinalCta variant="grain" heading={"Ready to remove the work slowing growth?"} body={"Tell us the bottleneck. We'll tell you which of the systems fits, what it takes to launch, and whether it's worth building."} secondaryLabel="Read what you are signing up for" secondaryHref="/process#commitments" />
   <BusinessAIFAQ />
 </main>
   </>;

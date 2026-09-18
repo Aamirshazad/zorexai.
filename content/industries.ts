@@ -29,7 +29,7 @@ export const industries: Industry[] = [
     name: 'B2B E-commerce',
     title: 'How AI Is Reshaping B2B E-commerce Operations',
     meta: 'Wholesale • Distribution • B2B Portals',
-    oneLine: 'Contract pricing, multi-stage approvals, and bulk-order cycles systems built for wholesale complexity, not consumer chatbots.',
+    oneLine: 'Contract pricing, multi-stage approvals, and bulk-order cycles. Built for wholesale complexity, not consumer chatbots.',
     icon: 'ShoppingCart',
   },
   {
@@ -37,7 +37,7 @@ export const industries: Industry[] = [
     name: 'B2B Finance',
     title: 'How AI Is Transforming B2B Finance Operations',
     meta: 'AP/AR • Compliance • Reconciliation',
-    oneLine: 'Autonomous processing, validation, and reconciliation of financial data your team keeps the judgment work.',
+    oneLine: 'Autonomous processing, validation, and reconciliation of financial data, so your team keeps the judgment work.',
     icon: 'Landmark',
   },
   {
@@ -45,7 +45,7 @@ export const industries: Industry[] = [
     name: 'B2B SaaS',
     title: 'Embedded AI Engineering for B2B SaaS',
     meta: 'Product Integration • Churn Prediction • Customer Success',
-    oneLine: 'Agentic features embedded deep in your product a moat, not a bolted-on API wrapper.',
+    oneLine: 'Agentic features embedded deep in your product, not a bolted-on API wrapper.',
     icon: 'Cloud',
   },
   {
@@ -53,7 +53,7 @@ export const industries: Industry[] = [
     name: 'Commercial Real Estate',
     title: 'How AI Is Accelerating Deal Velocity in Commercial Real Estate',
     meta: 'Brokerage • Underwriting • Asset Management',
-    oneLine: 'Lease abstraction, underwriting extraction, and off-market sourcing analysts analyzing instead of gathering.',
+    oneLine: 'Lease abstraction, underwriting extraction, and off-market sourcing, so analysts analyze instead of gather.',
     icon: 'Building2',
   },
   {
@@ -61,7 +61,7 @@ export const industries: Industry[] = [
     name: 'Digital Marketing',
     title: 'Programmatic AI for Digital Marketing Operations',
     meta: 'Agencies • In-House Teams • Media Buying',
-    oneLine: 'Programmatic content engines, cross-channel reporting, and predictive media analytics output without headcount.',
+    oneLine: 'Programmatic content engines, cross-channel reporting, and predictive media analytics, producing output without added headcount.',
     icon: 'Megaphone',
   },
   {
@@ -69,7 +69,7 @@ export const industries: Industry[] = [
     name: 'Law Firms',
     title: 'Enterprise AI Engineering for Law Firms',
     meta: 'Litigation • Corporate • Legal Tech',
-    oneLine: 'Private, secure AI inside your own infrastructure e-discovery and contract review without privilege concerns.',
+    oneLine: 'Private, secure AI inside your own infrastructure: e-discovery and contract review without privilege concerns.',
     icon: 'Gavel',
   },
   {
@@ -85,7 +85,7 @@ export const industries: Industry[] = [
     name: 'Manufacturing',
     title: 'Predictive AI for Modern Manufacturing',
     meta: 'Production • Quality Control • Maintenance',
-    oneLine: 'Vision-based defect detection and predictive maintenance downtime prevented, not repaired.',
+    oneLine: 'Vision-based defect detection and predictive maintenance, so downtime is prevented rather than repaired.',
     icon: 'Cog',
   },
   {
@@ -93,7 +93,7 @@ export const industries: Industry[] = [
     name: 'Medical Practices',
     title: 'How AI Is Reducing Administrative Burnout in Healthcare',
     meta: 'Clinical • Revenue Cycle • Patient Experience',
-    oneLine: 'Privacy-first documentation and revenue-cycle systems providers back to patient care.',
+    oneLine: 'Privacy-first documentation and revenue-cycle systems that give providers their time back for patient care.',
     icon: 'Stethoscope',
   },
 ];

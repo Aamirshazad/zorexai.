@@ -13,12 +13,20 @@ import type { ReactNode } from 'react';
 
 type Tone = 'surface' | 'bright' | 'container' | 'low' | 'dark' | 'none';
 
+/**
+ * Tone → ink-palette surface.
+ *
+ * These were Material-era names (bg-surface / bg-surface-container). They are
+ * now mapped onto the site's single ink/wash vocabulary so every page built on
+ * SectionShell inherits the same backdrop rhythm as the homepage, instead of
+ * running a second parallel palette. Keys are unchanged so no call site breaks.
+ */
 const toneClass: Record<Tone, string> = {
-  surface: 'bg-surface',
-  bright: 'bg-surface-bright',
-  container: 'bg-surface-container',
-  low: 'bg-surface-container-low',
-  dark: 'bg-primary-container text-on-primary',
+  surface: 'bg-page-wash',
+  bright: 'bg-panel',
+  container: 'bg-panel-2',
+  low: 'bg-page-wash',
+  dark: 'bg-ink text-white',
   none: '',
 };
 
@@ -40,24 +48,20 @@ export function SectionShell({
   return (
     <section
       id={id}
-      className={`py-section-padding px-5 sm:px-8 ${toneClass[tone]}${bordered ? ' border-t border-outline-variant/20' : ''} ${className}`}
+      className={`py-section-padding px-5 sm:px-8 ${toneClass[tone]}${bordered ? ' border-t border-[var(--line)]' : ''} ${className}`}
     >
       <div className={`max-w-container-max mx-auto ${innerClassName}`}>{children}</div>
     </section>
   );
 }
 
-/* The eyebrow is the DocketBar the site's signature device. The brand voice
-   is a filed record: labelled and ruled. A mono label, then a hairline that
-   runs out to the measure's edge, with the gold reserved for accents
-   (indexes, icons) rather than the label itself. */
+/* The eyebrow is the site's section label: an uppercase Instrument Sans line at
+   0.16em tracking. It previously referenced `.docket-bar` / `.docket-rule`,
+   which were never defined in globals.css — so the "DocketBar device" described
+   here rendered as an unstyled span on every page that used SectionHeading.
+   It now uses the same `.eyebrow` class as the rest of the site. */
 export function Eyebrow({ children, inverse = false }: { children: ReactNode; inverse?: boolean }) {
-  return (
-    <span className={`docket-bar mb-4${inverse ? ' docket-bar-inverse' : ''}`}>
-      <span>{children}</span>
-      <span className="docket-rule" aria-hidden="true" />
-    </span>
-  );
+  return <span className={`eyebrow mb-4 block${inverse ? ' !text-white/60' : ''}`}>{children}</span>;
 }
 
 export function SectionHeading({
@@ -78,8 +82,8 @@ export function SectionHeading({
   inverse?: boolean;
   className?: string;
 }) {
-  const titleClass = `font-headline-lg text-headline-lg ${inverse ? 'text-on-primary' : 'text-primary-container'} text-balance`;
-  const introClass = `font-body-lg text-body-lg ${inverse ? 'text-on-primary-container' : 'text-on-surface-variant'} leading-relaxed`;
+  const titleClass = `section-title ${inverse ? '!text-white' : ''} text-balance`;
+  const introClass = `lede ${inverse ? '!text-white/70' : ''}`;
 
   if (align === 'split') {
     return (

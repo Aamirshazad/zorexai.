@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { preload } from 'react-dom';
 import { Icon } from '@/components/ui/icon';
 import { Reveal, RevealGroup } from '@/components/ui/reveal';
 import { Marquee } from '@/components/ui/marquee';
@@ -10,6 +9,8 @@ import { FourPhases } from '@/components/content/four-phases';
 import { TrustBar } from '@/components/content/trust-bar';
 import { ProofStrip } from '@/components/content/proof-strip';
 import { SecurityPosture } from '@/components/content/security-posture';
+import { AlternativesTable } from '@/components/content/alternatives-table';
+import { SystemArchitecture } from '@/components/content/system-architecture';
 import { SmartForm } from '@/components/ui/smart-form';
 
 const marqueeItems = [
@@ -21,12 +22,42 @@ const marqueeItems = [
   'Decision Support',
 ];
 
+/**
+ * The site's point of view, stated once.
+ *
+ * These were previously three grain cards, directly beneath a three-card
+ * friction grid and directly above what became a three-card comparison. Three
+ * card grids in a row is the single most common shape on the page, so the
+ * principle set is now a definition list inside one panel: same content, a
+ * shape the reader has not just seen twice.
+ */
+const principles = [
+  {
+    number: '01',
+    title: 'Start with the work',
+    body: 'Not a model and not a tool. Start with the work that consumes people, creates delays, and caps how far the business can scale.',
+  },
+  {
+    number: '02',
+    title: 'Design the system around it',
+    body: 'Context, actions, tools, and controls coordinated so the business executes with less friction, rather than more software to manage.',
+  },
+  {
+    number: '03',
+    title: 'Aim for better execution',
+    body: 'The goal was never more AI. It is a business function that runs reliably without somebody chasing it every week.',
+  },
+];
+
 export default function PageContent() {
-  // Hero video gets first network priority — React hoists these preload
-  // tags into <head> ahead of every other resource the page requests,
-  // so the waves are in flight before anything else renders.
-  preload('/videos/hero-waves-mobile.mp4', { as: 'video' });
-  preload('/videos/hero-waves.mp4', { as: 'video' });
+  // The hero video is the LCP element on this page, so it keeps
+  // `preload="auto"` on the <video> element itself.
+  //
+  // An earlier version asked React to hoist rel="preload" hints for it with
+  // `{ as: 'video' }`. `video` is not a valid preload destination, so browsers
+  // discarded both tags and logged "unsupported `as` value" twice on every
+  // load — the hint never prioritised anything. Removed rather than left in
+  // place doing nothing.
   return <>
 <main className="font-ui bg-page-wash">
   {/* ── Hero ─────────────────────────────────────────────────────── */}
@@ -41,14 +72,22 @@ export default function PageContent() {
       <div className="flex flex-col items-center max-w-4xl mx-auto text-center">
         <Reveal delay={0.08}>
           <p className="mb-6 font-ui text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-3">
-            AI software company for growing operations teams
+            Agentic AI &middot; AI integration &middot; Vertical AI systems
           </p>
         </Reveal>
         <h1 className="display-type mb-6" id="hero-headline">
-          AI systems built around the way your business <span className="opacity-60">actually works.</span>
+          AI systems for operations teams <span className="opacity-60">that have outgrown manual work.</span>
         </h1>
         <Reveal delay={0.16}>
-          <p className="body-ink max-w-2xl mb-10" id="hero-description">Zorex AI designs, builds, deploys, and continuously improves AI-powered systems agentic systems and AI integrated with your existing tools so your team spends its time on the work that needs judgment.</p>
+          {/* Definition-first opening paragraph. Answer engines extract passages
+              of roughly 40-80 words that answer the query, so the first thing on
+              the page is a self-contained answer to "what does Zorex AI do". */}
+          <p className="body-ink max-w-2xl mb-10" id="hero-description">
+            Zorex AI designs, builds, deploys, and continuously improves AI systems that fit the way your business
+            already works. That means agentic systems that carry a whole workflow, AI integrated with the tools you
+            already run, and industry-specific systems. Your team keeps the judgment work; the repetition moves to
+            software.
+          </p>
         </Reveal>
         <Reveal delay={0.24}>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -79,7 +118,7 @@ export default function PageContent() {
     <div className="max-w-container-max mx-auto">
       <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
         <span className="eyebrow mb-4 block justify-center">The Operational Bottleneck</span>
-        <h2 className="section-title">Your people should be solving problems not carrying the same workload every day.</h2>
+        <h2 className="section-title">Your people should be solving problems, not carrying the same workload every day.</h2>
       </ScrollReveal>
       <RevealGroup className="grid grid-cols-1 md:grid-cols-3 gap-5" stagger={0.1}>
         <div className="grain grain-charcoal">
@@ -108,9 +147,9 @@ export default function PageContent() {
         <div className="max-w-2xl">
           <span className="eyebrow mb-4 block">What We Automate</span>
           <h2 className="section-title">We build systems around the work that matters most.</h2>
-          <p className="body-ink mt-4">We start with the workflow, the business outcome, and the constraints then design the system around your existing operation.</p>
+          <p className="body-ink mt-4">We start with the workflow, the business outcome, and the constraints. Then we design the system around your existing operation.</p>
         </div>
-        <Link className="inline-flex items-center gap-2 text-sm font-medium text-ink border-b border-[var(--line-strong)] pb-0.5 hover:border-ink transition-colors" href="/services">See All Services<Icon name="ArrowRight" className="size-4" aria-hidden /> </Link>
+        <Link className="footer-link gap-2 border-b border-[var(--line-strong)] pb-0.5 text-sm font-medium text-ink transition-colors hover:border-ink" href="/services">See All Services<Icon name="ArrowRight" className="size-4" aria-hidden /> </Link>
       </ScrollReveal>
       <RevealGroup className="grid grid-cols-1 md:grid-cols-12 gap-5 auto-rows-[minmax(280px,auto)]" stagger={0.1}>
         <Link className="grain grain-olive md:col-span-6 flex flex-col justify-between group no-underline" href="/service-llm-applications">
@@ -163,60 +202,72 @@ export default function PageContent() {
   {/* ── Evidence what changed on three real engagements ────────── */}
   <ProofStrip />
 
-  {/* ── How We Think About AI light grain trio ─────────────────── */}
+  {/* ── Point of view: one statement band, not three more cards ───── */}
   <section className="py-section-padding px-5 sm:px-8" id="company-positioning">
     <div className="max-w-container-max mx-auto">
-      <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-        <span className="eyebrow mb-4 block justify-center">How We Think About AI</span>
-        <h2 className="section-title">The business function comes first. The technology follows.</h2>
-      </ScrollReveal>
-      <RevealGroup className="grid grid-cols-1 md:grid-cols-3 gap-5" stagger={0.1}>
-        <div className="grain grain-mineral">
-          <span className="mc-label">Principle 01</span>
-          <h3 className="mc-title text-xl mb-3">Start with the work</h3>
-          <p className="mc-body">Not a model or a tool the work that consumes people, creates delays, and limits scale.</p>
+      <Reveal>
+        <div className="grain grain-charcoal grain-roomy">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
+            <div>
+              <span className="mc-label">How We Think About AI</span>
+              <p className="display-type mt-6" style={{ fontSize: 'clamp(26px, 3.2vw, 40px)' }}>
+                The business function comes first. <span className="opacity-60">The technology follows.</span>
+              </p>
+            </div>
+            <dl className="flex flex-col divide-y divide-white/15 border-t border-white/15 lg:border-t-0">
+              {principles.map((principle) => (
+                <div
+                  key={principle.number}
+                  className="grid gap-3 py-6 first:pt-0 last:pb-0 lg:grid-cols-[auto_1fr] lg:gap-8"
+                >
+                  <span className="font-ui text-[11px] font-semibold uppercase tracking-[0.16em] opacity-60">
+                    {principle.number}
+                  </span>
+                  <div>
+                    <dt className="mc-title mb-2 text-lg">{principle.title}</dt>
+                    <dd className="mc-body max-w-xl">{principle.body}</dd>
+                  </div>
+                </div>
+              ))}
+            </dl>
+          </div>
         </div>
-        <div className="grain grain-sand">
-          <span className="mc-label">Principle 02</span>
-          <h3 className="mc-title text-xl mb-3">Design the system around it</h3>
-          <p className="mc-body">Coordinating context, actions, tools, and controls so the business executes with less friction.</p>
-        </div>
-        <div className="grain grain-charcoal">
-          <span className="mc-label">Principle 03</span>
-          <h3 className="mc-title text-xl mb-3">Aim for better execution</h3>
-          <p className="mc-body">The goal is not more AI. The goal is better business execution.</p>
-        </div>
-      </RevealGroup>
+      </Reveal>
     </div>
   </section>
 
-  {/* ── Why Zorex AI white panels + hairlines ───────────────────── */}
-  <section className="py-section-padding px-5 sm:px-8 border-t border-[var(--line)]">
-    <div className="max-w-container-max mx-auto">
-      <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-        <span className="eyebrow mb-4 block justify-center">Why Zorex AI</span>
-        <h2 className="section-title">Why Companies Bring In Zorex</h2>
-        <p className="body-ink mt-4">Businesses can add headcount, stitch together tools, or build internally. We focus on the gap between those approaches.</p>
+  {/* ── What a delivered system looks like honest diagram, no stock ── */}
+  <section className="py-section-padding px-5 sm:px-8" id="what-you-get">
+    <div className="max-w-container-max mx-auto grid grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
+      <ScrollReveal>
+        <span className="eyebrow mb-4 block">What You Get</span>
+        <h2 className="section-title mb-4">Something running on Monday, not a recommendation deck.</h2>
+        <p className="lede mt-5 mb-8">
+          Every engagement ends with a system in production, wired into the tools that already hold the data. What we
+          hand over is the same shape every time, because the shape is what makes it maintainable.
+        </p>
+        <ul className="flex flex-col gap-4 border-t border-[var(--line)] pt-8 list-none">
+          {[
+            'The working system, deployed in your environment or ours.',
+            'Integrations into the CRM, ERP, or desk that already holds the records.',
+            'A review queue for the exceptions the system should not decide alone.',
+            'Code, prompts, and runbooks written so your team can maintain it.',
+          ].map((item) => (
+            <li key={item} className="flex items-start gap-3 text-[13.5px] leading-[1.55] text-ink">
+              <Icon name="CircleCheck" className="mt-0.5 size-4 shrink-0 text-ink-2" aria-hidden />
+              {item}
+            </li>
+          ))}
+        </ul>
       </ScrollReveal>
-      <RevealGroup className="grid grid-cols-1 md:grid-cols-3 gap-5" stagger={0.1}>
-        <div className="card-lift bg-panel border border-[var(--line)] rounded-[20px] p-8 flex flex-col">
-          <div className="flex items-center gap-3 mb-6"> <div className="size-10 border border-[var(--line-strong)] rounded-full flex items-center justify-center"> <Icon name="UserPlus" className="text-ink-2 text-sm" aria-hidden /> </div> <h3 className="mc-title text-lg">Add More Headcount</h3> </div>
-          <p className="mc-body mb-6">Every hire adds salary, ramp-up time, and management overhead and capacity only grows one person at a time.</p>
-          <div className="mt-auto border-t border-[var(--line)] pt-4"> <p className="text-[13.5px] leading-[1.55] text-ink flex items-start gap-2"><Icon name="ArrowRight" className="mt-0.5 shrink-0 size-4" aria-hidden />Zorex builds the system once, then scales it across workflows as you grow.</p> </div>
-        </div>
-        <div className="card-lift bg-panel border border-[var(--line)] rounded-[20px] p-8 flex flex-col">
-          <div className="flex items-center gap-3 mb-6"> <div className="size-10 border border-[var(--line-strong)] rounded-full flex items-center justify-center"> <Icon name="PanelsTopLeft" className="text-ink-2 text-sm" aria-hidden /> </div> <h3 className="mc-title text-lg">Stack More Software</h3> </div>
-          <p className="mc-body mb-6">Zapier and generic chatbots handle simple if-then rules not judgment, context, or your specific workflows.</p>
-          <div className="mt-auto border-t border-[var(--line)] pt-4"> <p className="text-[13.5px] leading-[1.55] text-ink flex items-start gap-2"><Icon name="ArrowRight" className="mt-0.5 shrink-0 size-4" aria-hidden />Zorex builds AI that handles context and judgment, not just fixed rules.</p> </div>
-        </div>
-        <div className="card-lift bg-panel border border-[var(--line)] rounded-[20px] p-8 flex flex-col">
-          <div className="flex items-center gap-3 mb-6"> <div className="size-10 border border-[var(--line-strong)] rounded-full flex items-center justify-center"> <Icon name="Bot" className="text-ink-2 text-sm" aria-hidden /> </div> <h3 className="mc-title text-lg">Hire a Generic AI Vendor</h3> </div>
-          <p className="mc-body mb-6">They build what you describe without understanding your operations deeply enough to know what to build.</p>
-          <div className="mt-auto border-t border-[var(--line)] pt-4"> <p className="text-[13.5px] leading-[1.55] text-ink flex items-start gap-2"><Icon name="ArrowRight" className="mt-0.5 shrink-0 size-4" aria-hidden />Zorex audits your operations first, then builds what you need.</p> </div>
-        </div>
-      </RevealGroup>
+      <SystemArchitecture />
     </div>
   </section>
+
+  {/* ── The four alternatives, as a comparison rather than three cards ── */}
+  <AlternativesTable
+    footnote="If none of these options is right for your workflow, the audit will tell you so. That answer costs you one call and saves you a project."
+  />
 
   {/* ── Lead magnet in-app submission, no off-site redirect ────── */}
   <section className="py-section-padding px-5 sm:px-8">
@@ -228,15 +279,18 @@ export default function PageContent() {
             <span className="opacity-80">Free Resource</span>
           </div>
           <h2 className="section-title text-white mb-6">Not Ready for a Strategy Call? Start With the Problem.</h2>
-          <p className="mc-body mb-10 max-w-xl mx-auto">Use our AI Readiness Scorecard to find where repetitive work, disconnected systems, or slow decisions are costing you the most.</p>
+          <p className="mc-body mb-10 max-w-xl mx-auto">Use the same readiness checklist we run in an audit to find where repetitive work, disconnected systems, or slow decisions are costing you the most.</p>
           <SmartForm
             id="lead-magnet-form"
-            subject="AI Readiness Scorecard Request"
+            subject="AI Readiness Checklist Request"
             className="flex flex-col sm:flex-row items-center gap-3 max-w-lg mx-auto"
-            submitLabel="Send Me the Scorecard"
+            submitLabel="Send Me the Checklist"
             submitClassName="btn-ink w-full sm:w-auto !bg-white !text-ink hover:!bg-white/90"
-            successTitle="Scorecard on its way."
-            successBody="Check your inbox in the next few minutes. If it helps, bring it to a strategy call it gives us a head start on your workflows."
+            successTitle="On its way."
+            /* The previous copy promised the asset "in the next few minutes",
+               which was never true: the form posts to Formspree and a person
+               sends the next reply. It now describes what actually happens. */
+            successBody="We send these ourselves, so expect it within one business day. If it raises a question, reply to that email and you will reach an engineer rather than a queue."
           >
             <label htmlFor="lead-magnet-email" className="sr-only">Business email</label>
             <input
@@ -245,7 +299,7 @@ export default function PageContent() {
               name="email" placeholder="your@email.com" autoComplete="email" inputMode="email" required={true} type="email"
             />
           </SmartForm>
-          <p className="mc-body opacity-60 text-xs mt-4">No spam. Unsubscribe anytime. We respect your inbox.</p>
+          <p className="mc-body opacity-60 text-xs mt-4">One email, sent by a person. No list, no sequence, unsubscribe by replying.</p>
         </div>
       </Reveal>
     </div>

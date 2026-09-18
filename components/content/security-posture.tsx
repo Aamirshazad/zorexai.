@@ -22,7 +22,7 @@ const posture: PostureItem[] = [
   {
     icon: 'Lock',
     title: 'Your data trains nothing',
-    body: 'Client data is never used to train external models. Deployment stays inside your boundary self-hosted, VPC, or air-gapped.',
+    body: 'Client data is never used to train external models. Deployment stays inside your boundary: self-hosted, VPC, or air-gapped.',
   },
   {
     icon: 'ShieldCheck',
@@ -41,37 +41,41 @@ const posture: PostureItem[] = [
   },
 ];
 
-export function SecurityPosture({ inverse = false }: { inverse?: boolean }) {
+export function SecurityPosture({ inverse = false, id = 'security' }: { inverse?: boolean; id?: string }) {
   return (
     <section
+      id={id}
       className={`px-5 pt-14 sm:px-8 ${inverse ? '' : 'border-t border-[var(--line)]'}`}
       aria-labelledby="security-posture-heading"
     >
       <div className="mx-auto max-w-container-max">
         <div className="reveal mb-8 max-w-[640px]">
-          <h2
-            id="security-posture-heading"
-            className={`eyebrow mb-3 block ${inverse ? '!text-white/60' : ''}`}
-          >
+          <span className={`eyebrow mb-3 block ${inverse ? '!text-white/60' : ''}`}>
             <Icon name="ShieldCheck" className="size-3.5" aria-hidden />
             Security &amp; governance posture
-          </h2>
-          <p className={`font-ui text-xl font-medium tracking-[-0.01em] text-balance ${inverse ? 'text-white' : 'text-ink-heading'}`}>
+          </span>
+          {/* This heading previously read "How this is engineered" and the link
+              below carried the identical label, so the same words appeared twice
+              in one block. The heading keeps it; the link now says where it goes. */}
+          <h2
+            id="security-posture-heading"
+            className={`font-ui text-xl font-medium tracking-[-0.01em] text-balance ${inverse ? 'text-white' : 'text-ink-heading'}`}
+          >
             How this is engineered
-          </p>
+          </h2>
         </div>
         <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {posture.map((item, i) => (
             <li
               key={item.title}
               className={`reveal ${i === 1 || i === 2 ? 'reveal-delay-1' : ''} flex flex-col rounded-[20px] p-6 ${
-                inverse ? 'glass-chip !rounded-[20px]' : 'border border-[var(--line)] bg-panel'
-              }`}
+ inverse ? 'glass-chip !rounded-[20px]' : 'border border-[var(--line)] bg-panel'
+ }`}
             >
               <div
                 className={`mb-4 flex size-10 shrink-0 items-center justify-center rounded-[12px] ${
-                  inverse ? 'border border-[var(--grain-chip-bd)] bg-[var(--grain-chip)]' : 'border border-[var(--line-strong)] bg-[var(--panel-2)]'
-                }`}
+ inverse ? 'border border-[var(--grain-chip-bd)] bg-[var(--grain-chip)]' : 'border border-[var(--line-strong)] bg-[var(--panel-2)]'
+ }`}
               >
                 <Icon name={item.icon} className={`size-[18px] ${inverse ? 'text-white' : 'text-ink'}`} aria-hidden />
               </div>
@@ -82,15 +86,15 @@ export function SecurityPosture({ inverse = false }: { inverse?: boolean }) {
         </ul>
         <div className="reveal reveal-delay-2 mt-8">
           <Link
-            href="/process#security"
-            className={`inline-flex items-center gap-2 font-ui text-xs font-semibold uppercase tracking-[0.14em] transition-colors ${
-              inverse
-                ? 'text-white/80 hover:text-white'
-                : 'text-ink-2 hover:text-ink'
-            }`}
+            href="/security"
+            className={`footer-link gap-2 border-b font-semibold uppercase tracking-[0.14em] font-ui text-xs transition-colors ${
+ inverse
+ ? 'border-white/30 text-white/80 hover:border-white hover:text-white'
+ : 'border-[var(--line-strong)] text-ink-2 hover:border-ink hover:text-ink'
+ }`}
           >
             <span className={`pb-0.5 border-b ${inverse ? 'border-white/30 hover:border-white' : 'border-[var(--line-strong)] hover:border-ink'}`}>
-              How this is engineered
+              Read the full security practices
             </span>
             <Icon name="ArrowRight" className="size-4" aria-hidden />
           </Link>

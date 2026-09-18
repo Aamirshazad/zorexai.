@@ -11,6 +11,7 @@ import CaseStudyEcommercePage from '@/components/pages/case-study-echocommerce';
 import CaseStudyNovusPage from '@/components/pages/case-study-novus';
 import CaseStudyViralGrowthPage from '@/components/pages/case-study-viralgrowth';
 import ContactPage from '@/components/pages/contact';
+import FaqPage from '@/components/pages/faq';
 import HomePage from '@/components/pages/home';
 import IndustriesPage from '@/components/pages/industries';
 import IndustryB2BEcommercePage from '@/components/pages/industry-b2b-ecommerce';
@@ -31,6 +32,7 @@ import ServiceAPIIntegrationsPage from '@/components/pages/service-api-integrati
 import ServiceLLMApplicationsPage from '@/components/pages/service-llm-applications';
 import ServiceVerticalAIPage from '@/components/pages/service-vertical-ai';
 import ServicesPage from '@/components/pages/services';
+import SecurityPage from '@/components/pages/security';
 import TermsPage from '@/components/pages/terms';
 
 export const pageComponents: Record<string, ComponentType> = {
@@ -47,6 +49,7 @@ export const pageComponents: Record<string, ComponentType> = {
   'case-study-novus': CaseStudyNovusPage,
   'case-study-viralgrowth': CaseStudyViralGrowthPage,
   contact: ContactPage,
+  faq: FaqPage,
   industries: IndustriesPage,
   'industry-b2b-ecommerce': IndustryB2BEcommercePage,
   'industry-b2b-finance': IndustryB2BFinancePage,
@@ -66,5 +69,6 @@ export const pageComponents: Record<string, ComponentType> = {
   'service-api-integrations': ServiceAPIIntegrationsPage,
   'service-llm-applications': ServiceLLMApplicationsPage,
   'service-vertical-ai': ServiceVerticalAIPage,
+  security: SecurityPage,
   terms: TermsPage,
 };
