@@ -8,7 +8,6 @@ import { ScrollReveal } from '@/components/ui/scroll-reveal';
 import { FourPhases } from '@/components/content/four-phases';
 import { TrustBar } from '@/components/content/trust-bar';
 import { ProofStrip } from '@/components/content/proof-strip';
-import { SecurityPosture } from '@/components/content/security-posture';
 import { AlternativesTable } from '@/components/content/alternatives-table';
 import { SystemArchitecture } from '@/components/content/system-architecture';
 import { SmartForm } from '@/components/ui/smart-form';
@@ -305,7 +304,7 @@ export default function PageContent() {
     </div>
   </section>
 
-  {/* ── Final CTA full-bleed grain-teal + security posture ─────── */}
+  {/* ── Final CTA full-bleed grain-teal ─────── */}
   <section className="cta-bleed grain grain-teal" id="book">
     <div className="max-w-4xl mx-auto text-center">
       <Reveal>
@@ -328,7 +327,6 @@ export default function PageContent() {
         </div>
       </Reveal>
     </div>
-    <SecurityPosture inverse />
   </section>
 </main>
   </>;
