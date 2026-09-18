@@ -6,7 +6,6 @@ import { Reveal, RevealGroup } from '@/components/ui/reveal';
 import { Marquee } from '@/components/ui/marquee';
 import { ScrollReveal } from '@/components/ui/scroll-reveal';
 import { FourPhases } from '@/components/content/four-phases';
-import { TrustBar } from '@/components/content/trust-bar';
 import { ProofStrip } from '@/components/content/proof-strip';
 import { AlternativesTable } from '@/components/content/alternatives-table';
 import { SystemArchitecture } from '@/components/content/system-architecture';
@@ -300,9 +299,6 @@ export default function PageContent() {
       </Reveal>
     </div>
   </section>
-
-  {/* ── How we operate: the practical facts, then the ask ────────── */}
-  <TrustBar />
 
   {/* ── Final CTA full-bleed grain-teal ─────── */}
   <section className="cta-bleed grain grain-teal" id="book">

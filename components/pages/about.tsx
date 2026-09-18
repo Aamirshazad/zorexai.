@@ -3,7 +3,7 @@ import { Icon, type IconName } from '@/components/ui/icon';
 import { Breadcrumbs } from '@/components/ui/breadcrumbs';
 import { OptimizedImage } from '@/components/ui/optimized-image';
 import { FinalCta } from '@/components/content/final-cta';
-import { company, leadership, teamComposition } from '@/content/company';
+import { company } from '@/content/company';
 
 /**
  * /about
@@ -44,9 +44,48 @@ const principles: { icon: IconName; title: string; body: string }[] = [
   },
 ];
 
-export default function PageContent() {
-  const founder = leadership[0];
+/**
+ * Areas of expertise, for the About page.
+ *
+ * Written as craft rather than as people: the page describes what the work
+ * involves without naming or counting anyone. Every line restates something the
+ * services pages already claim, so this section extends the page without making
+ * a claim the rest of the site does not carry.
+ */
+const areas: { icon: IconName; title: string; body: string }[] = [
+  {
+    icon: 'Bot',
+    title: 'Agentic systems',
+    body: 'Planning, tool use, and orchestration for multi-step work, with human review at the points that carry risk.',
+  },
+  {
+    icon: 'Database',
+    title: 'Retrieval and knowledge',
+    body: 'Grounding in your own records, so answers come from your content rather than from a generic model.',
+  },
+  {
+    icon: 'PlugZap',
+    title: 'Systems integration',
+    body: 'APIs, CRM and ERP connectivity, permissions, and data mapping against the tools you already run.',
+  },
+  {
+    icon: 'FileCheck2',
+    title: 'Evaluation and quality',
+    body: 'Test sets, regression checks, and a measurable accuracy bar agreed before anything reaches production.',
+  },
+  {
+    icon: 'ShieldCheck',
+    title: 'Governance and security',
+    body: 'Least-privilege access, audit trails, and deployment inside your boundary: self-hosted, VPC, or air-gapped.',
+  },
+  {
+    icon: 'Cog',
+    title: 'Reliability engineering',
+    body: 'Services, queues, schemas, and observability, so the intelligence stays usable in practice and not only in a demo.',
+  },
+];
 
+export default function PageContent() {
   return (
     <>
       <main className="font-ui bg-page-wash">
@@ -226,60 +265,33 @@ export default function PageContent() {
           </div>
         </section>
 
-        {/* ── The team ─────────────────────────────────────────────────── */}
-        <section className="py-section-padding px-5 sm:px-8 border-t border-[var(--line)]" id="team">
+        {/* ── Expertise ────────────────────────────────────────────────── */}
+        <section className="py-section-padding px-5 sm:px-8 border-t border-[var(--line)]" id="expertise">
           <div className="max-w-container-max mx-auto">
-            <div className="reveal mb-12 max-w-[640px] sm:mb-16">
-              <span className="eyebrow mb-4 block">The Team</span>
-              <h2 className="section-title mb-4">You work with the builders.</h2>
-              <p className="lede mt-5">{company.structure}</p>
+            <div className="reveal mb-12 max-w-[720px] sm:mb-16">
+              <span className="eyebrow mb-4 block">Expertise</span>
+              <h2 className="section-title mb-4">Depth in the parts of AI that decide whether it works.</h2>
+              <p className="lede mt-5">
+                The distance between an AI demo and an AI system is mostly not the model. It is the engineering around it:
+                what the system reads, what it is allowed to act on, how it is checked before launch, and what happens
+                when it is wrong. That surrounding work is the discipline.
+              </p>
             </div>
 
-            <div className="grid grid-cols-1 gap-5 lg:grid-cols-[1.1fr_1fr] lg:gap-6">
-              {/* Named leadership. Only people who are real and who agreed to be
-                  listed appear here, which is why there is no invented headshot
-                  next to an invented name. */}
-              {leadership.map((person) => (
-                <div key={person.name} className="reveal rounded-[22px] border border-[var(--line)] bg-panel p-8">
-                  <div className="flex items-start gap-5">
-                    <span className="flex size-14 shrink-0 items-center justify-center rounded-full bg-ink text-lg font-medium text-white">
-                      {person.name
-                        .split(' ')
-                        .slice(0, 2)
-                        .map((part) => part[0])
-                        .join('')}
-                    </span>
-                    <div>
-                      <h3 className="mc-title text-xl text-ink">{person.name}</h3>
-                      <p className="mb-3 font-ui text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-3">
-                        {person.role}
-                      </p>
-                      <p className="mc-body mb-3">{person.focus}</p>
-                      <p className="text-[13.5px] leading-[1.55] text-ink-3">{person.background}</p>
-                    </div>
-                  </div>
+            <dl className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {areas.map((area, index) => (
+                <div
+                  key={area.title}
+                  className={`reveal${index > 0 ? ` reveal-delay-${Math.min(index, 2)}` : ''} flex flex-col rounded-[20px] border border-[var(--line)] bg-panel p-7`}
+                >
+                  <span className="mb-5 flex size-10 items-center justify-center rounded-[12px] border border-[var(--line-strong)] bg-panel-2">
+                    <Icon name={area.icon} className="size-[18px] text-ink" aria-hidden />
+                  </span>
+                  <dt className="mc-title text-[17px] text-ink">{area.title}</dt>
+                  <dd className="mc-body mt-2">{area.body}</dd>
                 </div>
               ))}
-
-              <div className="reveal reveal-delay-1 rounded-[22px] border border-[var(--line)] bg-panel-2 p-8">
-                <h3 className="mc-title mb-4 text-lg text-ink">The rest of the bench</h3>
-                <dl className="flex flex-col divide-y divide-[var(--line)]">
-                  {teamComposition.map((group) => (
-                    <div key={group.discipline} className="py-4 first:pt-0 last:pb-0">
-                      <dt className="flex items-center gap-2 text-[15px] font-medium text-ink">
-                        <Icon name={group.icon} className="size-4 text-ink-2" aria-hidden />
-                        {group.discipline}
-                      </dt>
-                      <dd className="mc-body mt-1">{group.detail}</dd>
-                    </div>
-                  ))}
-                </dl>
-                <p className="mt-6 border-t border-[var(--line)] pt-4 text-[13px] leading-[1.55] text-ink-3">
-                  {company.headcount} people across these disciplines. The people who design your system are the people
-                  who build and support it, so there is no handoff to a delivery bench.
-                </p>
-              </div>
-            </div>
+            </dl>
           </div>
         </section>
 
