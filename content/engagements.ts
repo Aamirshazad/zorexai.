@@ -22,6 +22,12 @@ export type Engagement = {
   industry: string;
   /** Role and company type only never a name. */
   who: string;
+  /**
+   * Card thumbnail. Illustrative imagery only: the alt text has to say so,
+   * because a stock photograph captioned as a client's dashboard is exactly the
+   * claim this page exists to avoid making.
+   */
+  image?: { src: string; alt: string };
   problem: string;
   built: string;
   changed: string;
@@ -37,6 +43,10 @@ export const engagements: Engagement[] = [
     serviceIcon: 'PlugZap',
     industry: 'Logistics',
     who: 'Operations Director, mid-market logistics operator',
+    image: {
+      src: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1200',
+      alt: 'Illustrative image of a logistics operations environment',
+    },
     problem:
       'Four systems held the numbers, none agreed, and two analysts spent the first two days of every week reconciling them by hand. By the time the pack landed, the decisions it existed to support had already been made on instinct.',
     built:
@@ -56,6 +66,10 @@ export const engagements: Engagement[] = [
     serviceIcon: 'Bot',
     industry: 'B2B Commerce',
     who: 'Founder, B2B commerce platform',
+    image: {
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=1200',
+      alt: 'Illustrative image of a support operations environment',
+    },
     problem:
       'Most incoming tickets were answerable from the order record and the policy documents, but each one still queued behind a person. Hiring lagged volume by a quarter, and the complex cases waited behind the simple ones.',
     built:
@@ -75,6 +89,10 @@ export const engagements: Engagement[] = [
     serviceIcon: 'Layers3',
     industry: 'Healthcare',
     who: 'Practice Manager, specialist medical group',
+    image: {
+      src: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200',
+      alt: 'Illustrative image of a healthcare environment',
+    },
     problem:
       'Recalls, pre-appointment preparation, and post-visit follow-up were all manual, so they slipped whenever the front desk got busy, which was most days. The privacy constraints ruled out the obvious off-the-shelf tools.',
     built:

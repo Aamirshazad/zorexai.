@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Icon, type IconName } from '@/components/ui/icon';
 import { Breadcrumbs } from '@/components/ui/breadcrumbs';
+import { OptimizedImage } from '@/components/ui/optimized-image';
 import { FinalCta } from '@/components/content/final-cta';
 import { company, leadership, teamComposition } from '@/content/company';
 
@@ -93,25 +94,37 @@ export default function PageContent() {
               </p>
             </div>
 
-            {/* Operating facts, not stock photography. These four lines answer
-                the questions a buyer asks before they ask about anything else:
-                how big, how long, how structured, how reachable. */}
-            <div className="reveal reveal-delay-1">
-              <dl className="grid grid-cols-1 gap-5 rounded-[22px] border border-[var(--line)] bg-panel p-8 sm:grid-cols-2">
-                {[
-                  { icon: 'Users' as IconName, label: 'Team', value: company.headcountLabel },
-                  { icon: 'CalendarClock' as IconName, label: 'Operating since', value: String(company.foundedYear) },
-                  { icon: 'Handshake' as IconName, label: 'Delivery model', value: 'No subcontracting' },
-                  { icon: 'Globe2' as IconName, label: 'Coverage', value: company.coverage },
-                ].map((fact) => (
-                  <div key={fact.label} className="flex flex-col gap-1">
-                    <Icon name={fact.icon} className="mb-1.5 size-4 text-ink-3" aria-hidden />
-                    <dt className="text-[13px] font-medium text-ink-3">{fact.label}</dt>
-                    <dd className="text-[15px] font-medium leading-snug text-ink">{fact.value}</dd>
-                  </div>
-                ))}
-              </dl>
+            <div className="reveal reveal-delay-1 relative min-h-[300px] overflow-hidden rounded-[22px] border border-[var(--line)] sm:min-h-[380px]">
+              <OptimizedImage
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200"
+                alt="Zorex strategy session in a modern boardroom"
+                width={1200}
+                height={800}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
             </div>
+          </div>
+
+          {/* Operating facts: these four lines answer the questions a buyer asks
+              before they ask about anything else, how big, how long, how
+              structured, how reachable. They sit under the image rather than in
+              its place, so the section keeps both the photograph and the facts. */}
+          <div className="reveal reveal-delay-2 mx-auto mt-10 max-w-container-max">
+            <dl className="grid grid-cols-1 gap-5 rounded-[22px] border border-[var(--line)] bg-panel p-8 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                { icon: 'Users' as IconName, label: 'Team', value: company.headcountLabel },
+                { icon: 'CalendarClock' as IconName, label: 'Operating since', value: String(company.foundedYear) },
+                { icon: 'Handshake' as IconName, label: 'Delivery model', value: 'No subcontracting' },
+                { icon: 'Globe2' as IconName, label: 'Coverage', value: company.coverage },
+              ].map((fact) => (
+                <div key={fact.label} className="flex flex-col gap-1">
+                  <Icon name={fact.icon} className="mb-1.5 size-4 text-ink-3" aria-hidden />
+                  <dt className="text-[13px] font-medium text-ink-3">{fact.label}</dt>
+                  <dd className="text-[15px] font-medium leading-snug text-ink">{fact.value}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </section>
 
@@ -173,27 +186,43 @@ export default function PageContent() {
 
         {/* ── How we build ─────────────────────────────────────────────── */}
         <section className="py-section-padding px-5 sm:px-8 border-t border-[var(--line)]" id="how-we-build">
-          <div className="max-w-container-max mx-auto">
-            <div className="reveal mb-12 max-w-[640px] sm:mb-16">
-              <span className="eyebrow mb-4 block">How We Build</span>
-              <h2 className="section-title mb-4">Principles we do not bend.</h2>
+          <div className="max-w-container-max mx-auto grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16 lg:items-start">
+            {/* The build-team photograph sits beside the principles, as it did
+                before, so the section reads as a working practice rather than a
+                bare list of claims. */}
+            <div className="reveal order-2 relative min-h-[300px] overflow-hidden rounded-[22px] border border-[var(--line)] sm:min-h-[380px] lg:order-1 lg:min-h-[460px]">
+              <OptimizedImage
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200"
+                alt="Zorex build team collaborating on a system design"
+                width={1200}
+                height={800}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
             </div>
-            <dl className="grid grid-cols-1 gap-x-14 gap-y-8 sm:grid-cols-2">
-              {principles.map((item, index) => (
-                <div
-                  key={item.title}
-                  className={`reveal${index > 0 ? ` reveal-delay-${index}` : ''} flex items-start gap-4 border-b border-[var(--line)] pb-8 sm:last:border-b`}
-                >
-                  <span className="flex size-10 shrink-0 items-center justify-center rounded-full border border-[var(--line-strong)]">
-                    <Icon name={item.icon} className="text-sm text-ink" aria-hidden />
-                  </span>
-                  <div>
-                    <dt className="mc-title mb-2 text-[17px] text-ink">{item.title}</dt>
-                    <dd className="mc-body">{item.body}</dd>
+
+            <div className="order-1 lg:order-2">
+              <div className="reveal mb-10 max-w-[640px]">
+                <span className="eyebrow mb-4 block">How We Build</span>
+                <h2 className="section-title mb-4">Principles we do not bend.</h2>
+              </div>
+              <dl className="grid grid-cols-1 gap-y-8">
+                {principles.map((item, index) => (
+                  <div
+                    key={item.title}
+                    className={`reveal${index > 0 ? ` reveal-delay-${index}` : ''} flex items-start gap-4 border-b border-[var(--line)] pb-8 last:border-b-0 last:pb-0`}
+                  >
+                    <span className="flex size-10 shrink-0 items-center justify-center rounded-full border border-[var(--line-strong)]">
+                      <Icon name={item.icon} className="text-sm text-ink" aria-hidden />
+                    </span>
+                    <div>
+                      <dt className="mc-title mb-2 text-[17px] text-ink">{item.title}</dt>
+                      <dd className="mc-body">{item.body}</dd>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </dl>
+                ))}
+              </dl>
+            </div>
           </div>
         </section>
 

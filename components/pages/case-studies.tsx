@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Icon } from '@/components/ui/icon';
 import { Breadcrumbs } from '@/components/ui/breadcrumbs';
+import { OptimizedImage } from '@/components/ui/optimized-image';
 import { FinalCta } from '@/components/content/final-cta';
 import { engagements } from '@/content/engagements';
 
@@ -73,6 +74,19 @@ export default function PageContent() {
                 key={item.href}
                 className={`reveal${index > 0 ? ` reveal-delay-${Math.min(index, 3)}` : ''} rounded-[26px] border border-[var(--line)] bg-panel p-8 md:p-10`}
               >
+                {item.image && (
+                  <div className="group relative mb-8 h-56 overflow-hidden rounded-[18px] border border-[var(--line)] sm:h-72">
+                    <OptimizedImage
+                      src={item.image.src}
+                      alt={item.image.alt}
+                      width={1200}
+                      height={800}
+                      sizes="(max-width: 768px) 100vw, 900px"
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  </div>
+                )}
+
                 <div className="mb-6 flex flex-wrap items-center gap-3">
                   <span className="chip">
                     <Icon name={item.serviceIcon} className="text-[14px]" aria-hidden />

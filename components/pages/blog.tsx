@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Icon, type IconName } from '@/components/ui/icon';
 import { Breadcrumbs } from '@/components/ui/breadcrumbs';
+import { OptimizedImage } from '@/components/ui/optimized-image';
 import { FinalCta } from '@/components/content/final-cta';
 import { SmartForm } from '@/components/ui/smart-form';
 import { getPageKind, pages } from '@/lib/site-data';
@@ -20,9 +21,10 @@ import { getPageKind, pages } from '@/lib/site-data';
  *    in content/manifest.json, so the two could drift. Everything below is read
  *    from the manifest, which is already the metadata source of truth.
  *
- * There is no hero image and no per-card thumbnail. The posts have no real
- * artwork, and the previous version filled the gap with Unsplash photography
- * presented as article imagery. A typographic list is the honest option.
+ * Imagery comes from the ARTICLE_IMAGE map below, keyed by route. Each alt text
+ * names the subject ("Illustration of retrieval infrastructure") rather than
+ * asserting what it shows about a client, so the picture supports the article
+ * without making a claim the article does not make.
  */
 
 /** Category per article, and the read-time shown on the card. */
@@ -39,6 +41,36 @@ const CATEGORY_ICON: Record<string, IconName> = {
   'AI Integration': 'PlugZap',
   Automation: 'Workflow',
   Security: 'ShieldCheck',
+};
+
+/**
+ * Card and hero imagery, keyed by article.
+ *
+ * The alt text names the subject rather than a claim about it. An image on a
+ * client's dashboard would be a claim; an illustration of the workflow being
+ * written about is not.
+ */
+const ARTICLE_IMAGE: Record<string, { src: string; alt: string }> = {
+  'blog-agentic-systems': {
+    src: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1200',
+    alt: 'Illustration of an agentic systems architecture',
+  },
+  'blog-ai-commerce': {
+    src: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=1200',
+    alt: 'Illustration of a support operations desk',
+  },
+  'blog-cognitive-infrastructure': {
+    src: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200',
+    alt: 'Illustration of retrieval infrastructure',
+  },
+  'blog-intelligent-process': {
+    src: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200',
+    alt: 'Illustration of an automated process pipeline',
+  },
+  'blog-llm-security': {
+    src: 'https://images.unsplash.com/photo-1563206767-5b18f218e8de?auto=format&fit=crop&q=80&w=1200',
+    alt: 'Illustration of access control and audit logging',
+  },
 };
 
 const dateFormatter = new Intl.DateTimeFormat('en-US', {
@@ -58,6 +90,7 @@ const articles = pages
     publishedAt: page.publishedAt,
     category: ARTICLE_META[page.route]?.category ?? 'Insights',
     readTime: ARTICLE_META[page.route]?.readTime,
+    image: ARTICLE_IMAGE[page.route],
   }))
   // Newest first, so the list stays correct when a post is added.
   .sort((a, b) => (b.publishedAt ?? '').localeCompare(a.publishedAt ?? ''));
@@ -139,7 +172,19 @@ export default function PageContent() {
                     )}
                   </div>
                 </div>
-                <div className="mt-8 shrink-0 lg:mt-0">
+                <div className="mt-8 flex flex-col gap-6 lg:mt-0 lg:min-w-0 lg:flex-1">
+                  {featured.image && (
+                    <div className="relative h-52 overflow-hidden rounded-[18px] border border-[var(--line)] sm:h-64 lg:h-72">
+                      <OptimizedImage
+                        src={featured.image.src}
+                        alt={featured.image.alt}
+                        width={1200}
+                        height={800}
+                        sizes="(max-width: 1024px) 100vw, 40vw"
+                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                      />
+                    </div>
+                  )}
                   <span className="inline-flex items-center gap-2 text-sm font-medium text-ink group-hover:gap-3 transition-all">
                     Read the article
                     <Icon name="ArrowRight" className="size-4" aria-hidden />
@@ -160,30 +205,44 @@ export default function PageContent() {
                   <Link
                     key={article.href}
                     href={article.href}
-                    className={`reveal${index > 0 ? ` reveal-delay-${Math.min(index, 2)}` : ''} card-lift group flex flex-col rounded-[22px] border border-[var(--line)] bg-panel p-8 no-underline`}
+                    className={`reveal${index > 0 ? ` reveal-delay-${Math.min(index, 2)}` : ''} card-lift group flex flex-col overflow-hidden rounded-[22px] border border-[var(--line)] bg-panel no-underline`}
                   >
-                    <div className="mb-5 flex flex-wrap items-center gap-3">
-                      <span className="chip">
-                        <Icon name={CATEGORY_ICON[article.category] ?? 'FileText'} className="text-[14px]" aria-hidden />
-                        {article.category}
-                      </span>
-                    </div>
-                    <h3 className="mc-title mb-3 text-xl text-ink">{article.title}</h3>
-                    <p className="mc-body mb-6 flex-grow text-[13.5px]">{article.description}</p>
-                    <div className="mt-auto flex flex-wrap items-center justify-between gap-3 border-t border-[var(--line)] pt-5">
-                      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[12.5px] text-ink-3">
-                        {formatDate(article.publishedAt) && <span>{formatDate(article.publishedAt)}</span>}
-                        {article.readTime && (
-                          <>
-                            <span aria-hidden="true">&middot;</span>
-                            <span>{article.readTime}</span>
-                          </>
-                        )}
+                    {article.image && (
+                      <div className="relative h-44 overflow-hidden border-b border-[var(--line)] sm:h-52">
+                        <OptimizedImage
+                          src={article.image.src}
+                          alt={article.image.alt}
+                          width={1200}
+                          height={800}
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                        />
                       </div>
-                      <span className="inline-flex items-center gap-2 text-[13px] font-medium text-ink group-hover:gap-3 transition-all">
-                        Read
-                        <Icon name="ArrowRight" className="size-4" aria-hidden />
-                      </span>
+                    )}
+                    <div className="flex flex-1 flex-col p-8">
+                      <div className="mb-5 flex flex-wrap items-center gap-3">
+                        <span className="chip">
+                          <Icon name={CATEGORY_ICON[article.category] ?? 'FileText'} className="text-[14px]" aria-hidden />
+                          {article.category}
+                        </span>
+                      </div>
+                      <h3 className="mc-title mb-3 text-xl text-ink">{article.title}</h3>
+                      <p className="mc-body mb-6 flex-grow text-[13.5px]">{article.description}</p>
+                      <div className="mt-auto flex flex-wrap items-center justify-between gap-3 border-t border-[var(--line)] pt-5">
+                        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[12.5px] text-ink-3">
+                          {formatDate(article.publishedAt) && <span>{formatDate(article.publishedAt)}</span>}
+                          {article.readTime && (
+                            <>
+                              <span aria-hidden="true">&middot;</span>
+                              <span>{article.readTime}</span>
+                            </>
+                          )}
+                        </div>
+                        <span className="inline-flex items-center gap-2 text-[13px] font-medium text-ink group-hover:gap-3 transition-all">
+                          Read
+                          <Icon name="ArrowRight" className="size-4" aria-hidden />
+                        </span>
+                      </div>
                     </div>
                   </Link>
                 ))}

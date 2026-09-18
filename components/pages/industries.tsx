@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Icon } from '@/components/ui/icon';
 import { Breadcrumbs } from '@/components/ui/breadcrumbs';
+import { OptimizedImage } from '@/components/ui/optimized-image';
 import { FinalCta } from '@/components/content/final-cta';
 import { industries } from '@/content/industries';
 import { services } from '@/content/services';
@@ -20,7 +21,9 @@ import { services } from '@/content/services';
  *   by capability  the six services, from content/services.ts
  *
  * It also loses the Unsplash photograph that was captioned "Real-time
- * Intelligence Dashboard" while showing a stock image of a laptop.
+ * Intelligence Dashboard" while showing a stock image of a laptop. The
+ * photograph is still here, below the hero, but its alt text now describes what
+ * is actually in the frame instead of asserting it is a client's dashboard.
  */
 
 const grains = ['grain-olive', 'grain-mineral', 'grain-teal', 'grain-sand', 'grain-steel', 'grain-charcoal'];
@@ -75,6 +78,22 @@ export default function PageContent() {
                   Browse by sector
                 </Link>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Operations imagery ───────────────────────────────────────── */}
+        <section className="px-5 pt-12 sm:px-8 sm:pt-16">
+          <div className="reveal mx-auto max-w-container-max">
+            <div className="relative h-56 overflow-hidden rounded-[24px] border border-[var(--line)] sm:h-72 lg:h-80">
+              <OptimizedImage
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200"
+                alt="Analyst reviewing operational performance data"
+                width={1200}
+                height={800}
+                sizes="(max-width: 1280px) 100vw, 1280px"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
             </div>
           </div>
         </section>
