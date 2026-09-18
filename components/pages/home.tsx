@@ -98,9 +98,6 @@ export default function PageContent() {
     </div>
   </section>
 
-  {/* ── Trust bar verifiable facts, not client metrics ───────────── */}
-  <TrustBar />
-
   {/* ── Capability marquee ───────────────────────────────────────── */}
   <section className="py-6 px-5 sm:px-8 border-y border-[var(--line)] overflow-hidden">
     <Marquee className="max-w-container-max mx-auto" trackClassName="gap-10">
@@ -303,6 +300,9 @@ export default function PageContent() {
       </Reveal>
     </div>
   </section>
+
+  {/* ── How we operate: the practical facts, then the ask ────────── */}
+  <TrustBar />
 
   {/* ── Final CTA full-bleed grain-teal ─────── */}
   <section className="cta-bleed grain grain-teal" id="book">
