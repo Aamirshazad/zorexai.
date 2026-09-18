@@ -14,11 +14,10 @@ import { company } from '@/content/company';
  * card radius all changed the moment a visitor moved from the homepage to this
  * page and back again.
  *
- * The two Unsplash photographs are gone. They were captioned "Zorex strategy
- * session" and "Zorex build team", describing licensed stock as though it
- * depicted this company, which is the fastest way to lose a technical buyer. In
- * their place is a team section that names the people who actually lead the
- * work and describes the rest of the bench by discipline.
+ * The two Unsplash photographs were restored at the user's request and are kept,
+ * with alt text that describes the frame instead of asserting it shows this
+ * company. The page describes the craft rather than the people: no headcount,
+ * no named individuals, and no team roster.
  */
 
 const principles: { icon: IconName; title: string; body: string }[] = [
@@ -143,27 +142,6 @@ export default function PageContent() {
                 className="absolute inset-0 h-full w-full object-cover"
               />
             </div>
-          </div>
-
-          {/* Operating facts: these four lines answer the questions a buyer asks
-              before they ask about anything else, how big, how long, how
-              structured, how reachable. They sit under the image rather than in
-              its place, so the section keeps both the photograph and the facts. */}
-          <div className="reveal reveal-delay-2 mx-auto mt-10 max-w-container-max">
-            <dl className="grid grid-cols-1 gap-5 rounded-[22px] border border-[var(--line)] bg-panel p-8 sm:grid-cols-2 lg:grid-cols-4">
-              {[
-                { icon: 'Users' as IconName, label: 'Team', value: company.headcountLabel },
-                { icon: 'CalendarClock' as IconName, label: 'Operating since', value: String(company.foundedYear) },
-                { icon: 'Handshake' as IconName, label: 'Delivery model', value: 'No subcontracting' },
-                { icon: 'Globe2' as IconName, label: 'Coverage', value: company.coverage },
-              ].map((fact) => (
-                <div key={fact.label} className="flex flex-col gap-1">
-                  <Icon name={fact.icon} className="mb-1.5 size-4 text-ink-3" aria-hidden />
-                  <dt className="text-[13px] font-medium text-ink-3">{fact.label}</dt>
-                  <dd className="text-[15px] font-medium leading-snug text-ink">{fact.value}</dd>
-                </div>
-              ))}
-            </dl>
           </div>
         </section>
 
