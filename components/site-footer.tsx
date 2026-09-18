@@ -1,7 +1,5 @@
 import Link from 'next/link';
 import { Icon } from '@/components/ui/icon';
-import { industries } from '@/content/industries';
-import { services } from '@/content/services';
 
 const footerColumns = [
   {
@@ -62,35 +60,6 @@ export function SiteFooter() {
                 </div>
               </div>
             ))}
-          </div>
-
-          {/* Both deep catalogues, linked in full. Six of the nine industry pages
-              were unreachable from anywhere but the sitemap before these two
-              blocks existed. */}
-          <div className="mt-8">
-            <h3 className="eyebrow mb-4">What We Build</h3>
-            <ul className="grid grid-cols-1 gap-x-6 gap-y-1 sm:grid-cols-2">
-              {services.map((service) => (
-                <li key={service.href}>
-                  <Link href={service.href} className="footer-link text-[13px] text-ink-3 transition-colors duration-200 hover:text-ink">
-                    {service.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="mt-8">
-            <h3 className="eyebrow mb-4">Industries We Serve</h3>
-            <ul className="grid grid-cols-2 gap-x-6 gap-y-1 sm:grid-cols-3">
-              {industries.map((industry) => (
-                <li key={industry.href}>
-                  <Link href={industry.href} className="footer-link text-[13px] text-ink-3 transition-colors duration-200 hover:text-ink">
-                    {industry.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </div>
 
           <Link href="/contact" className="nav-cta mt-8">
