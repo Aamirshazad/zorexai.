@@ -62,7 +62,7 @@ const organization = {
       availableLanguage: ['en'],
     },
   ],
-  sameAs: [company.linkedin, 'https://www.linkedin.com/company/zorex-ai'],
+  sameAs: [company.linkedin],
   // What the organisation sells, as offers. Sourced from content/services.ts.
   makesOffer: serviceOffer,
 };

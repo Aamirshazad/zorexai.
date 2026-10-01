@@ -42,7 +42,7 @@ export const company = {
   structure: 'Remote-first, senior-only. No junior bench, no subcontracted delivery.',
   coverage: 'Working hours overlap US Eastern and Central European time.',
   email: 'aamirshazad0099@gmail.com',
-  linkedin: 'https://linkedin.com/company/zorex-ai',
+  linkedin: 'https://www.linkedin.com/company/zorexai/',
   calendly: 'https://calendly.com/aamirshazad0099/30min',
   callLength: '30 minutes',
   /**
