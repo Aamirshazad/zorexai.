@@ -119,9 +119,9 @@ export const teamComposition: { discipline: string; detail: string; icon: IconNa
     icon: 'Bot',
   },
   {
-    discipline: 'Integration engineers',
-    detail: 'CRM, ERP, support desk, and data-warehouse work: the connective tissue that decides whether a system is usable.',
-    icon: 'PlugZap',
+    discipline: 'Forward-deployed engineers',
+    detail: 'Embedding directly with your team to integrate AI systems into your codebase, tools, and live operational workflows.',
+    icon: 'Handshake',
   },
   {
     discipline: 'Data engineer',

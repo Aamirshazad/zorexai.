@@ -12,46 +12,46 @@ const phases: Array<{
 }> = [
   {
     number: '1',
-    icon: 'Search',
-    title: 'Workflow Audit',
-    copy: 'We map your workflows and pinpoint where AI can add the most value and where it can\'t. Mutual NDAs come first.',
+    icon: 'ShieldCheck',
+    title: 'Zero-Trust & Data Security',
+    copy: 'Client data is never used to train external models. Systems deploy within private VPC boundaries with strict role-based access control, cryptographic isolation, and enterprise compliance.',
     tags: [
-      { icon: 'ChartNoAxesCombined', label: 'Process mapping' },
-      { icon: 'Lock', label: 'NDA first' },
-      { icon: 'Database', label: 'Data readiness' },
+      { icon: 'ShieldCheck', label: 'VPC boundary' },
+      { icon: 'Lock', label: 'Zero public training' },
+      { icon: 'Database', label: 'Role-based access' },
     ],
   },
   {
     number: '2',
-    icon: 'Compass',
-    title: 'System Design',
-    copy: 'A secure, scalable blueprint tailored to your stack: model selection, integrations, and protection of your proprietary knowledge.',
+    icon: 'Boxes',
+    title: 'Deterministic Guardrails',
+    copy: 'Zero hallucinations or unchecked agent actions. We enforce structured JSON schemas, programmatic validation rules, and automatic fallback pipelines before any output executes.',
     tags: [
-      { icon: 'Boxes', label: 'System blueprint' },
-      { icon: 'ShieldCheck', label: 'Security architecture' },
-      { icon: 'Network', label: 'Tool integration' },
+      { icon: 'Boxes', label: 'Structured schemas' },
+      { icon: 'FolderCheck', label: 'Deterministic rules' },
+      { icon: 'Bug', label: 'Fallback pipelines' },
     ],
   },
   {
     number: '3',
-    icon: 'Cog',
-    title: 'Build & Test',
-    copy: 'The architecture becomes robust code: resilient pipelines, programmatic guardrails, and aggressive testing before anything goes live.',
+    icon: 'Network',
+    title: 'Native System Integration',
+    copy: 'Direct bidirectional connectors into your core tools - CRM, ERP, messaging, and internal databases. Intelligence flows where your work already happens, with no rip-and-replace.',
     tags: [
-      { icon: 'Cpu', label: 'Implementation' },
-      { icon: 'FolderCheck', label: 'Guardrails' },
-      { icon: 'Bug', label: 'Stress testing' },
+      { icon: 'Network', label: 'CRM & ERP hooks' },
+      { icon: 'Database', label: 'Live data flow' },
+      { icon: 'Handshake', label: 'No rip-and-replace' },
     ],
   },
   {
     number: '4',
-    icon: 'Rocket',
-    title: 'Deploy & Measure',
-    copy: 'A phased rollout with clear documentation and a clean handoff. Your team is trained, and you fully own the system.',
+    icon: 'Users',
+    title: 'Human-in-the-Loop Governance',
+    copy: 'Autonomous speed for routine tasks with explicit human checkpoints for sensitive actions, financial transactions, and edge cases, backed by full tamper-proof audit trails.',
     tags: [
-      { icon: 'FileCheck2', label: 'Supervised launch' },
-      { icon: 'BookOpen', label: 'Documentation' },
-      { icon: 'TrendingUp', label: 'Clean handoff' },
+      { icon: 'FileCheck2', label: 'Human approval' },
+      { icon: 'TrendingUp', label: 'Audit logging' },
+      { icon: 'BookOpen', label: 'Complete oversight' },
     ],
   },
 ];
@@ -66,7 +66,7 @@ export function FourPhases({ showProcessLink = false }: { showProcessLink?: bool
             <h2 className="section-title">
               A clear path <span className="h-muted">from audit to ownership.</span>
             </h2>
-            <p className="lede mt-5">Every engagement moves down the same rail: audit first, design around what the audit finds, build and test against real work, then hand you the keys.</p>
+            <p className="lede mt-5">Every deployment is built on four core production principles: zero-trust security, deterministic guardrails, native software integration, and human-in-the-loop governance.</p>
           </div>
         </div>
         <ol className="reveal reveal-delay-1 flex flex-col">

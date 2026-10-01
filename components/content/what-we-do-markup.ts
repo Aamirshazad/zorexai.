@@ -102,23 +102,23 @@ export const whatWeDoMarkup = `
       <div class="phases">
         <div class="phase">
           <div class="phase-no">01</div>
-          <h3>Agentic AI Systems</h3>
-          <p>Autonomous AI agents that handle repeatable workflows end-to-end - from intake to decision to action - with human oversight where it matters.</p>
+          <h3>Workflow Audit</h3>
+          <p>We analyze your operational processes to isolate high-leverage bottlenecks. We define concrete outcomes, data readiness, and security boundaries under mutual NDA before writing a line of code.</p>
         </div>
         <div class="phase">
           <div class="phase-no">02</div>
-          <h3>AI Integration</h3>
-          <p>Connect AI into your existing CRM, ERP, and operational tools so intelligence flows where the work already happens - no rip-and-replace.</p>
+          <h3>System Design</h3>
+          <p>We design the complete system architecture around your stack: workflow logic, model selection, data flow security, and zero-trust integrations connecting directly into your CRM, ERP, and operational tools.</p>
         </div>
         <div class="phase">
           <div class="phase-no">03</div>
-          <h3>Vertical AI Systems</h3>
-          <p>Purpose-built AI systems designed for your industry's specific workflows, compliance requirements, and domain knowledge.</p>
+          <h3>Agent Engineering</h3>
+          <p>We build custom autonomous agents and cognitive pipelines with programmatic guardrails, fallback routines, and human oversight on critical decisions - rigorously tested on real data.</p>
         </div>
         <div class="phase">
           <div class="phase-no">04</div>
-          <h3>Forward-Deployed Engineering</h3>
-          <p>Our engineers embed with your team to ship AI systems faster - working inside your codebase, your processes, your timeline.</p>
+          <h3>Production Deployment</h3>
+          <p>A phased, supervised rollout into your live operations with full documentation, thorough team handoff, and ongoing monitoring to ensure systems run reliably from day one.</p>
         </div>
       </div>
         <a class="btn" style="margin-top:28px;" href="/services">Explore our services</a>

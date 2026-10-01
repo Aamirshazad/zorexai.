@@ -3,21 +3,14 @@ import { Icon, type IconName } from '@/components/ui/icon';
 import { Breadcrumbs } from '@/components/ui/breadcrumbs';
 import { OptimizedImage } from '@/components/ui/optimized-image';
 import { FinalCta } from '@/components/content/final-cta';
-import { company } from '@/content/company';
+import { company, teamComposition } from '@/content/company';
 
 /**
  * /about
  *
- * Rebuilt on the site's single ink/wash token vocabulary. The previous version
- * ran on the retired Material palette (font-ui, bg-panel-2,
- * text-ink-2), which meant the heading weight, heading colour, and
- * card radius all changed the moment a visitor moved from the homepage to this
- * page and back again.
- *
- * The two Unsplash photographs were restored at the user's request and are kept,
- * with alt text that describes the frame instead of asserting it shows this
- * company. The page describes the craft rather than the people: no headcount,
- * no named individuals, and no team roster.
+ * Built on the site's single ink/wash token vocabulary.
+ * Presents the company's operating model, the multidisciplinary senior
+ * engineering bench, and our client commitments.
  */
 
 const principles: { icon: IconName; title: string; body: string }[] = [
@@ -44,43 +37,61 @@ const principles: { icon: IconName; title: string; body: string }[] = [
 ];
 
 /**
- * Areas of expertise, for the About page.
- *
- * Written as craft rather than as people: the page describes what the work
- * involves without naming or counting anyone. Every line restates something the
- * services pages already claim, so this section extends the page without making
- * a claim the rest of the site does not carry.
+ * The three core operating pillars of Zorex AI.
  */
-const areas: { icon: IconName; title: string; body: string }[] = [
+const corePillars: { number: string; icon: IconName; title: string; subtitle: string; body: string; href: string; cta: string }[] = [
   {
+    number: '01',
+    icon: 'Compass',
+    title: 'AI Strategy & Roadmapping',
+    subtitle: 'From scattered experiments to an adopted roadmap',
+    body: 'We audit workflows alongside your people using our CLIMB method. Pinpoint high-impact bottlenecks, evaluate real ROI, and define an actionable implementation roadmap.',
+    href: '/contact#book',
+    cta: 'Discuss an assessment',
+  },
+  {
+    number: '02',
     icon: 'Bot',
-    title: 'Agentic systems',
-    body: 'Planning, tool use, and orchestration for multi-step work, with human review at the points that carry risk.',
+    title: 'Production Systems & Integration',
+    subtitle: 'Custom agentic software built for your stack',
+    body: 'We build autonomous agentic workflows and direct CRM/ERP connectors with deterministic guardrails. Working systems engineered for your real operational volume.',
+    href: '/services',
+    cta: 'Explore services',
   },
   {
-    icon: 'Database',
-    title: 'Retrieval and knowledge',
-    body: 'Grounding in your own records, so answers come from your content rather than from a generic model.',
+    number: '03',
+    icon: 'Users',
+    title: 'Team & Workforce Enablement',
+    subtitle: 'From AI-curious to AI-capable across all levels',
+    body: 'Practical, hands-on enablement for business leaders, super-user managers, and frontline employees to safely build, manage, and scale AI workflows.',
+    href: '/contact#book',
+    cta: 'Talk about enablement',
   },
+];
+
+/**
+ * Client assurances and operating commitments.
+ */
+const commitments: { icon: IconName; title: string; body: string }[] = [
   {
-    icon: 'PlugZap',
-    title: 'Systems integration',
-    body: 'APIs, CRM and ERP connectivity, permissions, and data mapping against the tools you already run.',
+    icon: 'KeyRound',
+    title: '100% IP & Code Ownership',
+    body: 'Everything we write belongs to you: code, prompts, configurations, and documentation. No proprietary lock-in or recurring runtime licenses.',
   },
   {
     icon: 'FileCheck2',
-    title: 'Evaluation and quality',
-    body: 'Test sets, regression checks, and a measurable accuracy bar agreed before anything reaches production.',
+    title: 'Fixed Scope & Clear Deliverables',
+    body: 'We define the deliverables, timeline, and investment upfront. No surprise billing and no runaway hourly meters.',
   },
   {
     icon: 'ShieldCheck',
-    title: 'Governance and security',
-    body: 'Least-privilege access, audit trails, and deployment inside your boundary: self-hosted, VPC, or air-gapped.',
+    title: 'Zero-Trust Data Protection',
+    body: 'Mutual NDAs before discovery. Client data is never used to train public models, and systems deploy within private client VPC boundaries.',
   },
   {
-    icon: 'Cog',
-    title: 'Reliability engineering',
-    body: 'Services, queues, schemas, and observability, so the intelligence stays usable in practice and not only in a demo.',
+    icon: 'LifeBuoy',
+    title: 'Included Launch & Handoff Support',
+    body: 'Every system includes comprehensive documentation, team training, and post-launch support to ensure your team is confident and self-sufficient.',
   },
 ];
 
@@ -188,33 +199,128 @@ export default function PageContent() {
           </div>
         </section>
 
-        {/* ── Expertise ────────────────────────────────────────────────── */}
-        <section className="py-section-padding px-5 sm:px-8 border-t border-[var(--line)]" id="expertise">
+        {/* ── What We Deliver ─────────────────────────────────────────── */}
+        <section className="py-section-padding px-5 sm:px-8 border-t border-[var(--line)]" id="what-we-deliver">
           <div className="max-w-container-max mx-auto">
             <div className="reveal mb-12 max-w-[720px] sm:mb-16">
-              <span className="eyebrow mb-4 block">Expertise</span>
-              <h2 className="section-title mb-4">Depth in the parts of AI that decide whether it works.</h2>
+              <span className="eyebrow mb-4 block">What We Deliver</span>
+              <h2 className="section-title mb-4">Three ways we put AI to work across your business.</h2>
               <p className="lede mt-5">
-                The distance between an AI demo and an AI system is mostly not the model. It is the engineering around it:
-                what the system reads, what it is allowed to act on, how it is checked before launch, and what happens
-                when it is wrong. That surrounding work is the discipline.
+                From finding where AI moves the needle to shipping production systems and upskilling your team — we cover the full journey from strategy to operational independence.
               </p>
             </div>
 
-            <dl className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-              {areas.map((area, index) => (
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+              {corePillars.map((pillar, index) => (
                 <div
-                  key={area.title}
-                  className={`reveal${index > 0 ? ` reveal-delay-${Math.min(index, 2)}` : ''} flex flex-col rounded-[20px] border border-[var(--line)] bg-panel p-7`}
+                  key={pillar.title}
+                  className={`reveal${index > 0 ? ` reveal-delay-${index}` : ''} flex flex-col justify-between rounded-[22px] border border-[var(--line)] bg-panel p-8 transition-colors hover:border-[var(--line-strong)]`}
                 >
-                  <span className="mb-5 flex size-10 items-center justify-center rounded-[12px] border border-[var(--line-strong)] bg-panel-2">
-                    <Icon name={area.icon} className="size-[18px] text-ink" aria-hidden />
-                  </span>
-                  <dt className="mc-title text-[17px] text-ink">{area.title}</dt>
-                  <dd className="mc-body mt-2">{area.body}</dd>
+                  <div>
+                    <div className="flex items-center justify-between mb-6">
+                      <span className="font-ui text-xs font-semibold uppercase tracking-[0.16em] text-ink-3">
+                        {pillar.number}
+                      </span>
+                      <span className="flex size-10 items-center justify-center rounded-[12px] border border-[var(--line-strong)] bg-panel-2">
+                        <Icon name={pillar.icon} className="size-[18px] text-ink" aria-hidden />
+                      </span>
+                    </div>
+                    <h3 className="mc-title text-xl text-ink mb-2">{pillar.title}</h3>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-ink-3 mb-4">{pillar.subtitle}</p>
+                    <p className="mc-body text-sm leading-relaxed">{pillar.body}</p>
+                  </div>
+                  <div className="mt-8 pt-6 border-t border-[var(--line)]">
+                    <Link
+                      href={pillar.href}
+                      className="inline-flex items-center gap-1.5 text-sm font-medium text-ink transition-colors hover:text-ink-2"
+                    >
+                      {pillar.cta}
+                      <Icon name="ArrowRight" className="size-4" aria-hidden />
+                    </Link>
+                  </div>
                 </div>
               ))}
-            </dl>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Who Builds Your Systems ──────────────────────────────────── */}
+        <section className="py-section-padding px-5 sm:px-8 border-t border-[var(--line)]" id="team-and-disciplines">
+          <div className="max-w-container-max mx-auto">
+            <div className="reveal mb-12 max-w-[720px] sm:mb-16">
+              <span className="eyebrow mb-4 block">The Team</span>
+              <h2 className="section-title mb-4">Senior-only bench. Zero junior handoffs.</h2>
+              <p className="lede mt-5">
+                {company.structure} You work directly with engineers and architects who have shipped production software for years.
+              </p>
+            </div>
+
+            {/* Neutral engineering standards banner */}
+            <div className="reveal mb-8 rounded-[24px] border border-[var(--line)] bg-panel p-8 sm:p-10">
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+                <div className="flex flex-col gap-2">
+                  <span className="font-ui text-xs font-semibold uppercase tracking-[0.16em] text-ink-3">Staffing Model</span>
+                  <h3 className="mc-title text-xl text-ink">Senior-only talent</h3>
+                  <p className="mc-body text-sm">Every project is architected and built by engineers with over a decade of software experience. No junior bench to absorb costs.</p>
+                </div>
+                <div className="flex flex-col gap-2 border-t border-[var(--line)] pt-6 md:border-t-0 md:border-l md:pl-8 md:pt-0">
+                  <span className="font-ui text-xs font-semibold uppercase tracking-[0.16em] text-ink-3">Delivery Structure</span>
+                  <h3 className="mc-title text-xl text-ink">100% In-house</h3>
+                  <p className="mc-body text-sm">No subcontracting or white-label outsourcing. You collaborate directly with the engineers writing your code and pipelines.</p>
+                </div>
+                <div className="flex flex-col gap-2 border-t border-[var(--line)] pt-6 md:border-t-0 md:border-l md:pl-8 md:pt-0">
+                  <span className="font-ui text-xs font-semibold uppercase tracking-[0.16em] text-ink-3">Collaboration</span>
+                  <h3 className="mc-title text-xl text-ink">Direct communication</h3>
+                  <p className="mc-body text-sm">{company.coverage} Standing weekly sprints, direct shared channels, and clear progress visibility.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Multidisciplinary senior bench */}
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {teamComposition.map((item, index) => (
+                <div
+                  key={item.discipline}
+                  className={`reveal${index > 0 ? ` reveal-delay-${Math.min(index, 3)}` : ''} flex flex-col rounded-[20px] border border-[var(--line)] bg-panel p-6`}
+                >
+                  <span className="mb-4 flex size-10 items-center justify-center rounded-[12px] border border-[var(--line-strong)] bg-panel-2">
+                    <Icon name={item.icon} className="size-[18px] text-ink" aria-hidden />
+                  </span>
+                  <h4 className="mc-title text-base text-ink capitalize mb-2">{item.discipline}</h4>
+                  <p className="mc-body text-sm leading-relaxed">{item.detail}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Client Commitments ───────────────────────────────────────── */}
+        <section className="py-section-padding px-5 sm:px-8 border-t border-[var(--line)]" id="commitments">
+          <div className="max-w-container-max mx-auto">
+            <div className="reveal mb-12 max-w-[720px] sm:mb-16">
+              <span className="eyebrow mb-4 block">Our Commitments</span>
+              <h2 className="section-title mb-4">Policies we write into every engagement.</h2>
+              <p className="lede mt-5">
+                Entering an applied AI engagement should not require taking on unquantified risk. We establish clear terms from day one so you always stay in control.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+              {commitments.map((item, index) => (
+                <div
+                  key={item.title}
+                  className={`reveal${index > 0 ? ` reveal-delay-${Math.min(index, 2)}` : ''} flex items-start gap-4 rounded-[20px] border border-[var(--line)] bg-panel p-7`}
+                >
+                  <span className="flex size-10 shrink-0 items-center justify-center rounded-[12px] border border-[var(--line-strong)] bg-panel-2">
+                    <Icon name={item.icon} className="size-[18px] text-ink" aria-hidden />
+                  </span>
+                  <div>
+                    <h3 className="mc-title text-lg text-ink mb-2">{item.title}</h3>
+                    <p className="mc-body text-sm leading-relaxed">{item.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
