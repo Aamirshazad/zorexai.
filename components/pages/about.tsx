@@ -162,9 +162,9 @@ export default function PageContent() {
                 {
                   href: '/service-agentic-ai',
                   icon: 'Bot' as const,
-                  title: 'AI Agentic Systems',
-                  body: 'Autonomous agents that understand requests, make judgment calls, and execute multi-step work end to end.',
-                  cta: 'Explore Agentic AI',
+                  title: 'AI Agent Development',
+                  body: 'Agents that understand an objective, work through the steps, use your tools, and return a completed outcome instead of another answer.',
+                  cta: 'Explore AI Agent Development',
                 },
                 {
                   href: '/service-ai-integration',
@@ -176,8 +176,8 @@ export default function PageContent() {
                 {
                   href: '/service-vertical-ai',
                   icon: 'Layers3' as const,
-                  title: 'Vertical AI Systems',
-                  body: 'Industry-specific platforms built around your domain, compliance rules, and operational workflows.',
+                  title: 'AI Vertical System Development',
+                  body: 'Purpose-built AI systems designed around your industry, its terminology, rules, and workflows.',
                   cta: 'Explore Vertical AI',
                 },
               ].map((item, index) => (

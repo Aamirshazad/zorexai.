@@ -1,0 +1,54 @@
+/* ------------------------------------------------------------------ */
+/* "Our Philosophy" — the hitl.es/advisory section, ported 1:1         */
+/* ------------------------------------------------------------------ */
+/* Source: https://hitl.es/advisory. Only the rules this band depends   */
+/* on are carried over. Everything is scoped under `.ph-scope` so the   */
+/* donor's tokens and element rules cannot leak into the rest of the    */
+/* site.                                                                */
+
+.ph-scope {
+  --bg: var(--page-wash, #f3f6f1);
+  --ink: #111111;
+  --muted: #6f6f6f;
+  --blue: #0f62fe;
+  --font: var(--font-plex-sans, 'IBM Plex Sans'), 'Helvetica Neue', Arial, ui-sans-serif, system-ui, sans-serif;
+  --serif: var(--font-plex-serif, 'IBM Plex Serif'), Georgia, 'Times New Roman', serif;
+  --mono: var(--font-plex-mono, 'IBM Plex Mono'), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --max: 1180px;
+  --gap: 96px;
+
+  padding: var(--gap) 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.ph-scope * { margin: 0; padding: 0; box-sizing: border-box; }
+
+.ph-scope .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 24px; min-width: 0; }
+.ph-scope ::selection { background: var(--blue); color: #fff; text-shadow: none; }
+
+.ph-scope h1,
+.ph-scope h2,
+.ph-scope h3,
+.ph-scope h4 { font-family: var(--serif); font-weight: 400; letter-spacing: normal; line-height: 1.25; }
+.ph-scope h2.sec { font-size: clamp(28px, 4vw, 48px); font-weight: 400; letter-spacing: normal; line-height: 1.15; max-width: 24ch; text-wrap: balance; }
+.ph-scope .sec-label { display: flex; align-items: center; gap: 12px; color: var(--muted); font-family: var(--mono); font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 18px; }
+
+.ph-scope .bx-dot,
+.ph-scope .bx-accent { color: var(--blue); }
+
+/* philosophy deck: a centered stack, the statement split into two line blocks */
+.ph-scope .ph-stack { display: block; text-align: center; }
+.ph-scope .ph-stack .sec-label { justify-content: center; }
+.ph-scope h2.sec.ph-line { max-width: none; margin: 18px auto 0; font-size: clamp(26px, 3.4vw, 44px); text-wrap: initial; }
+.ph-scope .ph-line .ph-l { display: block; }
+
+@media (max-width: 720px) {
+  .ph-scope .ph-line .ph-l { display: inline; }
+}

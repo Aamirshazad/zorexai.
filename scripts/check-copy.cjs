@@ -26,6 +26,18 @@ const ROOTS = ['components', 'content', 'app', 'lib'];
 const EXTENSIONS = new Set(['.ts', '.tsx']);
 const MAX_RUN = 32;
 
+/**
+ * Files that are verbatim ports of third-party markup rather than authored
+ * prose. The run-on check exists to answer "did a cleanup script strip an em
+ * dash out of our own copy?"; applying it to copy reproduced 1:1 from another
+ * property only ever produces false positives, so these are skipped.
+ */
+const EXEMPT_FILES = new Set([
+  'components/content/what-we-do-markup.ts',
+  'components/content/starting-point-markup.ts',
+  'components/content/philosophy-markup.ts',
+]);
+
 /** Literal clause-jams confirmed as em-dash-removal damage. */
 const DAMAGED_PHRASES = [
   'systems agentic systems',
@@ -136,6 +148,7 @@ const normalise = (value) => value.replace(/&apos;/g, "'").replace(/&#x27;/g, "'
 
 for (const file of files) {
   const rel = path.relative(process.cwd(), file).split(path.sep).join('/');
+  if (EXEMPT_FILES.has(rel)) continue;
   const raw = fs.readFileSync(file, 'utf8');
   const prose = normalise(proseOnly(raw));
 

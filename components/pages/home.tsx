@@ -1,15 +1,17 @@
 'use client';
 
 import Link from 'next/link';
-import { Icon } from '@/components/ui/icon';
-import { Reveal, RevealGroup } from '@/components/ui/reveal';
+import { Icon, type IconName } from '@/components/ui/icon';
+import { Reveal } from '@/components/ui/reveal';
 import { Marquee } from '@/components/ui/marquee';
 import { ScrollReveal } from '@/components/ui/scroll-reveal';
 import { FourPhases } from '@/components/content/four-phases';
-import { ProofStrip } from '@/components/content/proof-strip';
-import { AlternativesTable } from '@/components/content/alternatives-table';
-import { SystemArchitecture } from '@/components/content/system-architecture';
+import { StartingPoint } from '@/components/content/starting-point';
+import { Philosophy } from '@/components/content/philosophy';
+import { WhatWeDo } from '@/components/content/what-we-do';
 import { SmartForm } from '@/components/ui/smart-form';
+import { company } from '@/content/company';
+import { services } from '@/content/services';
 
 const marqueeItems = [
   'Agentic AI Systems',
@@ -18,6 +20,45 @@ const marqueeItems = [
   'Workflow Automation',
   'System Integration',
   'Decision Support',
+];
+
+/** Grain surfaces, cycled across the service cards (mirrors the services page). */
+const grains = ['grain-olive', 'grain-teal', 'grain-steel', 'grain-mineral', 'grain-sand', 'grain-charcoal'];
+
+const engagements: Array<{
+  icon: IconName;
+  title: string;
+  sub: string;
+  duration: string;
+  note: string;
+  items: string[];
+  featured?: boolean;
+}> = [
+  {
+    icon: 'Rocket',
+    title: 'Focused Improvement Sprint',
+    sub: 'Single automation or integration',
+    duration: '1-2 Weeks',
+    note: 'Scoped after discovery call',
+    items: ['One core automation', 'Full documentation', '30-day support'],
+  },
+  {
+    icon: 'Brain',
+    title: 'Full System Deployment',
+    sub: 'End-to-end AI system deployment',
+    duration: '2-5 Weeks',
+    note: 'Scoped after discovery call',
+    items: ['Multi-system integration', 'Custom LLM / agentic system', 'Training & handoff', '90-day support'],
+    featured: true,
+  },
+  {
+    icon: 'Network',
+    title: 'Ongoing Optimization',
+    sub: 'Retained AI engineering capacity',
+    duration: 'Ongoing',
+    note: 'Monthly retainer, scoped to your needs',
+    items: ['Dedicated AI architect', 'Continuous optimization', 'Priority response'],
+  },
 ];
 
 /**
@@ -59,7 +100,7 @@ export default function PageContent() {
   return <>
 <main className="font-ui bg-page-wash">
   {/* ── Hero ─────────────────────────────────────────────────────── */}
-  <section className="relative px-5 sm:px-8 pt-36 sm:pt-44 pb-16 sm:pb-24 overflow-hidden">
+  <section className="relative px-5 sm:px-8 pt-40 sm:pt-52 pb-28 sm:pb-40 overflow-hidden">
     <div className="hero-media" aria-hidden="true">
       <video autoPlay muted loop playsInline preload="auto" disablePictureInPicture>
         <source src="/videos/hero-waves-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
@@ -68,23 +109,12 @@ export default function PageContent() {
     </div>
     <div className="max-w-container-max mx-auto relative z-10">
       <div className="flex flex-col items-center max-w-4xl mx-auto text-center">
-        <Reveal delay={0.08}>
-          <p className="mb-6 font-ui text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-3">
-            Agentic AI &middot; AI integration &middot; Vertical AI systems
-          </p>
-        </Reveal>
         <h1 className="display-type mb-6" id="hero-headline">
-          AI systems for operations teams <span className="opacity-60">that have outgrown manual work.</span>
+          We are building a future where AI <span className="opacity-60">makes humans more capable and impactful.</span>
         </h1>
         <Reveal delay={0.16}>
-          {/* Definition-first opening paragraph. Answer engines extract passages
-              of roughly 40-80 words that answer the query, so the first thing on
-              the page is a self-contained answer to "what does Zorex AI do". */}
           <p className="body-ink max-w-2xl mb-10" id="hero-description">
-            Zorex AI designs, builds, deploys, and continuously improves AI systems that fit the way your business
-            already works. That means agentic systems that carry a whole workflow, AI integrated with the tools you
-            already run, and industry-specific systems. Your team keeps the judgment work; the repetition moves to
-            software.
+            Zorex works with SMB leaders on AI strategy, enablement, and production systems.
           </p>
         </Reveal>
         <Reveal delay={0.24}>
@@ -108,34 +138,16 @@ export default function PageContent() {
     </Marquee>
   </section>
 
-  {/* ── The Operational Bottleneck dark grain cards ───────────── */}
-  <section className="py-section-padding px-5 sm:px-8">
-    <div className="max-w-container-max mx-auto">
-      <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-        <span className="eyebrow mb-4 block justify-center">The Operational Bottleneck</span>
-        <h2 className="section-title">Your people should be solving problems, not carrying the same workload every day.</h2>
-      </ScrollReveal>
-      <RevealGroup className="grid grid-cols-1 md:grid-cols-3 gap-5" stagger={0.1}>
-        <div className="grain grain-charcoal">
-          <span className="mc-label">Friction Point 01</span>
-          <h4 className="mc-title text-2xl">The Data Is &quot;Somewhere&quot;</h4>
-          <p className="mc-body">Your CRM says one thing, your billing software says another, and your team spends hours cross-referencing spreadsheets just to send an invoice.</p>
-        </div>
-        <div className="grain grain-teal">
-          <span className="mc-label">Friction Point 02</span>
-          <h4 className="mc-title text-2xl">The &quot;I&apos;ll Do It Later&quot; Trap</h4>
-          <p className="mc-body">Critical follow-ups, contract generations, and client onboarding tasks get delayed because &quot;busy work&quot; takes precedence over revenue-generating work.</p>
-        </div>
-        <div className="grain grain-steel">
-          <span className="mc-label">Friction Point 03</span>
-          <h4 className="mc-title text-2xl">Expert Time on Administrative Work</h4>
-          <p className="mc-body">Your most experienced people spend part of every day clicking buttons, copy-pasting data, and manually updating task boards.</p>
-        </div>
-      </RevealGroup>
-    </div>
-  </section>
+  {/* ── The starting point / adoption gap (from the HITL advisory page) ── */}
+  <StartingPoint />
 
-  {/* ── What We Automate bento (labels match destination H1s) ────── */}
+  {/* ── Our philosophy (from the HITL advisory page) ── */}
+  <Philosophy />
+
+  {/* ── What We Do two ways to work with us (from the HITL advisory page) ── */}
+  <WhatWeDo />
+
+  {/* ── What We Automate: the four services, same card UI as /services ── */}
   <section className="py-section-padding px-5 sm:px-8" id="services">
     <div className="max-w-container-max mx-auto">
       <ScrollReveal className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 sm:mb-16 gap-8">
@@ -146,56 +158,29 @@ export default function PageContent() {
         </div>
         <Link className="footer-link gap-2 border-b border-[var(--line-strong)] pb-0.5 text-sm font-medium text-ink transition-colors hover:border-ink" href="/services">See All Services<Icon name="ArrowRight" className="size-4" aria-hidden /> </Link>
       </ScrollReveal>
-      <RevealGroup className="grid grid-cols-1 md:grid-cols-12 gap-5 auto-rows-[minmax(280px,auto)]" stagger={0.1}>
-        <Link className="grain grain-olive md:col-span-6 flex flex-col justify-between group no-underline" href="/service-llm-applications">
-          <div>
-            <span className="mc-label">Customer &amp; Service Operations</span>
-            <h3 className="mc-title text-2xl sm:text-3xl mb-4">LLM applications for front-line work</h3>
-            <p className="mc-body max-w-md">Systems that reduce repetitive customer and service work, route requests intelligently, and keep responses moving without increasing headcount.</p>
-          </div>
-          <div className="mt-8 pt-6 border-t border-[var(--grain-chip-bd)] flex flex-col gap-3">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.14em] opacity-80 flex items-center gap-1.5"><Icon name="CircleCheck" className="text-xs" aria-hidden />Answers from your own knowledge base</span>
-            <span className="text-[11px] font-semibold uppercase tracking-[0.14em] opacity-80 flex items-center gap-1.5"><Icon name="CircleCheck" className="text-xs" aria-hidden />Routes requests intelligently</span>
-            <span className="text-[11px] font-semibold uppercase tracking-[0.14em] opacity-80 flex items-center gap-1.5"><Icon name="CircleCheck" className="text-xs" aria-hidden />Escalates edge cases to your team</span>
-            <div className="flex justify-end mt-4"> <span className="inline-flex items-center gap-2 text-sm font-medium group-hover:gap-3 transition-all">Explore LLM Applications<Icon name="ArrowRight" className="size-4" aria-hidden /></span> </div>
-          </div>
-        </Link>
-        <Link className="card-lift md:col-span-6 bg-panel rounded-[20px] border border-[var(--line)] p-8 hover:bg-panel-2 flex flex-col group no-underline" href="/service-agentic-ai">
-          <div className="flex items-center gap-4 mb-6"> <div className="size-10 border border-[var(--line-strong)] rounded-full flex items-center justify-center"> <Icon name="Brain" className="text-ink text-sm" aria-hidden /> </div> <h3 className="mc-title text-xl">Agentic systems for revenue &amp; marketing ops</h3> </div>
-          <p className="mc-body mb-6">Systems that accelerate qualification, follow-up, research, and execution across revenue and marketing workflows.</p>
-          <div className="mt-auto flex flex-wrap gap-x-6 gap-y-2">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-2 flex items-center gap-1.5"><Icon name="CircleCheck" className="text-xs" aria-hidden />Automated follow-ups</span>
-            <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-2 flex items-center gap-1.5"><Icon name="CircleCheck" className="text-xs" aria-hidden />Lead scoring &amp; routing</span>
-            <div className="w-full flex justify-end mt-4 pt-4 border-t border-[var(--line)]"> <span className="inline-flex items-center gap-2 text-sm font-medium group-hover:gap-3 transition-all">Explore Agentic AI<Icon name="ArrowRight" className="size-4" aria-hidden /></span> </div>
-          </div>
-        </Link>
-        <Link className="card-lift md:col-span-6 bg-panel rounded-[20px] border border-[var(--line)] p-8 hover:bg-panel-2 no-underline group" href="/service-ai-integration">
-          <div className="flex items-center gap-4 mb-6"> <div className="size-10 border border-[var(--line-strong)] rounded-full flex items-center justify-center"> <Icon name="Server" className="text-ink text-sm" aria-hidden /> </div> <h3 className="mc-title text-xl">AI Integration</h3> </div>
-          <p className="mc-body mb-4">Connect intelligence to the systems you already depend on without forcing a costly rip-and-replace.</p>
-          <div className="flex flex-wrap gap-x-6 gap-y-2">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-2 flex items-center gap-1.5"><Icon name="CircleCheck" className="text-xs" aria-hidden />CRM, ERP, support, and data tools</span>
-            <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-2 flex items-center gap-1.5"><Icon name="CircleCheck" className="text-xs" aria-hidden />No rip-and-replace required</span>
-            <div className="w-full flex justify-end mt-4 pt-4 border-t border-[var(--line)]"> <span className="inline-flex items-center gap-2 text-sm font-medium group-hover:gap-3 transition-all">Explore AI Integration<Icon name="ArrowRight" className="size-4" aria-hidden /></span> </div>
-          </div>
-        </Link>
-        <Link className="card-lift md:col-span-6 bg-panel rounded-[20px] border border-[var(--line)] p-8 hover:bg-panel-2 no-underline group" href="/service-ai-automations">
-          <div className="flex items-center gap-4 mb-6"> <div className="size-10 border border-[var(--line-strong)] rounded-full flex items-center justify-center"> <Icon name="Route" className="text-ink text-sm" aria-hidden /> </div> <h3 className="mc-title text-xl">Intelligent Workflow Automation</h3> </div>
-          <p className="mc-body mb-4">Automate repetitive workflows that require data movement, judgment, routing, or consistent follow-through.</p>
-          <div className="flex flex-wrap gap-x-6 gap-y-2">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-2 flex items-center gap-1.5"><Icon name="CircleCheck" className="text-xs" aria-hidden />End-to-end orchestration</span>
-            <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-2 flex items-center gap-1.5"><Icon name="CircleCheck" className="text-xs" aria-hidden />Built for judgment calls, not just rules</span>
-            <div className="w-full flex justify-end mt-4 pt-4 border-t border-[var(--line)]"> <span className="inline-flex items-center gap-2 text-sm font-medium group-hover:gap-3 transition-all">Explore Workflow Automation<Icon name="ArrowRight" className="size-4" aria-hidden /></span> </div>
-          </div>
-        </Link>
-      </RevealGroup>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {services.map((service, i) => (
+          <Link key={service.href} className={`reveal ${i % 3 === 1 ? 'reveal-delay-1' : i % 3 === 2 ? 'reveal-delay-2' : ''} grain ${grains[i % grains.length]} mc-card no-underline flex flex-col`} href={service.href}>
+            <span className="mc-arrow" aria-hidden="true"><Icon name="ArrowRight" className="size-4" /></span>
+            <div className="flex flex-col h-full">
+              <span className="mc-label">0{i + 1} Service</span>
+              <h3 className="mc-title text-2xl mb-3">{service.name}</h3>
+              <p className="mc-body mb-8">{service.oneLine}</p>
+              <div className="mt-auto flex flex-col gap-2.5">
+                {service.includes.slice(0, 3).map((tag) => (
+                  <span key={tag} className="chip chip-grain w-fit">{tag}</span>
+                ))}
+                <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium group-hover:gap-3 transition-all">Explore<Icon name="ArrowRight" className="size-4" aria-hidden /></span>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   </section>
 
   {/* ── The four phases ──────────────────────────────────────────── */}
   <FourPhases showProcessLink />
-
-  {/* ── Evidence what changed on three real engagements ────────── */}
-  <ProofStrip />
 
   {/* ── Point of view: one statement band, not three more cards ───── */}
   <section className="py-section-padding px-5 sm:px-8" id="company-positioning">
@@ -231,38 +216,51 @@ export default function PageContent() {
     </div>
   </section>
 
-  {/* ── What a delivered system looks like honest diagram, no stock ── */}
-  <section className="py-section-padding px-5 sm:px-8" id="what-you-get">
-    <div className="max-w-container-max mx-auto grid grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
-      <ScrollReveal>
-        <span className="eyebrow mb-4 block">What You Get</span>
-        <h2 className="section-title mb-4">Something running on Monday, not a recommendation deck.</h2>
-        <p className="lede mt-5 mb-8">
-          Every engagement ends with a system in production, wired into the tools that already hold the data. What we
-          hand over is the same shape every time, because the shape is what makes it maintainable.
-        </p>
-        <ul className="flex flex-col gap-4 border-t border-[var(--line)] pt-8 list-none">
-          {[
-            'The working system, deployed in your environment or ours.',
-            'Integrations into the CRM, ERP, or desk that already holds the records.',
-            'A review queue for the exceptions the system should not decide alone.',
-            'Code, prompts, and runbooks written so your team can maintain it.',
-          ].map((item) => (
-            <li key={item} className="flex items-start gap-3 text-[13.5px] leading-[1.55] text-ink">
-              <Icon name="CircleCheck" className="mt-0.5 size-4 shrink-0 text-ink-2" aria-hidden />
-              {item}
-            </li>
-          ))}
-        </ul>
-      </ScrollReveal>
-      <SystemArchitecture />
+  {/* ── How we engage ────────────────────────────────────────────── */}
+  <section className="py-section-padding px-5 sm:px-8">
+    <div className="max-w-container-max mx-auto">
+      <div className="reveal text-center max-w-3xl mx-auto mb-16">
+        <span className="eyebrow mb-4 block justify-center">How We Engage</span>
+        <h2 className="section-title">Pick the engagement that fits your problem.</h2>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch">
+        {engagements.map((plan, i) => {
+          if (plan.featured) {
+            return (
+              <div key={plan.title} className="reveal reveal-delay-1 grain grain-charcoal grain-roomy flex flex-col text-center">
+                <div className="flex flex-col h-full">
+                  <div className="size-12 rounded-full border border-[var(--grain-chip-bd)] bg-[var(--grain-chip)] flex items-center justify-center mx-auto mb-6"><Icon name={plan.icon} className="text-lg" aria-hidden /></div>
+                  <h3 className="mc-title text-xl mb-1">{plan.title}</h3>
+                  <p className="mc-body text-[13px] mb-4">{plan.sub}</p>
+                  <p className="text-3xl font-medium mb-1">{plan.duration}</p>
+                  <p className="mc-body text-xs mb-6">{plan.note}</p>
+                  <ul className="space-y-2.5 text-left text-[13.5px] leading-[1.55] mt-auto">
+                    {plan.items.map((item) => (
+                      <li key={item} className="flex items-start gap-2"><Icon name="CircleCheck" className="size-4 mt-0.5 shrink-0 opacity-90" aria-hidden />{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            );
+          }
+          return (
+            <div key={plan.title} className={`reveal ${i === 2 ? 'reveal-delay-2' : ''} bg-panel rounded-[26px] border border-[var(--line)] p-8 flex flex-col text-center`}>
+              <div className="size-12 rounded-full border border-[var(--line-strong)] flex items-center justify-center mx-auto mb-6"><Icon name={plan.icon} className="text-ink text-lg" aria-hidden /></div>
+              <h3 className="mc-title text-xl mb-1">{plan.title}</h3>
+              <p className="mc-body text-[13px] mb-4">{plan.sub}</p>
+              <p className="text-2xl font-medium text-ink mb-1">{plan.duration}</p>
+              <p className="mc-body text-xs mb-6">{plan.note}</p>
+              <ul className="space-y-2.5 text-left text-[13.5px] leading-[1.55] mt-auto">
+                {plan.items.map((item) => (
+                  <li key={item} className="flex items-start gap-2"><Icon name="CircleCheck" className="text-ink-2 size-4 mt-0.5 shrink-0" aria-hidden /><span className="text-ink-2">{item}</span></li>
+                ))}
+              </ul>
+            </div>
+          );
+        })}
+      </div>
     </div>
   </section>
-
-  {/* ── The four alternatives, as a comparison rather than three cards ── */}
-  <AlternativesTable
-    footnote="If none of these options is right for your workflow, the audit will tell you so. That answer costs you one call and saves you a project."
-  />
 
   {/* ── Lead magnet in-app submission, no off-site redirect ────── */}
   <section className="py-section-padding px-5 sm:px-8">
@@ -304,21 +302,25 @@ export default function PageContent() {
   <section className="cta-bleed grain grain-teal" id="book">
     <div className="max-w-4xl mx-auto text-center">
       <Reveal>
-        <h2 className="display-type text-white mb-8" style={{ fontSize: 'clamp(32px, 5vw, 56px)' }}>Know where your operations slow down?<br /><span className="opacity-60">Let&apos;s find the right place to start.</span></h2>
+        <h2 className="display-type text-white mb-8" style={{ fontSize: 'clamp(32px, 5vw, 56px)' }}>
+          The demo is easy.<br /><span className="opacity-60">Production is where the truth shows up.</span>
+        </h2>
       </Reveal>
       <Reveal delay={0.1}>
-        <p className="mc-body text-[15px] mb-8 max-w-2xl mx-auto">We&apos;ll review your workflow, identify 2–3 opportunities worth automating, and give you a clear recommendation on what to build and what not to.</p>
+        <p className="mc-body text-[15px] mb-8 max-w-2xl mx-auto">
+          Book an executive briefing. In {company.callLength} you&apos;ll know where you stand &mdash; and what to do first.
+        </p>
       </Reveal>
       <Reveal delay={0.18}>
         <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
           <span className="chip chip-grain">Free</span>
-          <span className="chip chip-grain">30 minutes</span>
+          <span className="chip chip-grain">{company.callLength}</span>
           <span className="chip chip-grain">No obligation</span>
         </div>
       </Reveal>
       <Reveal delay={0.26}>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-          <Link className="btn-ink w-full sm:w-auto !bg-white !text-ink hover:!bg-white/90" href="/contact">Book a Strategy Call<Icon name="ArrowRight" className="ml-1 size-4" aria-hidden /> </Link>
+          <Link className="btn-ink w-full sm:w-auto !bg-white !text-ink hover:!bg-white/90" href="/contact">Book an Executive Briefing<Icon name="ArrowRight" className="ml-1 size-4" aria-hidden /> </Link>
           <Link className="btn-ghost w-full sm:w-auto !border-white/30 !text-white hover:!bg-white/10" href="/case-studies">See Client Results</Link>
         </div>
       </Reveal>

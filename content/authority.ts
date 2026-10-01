@@ -17,8 +17,8 @@ export const authorityArticles: Record<string, AuthorityArticle> = {
       'How should human review and escalation fit into an agentic workflow?',
     ],
     serviceLinks: [
-      { label: 'Agentic AI Systems', href: '/service-agentic-ai' },
-      { label: 'AI Automations', href: '/service-ai-automations' },
+      { label: 'AI Agent Development', href: '/service-agentic-ai' },
+      { label: 'Forward-Deployed AI', href: '/service-ai-automations' },
     ],
     related: [
       { label: 'Intelligent Process Automation', href: '/blog-intelligent-process' },
@@ -36,7 +36,7 @@ export const authorityArticles: Record<string, AuthorityArticle> = {
     ],
     serviceLinks: [
       { label: 'AI Integration', href: '/service-ai-integration' },
-      { label: 'AI Automations', href: '/service-ai-automations' },
+      { label: 'Forward-Deployed AI', href: '/service-ai-automations' },
     ],
     related: [
       { label: 'Agentic Systems', href: '/blog-agentic-systems' },
@@ -53,7 +53,7 @@ export const authorityArticles: Record<string, AuthorityArticle> = {
       'What architecture is needed when an AI system must produce an operational outcome?',
     ],
     serviceLinks: [
-      { label: 'Custom LLM Applications', href: '/service-llm-applications' },
+      { label: 'AI Vertical System Development', href: '/service-vertical-ai' },
       { label: 'AI Integration', href: '/service-ai-integration' },
     ],
     related: [
@@ -71,8 +71,8 @@ export const authorityArticles: Record<string, AuthorityArticle> = {
       'Where should human approval remain part of an automated process?',
     ],
     serviceLinks: [
-      { label: 'AI Automations', href: '/service-ai-automations' },
-      { label: 'Vertical AI Systems', href: '/service-vertical-ai' },
+      { label: 'Forward-Deployed AI', href: '/service-ai-automations' },
+      { label: 'AI Vertical System Development', href: '/service-vertical-ai' },
     ],
     related: [
       { label: 'Agentic Systems', href: '/blog-agentic-systems' },
@@ -89,7 +89,7 @@ export const authorityArticles: Record<string, AuthorityArticle> = {
       'Which AI actions require deterministic validation or human approval?',
     ],
     serviceLinks: [
-      { label: 'Custom LLM Applications', href: '/service-llm-applications' },
+      { label: 'Forward-Deployed AI', href: '/service-ai-automations' },
       { label: 'AI Integration', href: '/service-ai-integration' },
     ],
     related: [

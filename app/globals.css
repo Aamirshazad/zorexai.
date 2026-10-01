@@ -513,10 +513,9 @@ body {
   color: var(--ink-3);
 }
 
-/* Hero waves video (bitnomial pattern) full-bleed background cover.
-   The square 1500×1500 waves loop fills the hero edge to edge
-   (object-fit: cover); a light wash scrim over it keeps ink type
-   readable while the waves stay visible across the full width. */
+/* Hero waves video — full-bleed background cover, sized down via
+   the section's own padding.  The scrim keeps ink type readable
+   while the waves stay visible across the full width. */
 .hero-media {
   position: absolute;
   inset: 0;
@@ -534,8 +533,8 @@ body {
   object-position: center;
 }
 
-/* Soft wash scrim over the full video waves show through everywhere,
-   type stays readable, and the bottom edge blends into the page. */
+/* Soft wash scrim — waves show through everywhere, type stays
+   readable, and the bottom edge blends into the page. */
 .hero-media::after {
   content: '';
   position: absolute;

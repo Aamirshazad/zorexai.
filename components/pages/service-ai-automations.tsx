@@ -1,18 +1,185 @@
-import Link from 'next/link';
-import { Icon } from '@/components/ui/icon';import { FinalCta } from '@/components/content/final-cta';
+import { Icon, type IconName } from '@/components/ui/icon';
+import { FinalCta } from '@/components/content/final-cta';
 import { SubPageHero } from '@/components/content/sub-page-hero';
 
+const examine: { icon: IconName; title: string; body: string }[] = [
+  { icon: 'Users', title: 'People', body: 'Who performs the work, who makes the decisions, and who approves actions.' },
+  { icon: 'Workflow', title: 'Processes', body: 'What happens from beginning to end, and where the work slows down.' },
+  { icon: 'Database', title: 'Information', body: 'What information is needed, and where it actually lives.' },
+  { icon: 'TriangleAlert', title: 'Exceptions', body: 'What happens when the normal process breaks.' },
+  { icon: 'TrendingUp', title: 'Business outcomes', body: 'What would materially improve if this process worked better.' },
+];
+
+const value: { icon: IconName; title: string; body: string }[] = [
+  { icon: 'Workflow', title: 'Operations', body: 'We work directly with operational teams to identify repetitive processes that AI can handle.' },
+  { icon: 'Headphones', title: 'Customer experience', body: 'We find where AI can reduce response time and improve service workflows.' },
+  { icon: 'TrendingUp', title: 'Sales', body: 'We work with revenue teams to remove administrative work around lead management, research and follow-up.' },
+  { icon: 'BookOpen', title: 'Knowledge work', body: 'We identify information-heavy tasks where AI can reduce research and preparation time.' },
+  { icon: 'ClipboardCheck', title: 'Administration', body: 'We find repetitive workflows that consume employee time and redesign them around AI.' },
+  { icon: 'Network', title: 'Complex processes', body: 'When a process crosses multiple teams or systems, we understand the complete workflow rather than optimising one part.' },
+];
+
+const loop: { n: string; title: string; body: string }[] = [
+  { n: '01', title: 'Understand', body: 'Work alongside the team and map how the work is really done.' },
+  { n: '02', title: 'Build', body: 'Build AI around the actual operation, not the written process.' },
+  { n: '03', title: 'Deploy', body: 'Put it into the live workflow with appropriate controls.' },
+  { n: '04', title: 'Observe', body: 'Watch real usage and learn what planning could not reveal.' },
+  { n: '05', title: 'Improve', body: 'Improve performance from the behaviour you actually see.' },
+  { n: '06', title: 'Expand', body: 'Extend the capability into related work as confidence grows.' },
+];
+
+const outcome: { title: string; body: string }[] = [
+  { title: 'AI designed around your operation', body: 'Not a generic solution forced into an existing workflow.' },
+  { title: 'Faster implementation', body: 'Move from an AI idea toward a working business process.' },
+  { title: 'Less risk', body: 'Learn from real usage instead of deciding everything before deployment.' },
+  { title: 'Better employee adoption', body: 'Employees help shape the system around their actual work.' },
+  { title: 'Continuous improvement', body: 'The system evolves as your organisation learns.' },
+  { title: 'A long-term AI partner', body: 'More than a one-time delivery: an ongoing capability for finding and implementing AI opportunities.' },
+];
+
 export default function PageContent() {
-  return <>
-<main className="font-ui bg-page-wash">
+  return (
+    <main className="font-ui bg-page-wash">
       <SubPageHero
         eyebrow="Deep Dive"
         icon="Sparkles"
-        crumbs={[{label:"Home",href:"/"},{label:"Services",href:"/services"},{label:"AI Automations"}]}
-        title="AI Automations"
-        body="Traditional RPA breaks when a form changes layout. Our AI automations understand context, adapt to variation, and handle the messy, unstructured work that rule-based tools simply cannot touch."
-        stats={[{value:"Higher",label:"Process Throughput"},{value:"Zero",label:"Template Dependency"},{value:"24/7",label:"Unattended Execution"}]}
-              image={{ src: 'https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?auto=format&fit=crop&q=80&w=1200', alt: 'Automated workflow visualization' }}
-      /> <section className="py-16 sm:py-20 px-6 bg-page-wash border-y border-[var(--line)]"> <div className="max-w-3xl mx-auto"> <span className="text-ink-2 tracking-widest uppercase block mb-3 text-xs">{"Why AI Automation"}</span> <h2 className="mc-title text-ink mb-6">{"Where Rule-Based Automation Reaches Its Limits"}</h2> <p className="lede text-ink-2 mb-6">{"For a decade, enterprises invested heavily in Robotic Process Automation bots that click buttons, fill forms, and move data between systems using rigid, pre-programmed scripts. The limitations of this approach have become painfully clear. RPA bots break every time a UI changes, they cannot handle unstructured data, and they require constant maintenance that often costs more than the manual process they replaced."}</p> <p className="text-ink-2 mb-4"><strong>{"The unstructured data problem."}</strong>{"Most enterprise data is unstructured emails, PDF attachments, scanned documents, Slack messages, voice recordings. Traditional RPA cannot read a vendor email that says \"Please find the updated pricing attached\" and extract the new rates from a non-standard PDF attachment. AI can. Large Language Models and multimodal vision models now understand document context regardless of format, layout, or language."}</p> <p className="text-ink-2 mb-4"><strong>{"The judgment gap."}</strong>{"Real business processes aren't purely mechanical. They require judgment: \"Is this expense report suspicious?\" \"Should this customer complaint be escalated or resolved with a credit?\" \"Does this resume meet our minimum qualifications?\" RPA handles the mechanical; AI handles the judgment. Combined, they create automations that can handle the vast majority of process variations without human intervention."}</p> <p className="text-ink-2 mb-6"><strong>{"The cost equation has flipped."}</strong>{"Running an LLM to classify an email and extract data now costs a fraction of maintaining a brittle screen-scraping bot. AI automation isn't just more capable at scale, it's cheaper to run."}</p> <div className="bg-panel border border-[var(--line)] rounded-[20px] p-6 mt-8"> <p className="text-ink-2 italic border-l-4 border-[var(--line-strong)] pl-4">{"Rule-based bots break the moment a screen changes. AI workflows understand what they're looking at so they keep working when interfaces, formats, and edge cases shift."}</p> <p className="text-xs text-ink-2 uppercase tracking-widest mt-3">{"How we approach automation"}</p> </div> </div> </section> <section className="py-16 sm:py-20 px-6"> <div className="max-w-[1280px] mx-auto"> <div className="reveal text-center max-w-2xl mx-auto mb-14"> <span className="text-ink-2 tracking-widest uppercase block mb-3 text-xs">{"Why Legacy Automation Fails"}</span> <h2 className="mc-title text-ink mb-4">{"The Limits of Rule-Based Systems"}</h2> </div> <div className="grid grid-cols-1 md:grid-cols-2 gap-8"> <div className="card-lift bg-panel p-8 rounded-[20px] border border-[var(--line)] relative overflow-hidden"> <div className="absolute top-0 left-0 w-1 h-full bg-ink/60"></div> <div className="flex items-center gap-3 mb-4"><div className="w-10 h-10 bg-panel-2 text-ink rounded-[14px] flex items-center justify-center"><Icon name="CircleHelp" className="text-lg" /></div><h3 className="font-ui text-lg text-ink">{"Brittle UI Dependencies"}</h3></div> <p className="text-sm text-ink-2">{"Screen-scraping RPA bots rely on exact pixel coordinates, CSS selectors, or HTML element IDs. When your vendor updates their web portal or your ERP pushes a UI refresh, every bot that touches that system breaks simultaneously. In large deployments, RPA maintenance consumes a large share of the automation team's capacity turning your \"efficiency investment\" into a new operational burden."}</p> </div> <div className="card-lift bg-panel p-8 rounded-[20px] border border-[var(--line)] relative overflow-hidden"> <div className="absolute top-0 left-0 w-1 h-full bg-ink/60"></div> <div className="flex items-center gap-3 mb-4"><div className="w-10 h-10 bg-panel-2 text-ink rounded-[14px] flex items-center justify-center"><Icon name="FileText" className="text-lg" /></div><h3 className="font-ui text-lg text-ink">{"Unstructured Data Blindness"}</h3></div> <p className="text-sm text-ink-2">{"RPA can move a file from folder A to folder B, but it cannot read a multi-page contract and extract the termination clause. It cannot look at a scanned receipt and determine if the expense is within company policy. It cannot parse a customer email and determine whether it's a complaint, a feature request, or a sales inquiry. This means the highest-value automation opportunities remain manual."}</p> </div> <div className="card-lift bg-panel p-8 rounded-[20px] border border-[var(--line)] relative overflow-hidden"> <div className="absolute top-0 left-0 w-1 h-full bg-ink/60"></div> <div className="flex items-center gap-3 mb-4"><div className="w-10 h-10 bg-panel-2 text-ink rounded-[14px] flex items-center justify-center"><Icon name="ClipboardCheck" className="text-lg" /></div><h3 className="font-ui text-lg text-ink">{"Rule Explosion"}</h3></div> <p className="text-sm text-ink-2">{"Real processes have exceptions. \"Route to Manager A unless the amount exceeds $10K and the vendor is international, in which case route to Finance, unless it's an existing approved vendor...\" Rule-based systems require explicit programming for every branch. At 50+ rules, the logic becomes unmaintainable. AI models learn these patterns from your historical decisions and handle novel variations gracefully."}</p> </div> <div className="card-lift bg-panel p-8 rounded-[20px] border border-[var(--line)] relative overflow-hidden"> <div className="absolute top-0 left-0 w-1 h-full bg-ink/60"></div> <div className="flex items-center gap-3 mb-4"><div className="w-10 h-10 bg-panel-2 text-ink rounded-[14px] flex items-center justify-center"><Icon name="Gauge" className="text-lg" /></div><h3 className="font-ui text-lg text-ink">{"Scale Ceiling"}</h3></div> <p className="text-sm text-ink-2">{"Each new RPA bot requires its own development, testing, and maintenance cycle. Scaling from 10 to 100 automated processes means 100 separate bots to maintain. AI automation pipelines are reusable the same document understanding model that reads invoices can read purchase orders, delivery receipts, and vendor contracts with minimal reconfiguration."}</p> </div> </div> </div> </section> <section className="py-16 sm:py-20 px-6 bg-page-wash border-y border-[var(--line)]"> <div className="max-w-[1280px] mx-auto"> <div className="reveal text-center max-w-2xl mx-auto mb-14"> <span className="text-ink-2 tracking-widest uppercase block mb-3 text-xs">{"Deliverables"}</span> <h2 className="mc-title text-ink mb-4">{"AI Automations We Build"}</h2> </div> <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto"> <div className="card-lift bg-panel border border-[var(--line)] rounded-[20px] p-8"> <div className="w-12 h-12 bg-panel-2 rounded-[20px] flex items-center justify-center mb-5"><Icon name="Mail" className="text-ink-2" /></div> <h4 className="font-ui text-lg text-ink mb-3">{"Email & Inbox Automation"}</h4> <p className="text-sm text-ink-2">{"AI reads every incoming email, classifies it by intent (order, complaint, inquiry, spam), extracts key data (PO numbers, dates, amounts), and routes it to the correct workflow. Orders get pushed to your ERP. Complaints get logged in your ticketing system with priority scores. Inquiries get auto-drafted responses for human review. Your inbox becomes a self-sorting, self-acting command center."}</p> </div> <div className="card-lift bg-panel border border-[var(--line)] rounded-[20px] p-8"> <div className="w-12 h-12 bg-panel-2 rounded-[20px] flex items-center justify-center mb-5"><Icon name="ScanText" className="text-ink" /></div> <h4 className="font-ui text-lg text-ink mb-3">{"Intelligent Document Processing"}</h4> <p className="text-sm text-ink-2">{"Using multimodal LLMs that understand document context regardless of format, we extract structured data from invoices, contracts, applications, medical forms, and shipping documents. Unlike legacy OCR, our systems handle any layout without pre-configured templates. A stack of 200 mixed-format documents processed in minutes with high field-level accuracy."}</p> </div> <div className="card-lift bg-panel border border-[var(--line)] rounded-[20px] p-8"> <div className="w-12 h-12 bg-panel-2 rounded-[20px] flex items-center justify-center mb-5"><Icon name="CircleHelp" className="text-ink" /></div> <h4 className="font-ui text-lg text-ink mb-3">{"Approval & Routing Workflows"}</h4> <p className="text-sm text-ink-2">{"AI evaluates requests against your business rules and historical patterns, then auto-approves within defined thresholds or routes to the right person with a recommendation. Expense reports, leave requests, vendor onboarding, credit applications processes that used to bottleneck on a single approver now flow continuously with intelligent escalation only for true edge cases."}</p> </div> <div className="bg-ink border border-[var(--line-strong)] rounded-[20px] p-8 "> <div className="w-12 h-12 bg-panel-2/30 rounded-[20px] flex items-center justify-center mb-5 border border-[var(--line-strong)]"><Icon name="RefreshCw" className="text-white/70" /></div> <h4 className="font-ui text-lg text-white mb-3">{"Cross-System Data Sync"}</h4> <p className="text-sm text-white/70">{"When a deal closes in Salesforce, the automation creates the project in Monday, provisions the client in your SaaS platform, generates the invoice in Stripe, adds the contact to your onboarding email sequence, and notifies the delivery team in Slack all within 60 seconds. No human touches a keyboard. No data is re-entered. No step is missed."}</p> </div> </div> </div> </section> <section className="py-16 sm:py-20 px-6 bg-ink text-white relative overflow-hidden"> <div className="max-w-[1280px] mx-auto px-6 relative z-10"> <div className="text-center mb-12"><span className="inline-block bg-panel-2 text-ink-2 px-4 py-2 rounded-full uppercase tracking-widest mb-5">{"Business Value"}</span><h2 className="font-ui text-3xl md:text-4xl text-white mb-4">{"What the system is designed to improve"}</h2><p className="text-white/60 max-w-2xl mx-auto">{"Each implementation is shaped around the customer's workflow, controls, and desired business outcome. The measures depend on the function being improved."}</p></div> <div className="grid grid-cols-1 md:grid-cols-4 gap-6"> <div className="card-lift bg-ink/80 p-7 rounded-[20px] border border-[var(--line-strong)]/20"><h3 className="font-ui text-xl text-white mb-3">{"Execution Speed"}</h3><p className="text-sm text-white/60">{"Move repeatable work forward without waiting on manual handoffs."}</p></div> <div className="card-lift bg-ink/80 p-7 rounded-[20px] border border-[var(--line-strong)]/20"><h3 className="font-ui text-xl text-white mb-3">{"Operational Capacity"}</h3><p className="text-sm text-white/60">{"Increase the amount of work the business can handle without simply adding more coordination."}</p></div> <div className="card-lift bg-ink/80 p-7 rounded-[20px] border border-[var(--line-strong)]/20"><h3 className="font-ui text-xl text-white mb-3">{"Consistency & Control"}</h3><p className="text-sm text-white/60">{"Apply business context, rules, escalation paths, and traceability to execution."}</p></div> <div className="card-lift bg-ink/80 p-7 rounded-[20px] border border-[var(--line-strong)]/20"><h3 className="font-ui text-xl text-white mb-3">{"Scalability"}</h3><p className="text-sm text-white/60">{"Build systems that can support higher volume as the business grows."}</p></div> </div></div></section> <FinalCta heading={"Let’s identify the business function worth improving."} body={"Let's map your most repetitive workflows and show you exactly where AI automation can eliminate manual effort and reduce errors to near-zero."} /> </main>
-  </>;
+        crumbs={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'Forward-Deployed AI' }]}
+        title="Forward-Deployed AI Services"
+        body="We bring AI into the real operation of your business. The process written in a document is rarely the process people actually follow. We work alongside your teams to find where AI fits, build it around your real workflows, deploy it, and keep improving it."
+        stats={[{ value: 'Forward-deployed', label: 'Delivery model' }, { value: 'Build → Deploy → Learn', label: 'Continuous improvement' }, { value: 'Beyond delivery', label: 'An ongoing capability' }]}
+        image={{ src: '/services/forward-deployed.jpg', alt: 'Forward-deployed technical team collaborating inside client operations' }}
+      />
+
+      {/* ── Why forward-deployed ──────────────────────────────────────── */}
+      <section className="py-16 sm:py-20 px-6 bg-page-wash border-y border-[var(--line)]">
+        <div className="max-w-3xl mx-auto">
+          <span className="text-ink-2 tracking-widest uppercase block mb-3 text-xs">Why Forward-Deployed</span>
+          <h2 className="mc-title text-ink mb-6">Every business has its own way of working.</h2>
+          <p className="lede text-ink-2 mb-6">The process written in a document is rarely the process people actually follow.</p>
+          <p className="text-ink-2 mb-4">There are exceptions, workarounds and undocumented decisions. There are systems that don&apos;t communicate. And there are important details that only become visible when you work alongside the people doing the job.</p>
+          <p className="text-ink-2 mb-6">That&apos;s why we take a forward-deployed approach: we work directly with your business to identify opportunities, build AI around your actual operation, deploy it into the workflow, and continuously improve it.</p>
+
+          <div className="bg-panel border border-[var(--line)] rounded-[20px] p-6 mt-8">
+            <p className="text-xs text-ink-2 uppercase tracking-widest mb-5">From AI idea to business outcome</p>
+            <p className="text-ink-2 text-sm mb-4">Many companies know they want to use AI. The difficult question is where it should actually take responsibility.</p>
+            <ul className="space-y-2 text-sm text-ink-2">
+              {['What problem are we solving?', 'Where does the process begin?', 'What information is needed?', 'What should AI handle?', 'What should people handle?', 'What happens when something goes wrong?', 'How will we measure success?'].map((line) => (
+                <li key={line} className="flex items-start gap-2">
+                  <Icon name="ChevronRight" className="mt-0.5 size-4 shrink-0 text-ink-3" aria-hidden />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="text-ink-2 mt-5 text-sm italic border-l-4 border-[var(--line-strong)] pl-4">We answer these questions by working close to the business, not from a distance.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── We start inside the workflow ──────────────────────────────── */}
+      <section className="py-16 sm:py-20 px-6">
+        <div className="max-w-[1280px] mx-auto">
+          <div className="reveal text-center max-w-2xl mx-auto mb-14">
+            <span className="text-ink-2 tracking-widest uppercase block mb-3 text-xs">We Start Inside the Workflow</span>
+            <h2 className="mc-title text-ink mb-4">Before building, we understand how the work is actually done.</h2>
+            <p className="text-ink-2">That lets us build AI around real business needs rather than assumptions.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {examine.map((item) => (
+              <div key={item.title} className="card-lift bg-panel p-8 rounded-[20px] border border-[var(--line)]">
+                <div className="w-10 h-10 bg-panel-2 text-ink rounded-[14px] flex items-center justify-center mb-4">
+                  <Icon name={item.icon} className="text-lg" aria-hidden />
+                </div>
+                <h3 className="font-ui text-lg text-ink mb-3">{item.title}</h3>
+                <p className="text-sm text-ink-2">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Where forward deployment creates value ────────────────────── */}
+      <section className="py-16 sm:py-20 px-6 bg-page-wash border-y border-[var(--line)]">
+        <div className="max-w-[1280px] mx-auto">
+          <div className="reveal text-center max-w-2xl mx-auto mb-14">
+            <span className="text-ink-2 tracking-widest uppercase block mb-3 text-xs">Where Forward Deployment Creates Value</span>
+            <h2 className="mc-title text-ink mb-4">Close to the work, so the system fits it.</h2>
+            <p className="text-ink-2">We start where the friction is highest and the outcome is clearest.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {value.map((item) => (
+              <div key={item.title} className="card-lift bg-panel p-8 rounded-[20px] border border-[var(--line)]">
+                <div className="w-10 h-10 bg-panel-2 text-ink rounded-[14px] flex items-center justify-center mb-4">
+                  <Icon name={item.icon} className="text-lg" aria-hidden />
+                </div>
+                <h3 className="font-ui text-lg text-ink mb-3">{item.title}</h3>
+                <p className="text-sm text-ink-2">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Build → Deploy → Learn → Improve ──────────────────────────── */}
+      <section className="py-16 sm:py-20 px-6">
+        <div className="max-w-[1280px] mx-auto">
+          <div className="reveal text-center max-w-2xl mx-auto mb-12">
+            <span className="text-ink-2 tracking-widest uppercase block mb-3 text-xs">Build → Deploy → Learn → Improve</span>
+            <h2 className="mc-title text-ink mb-4">The first version doesn&apos;t have to be the final version.</h2>
+            <p className="text-ink-2">Real usage reveals what planning cannot: employees discover better workflows, customers behave unexpectedly, requirements change, and new opportunities appear.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {loop.map((step) => (
+              <div key={step.n} className="reveal bg-panel rounded-[20px] border border-[var(--line)] p-6">
+                <span className="text-ink-2 tracking-widest uppercase block mb-3 text-xs">{step.n}</span>
+                <h3 className="font-ui text-lg text-ink mb-2">{step.title}</h3>
+                <p className="text-sm text-ink-2">{step.body}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="bg-panel rounded-[20px] border border-[var(--line)] p-6">
+              <p className="text-xs text-ink-2 uppercase tracking-widest mb-4">We don&apos;t just deliver software</p>
+              <p className="text-sm text-ink-2 mb-3">Traditional projects follow requirements, development and delivery. AI work needs more: the system has to learn how the business actually operates, employees need to adopt it, the workflow may change, and performance needs continuous evaluation.</p>
+              <p className="text-sm text-ink-2">Our role extends beyond development, from &ldquo;we built an AI system&rdquo; to &ldquo;AI now helps us operate this part of the business.&rdquo;</p>
+            </div>
+            <div className="bg-panel rounded-[20px] border border-[var(--line)] p-6">
+              <p className="text-xs text-ink-2 uppercase tracking-widest mb-4">Human + AI operations</p>
+              <p className="text-sm text-ink-2 mb-3">The goal isn&apos;t to automate everything. It is to assign the right work to the right participant. AI is well suited to:</p>
+              <ul className="space-y-2 text-sm text-ink-2">
+                {['Gathering information', 'Processing repetitive requests', 'Research', 'Classification', 'Preparation', 'Routine actions', 'Monitoring workflows'].map((item) => (
+                  <li key={item} className="flex items-start gap-2"><Icon name="CircleCheck" className="mt-0.5 size-4 shrink-0 text-ink-3" aria-hidden /><span>{item}</span></li>
+                ))}
+              </ul>
+              <p className="text-sm text-ink-2 mt-4">People remain essential for judgment, approvals, exceptions, relationships and strategy.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── What your business gets ───────────────────────────────────── */}
+      <section className="py-16 sm:py-20 px-6 bg-ink text-white relative overflow-hidden">
+        <div className="max-w-[1280px] mx-auto relative z-10">
+          <div className="reveal text-center mb-12">
+            <span className="inline-block bg-panel-2 text-ink-2 px-4 py-2 rounded-full uppercase tracking-widest mb-5">What Your Business Gets</span>
+            <h2 className="font-ui text-3xl md:text-4xl text-white mb-4">An AI capability that improves with use</h2>
+            <p className="text-white/60 max-w-2xl mx-auto">Forward deployment matters most when your processes are unique, several systems are involved, and requirements are still evolving.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {outcome.map((item) => (
+              <div key={item.title} className="card-lift bg-ink/80 p-7 rounded-[20px] border border-[var(--line-strong)]/20">
+                <h3 className="font-ui text-xl text-white mb-3">{item.title}</h3>
+                <p className="text-sm text-white/60">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <FinalCta
+        heading="From your business to an AI-powered business process."
+        body="We work alongside your team to find where AI can take responsibility, where people should stay involved, and how both operate together. We don't just build AI and hand it over, we help make it part of how your business works."
+      />
+    </main>
+  );
 }

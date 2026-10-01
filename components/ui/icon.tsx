@@ -1,5 +1,5 @@
 import {
-  ArrowLeft, ArrowLeftRight, ArrowRight, BadgeCheck, BadgeDollarSign, Ban, BookOpen, Bot, Boxes,
+  AlertCircle, ArrowLeft, ArrowLeftRight, ArrowRight, BadgeCheck, BadgeDollarSign, Ban, BookOpen, Bot, Boxes,
   Brain, BriefcaseBusiness, Bug, Building2, Cable, CalendarCheck2, CalendarClock, ChartGantt,
   ChartNoAxesCombined, Check, ChevronRight, CircleAlert, CircleCheck, CircleHelp, ClipboardCheck,
   Compass,
@@ -10,11 +10,12 @@ import {
   RefreshCcwDot, RefreshCw, Repeat2, Rocket, Route, Router, ScanText, Search, SearchX, Send, Server,
   Settings, Shield, ShieldCheck, ShoppingCart, Shuffle, Sparkles, Star, Stethoscope, Store, Table2, TimerOff,
   TrendingDown, TrendingUp, TriangleAlert, Truck, UserPlus, UserRoundX, Users, Workflow, Wrench, X, Zap,
+  CheckCircle2, Clock, FileSpreadsheet, Lightbulb, MessagesSquare, PackageCheck, PackageX, Palette, RotateCcw, Scissors,
   type LucideProps,
 } from 'lucide-react';
 
 const icons = {
-  ArrowLeft, ArrowLeftRight, ArrowRight, BadgeCheck, BadgeDollarSign, Ban, BookOpen, Bot, Boxes,
+  AlertCircle, ArrowLeft, ArrowLeftRight, ArrowRight, BadgeCheck, BadgeDollarSign, Ban, BookOpen, Bot, Boxes,
   Brain, BriefcaseBusiness, Bug, Building2, Cable, CalendarCheck2, CalendarClock, ChartGantt,
   ChartNoAxesCombined, Check, ChevronRight, CircleAlert, CircleCheck, CircleHelp, ClipboardCheck,
   Compass,
@@ -25,6 +26,7 @@ const icons = {
   RefreshCcwDot, RefreshCw, Repeat2, Rocket, Route, Router, ScanText, Search, SearchX, Send, Server,
   Settings, Shield, ShieldCheck, ShoppingCart, Shuffle, Sparkles, Star, Stethoscope, Store, Table2, TimerOff,
   TrendingDown, TrendingUp, TriangleAlert, Truck, UserPlus, UserRoundX, Users, Workflow, Wrench, X, Zap,
+  CheckCircle2, Clock, FileSpreadsheet, Lightbulb, MessagesSquare, PackageCheck, PackageX, Palette, RotateCcw, Scissors,
 };
 
 type IconName = keyof typeof icons;

@@ -1,0 +1,75 @@
+/* ------------------------------------------------------------------ */
+/* "The starting point" — the hitl.es/advisory section, ported 1:1     */
+/* ------------------------------------------------------------------ */
+/* Source: https://hitl.es/advisory. Only the rules this band depends   */
+/* on are carried over from the donor's page CSS. Everything is scoped  */
+/* under `.sp-scope` so the donor's tokens (`--ink`, `--line`, …) and   */
+/* element rules (`*` reset, h1–h4 serif, body font-size) cannot leak   */
+/* into the rest of the site.                                           */
+
+.sp-scope {
+  --bg: var(--panel, #ffffff);
+  --bg-alt: var(--page-wash, #f3f6f1);
+  --ink: #111111;
+  --muted: #6f6f6f;
+  --soft: #525252;
+  --line: #dde1e6;
+  --blue: #0f62fe;
+  --font: var(--font-plex-sans, 'IBM Plex Sans'), 'Helvetica Neue', Arial, ui-sans-serif, system-ui, sans-serif;
+  --serif: var(--font-plex-serif, 'IBM Plex Serif'), Georgia, 'Times New Roman', serif;
+  --mono: var(--font-plex-mono, 'IBM Plex Mono'), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --max: 1180px;
+  --gap: 96px;
+
+  padding: var(--gap) 0;
+  background: var(--bg-alt);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.sp-scope * { margin: 0; padding: 0; box-sizing: border-box; }
+
+.sp-scope .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 24px; min-width: 0; }
+.sp-scope ::selection { background: var(--blue); color: #fff; text-shadow: none; }
+
+.sp-scope h1,
+.sp-scope h2,
+.sp-scope h3,
+.sp-scope h4 { font-family: var(--serif); font-weight: 400; letter-spacing: normal; line-height: 1.25; }
+.sp-scope h2.sec { font-size: clamp(28px, 4vw, 48px); font-weight: 400; letter-spacing: normal; line-height: 1.15; max-width: 24ch; text-wrap: balance; }
+.sp-scope .head-row { display: block; }
+.sp-scope .head-row .rule { display: none; }
+
+.sp-scope p.body { font-size: 18px; line-height: 1.55; color: var(--soft); font-weight: 400; }
+.sp-scope p.body + p.body { margin-top: 16px; }
+.sp-scope p.body b { color: var(--ink); font-weight: 600; }
+
+.sp-scope .sec-label { display: flex; align-items: center; gap: 12px; color: var(--muted); font-family: var(--mono); font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 18px; }
+.sp-scope .mono { font-family: var(--mono); font-size: 12px; font-weight: 500; line-height: 1.4; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.sp-scope .hx-dot { color: var(--blue); }
+.sp-scope .hx-label { color: var(--muted); font-size: 12px; letter-spacing: 0.14em; }
+
+/* adoption gap chart */
+.sp-scope .hx-chart { margin-top: 40px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.sp-scope .hx-chart svg { width: 100%; min-width: 680px; height: auto; display: block; }
+.sp-scope .hx-chart text { font-family: var(--mono); font-weight: 500; font-size: 13px; letter-spacing: 0.1em; }
+.sp-scope .hx-chart-hint { display: none; }
+
+/* what we hear in almost every first conversation */
+.sp-scope .hx-heard { margin-top: 72px; padding-top: 28px; border-top: 1px solid var(--line); }
+.sp-scope .hx-heard-list { list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 48px; }
+.sp-scope .hx-heard-list li { font-family: var(--serif); font-size: 24px; line-height: 1.3; color: var(--muted); }
+
+@media (max-width: 900px) {
+  .sp-scope .hx-heard-list { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  .sp-scope .hx-chart { scrollbar-width: thin; padding-bottom: 6px; }
+  .sp-scope .hx-chart svg { min-width: 560px; }
+  .sp-scope .hx-chart-hint { display: block; margin-top: 8px; font-size: 12px; color: var(--muted); }
+}

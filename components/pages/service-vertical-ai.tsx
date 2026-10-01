@@ -1,18 +1,166 @@
-import Link from 'next/link';
-import { Icon } from '@/components/ui/icon';import { FinalCta } from '@/components/content/final-cta';
+import { Icon, type IconName } from '@/components/ui/icon';
+import { FinalCta } from '@/components/content/final-cta';
 import { SubPageHero } from '@/components/content/sub-page-hero';
 
+const build: { icon: IconName; title: string; body: string }[] = [
+  { icon: 'Brain', title: 'Industry AI Assistants', body: 'AI designed around the specific information and workflows of your industry.' },
+  { icon: 'Bot', title: 'Industry AI Agents', body: 'Agents that perform specialised business tasks rather than simply answer questions.' },
+  { icon: 'Workflow', title: 'AI Operations Systems', body: 'Connected AI capabilities designed around complete business workflows.' },
+  { icon: 'Database', title: 'Industry Knowledge Systems', body: 'AI that works with specialised organisational and industry knowledge.' },
+  { icon: 'ChartNoAxesCombined', title: 'AI Decision Support', body: 'Systems that help teams analyse information and prepare decisions while judgment stays with people.' },
+  { icon: 'Layers3', title: 'Vertical AI Platforms', body: 'Larger systems that bring multiple AI capabilities together around one industry or business model.' },
+];
+
+const industries: { icon: IconName; title: string; body: string }[] = [
+  { icon: 'Landmark', title: 'Financial Services', body: 'Customer operations, research, document-heavy processes, internal knowledge and operational workflows.' },
+  { icon: 'Stethoscope', title: 'Healthcare', body: 'Administrative and information-heavy processes, with professional judgment and sensitive decisions kept under human control.' },
+  { icon: 'Gavel', title: 'Legal', body: 'Document workflows, research, knowledge management, matter preparation and repetitive operational work.' },
+  { icon: 'Building2', title: 'Real Estate', body: 'Property information, lead management, customer communication, document processing and transaction workflows.' },
+  { icon: 'Truck', title: 'Logistics', body: 'Order workflows, supplier communication, operational coordination, research and exception handling.' },
+  { icon: 'BriefcaseBusiness', title: 'Professional Services', body: 'Research, document workflows, client operations, internal knowledge and repetitive administrative work.' },
+];
+
+const stages: { n: string; title: string; body: string }[] = [
+  { n: 'Stage 1', title: 'One valuable workflow', body: 'Start with a process where AI can create measurable value.' },
+  { n: 'Stage 2', title: 'Expand into related work', body: 'Add further AI capabilities around the same business area.' },
+  { n: 'Stage 3', title: 'Connect the workflows', body: 'Let capabilities share appropriate information and coordinate processes.' },
+  { n: 'Stage 4', title: 'Build the AI operating layer', body: 'The organisation now has an AI system supporting multiple parts of the operation.' },
+];
+
+const outcome: { title: string; body: string }[] = [
+  { title: 'Industry-specific AI', body: 'A system designed around your business domain rather than a generic use case.' },
+  { title: 'Faster operations', body: 'Reduce unnecessary manual work across specialised workflows.' },
+  { title: 'Better access to knowledge', body: 'Make important information easier for employees to use.' },
+  { title: 'More consistent processes', body: 'Create repeatable workflows around routine work.' },
+  { title: 'Greater operational capacity', body: 'Handle more work without adding administrative effort at the same rate.' },
+  { title: 'A scalable foundation', body: 'Start with one process and expand into a larger AI system over time.' },
+];
+
 export default function PageContent() {
-  return <>
-<main className="font-ui bg-page-wash">
+  return (
+    <main className="font-ui bg-page-wash">
       <SubPageHero
         eyebrow="Deep Dive"
         icon="Sparkles"
-        crumbs={[{label:"Home",href:"/"},{label:"Services",href:"/services"},{label:"Vertical AI Systems"}]}
-        title="Vertical AI Systems"
-        body="Industry-specific AI platforms purpose-built for your sector. Not generic chatbots retrained on your FAQ fully vertical systems that understand your domain terminology, regulatory constraints, and operational workflows from day one."
-        stats={[{value:"Domain-specific",label:"Trained on your industry"},{value:"Regulation-aware",label:"Privacy built in"},{value:"Integrated",label:"Connected to your systems"}]}
-              image={{ src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200', alt: 'Industry data analytics dashboard' }}
-      /> <section className="py-16 sm:py-20 px-6 bg-page-wash border-y border-[var(--line)]"> <div className="max-w-3xl mx-auto"> <span className="text-ink-2 tracking-widest uppercase block mb-3 text-xs">{"Why Vertical"}</span> <h2 className="mc-title text-ink mb-6">{"Generic AI is everywhere. Vertical AI is where it gets specific."}</h2> <p className="lede text-ink-2 mb-6">{"Every company now has access to powerful general-purpose AI tools good for drafting emails, brainstorming, and summarizing documents. But they fall short on"}<strong>{"mission-critical, domain-specific work"}</strong>{" where accuracy, regulatory constraints, and deep industry context decide whether the output is useful or risky."}</p> <p className="text-ink-2 mb-4"><strong>{"The accuracy gap is real."}</strong>{" A generic LLM asked to review a commercial lease will miss industry-standard clauses like CAM reconciliation provisions or co-tenancy requirements. A horizontal chatbot answering patient questions doesn't understand healthcare disclosure boundaries. A general-purpose model generating marketing copy doesn't know your brand's regulatory constraints in pharma, finance, or healthcare advertising. These aren't edge cases they're the majority of serious AI use cases."}</p> <p className="text-ink-2 mb-4"><strong>{"Vertical systems reach value faster."}</strong>{" Because they arrive trained on domain terminology, integrated with industry-standard software (EHRs, practice management, TMS, MLS), and designed around sector regulations, they skip months of customization and review that a generic tool would need."}</p> <p className="text-ink-2 mb-6"><strong>{"The hybrid strategy wins."}</strong>{" The most effective organizations use horizontal AI for cross-cutting productivity (internal comms, general research) and vertical AI for revenue-critical, regulation-sensitive, domain-specific operations. We build the vertical layer."}</p> <div className="bg-panel border border-[var(--line)] rounded-[20px] p-6 mt-8"> <p className="text-ink-2 italic border-l-4 border-[var(--line-strong)] pl-4">{"General-purpose models are impressive for everyday text but in regulated, domain-specific work, a confident wrong answer is worse than no answer. A vertical system is trained on your domain's own guidelines, reviewed with your team, and constrained so it stays inside them."}</p> <p className="text-xs text-ink-2 uppercase tracking-widest mt-3">{"How we approach vertical AI"}</p> </div> </div> </section> <section className="py-16 sm:py-20 px-6"> <div className="max-w-[1280px] mx-auto"> <div className="reveal text-center max-w-2xl mx-auto mb-14"> <span className="text-ink-2 tracking-widest uppercase block mb-3 text-xs">{"Why Generic AI Fails"}</span> <h2 className="mc-title text-ink mb-4">{"The Four Gaps Horizontal AI Cannot Close"}</h2> </div> <div className="grid grid-cols-1 md:grid-cols-2 gap-8"> <div className="card-lift bg-panel p-8 rounded-[20px] border border-[var(--line)] relative overflow-hidden"> <div className="absolute top-0 left-0 w-1 h-full bg-ink/60"></div> <div className="flex items-center gap-3 mb-4"><div className="w-10 h-10 bg-panel-2 text-ink rounded-[14px] flex items-center justify-center"><Icon name="Languages" className="text-lg" /></div><h3 className="font-ui text-lg text-ink">{"Domain Language Blindness"}</h3></div> <p className="text-sm text-ink-2">{"Every industry has its own vocabulary, abbreviations, and contextual meanings. \"NNN\" means triple-net lease in commercial real estate, not a typo. \"PRN\" means \"as needed\" in healthcare, not a file format. \"MQL\" means marketing-qualified lead, not a database query. Generic models can misread domain terminology, producing outputs that look correct to a non-expert but are wrong to a practitioner."}</p> </div> <div className="card-lift bg-panel p-8 rounded-[20px] border border-[var(--line)] relative overflow-hidden"> <div className="absolute top-0 left-0 w-1 h-full bg-ink/60"></div> <div className="flex items-center gap-3 mb-4"><div className="w-10 h-10 bg-panel-2 text-ink rounded-[14px] flex items-center justify-center"><Icon name="Gavel" className="text-lg" /></div><h3 className="font-ui text-lg text-ink">{"Compliance Ignorance"}</h3></div> <p className="text-sm text-ink-2">{"Healthcare requires HIPAA compliance. Finance requires SOX and SEC reporting standards. Legal requires attorney-client privilege safeguards. Marketing in pharma requires FDA advertising guidelines. Generic AI has no awareness of these regulatory boundaries. It will happily generate a patient-facing response that violates HIPAA disclosure rules or a financial report that misapplies GAAP standards exposing your organization to regulatory action."}</p> </div> <div className="card-lift bg-panel p-8 rounded-[20px] border border-[var(--line)] relative overflow-hidden"> <div className="absolute top-0 left-0 w-1 h-full bg-ink/60"></div> <div className="flex items-center gap-3 mb-4"><div className="w-10 h-10 bg-panel-2 text-ink rounded-[14px] flex items-center justify-center"><Icon name="CircleHelp" className="text-lg" /></div><h3 className="font-ui text-lg text-ink">{"System-of-Record Disconnect"}</h3></div> <p className="text-sm text-ink-2">{"Your industry runs on specialized software Epic/Cerner in healthcare, Clio/PracticePanther in legal, Procore in construction, NetSuite in manufacturing. Generic AI doesn't integrate with these systems. Vertical AI Systems is built to read from and write to your industry's systems of record, enabling autonomous workflows that actually execute actions rather than just generating text suggestions."}</p> </div> <div className="card-lift bg-panel p-8 rounded-[20px] border border-[var(--line)] relative overflow-hidden"> <div className="absolute top-0 left-0 w-1 h-full bg-ink/60"></div> <div className="flex items-center gap-3 mb-4"><div className="w-10 h-10 bg-panel-2 text-ink rounded-[14px] flex items-center justify-center"><Icon name="ArrowRight" className="text-lg" /></div><h3 className="font-ui text-lg text-ink">{"Workflow Ignorance"}</h3></div> <p className="text-sm text-ink-2">{"Every industry has multi-step workflows with specific sequencing, approval gates, and handoff protocols. A patient intake process, a legal matter lifecycle, a loan origination pipeline these aren't generic \"to-do lists.\" They have regulatory checkpoints, professional responsibility requirements, and audit documentation needs. Vertical AI Systems understands the workflow graph of your industry and operates within it natively."}</p> </div> </div> </div> </section> <section className="py-16 sm:py-20 px-6 bg-page-wash border-y border-[var(--line)]"> <div className="max-w-[1280px] mx-auto"> <div className="reveal text-center max-w-2xl mx-auto mb-14"> <span className="text-ink-2 tracking-widest uppercase block mb-3 text-xs">{"Industry Platforms We Build"}</span> <h2 className="mc-title text-ink mb-4">{"Vertical AI Systems Across Sectors"}</h2> <p className="text-ink-2">{"Each platform is purpose-built with domain-specific training data, regulatory compliance layers, and native integration with industry-standard software."}</p> </div> <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto"> <div className="card-lift bg-panel border border-[var(--line)] rounded-[20px] p-6"> <div className="flex items-center gap-3 mb-4"><div className="w-10 h-10 bg-panel-2 rounded-[14px] flex items-center justify-center"><Icon name="Hospital" className="text-ink-2" /></div><h4 className="font-ui text-base text-ink">{"Healthcare"}</h4></div> <p className="text-xs text-ink-2 mb-3">{"Clinical documentation designed around healthcare privacy requirements, patient intake automation, prior authorization agents, and EHR-integrated AI assistants that understand medical terminology, drug interactions, and clinical decision support protocols."}</p> <div className="flex flex-wrap gap-1"><span className="text-[9px] bg-panel-2 px-2 py-0.5 rounded-full text-ink-2">{"HIPAA"}</span><span className="text-[9px] bg-panel-2 px-2 py-0.5 rounded-full text-ink-2">{"Epic/Cerner"}</span><span className="text-[9px] bg-panel-2 px-2 py-0.5 rounded-full text-ink-2">{"HL7 FHIR"}</span></div> </div> <div className="card-lift bg-panel border border-[var(--line)] rounded-[20px] p-6"> <div className="flex items-center gap-3 mb-4"><div className="w-10 h-10 bg-panel-2 rounded-[14px] flex items-center justify-center"><Icon name="Gavel" className="text-ink" /></div><h4 className="font-ui text-base text-ink">{"Legal"}</h4></div> <p className="text-xs text-ink-2 mb-3">{"Contract review and drafting, e-discovery document classification, legal research assistants, and matter management automation. Air-gapped deployment options for attorney-client privilege. Integrated with Clio, PracticePanther, and iManage."}</p> <div className="flex flex-wrap gap-1"><span className="text-[9px] bg-panel-2 px-2 py-0.5 rounded-full text-ink-2">{"Privilege-Safe"}</span><span className="text-[9px] bg-panel-2 px-2 py-0.5 rounded-full text-ink-2">{"Clio"}</span><span className="text-[9px] bg-panel-2 px-2 py-0.5 rounded-full text-ink-2">{"iManage"}</span></div> </div> <div className="card-lift bg-panel border border-[var(--line)] rounded-[20px] p-6"> <div className="flex items-center gap-3 mb-4"><div className="w-10 h-10 bg-panel-2 rounded-[14px] flex items-center justify-center"><Icon name="Megaphone" className="text-ink" /></div><h4 className="font-ui text-base text-ink">{"Digital Marketing"}</h4></div> <p className="text-xs text-ink-2 mb-3">{"Programmatic SEO engines, autonomous ad campaign management, content generation fine-tuned on your brand voice, lead scoring models, and attribution analytics. Integrated with HubSpot, Google Ads, Meta, and analytics platforms."}</p> <div className="flex flex-wrap gap-1"><span className="text-[9px] bg-panel-2 px-2 py-0.5 rounded-full text-ink-2">{"HubSpot"}</span><span className="text-[9px] bg-panel-2 px-2 py-0.5 rounded-full text-ink-2">{"Google Ads"}</span><span className="text-[9px] bg-panel-2 px-2 py-0.5 rounded-full text-ink-2">{"GA4"}</span></div> </div> <div className="card-lift bg-panel border border-[var(--line)] rounded-[20px] p-6"> <div className="flex items-center gap-3 mb-4"><div className="w-10 h-10 bg-panel-2 rounded-[14px] flex items-center justify-center"><Icon name="Landmark" className="text-ink-2" /></div><h4 className="font-ui text-base text-ink">{"B2B Finance"}</h4></div> <p className="text-xs text-ink-2 mb-3">{"Autonomous AP/AR processing, bank reconciliation engines, audit agents that review every transaction, and predictive cash flow modeling. Built with full audit trails. Integrated with NetSuite, QuickBooks, and SAP."}</p> <div className="flex flex-wrap gap-1"><span className="text-[9px] bg-panel-2 px-2 py-0.5 rounded-full text-ink-2">{"SOX"}</span><span className="text-[9px] bg-panel-2 px-2 py-0.5 rounded-full text-ink-2">{"NetSuite"}</span><span className="text-[9px] bg-panel-2 px-2 py-0.5 rounded-full text-ink-2">{"Plaid"}</span></div> </div> <div className="card-lift bg-panel border border-[var(--line)] rounded-[20px] p-6"> <div className="flex items-center gap-3 mb-4"><div className="w-10 h-10 bg-panel-2 rounded-[14px] flex items-center justify-center"><Icon name="CircleHelp" className="text-ink" /></div><h4 className="font-ui text-base text-ink">{"Commercial Real Estate"}</h4></div> <p className="text-xs text-ink-2 mb-3">{"Lease abstraction agents, property valuation models, tenant screening automation, and deal pipeline intelligence. Understands NNN, CAM, and TI terminology natively. Integrated with Yardi, MRI, and CoStar."}</p> <div className="flex flex-wrap gap-1"><span className="text-[9px] bg-panel-2 px-2 py-0.5 rounded-full text-ink-2">{"Yardi"}</span><span className="text-[9px] bg-panel-2 px-2 py-0.5 rounded-full text-ink-2">{"CoStar"}</span><span className="text-[9px] bg-panel-2 px-2 py-0.5 rounded-full text-ink-2">{"MRI"}</span></div> </div> <div className="bg-ink border border-[var(--line-strong)] rounded-[20px] p-6 "> <div className="flex items-center gap-3 mb-4"><div className="w-10 h-10 bg-panel-2/30 rounded-[14px] flex items-center justify-center border border-[var(--line-strong)]"><Icon name="Cog" className="text-white/70" /></div><h4 className="font-ui text-base text-white">{"Manufacturing"}</h4></div> <p className="text-xs text-white/70 mb-3">{"Predictive maintenance models, computer vision QC inspection, supply chain optimization agents, and production scheduling AI. Edge-deployed for air-gapped factory floors. Integrated with SAP, Oracle MES, and SCADA systems."}</p> <div className="flex flex-wrap gap-1"><span className="text-[9px] bg-white/10 px-2 py-0.5 rounded-full text-white/70">{"Edge AI"}</span><span className="text-[9px] bg-white/10 px-2 py-0.5 rounded-full text-white/70">{"SAP MES"}</span><span className="text-[9px] bg-white/10 px-2 py-0.5 rounded-full text-white/70">{"SCADA"}</span></div> </div> </div> <div className="text-center mt-10"><Link className="inline-flex items-center gap-2 font-ui text-base text-ink-2 font-bold hover:gap-3 transition-all no-underline" href="/industries">{"Explore All Industries"}<Icon name="ArrowRight" className="text-base" /></Link></div> </div> </section> <section className="py-24 bg-ink text-white relative overflow-hidden"> <div className="absolute inset-0 section-grid-inverse opacity-20 pointer-events-none"></div> <div className="max-w-[1280px] mx-auto px-6 relative z-10"> <div className="text-center mb-14"><h2 className="mc-title text-white mb-4">{"What a vertical system gets you"}</h2></div> <div className="grid grid-cols-1 md:grid-cols-4 gap-6"> <div className="bg-ink/80 backdrop-blur-sm p-8 rounded-[20px] border border-[var(--line-strong)]"><div className="w-12 h-12 bg-panel-2/20 rounded-[14px] flex items-center justify-center mb-4"><Icon name="BadgeCheck" className="text-white/60" /></div><div className="text-white font-semibold mb-2">{"Domain accuracy"}</div><p className="text-xs text-white/60">{"Trained on your industry's language and rules not a generic model guessing at them."}</p></div> <div className="bg-ink/80 backdrop-blur-sm p-8 rounded-[20px] border border-[var(--line-strong)]"><div className="w-12 h-12 bg-panel-2/20 rounded-[14px] flex items-center justify-center mb-4"><Icon name="Zap" className="text-white/60" /></div><div className="text-white font-semibold mb-2">{"Faster time to value"}</div><p className="text-xs text-white/60">{"Domain knowledge and integrations arrive pre-built, skipping months of customization."}</p></div> <div className="bg-ink/80 backdrop-blur-sm p-8 rounded-[20px] border border-[var(--line-strong)]"><div className="w-12 h-12 bg-panel-2/20 rounded-[14px] flex items-center justify-center mb-4"><Icon name="ShieldCheck" className="text-white/60" /></div><div className="text-white font-semibold mb-2">{"Regulation-aware by design"}</div><p className="text-xs text-white/60">{"Privacy and regulatory constraints built into the architecture, not bolted on after."}</p></div> <div className="bg-ink/80 backdrop-blur-sm p-8 rounded-[20px] border border-[var(--line-strong)]"><div className="w-12 h-12 bg-panel-2/20 rounded-[14px] flex items-center justify-center mb-4"><Icon name="PlugZap" className="text-white/60" /></div><div className="text-white font-semibold mb-2">{"Native system integration"}</div><p className="text-xs text-white/60">{"Direct integration with industry systems of record."}</p></div> </div> </div> </section> <FinalCta heading={"Let’s identify the business function worth improving."} body={"Let's look at your industry-specific workflows together and find where a purpose-built AI platform can outperform any horizontal tool."} /> </main>
-  </>;
+        crumbs={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'AI Vertical System Development' }]}
+        title="AI Vertical System Development"
+        body="Purpose-built AI systems for the way your industry actually works. General-purpose AI can do many things, but businesses don't operate in generalities. We build AI around your industry's processes, terminology, regulations and operational patterns."
+        stats={[{ value: 'Industry-specific', label: 'By design' }, { value: 'Purpose-built', label: 'Workflows' }, { value: 'Scalable', label: 'Foundation' }]}
+        image={{ src: '/services/vertical-ai.jpg', alt: 'Executive directors reviewing compliance risk engine and sector decision support' }}
+      />
+
+      {/* ── Why vertical ──────────────────────────────────────────────── */}
+      <section className="py-16 sm:py-20 px-6 bg-page-wash border-y border-[var(--line)]">
+        <div className="max-w-3xl mx-auto">
+          <span className="text-ink-2 tracking-widest uppercase block mb-3 text-xs">Why Vertical</span>
+          <h2 className="mc-title text-ink mb-6">General AI can answer a question. A vertical system understands why it matters.</h2>
+          <p className="lede text-ink-2 mb-6">Every industry has its own processes, terminology, knowledge, regulations, decisions, documents, customer expectations and operational patterns.</p>
+          <p className="text-ink-2 mb-4">A general AI system can answer a question. A vertical AI system understands why that question matters inside a particular business context, and what to do about it.</p>
+          <p className="text-ink-2 mb-6">We develop purpose-built AI systems designed around a particular industry and its workflows, instead of adding a generic assistant to your business.</p>
+
+          <div className="bg-panel border border-[var(--line)] rounded-[20px] p-6 mt-8">
+            <p className="text-xs text-ink-2 uppercase tracking-widest mb-5">For example</p>
+            <ul className="space-y-3 text-sm text-ink-2">
+              {['A real estate business may need AI that understands properties, listings, leads, documents and transactions.', 'A logistics company may need AI that understands orders, suppliers, shipments and operational exceptions.', 'A legal organisation may need AI around documents, research, matters and client workflows.', 'A financial organisation may need AI around customer operations, financial information and business processes.'].map((line) => (
+                <li key={line} className="flex items-start gap-2">
+                  <Icon name="ChevronRight" className="mt-0.5 size-4 shrink-0 text-ink-3" aria-hidden />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="text-ink-2 mt-5 text-sm italic border-l-4 border-[var(--line-strong)] pl-4">The AI becomes more useful because it is designed around the work of the industry.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── What we build ─────────────────────────────────────────────── */}
+      <section className="py-16 sm:py-20 px-6">
+        <div className="max-w-[1280px] mx-auto">
+          <div className="reveal text-center max-w-2xl mx-auto mb-14">
+            <span className="text-ink-2 tracking-widest uppercase block mb-3 text-xs">What We Build</span>
+            <h2 className="mc-title text-ink mb-4">From a single capability to a vertical AI platform.</h2>
+            <p className="text-ink-2">Your industry knowledge and your business rules become part of the system, so it operates with the context your work requires.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {build.map((item) => (
+              <div key={item.title} className="card-lift bg-panel p-8 rounded-[20px] border border-[var(--line)]">
+                <div className="w-10 h-10 bg-panel-2 text-ink rounded-[14px] flex items-center justify-center mb-4">
+                  <Icon name={item.icon} className="text-lg" aria-hidden />
+                </div>
+                <h3 className="font-ui text-lg text-ink mb-3">{item.title}</h3>
+                <p className="text-sm text-ink-2">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Examples across industries ────────────────────────────────── */}
+      <section className="py-16 sm:py-20 px-6 bg-page-wash border-y border-[var(--line)]">
+        <div className="max-w-[1280px] mx-auto">
+          <div className="reveal text-center max-w-2xl mx-auto mb-14">
+            <span className="text-ink-2 tracking-widest uppercase block mb-3 text-xs">Examples Across Industries</span>
+            <h2 className="mc-title text-ink mb-4">Built around the work, not around the model.</h2>
+            <p className="text-ink-2">The principle is the same in every sector: the exceptions are the job, and they differ by industry.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {industries.map((item) => (
+              <div key={item.title} className="card-lift bg-panel p-8 rounded-[20px] border border-[var(--line)]">
+                <div className="w-10 h-10 bg-panel-2 text-ink rounded-[14px] flex items-center justify-center mb-4">
+                  <Icon name={item.icon} className="text-lg" aria-hidden />
+                </div>
+                <h3 className="font-ui text-lg text-ink mb-3">{item.title}</h3>
+                <p className="text-sm text-ink-2">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── From one use case to a vertical AI system ─────────────────── */}
+      <section className="py-16 sm:py-20 px-6">
+        <div className="max-w-[1280px] mx-auto">
+          <div className="reveal text-center max-w-2xl mx-auto mb-12">
+            <span className="text-ink-2 tracking-widest uppercase block mb-3 text-xs">From One Use Case to a Vertical AI System</span>
+            <h2 className="mc-title text-ink mb-4">A progressive path, not a big-bang platform.</h2>
+            <p className="text-ink-2">Not every business needs to begin with a large AI platform. Starting small and expanding is usually the better route.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {stages.map((stage) => (
+              <div key={stage.n} className="reveal bg-panel rounded-[20px] border border-[var(--line)] p-6">
+                <span className="text-ink-2 tracking-widest uppercase block mb-3 text-xs">{stage.n}</span>
+                <h3 className="font-ui text-lg text-ink mb-2">{stage.title}</h3>
+                <p className="text-sm text-ink-2">{stage.body}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-ink-2 mt-8 text-sm">AI feature &rarr; AI workflow &rarr; AI capability &rarr; AI system &rarr; vertical AI platform</p>
+        </div>
+      </section>
+
+      {/* ── What your business gets ───────────────────────────────────── */}
+      <section className="py-16 sm:py-20 px-6 bg-ink text-white relative overflow-hidden">
+        <div className="max-w-[1280px] mx-auto relative z-10">
+          <div className="reveal text-center mb-12">
+            <span className="inline-block bg-panel-2 text-ink-2 px-4 py-2 rounded-full uppercase tracking-widest mb-5">What Your Business Gets</span>
+            <h2 className="font-ui text-3xl md:text-4xl text-white mb-4">A purpose-built system for your industry</h2>
+            <p className="text-white/60 max-w-2xl mx-auto">We combine industry knowledge, business processes and modern AI capability into a system that can become part of how your organisation operates.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {outcome.map((item) => (
+              <div key={item.title} className="card-lift bg-ink/80 p-7 rounded-[20px] border border-[var(--line-strong)]/20">
+                <h3 className="font-ui text-xl text-white mb-3">{item.title}</h3>
+                <p className="text-sm text-white/60">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <FinalCta
+        heading="Build the AI system your industry needs."
+        body="The future of enterprise AI isn't simply about more powerful models. It is about turning those capabilities into systems that understand a business, its industry and its workflows."
+      />
+    </main>
+  );
 }

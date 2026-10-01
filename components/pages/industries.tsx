@@ -17,8 +17,8 @@ import { services } from '@/content/services';
  * The page now presents the two axes separately and labels them, which is what
  * the hero always claimed it did:
  *
- *   by sector      the nine industry pages, from content/industries.ts
- *   by capability  the six services, from content/services.ts
+ *   by sector      the six industry pages, from content/industries.ts
+ *   by capability  the four services, from content/services.ts
  *
  * It also loses the Unsplash photograph that was captioned "Real-time
  * Intelligence Dashboard" while showing a stock image of a laptop. The
@@ -67,7 +67,7 @@ export default function PageContent() {
               </h1>
               <p className="body-ink max-w-2xl mb-10">
                 Route by the sector you operate in, or by the function you run. Both paths lead to the same systems,
-                scoped to your workflows: nine sectors below, and the six capabilities those engagements draw on.
+                scoped to your workflows: six sectors below, and the four capabilities those engagements draw on.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <Link className="btn-ink w-full sm:w-auto" href="/contact">
@@ -103,7 +103,7 @@ export default function PageContent() {
           <div className="max-w-container-max mx-auto">
             <div className="reveal mb-12 max-w-[640px] sm:mb-16">
               <span className="eyebrow mb-4 block">By Sector</span>
-              <h2 className="section-title mb-4">Nine sectors we have built in.</h2>
+              <h2 className="section-title mb-4">Six sectors we have built in.</h2>
               <p className="lede mt-5">
                 Each page covers the workflows that recur in that sector, the constraints that shape the design, and how
                 a system is usually scoped there.
@@ -150,7 +150,7 @@ export default function PageContent() {
                     scoped, priced, and delivered.
                   </p>
                   <Link href="/services" className="footer-link mt-6 gap-2 text-sm font-medium text-ink border-b border-[var(--line-strong)] hover:border-ink transition-colors">
-                    All six services
+                    All four services
                     <Icon name="ArrowRight" className="size-4" aria-hidden />
                   </Link>
                 </div>

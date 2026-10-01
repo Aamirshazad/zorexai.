@@ -58,9 +58,9 @@ export function SubPageHero({
                 <li key={crumb.label} className="flex items-center gap-2">
                   {i > 0 && <Icon name="ChevronRight" className="size-3 opacity-50" aria-hidden />}
                   {crumb.href ? (
-                    <Link href={crumb.href} className="hover:text-ink transition-colors">{crumb.label}</Link>
+                    <Link href={crumb.href} className="inline-flex min-h-6 items-center hover:text-ink transition-colors">{crumb.label}</Link>
                   ) : (
-                    <span className="text-ink">{crumb.label}</span>
+                    <span className="inline-flex min-h-6 items-center text-ink">{crumb.label}</span>
                   )}
                 </li>
               ))}

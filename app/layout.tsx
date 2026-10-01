@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Instrument_Sans, Manrope } from 'next/font/google';
+import { IBM_Plex_Mono, IBM_Plex_Sans, IBM_Plex_Serif, Instrument_Sans, Manrope } from 'next/font/google';
 import './globals.css';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
@@ -18,6 +18,35 @@ const instrumentSans = Instrument_Sans({
   display: 'swap',
   variable: '--font-instrument',
   preload: true,
+});
+
+/*
+ * IBM Plex Sans / Serif / Mono are used by exactly one section — the ported
+ * "What we do" band (see components/content/what-we-do.css). They are loaded
+ * with `preload: false` so the files are only fetched on pages that render it.
+ */
+const plexSans = IBM_Plex_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-plex-sans',
+  preload: false,
+});
+
+const plexSerif = IBM_Plex_Serif({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '500'],
+  variable: '--font-plex-serif',
+  preload: false,
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '500'],
+  variable: '--font-plex-mono',
+  preload: false,
 });
 
 export const viewport: Viewport = {
@@ -66,7 +95,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${manrope.className} ${instrumentSans.variable}`}>
+    <html
+      lang="en"
+      className={`${manrope.className} ${instrumentSans.variable} ${plexSans.variable} ${plexSerif.variable} ${plexMono.variable}`}
+    >
       <body>
         <RevealObserver />
         <a className="skip-link" href="#main-content">Skip to content</a>

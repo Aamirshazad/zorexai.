@@ -1,18 +1,202 @@
-import Link from 'next/link';
-import { Icon } from '@/components/ui/icon';import { FinalCta } from '@/components/content/final-cta';
+import { Icon, type IconName } from '@/components/ui/icon';
+import { FinalCta } from '@/components/content/final-cta';
 import { SubPageHero } from '@/components/content/sub-page-hero';
 
+const build: { icon: IconName; title: string; body: string; tags: string[] }[] = [
+  {
+    icon: 'Headphones',
+    title: 'Customer Service Agents',
+    body: 'Agents that handle a customer request from beginning to end: understand the question, find the information, prepare a response, complete routine requests, and escalate what needs a person.',
+    tags: ['Faster response', 'Consistent service', '24/7 availability'],
+  },
+  {
+    icon: 'TrendingUp',
+    title: 'Sales Agents',
+    body: 'Agents that support the path from incoming lead to qualified opportunity: research the prospect, organise the information, prepare account summaries, and keep follow-up moving.',
+    tags: ['Less admin', 'More conversations'],
+  },
+  {
+    icon: 'Search',
+    title: 'Research Agents',
+    body: 'Agents that investigate a subject instead of answering a question: gather from approved sources, compare findings, and produce structured output your team can use.',
+    tags: ['Market research', 'Competitor research', 'Report preparation'],
+  },
+  {
+    icon: 'Workflow',
+    title: 'Operations Agents',
+    body: 'Agents built around repetitive operational work: process requests, coordinate tasks, prepare information, flag missing details, and move routine workflows forward.',
+    tags: ['Less coordination', 'Repeatable execution'],
+  },
+  {
+    icon: 'FileText',
+    title: 'Document & Knowledge Agents',
+    body: 'Agents that work with the information buried in documents, policies, reports and email so employees can find, understand and use it in the context of the task.',
+    tags: ['Context-aware', 'Grounded in your sources'],
+  },
+  {
+    icon: 'Monitor',
+    title: 'Computer-Using Agents',
+    body: 'Where a process still runs through existing software interfaces, agents can work with those applications directly when a traditional integration is unavailable or impractical.',
+    tags: ['Permissions scoped', 'Human approval points'],
+  },
+];
+
+const steps: { n: string; title: string; body: string }[] = [
+  { n: '01', title: 'Identify the work', body: 'We find the processes where AI can create measurable value.' },
+  { n: '02', title: 'Design the agent', body: 'We define its responsibilities, its boundaries, and where people hand off.' },
+  { n: '03', title: 'Build the workflow', body: 'We connect the agent to the information and business tools it needs.' },
+  { n: '04', title: 'Test real scenarios', body: 'We test normal cases, unusual cases, and the situations where the agent should stop.' },
+  { n: '05', title: 'Launch', body: 'We introduce the agent into the real workflow with appropriate controls.' },
+  { n: '06', title: 'Improve', body: 'We keep improving performance from actual business usage.' },
+];
+
+const outcome: { title: string; body: string }[] = [
+  { title: 'More work completed', body: 'Increase operational capacity without increasing manual work at the same rate.' },
+  { title: 'Faster processes', body: 'Move routine work continuously instead of waiting for every step to be done by hand.' },
+  { title: 'Lower repetitive workload', body: 'Reduce the administrative tasks that consume employee time.' },
+  { title: 'Consistent execution', body: 'Give routine processes a repeatable way of operating.' },
+  { title: '24/7 capability', body: 'Agents can continue processing appropriate work outside normal working hours.' },
+  { title: 'A capability that expands', body: 'Start with one valuable workflow and extend into more processes as confidence grows.' },
+];
+
 export default function PageContent() {
-  return <>
-<main className="font-ui bg-page-wash">
+  return (
+    <main className="font-ui bg-page-wash">
       <SubPageHero
         eyebrow="Deep Dive"
         icon="Sparkles"
-        crumbs={[{label:"Home",href:"/"},{label:"Services",href:"/services"},{label:"Agentic AI Systems"}]}
-        title="Agentic AI Systems"
-        body="Not chatbots. Autonomous software agents that reason, plan, decide, and execute multi-step workflows across your business systems 24/7, without hand-holding."
-        stats={[{value:"Multi-Agent",label:"Orchestration"},{value:"MCP + A2A",label:"Protocol Standard"},{value:"24/7",label:"Autonomous Execution"}]}
-              image={{ src: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1200', alt: 'AI neural network visualization' }}
-      />  <section className="py-16 sm:py-20 px-6 bg-page-wash border-y border-[var(--line)]"> <div className="max-w-3xl mx-auto"> <span className="text-ink-2 tracking-widest uppercase block mb-3 text-xs">{"Why Agentic"}</span> <h2 className="mc-title text-ink mb-6">{"The Shift from Chat to Autonomous Action"}</h2> <p className="lede text-ink-2 mb-6">{"The enterprise AI landscape has shifted. Companies are no longer impressed by chatbots that draft emails. The new frontier is"}<strong>{"agentic AI"}</strong>{" autonomous software systems that can reason through ambiguity, plan multi-step sequences, use external tools, and execute actions across your CRM, ERP, billing, and support systems without constant human prompting."}</p> <p className="text-ink-2 mb-4"><strong>{"Multi-agent architectures are the new standard."}</strong>{"Complex business workflows that exceed the capability of any single model are now decomposed into specialized tasks handled by collaborating, purpose-built agents. An orchestrator agent manages the overall goal and delegates subtasks to worker agents a pricing agent, a compliance agent, a routing agent each fine-tuned for its specific domain."}</p> <p className="text-ink-2 mb-4"><strong>{"Interoperability protocols have matured."}</strong>{"The Model Context Protocol (MCP), now governed by the Linux Foundation, has become the \"USB-C port for AI\" the de facto standard for connecting agents to enterprise data sources and tools. Google's Agent-to-Agent (A2A) protocol enables agents from different vendors and architectures to discover each other, share capabilities, and delegate tasks seamlessly."}</p> <p className="text-ink-2 mb-6"><strong>{"Governance is no longer optional."}</strong>{"As agents move from \"suggesting\" to \"doing,\" enterprises require Governance-as-Code input/output validation, least-privilege permissions, comprehensive audit trails, and human-in-the-loop approval gates for high-stakes decisions. We build all of this into the architecture from day one."}</p> <div className="bg-panel border border-[var(--line)] rounded-[20px] p-6 mt-8"> <p className="text-ink-2 italic border-l-4 border-[var(--line-strong)] pl-4">{"A demo agent is easy to build. The hard part is an agent that can be trusted with real workflows one with guardrails, audit trails, and a human in the loop for anything high-stakes. That's the part we engineer first."}</p> <p className="text-xs text-ink-2 uppercase tracking-widest mt-3">{"How we approach agentic AI"}</p> </div> </div> </section>  <section className="py-16 sm:py-20 px-6"> <div className="max-w-[1280px] mx-auto"> <div className="reveal text-center max-w-2xl mx-auto mb-14"> <span className="text-ink-2 tracking-widest uppercase block mb-3 text-xs">{"The Build Challenge"}</span> <h2 className="mc-title text-ink mb-4">{"Why Most Internal AI Projects Fail"}</h2> <p className="text-ink-2">{"Building a demo is easy. Building a production-grade agentic system that handles edge cases, scales, and doesn't hallucinate is an entirely different engineering discipline."}</p> </div> <div className="grid grid-cols-1 md:grid-cols-2 gap-8"> <div className="card-lift bg-panel p-8 rounded-[20px] border border-[var(--line)] relative overflow-hidden"> <div className="absolute top-0 left-0 w-1 h-full bg-ink/60"></div> <div className="flex items-center gap-3 mb-4"><div className="w-10 h-10 bg-panel-2 text-ink rounded-[14px] flex items-center justify-center"><Icon name="Bug" className="text-lg" /></div><h3 className="font-ui text-lg text-ink">{"The Demo-to-Production Gap"}</h3></div> <p className="text-sm text-ink-2">{"Your engineering team can build a working LangChain prototype in a weekend. But production requires handling rate limits, retries, context window management, token cost optimization, graceful degradation when APIs are down, and comprehensive error logging. Most internal prototypes collapse under real-world load because they were never designed for it."}</p> </div> <div className="card-lift bg-panel p-8 rounded-[20px] border border-[var(--line)] relative overflow-hidden"> <div className="absolute top-0 left-0 w-1 h-full bg-ink/60"></div> <div className="flex items-center gap-3 mb-4"><div className="w-10 h-10 bg-panel-2 text-ink rounded-[14px] flex items-center justify-center"><Icon name="CircleHelp" className="text-lg" /></div><h3 className="font-ui text-lg text-ink">{"Hallucination & Safety Risks"}</h3></div> <p className="text-sm text-ink-2">{"An agent that autonomously sends emails, updates pricing, or modifies customer records can cause catastrophic damage if it hallucinates. Production agentic systems require deterministic guardrails: output validation against schemas, confidence thresholds that trigger human review, and rollback mechanisms for every automated action. Building these safety layers requires specialized MLOps expertise."}</p> </div> <div className="card-lift bg-panel p-8 rounded-[20px] border border-[var(--line)] relative overflow-hidden"> <div className="absolute top-0 left-0 w-1 h-full bg-ink/60"></div> <div className="flex items-center gap-3 mb-4"><div className="w-10 h-10 bg-panel-2 text-ink rounded-[14px] flex items-center justify-center"><Icon name="RefreshCcwDot" className="text-lg" /></div><h3 className="font-ui text-lg text-ink">{"State & Memory Management"}</h3></div> <p className="text-sm text-ink-2">{"Real business processes span hours or days a procurement approval might take 3 days. Agents must maintain stateful memory across sessions, resume interrupted workflows, and handle concurrent executions without data corruption. This requires purpose-built state machines, not simple prompt chains that lose context after one conversation."}</p> </div> <div className="card-lift bg-panel p-8 rounded-[20px] border border-[var(--line)] relative overflow-hidden"> <div className="absolute top-0 left-0 w-1 h-full bg-ink/60"></div> <div className="flex items-center gap-3 mb-4"><div className="w-10 h-10 bg-panel-2 text-ink rounded-[14px] flex items-center justify-center"><Icon name="UserRoundX" className="text-lg" /></div><h3 className="font-ui text-lg text-ink">{"The Talent Gap"}</h3></div> <p className="text-sm text-ink-2">{"Your core engineers are exceptional at building web applications, but multi-agent orchestration, vector database tuning, prompt engineering for tool-use, and LLM observability are fundamentally different skill sets. Diverting your best engineers to learn agentic AI from scratch delays your core product roadmap by months and produces fragile first-generation systems."}</p> </div> </div> </div> </section>  <section className="py-16 sm:py-20 px-6 bg-page-wash border-y border-[var(--line)]"> <div className="max-w-[1280px] mx-auto"> <div className="reveal text-center max-w-2xl mx-auto mb-12"> <span className="text-ink-2 tracking-widest uppercase block mb-3 text-xs">{"How We Build It"}</span> <h2 className="mc-title text-ink mb-4">{"The Zorex Agentic Architecture"}</h2> <p className="text-ink-2">{"A production-grade, governance-first multi-agent stack built on open standards."}</p> </div> <div className="reveal bg-panel rounded-[22px] border border-[var(--line)] p-8 md:p-12"> <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8"> <div className="text-center p-5 bg-panel-2 rounded-[20px] border border-[var(--line)]"> <div className="w-12 h-12 bg-panel-2 rounded-full flex items-center justify-center mx-auto mb-3"><Icon name="Database" className="text-ink" /></div> <h4 className="font-ui text-sm text-ink mb-2">{"Your Systems"}</h4> <div className="space-y-1 text-[11px] text-ink-2"><p>{"CRM / ERP / Database"}</p><p>{"Email / Calendar / Slack"}</p><p>{"Billing / Support Desk"}</p></div> </div> <div className="text-center p-5 bg-panel-2 rounded-[20px] border border-[var(--line)]"> <div className="w-12 h-12 bg-panel-2 rounded-full flex items-center justify-center mx-auto mb-3"><Icon name="Cable" className="text-ink-2" /></div> <h4 className="font-ui text-sm text-ink mb-2">{"MCP Servers"}</h4> <div className="space-y-1 text-[11px] text-ink-2"><p>{"Tool & Data Connectors"}</p><p>{"RBAC & Auth Layer"}</p><p>{"Schema Validation"}</p></div> </div> <div className="text-center p-5 bg-ink rounded-[20px] border border-[var(--line-strong)]  relative"> <div className="absolute -top-2 -right-2 w-4 h-4 bg-panel-2 rounded-full animate-pulse"></div> <div className="w-12 h-12 bg-panel-2/30 rounded-full flex items-center justify-center mx-auto mb-3 border border-[var(--line-strong)]"><Icon name="Network" className="text-white/70" /></div> <h4 className="font-ui text-sm text-white mb-2">{"Agent Swarm"}</h4> <div className="space-y-1 text-[11px] text-white/70"><p>{"Orchestrator Agent"}</p><p>{"Specialist Workers"}</p><p>{"A2A Coordination"}</p></div> </div> <div className="text-center p-5 bg-panel-2 rounded-[20px] border border-[var(--line)]"> <div className="w-12 h-12 bg-panel-2 rounded-full flex items-center justify-center mx-auto mb-3"><Icon name="Shield" className="text-ink" /></div> <h4 className="font-ui text-sm text-ink mb-2">{"Governance"}</h4> <div className="space-y-1 text-[11px] text-ink-2"><p>{"Audit Trail Logging"}</p><p>{"Human-in-the-Loop"}</p><p>{"Rollback & Replay"}</p></div> </div> </div> <div className="flex items-center justify-center gap-2 text-xs text-ink-2 uppercase tracking-widest"><Icon name="BadgeCheck" className="text-ink-2 text-sm" />{"MCP Standard • A2A Interoperability • Stateful Execution • Full Observability"}</div> </div> </div> </section>  <section className="py-16 sm:py-20 px-6"> <div className="max-w-[1280px] mx-auto"> <div className="reveal text-center max-w-2xl mx-auto mb-14"> <span className="text-ink-2 tracking-widest uppercase block mb-3 text-xs">{"Deliverables"}</span> <h2 className="mc-title text-ink mb-4">{"What We Actually Build"}</h2> </div> <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto"> <div className="card-lift bg-panel border border-[var(--line)] rounded-[20px] p-8"> <div className="w-12 h-12 bg-panel-2 rounded-[20px] flex items-center justify-center mb-5"><Icon name="Route" className="text-ink-2" /></div> <h4 className="font-ui text-lg text-ink mb-3">{"Cross-System Workflow Agents"}</h4> <p className="text-sm text-ink-2 mb-4">{"Agents that orchestrate end-to-end business processes spanning multiple systems. Example: A \"Deal Desk Agent\" that receives a signed proposal in DocuSign, creates the customer record in Salesforce, generates the invoice in Stripe, provisions the account in your SaaS product, sends the onboarding email sequence, and creates the project in Monday.com all triggered by a single event, completed in seconds."}</p> <div className="flex flex-wrap gap-2"><span className="text-[10px] uppercase tracking-wider text-ink-2 bg-panel-2/30 px-2 py-1 rounded-full">{"CRM → Billing → Provisioning"}</span></div> </div> <div className="card-lift bg-panel border border-[var(--line)] rounded-[20px] p-8"> <div className="w-12 h-12 bg-panel-2 rounded-[20px] flex items-center justify-center mb-5"><Icon name="Headphones" className="text-ink" /></div> <h4 className="font-ui text-lg text-ink mb-3">{"Autonomous Customer Service Agents"}</h4> <p className="text-sm text-ink-2 mb-4">{"AI agents that go beyond answering questions to actually resolving issues. Connected to your ticketing system, knowledge base, and customer database, they can look up order status, process refunds within policy limits, update shipping addresses, escalate complex cases with full context, and generate resolution summaries handling the bulk of Tier 1 inquiries without human intervention."}</p> <div className="flex flex-wrap gap-2"><span className="text-[10px] uppercase tracking-wider text-ink-2 bg-panel-2/30 px-2 py-1 rounded-full">{"Zendesk → Shopify → Stripe"}</span></div> </div> <div className="card-lift bg-panel border border-[var(--line)] rounded-[20px] p-8"> <div className="w-12 h-12 bg-panel-2 rounded-[20px] flex items-center justify-center mb-5"><Icon name="ChartNoAxesCombined" className="text-ink" /></div> <h4 className="font-ui text-lg text-ink mb-3">{"Research & Analysis Agents"}</h4> <p className="text-sm text-ink-2 mb-4">{"Agents that autonomously gather, synthesize, and report on complex data. A \"Market Intelligence Agent\" can monitor competitor pricing daily, scrape regulatory filing databases, aggregate customer feedback from review platforms, and generate a weekly executive briefing with trend analysis work that would take an analyst days of manual effort, delivered every Monday morning."}</p> <div className="flex flex-wrap gap-2"><span className="text-[10px] uppercase tracking-wider text-ink-2 bg-panel-2/30 px-2 py-1 rounded-full">{"Web → APIs → Reports"}</span></div> </div> <div className="bg-ink border border-[var(--line-strong)] rounded-[20px] p-8 "> <div className="w-12 h-12 bg-panel-2/30 rounded-[20px] flex items-center justify-center mb-5 border border-[var(--line-strong)]"><Icon name="Brain" className="text-white/70" /></div> <h4 className="font-ui text-lg text-white mb-3">{"Decision-Layer Agents"}</h4> <p className="text-sm text-white/70 mb-4">{"For processes requiring judgment calls that currently bottleneck on senior staff. A \"Credit Approval Agent\" evaluates applications against your risk model, pulls credit bureau data, analyzes payment history, and either auto-approves within defined parameters or escalates with a recommendation and supporting evidence. Approval turnaround drops from days to minutes for applications that fit your parameters."}</p> <div className="flex flex-wrap gap-2"><span className="text-[10px] uppercase tracking-wider text-white/70 bg-white/10 px-2 py-1 rounded-full">{"Data → Rules → Decision"}</span></div> </div> </div> </div> </section>  <section className="py-16 sm:py-20 px-6 bg-ink text-white relative overflow-hidden"> <div className="max-w-[1280px] mx-auto px-6 relative z-10"> <div className="reveal text-center mb-12"><span className="inline-block bg-panel-2 text-ink-2 px-4 py-2 rounded-full uppercase tracking-widest mb-5">{"Business Value"}</span><h2 className="font-ui text-3xl md:text-4xl text-white mb-4">{"What the system is designed to improve"}</h2><p className="text-white/60 max-w-2xl mx-auto">{"Each implementation is shaped around the customer's workflow, controls, and desired business outcome. The measures depend on the function being improved."}</p></div> <div className="grid grid-cols-1 md:grid-cols-4 gap-6"> <div className="card-lift bg-ink/80 p-7 rounded-[20px] border border-[var(--line-strong)]/20"><h3 className="font-ui text-xl text-white mb-3">{"Execution Speed"}</h3><p className="text-sm text-white/60">{"Move repeatable work forward without waiting on manual handoffs."}</p></div> <div className="card-lift bg-ink/80 p-7 rounded-[20px] border border-[var(--line-strong)]/20"><h3 className="font-ui text-xl text-white mb-3">{"Operational Capacity"}</h3><p className="text-sm text-white/60">{"Increase the amount of work the business can handle without simply adding more coordination."}</p></div> <div className="card-lift bg-ink/80 p-7 rounded-[20px] border border-[var(--line-strong)]/20"><h3 className="font-ui text-xl text-white mb-3">{"Consistency & Control"}</h3><p className="text-sm text-white/60">{"Apply business context, rules, escalation paths, and traceability to execution."}</p></div> <div className="card-lift bg-ink/80 p-7 rounded-[20px] border border-[var(--line-strong)]/20"><h3 className="font-ui text-xl text-white mb-3">{"Scalability"}</h3><p className="text-sm text-white/60">{"Build systems that can support higher volume as the business grows."}</p></div> </div></div></section>  <FinalCta heading={"Let’s identify the business function worth improving."} body={"Let's map your highest-friction workflows and find where autonomous agents can take manual effort off your team's plate."} /> </main>
-  </>;
+        crumbs={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'AI Agent Development' }]}
+        title="AI Agent Development Services"
+        body="AI agents that move work forward, not just answer questions. We build agents that understand an objective, work through the steps required to reach it, use your information and tools, complete routine tasks, and involve people when judgment is required."
+        stats={[{ value: 'Multi-step', label: 'Execution' }, { value: 'Human-in-the-loop', label: 'By design' }, { value: '24/7', label: 'Operation' }]}
+        image={{ src: '/services/agentic-ai.jpg', alt: 'Operations team collaborating on multi-step AI agent workflow execution' }}
+      />
+
+      {/* ── The shift: why agents ─────────────────────────────────────── */}
+      <section className="py-16 sm:py-20 px-6 bg-page-wash border-y border-[var(--line)]">
+        <div className="max-w-3xl mx-auto">
+          <span className="text-ink-2 tracking-widest uppercase block mb-3 text-xs">Why Agents</span>
+          <h2 className="mc-title text-ink mb-6">Businesses don&apos;t need more chat windows. They need work completed faster.</h2>
+          <p className="lede text-ink-2 mb-6">An agent can take a business objective, work through the steps required to reach it, and return a finished outcome instead of another answer to read.</p>
+          <p className="text-ink-2 mb-4">We build AI agents that can understand a business objective, work through multiple steps, use the information and tools available to them, complete routine tasks, and involve people when judgment or approval is required.</p>
+          <p className="text-ink-2 mb-6">From customer operations and sales to research, administration and internal workflows, we turn repetitive work into intelligent, continuously running processes.</p>
+
+          <div className="bg-panel border border-[var(--line)] rounded-[20px] p-6 mt-8">
+            <p className="text-xs text-ink-2 uppercase tracking-widest mb-5">From AI assistance to AI execution</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="rounded-[14px] border border-[var(--line)] bg-panel-2/40 p-5">
+                <span className="text-[10px] uppercase tracking-wider text-ink-2 block mb-3">Traditional AI</span>
+                <p className="font-ui text-ink">Ask &rarr; Answer</p>
+              </div>
+              <div className="rounded-[14px] border border-[var(--line-strong)] bg-panel-2/40 p-5">
+                <span className="text-[10px] uppercase tracking-wider text-ink-2 block mb-3">Business agents</span>
+                <p className="font-ui text-ink">Understand &rarr; Plan &rarr; Act &rarr; Check &rarr; Continue</p>
+              </div>
+            </div>
+            <p className="text-xs text-ink-2 uppercase tracking-widest mt-7 mb-4">For example, instead of manually processing a request</p>
+            <ol className="space-y-2 text-sm text-ink-2">
+              {['Understand the request', 'Find the customer information', 'Review the relevant business information', 'Determine the appropriate next step', 'Prepare or perform the action', 'Update the relevant record', 'Notify the customer or employee', 'Escalate when human judgment is required'].map((line) => (
+                <li key={line} className="flex items-start gap-2">
+                  <Icon name="ChevronRight" className="mt-0.5 size-4 shrink-0 text-ink-3" aria-hidden />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ol>
+            <p className="text-ink-2 mt-5 text-sm italic border-l-4 border-[var(--line-strong)] pl-4">The business gets a completed workflow rather than another AI-generated answer.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── What we build ─────────────────────────────────────────────── */}
+      <section className="py-16 sm:py-20 px-6">
+        <div className="max-w-[1280px] mx-auto">
+          <div className="reveal text-center max-w-2xl mx-auto mb-14">
+            <span className="text-ink-2 tracking-widest uppercase block mb-3 text-xs">What We Build</span>
+            <h2 className="mc-title text-ink mb-4">Agents for the work that consumes your team.</h2>
+            <p className="text-ink-2">Each agent is designed around a real process, with the boundaries, controls and handoffs that process needs.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {build.map((item) => (
+              <div key={item.title} className="card-lift bg-panel p-8 rounded-[20px] border border-[var(--line)] flex flex-col">
+                <div className="w-10 h-10 bg-panel-2 text-ink rounded-[14px] flex items-center justify-center mb-4">
+                  <Icon name={item.icon} className="text-lg" aria-hidden />
+                </div>
+                <h3 className="font-ui text-lg text-ink mb-3">{item.title}</h3>
+                <p className="text-sm text-ink-2 mb-4">{item.body}</p>
+                <div className="mt-auto flex flex-wrap gap-2">
+                  {item.tags.map((tag) => (
+                    <span key={tag} className="text-[10px] uppercase tracking-wider text-ink-2 bg-panel-2/30 px-2 py-1 rounded-full">{tag}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Approach + human control ──────────────────────────────────── */}
+      <section className="py-16 sm:py-20 px-6 bg-page-wash border-y border-[var(--line)]">
+        <div className="max-w-[1280px] mx-auto">
+          <div className="reveal text-center max-w-2xl mx-auto mb-12">
+            <span className="text-ink-2 tracking-widest uppercase block mb-3 text-xs">Our Approach</span>
+            <h2 className="mc-title text-ink mb-4">Designed around your business, not around a model.</h2>
+            <p className="text-ink-2">We don&apos;t build generic agents and expect your business to adapt to them. We start with the work: what needs to be accomplished, what information is required, which decisions can be automated, and where people stay involved.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {steps.map((step) => (
+              <div key={step.n} className="reveal bg-panel rounded-[20px] border border-[var(--line)] p-6">
+                <span className="text-ink-2 tracking-widest uppercase block mb-3 text-xs">{step.n}</span>
+                <h3 className="font-ui text-lg text-ink mb-2">{step.title}</h3>
+                <p className="text-sm text-ink-2">{step.body}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="bg-panel rounded-[20px] border border-[var(--line)] p-6">
+              <p className="text-xs text-ink-2 uppercase tracking-widest mb-4">AI handles</p>
+              <ul className="space-y-2 text-sm text-ink-2">
+                {['Research', 'Information gathering', 'Routine processing', 'Classification', 'Preparation', 'Standard actions'].map((item) => (
+                  <li key={item} className="flex items-start gap-2"><Icon name="CircleCheck" className="mt-0.5 size-4 shrink-0 text-ink-3" aria-hidden /><span>{item}</span></li>
+                ))}
+              </ul>
+            </div>
+            <div className="bg-panel rounded-[20px] border border-[var(--line)] p-6">
+              <p className="text-xs text-ink-2 uppercase tracking-widest mb-4">People handle</p>
+              <ul className="space-y-2 text-sm text-ink-2">
+                {['Approvals', 'Exceptions', 'Sensitive decisions', 'Relationships', 'Strategic judgment'].map((item) => (
+                  <li key={item} className="flex items-start gap-2"><Icon name="CircleCheck" className="mt-0.5 size-4 shrink-0 text-ink-3" aria-hidden /><span>{item}</span></li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <p className="text-center text-ink-2 mt-6 text-sm max-w-2xl mx-auto">Automation doesn&apos;t mean removing people from every decision. The strongest workflows combine AI execution with human judgment.</p>
+        </div>
+      </section>
+
+      {/* ── What your business gets ───────────────────────────────────── */}
+      <section className="py-16 sm:py-20 px-6 bg-ink text-white relative overflow-hidden">
+        <div className="max-w-[1280px] mx-auto relative z-10">
+          <div className="reveal text-center mb-12">
+            <span className="inline-block bg-panel-2 text-ink-2 px-4 py-2 rounded-full uppercase tracking-widest mb-5">What Your Business Gets</span>
+            <h2 className="font-ui text-3xl md:text-4xl text-white mb-4">A capability, not a one-off answer</h2>
+            <p className="text-white/60 max-w-2xl mx-auto">The measures depend on the function being improved, but the direction stays the same.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {outcome.map((item) => (
+              <div key={item.title} className="card-lift bg-ink/80 p-7 rounded-[20px] border border-[var(--line-strong)]/20">
+                <h3 className="font-ui text-xl text-white mb-3">{item.title}</h3>
+                <p className="text-sm text-white/60">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <FinalCta
+        heading="Build AI that does more than respond."
+        body="Your employees shouldn't have to ask AI to do every individual step. We build agents that take responsibility for appropriate parts of the workflow, and move your business from AI assistance to AI execution."
+      />
+    </main>
+  );
 }

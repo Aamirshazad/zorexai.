@@ -241,7 +241,10 @@ export default function PageContent() {
           +
         </span>
       </summary>
-      <div className="border-t border-[var(--line)] p-8 pt-6">
+      {/* Calendly's inline embed ships a 320px min-width, which is wider than
+          the panel on phones at 360px and below. The wrapper scrolls instead of
+          letting the booking form be clipped on the right. */}
+      <div className="border-t border-[var(--line)] p-8 pt-6 overflow-x-auto">
         <div
           className="calendly-inline-widget"
           data-url={`${company.calendly}?hide_gdpr_banner=1&background_color=f3f6f1&text_color=141414&primary_color=141414`}

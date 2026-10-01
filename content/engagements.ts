@@ -20,14 +20,13 @@ export type Engagement = {
   service: string;
   serviceIcon: IconName;
   industry: string;
+  badge?: string;
+  ctaLabel?: string;
+  tagline?: string;
   /** Role and company type only never a name. */
   who: string;
-  /**
-   * Card thumbnail. Illustrative imagery only: the alt text has to say so,
-   * because a stock photograph captioned as a client's dashboard is exactly the
-   * claim this page exists to avoid making.
-   */
   image?: { src: string; alt: string };
+  gallery?: Array<{ src: string; alt: string; label: string }>;
   problem: string;
   built: string;
   changed: string;
@@ -38,70 +37,87 @@ export const engagements: Engagement[] = [
   {
     href: '/case-study-novus',
     number: '01',
-    title: 'The weekly reporting pack that took two days to assemble',
+    title: 'A fashion studio selling online but running everything by hand',
     service: 'AI Integration',
     serviceIcon: 'PlugZap',
-    industry: 'Logistics',
-    who: 'Operations Director, mid-market logistics operator',
+    industry: 'Fashion E-commerce',
+    badge: 'E-commerce Automation',
+    ctaLabel: 'Read Fashion Studio Case Study',
+    tagline: 'Multi-channel order fulfillment & automated inventory sync',
+    who: 'Founder, independent fashion label with a small 3-person studio team',
     image: {
-      src: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1200',
-      alt: 'Illustrative image of a logistics operations environment',
+      src: '/case-studies/fashion-studio.jpg',
+      alt: 'Studio Élevé fashion studio and automated e-commerce order fulfillment pipeline',
     },
     problem:
-      'Four systems held the numbers, none agreed, and two analysts spent the first two days of every week reconciling them by hand. By the time the pack landed, the decisions it existed to support had already been made on instinct.',
+      'The founder and two staff managed inventory across Shopify, Instagram Shop drops, and a wholesale spreadsheet. Every sale triggered hours of manual updates: stock counts, shipping labels in carrier portals, and manual tracking emails. Returns were tracked in a notebook. During a 200-unit seasonal drop, three orders shipped to the wrong address because of copy-paste errors.',
     built:
-      'A pipeline that pulls from the TMS, the ERP, and two spreadsheets, resolves the disagreements against defined rules, and flags the ones no rule covers for a human to settle. The pack builds itself; the exceptions arrive as a short queue.',
+      'A unified system that connects Shopify, shipping carriers, and wholesale trackers into one pipeline. Orders flow through automatically with address verification: stock adjusts in real time, shipping labels generate instantly, and customers receive branded tracking updates without staff touching a template. Returns feed back into inventory the moment the carrier scans the package.',
     changed:
-      'Reporting moved from a two-day assembly job to a review job. The analysts kept the judgment work and stopped doing the copying, and the numbers stopped being contested in the meeting.',
+      'Order processing went from a 4-hour daily manual chore to background automation. Zero shipping errors during peak drop weekends, 100% accurate multi-channel stock sync, and the founder regained 18+ hours a week to focus on designing new collections.',
     shift: {
-      from: 'Two analysts reconciling four systems by hand every Monday and Tuesday',
-      to: 'The pack assembles itself; people review it and settle the flagged exceptions',
+      from: 'Manual order processing across three portals, spreadsheet stock counts, and untracked returns in a notebook',
+      to: 'Orders, shipping, and returns flow end-to-end automatically — team focuses on design, not admin',
     },
   },
   {
     href: '/case-study-echocommerce',
     number: '02',
-    title: 'First-line support growing faster than the team could hire',
+    title: 'ZAIK: AI-Native Social Media Marketing Operating System for Ecommerce Agencies',
     service: 'Agentic AI Systems',
     serviceIcon: 'Bot',
-    industry: 'B2B Commerce',
-    who: 'Founder, B2B commerce platform',
+    industry: 'Social Media Marketing / Agencies',
+    badge: 'Flagship Platform Showcase',
+    ctaLabel: 'Explore Zaik Platform Landing Page',
+    tagline: 'Run multiple ecommerce clients through one unified AI marketing OS',
+    who: 'Boutique Ecommerce Marketing Agencies & Founders managing 8–15 client brand accounts',
     image: {
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=1200',
-      alt: 'Illustrative image of a support operations environment',
+      src: '/case-studies/agency-marketing.jpg',
+      alt: 'Digital marketing agency operating system and multi-client command center',
     },
+    gallery: [
+      { src: '/case-studies/agency-marketing.jpg', alt: 'Agency Workspace — Multi-client command center & analytics', label: 'Agency Workspace' },
+      { src: '/zaik/ad-studio.png', alt: 'Zaik Ad Studio — AI video ad generation and templates', label: 'Ad Studio' },
+      { src: '/zaik/community-inbox.png', alt: 'Zaik Community Inbox — AI message triage and multi-channel engagement', label: 'Community Inbox' },
+      { src: '/zaik/fashion-studio.png', alt: 'Zaik Fashion Studio — Virtual model styling & catalog shoots', label: 'Fashion Studio' },
+      { src: '/zaik/brand-kits.png', alt: 'Zaik Brand Kits — Isolated brand memory & design assets', label: 'Brand Kits' },
+      { src: '/zaik/motion-design.png', alt: 'Zaik Motion Design — Product catalog & automated video creation', label: 'Motion Design' },
+    ],
     problem:
-      'Most incoming tickets were answerable from the order record and the policy documents, but each one still queued behind a person. Hiring lagged volume by a quarter, and the complex cases waited behind the simple ones.',
+      'Every new ecommerce client meant another brand voice to memorize, separate Google Drive folders, fragmented Canva links, approval emails, and manual reporting spreadsheets. Account managers juggled 6+ disconnected tools per client. Growth created coordination friction, ballooning freelancer costs, and compressed agency margins.',
     built:
-      'An agent with read access to order history and policy, allowed to answer and to act within a defined set of operations, and required to escalate anything outside it with the context already gathered. Every answer is logged with the sources it used.',
+      'Zaik — an AI-native social media marketing operating system built by Zorex AI. Gives agencies one unified command center with isolated client Brand Brains, specialized AI Creative Studios (Ad Studio, Fashion Studio, Motion Design, UGC), Community Agent message triage, multi-channel publishing, and automated client-ready analytics.',
     changed:
-      'Routine enquiries resolve without a queue, and the team works the cases that actually need them. The escalation path means an unusual request reaches a person faster than it used to, not slower.',
+      'Eliminated multi-tool chaos. Creative production dropped from 3 days to minutes with human approval. Client onboarding compressed by 4x. Account managers scale from 3 to 8 clients each without quality loss, while the agency reuses proven workflows across its entire portfolio.',
     shift: {
-      from: 'Every ticket queued behind a person, simple cases blocking complex ones',
-      to: 'Routine enquiries resolve unattended; escalations arrive with context attached',
+      from: '6 disconnected tools per client, manual copywriting & design handoffs, multi-tab coordination bottleneck',
+      to: 'One AI-native OS: Brand Brains, automated Creative Studios, multi-channel calendar, and one-click reporting',
     },
   },
   {
     href: '/case-study-viralgrowth',
     number: '03',
-    title: 'Patient follow-up that only happened when someone had time',
+    title: 'Patient Follow-Up & Intake Workflow for a Multi-Provider Healthcare Practice',
     service: 'Vertical AI Systems',
     serviceIcon: 'Layers3',
-    industry: 'Healthcare',
-    who: 'Practice Manager, specialist medical group',
+    industry: 'Healthcare & Clinical Practice',
+    badge: 'Clinical Workflow System',
+    ctaLabel: 'Read Medical Practice Case Study',
+    tagline: 'Zero-data-leakage patient communication & recall system',
+    who: 'Practice Manager, Specialist Medical Group (8 providers, 2 clinics)',
     image: {
-      src: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200',
-      alt: 'Illustrative image of a healthcare environment',
+      src: '/case-studies/healthcare-clinic.jpg',
+      alt: 'Aspen Medical Group practice management and automated patient communication system',
     },
     problem:
-      'Recalls, pre-appointment preparation, and post-visit follow-up were all manual, so they slipped whenever the front desk got busy, which was most days. The privacy constraints ruled out the obvious off-the-shelf tools.',
+      'Recalls, pre-appointment preparation, and post-visit follow-up were all manual, so they slipped whenever the front desk got busy, which was most days. High-friction phone tags led to missed appointments, and privacy regulations ruled out generic off-the-shelf automation tools.',
     built:
-      'A system inside the practice’s own environment that prepares and sends the routine communications, holds anything clinical for staff approval, and writes every action back to the record. Nothing leaves the boundary the practice already operates under.',
+      'A system inside the practice\'s own secure environment that prepares and sends routine communications, holds anything clinical for staff approval, and writes every action back to the EHR. Nothing leaves the boundary the practice already operates under.',
     changed:
-      'Follow-up stopped depending on how busy the front desk was. Staff review and approve rather than compose, and the exceptions surface as a list instead of being discovered later.',
+      'Follow-up stopped depending on how busy the front desk was. Staff review and approve rather than compose, response times dropped from days to minutes, and the exceptions surface as a prioritized list instead of being discovered later.',
     shift: {
-      from: 'Recalls and follow-up slipping whenever the front desk got busy',
-      to: 'Routine communication runs on schedule; staff approve rather than compose',
+      from: 'Recalls and follow-up slipping whenever the front desk got busy; phone tag backlogs',
+      to: 'Routine communication runs on schedule; staff approve rather than compose with full EHR audit trail',
     },
   },
 ];

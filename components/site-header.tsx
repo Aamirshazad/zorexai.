@@ -12,8 +12,8 @@ type MenuKey = 'services' | 'industries';
 /**
  * Primary navigation.
  *
- * This was previously a flat array of six links, which meant the six service
- * pages and nine industry pages were reachable only from the footer. A buyer
+ * This was previously a flat array of six links, which meant the four service
+ * pages and six industry pages were reachable only from the footer. A buyer
  * who navigates by capability rather than by scrolling could not see the
  * catalogue at all. Services and Industries now open dropdown panels on
  * desktop, and the mobile menu exposes the same groups as disclosures.
@@ -33,17 +33,17 @@ const menus: {
     key: 'services',
     label: 'Services',
     href: '/services',
-    count: 'Six capabilities',
+    count: 'Four capabilities',
     items: services.map((service) => ({ href: service.href, label: service.name, desc: service.menuLine })),
-    footer: { label: 'All six services', href: '/services' },
+    footer: { label: 'All four services', href: '/services' },
   },
   {
     key: 'industries',
     label: 'Industries',
     href: '/industries',
-    count: 'Nine sectors',
+    count: 'Six sectors',
     items: industries.map((industry) => ({ href: industry.href, label: industry.name, desc: industry.meta })),
-    footer: { label: 'All nine industries', href: '/industries' },
+    footer: { label: 'All six industries', href: '/industries' },
   },
 ];
 

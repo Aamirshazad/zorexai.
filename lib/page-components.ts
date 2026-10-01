@@ -15,21 +15,16 @@ import FaqPage from '@/components/pages/faq';
 import HomePage from '@/components/pages/home';
 import IndustriesPage from '@/components/pages/industries';
 import IndustryB2BEcommercePage from '@/components/pages/industry-b2b-ecommerce';
-import IndustryB2BFinancePage from '@/components/pages/industry-b2b-finance';
 import IndustryB2BSaaSPage from '@/components/pages/industry-b2b-saas';
 import IndustryCommercialRealEstatePage from '@/components/pages/industry-commercial-real-estate';
 import IndustryDigitalMarketingPage from '@/components/pages/industry-digital-marketing';
-import IndustryLawFirmsPage from '@/components/pages/industry-law-firms';
 import IndustryLogisticsPage from '@/components/pages/industry-logistics';
-import IndustryManufacturingPage from '@/components/pages/industry-manufacturing';
 import IndustryMedicalPracticesPage from '@/components/pages/industry-medical-practices';
 import PrivacyPage from '@/components/pages/privacy';
 import ProcessPage from '@/components/pages/process';
 import ServiceAgenticAIPage from '@/components/pages/service-agentic-ai';
 import ServiceAIAutomationsPage from '@/components/pages/service-ai-automations';
 import ServiceAIIntegrationPage from '@/components/pages/service-ai-integration';
-import ServiceAPIIntegrationsPage from '@/components/pages/service-api-integrations';
-import ServiceLLMApplicationsPage from '@/components/pages/service-llm-applications';
 import ServiceVerticalAIPage from '@/components/pages/service-vertical-ai';
 import ServicesPage from '@/components/pages/services';
 import SecurityPage from '@/components/pages/security';
@@ -52,13 +47,10 @@ export const pageComponents: Record<string, ComponentType> = {
   faq: FaqPage,
   industries: IndustriesPage,
   'industry-b2b-ecommerce': IndustryB2BEcommercePage,
-  'industry-b2b-finance': IndustryB2BFinancePage,
   'industry-b2b-saas': IndustryB2BSaaSPage,
   'industry-commercial-real-estate': IndustryCommercialRealEstatePage,
   'industry-digital-marketing': IndustryDigitalMarketingPage,
-  'industry-law-firms': IndustryLawFirmsPage,
   'industry-logistics': IndustryLogisticsPage,
-  'industry-manufacturing': IndustryManufacturingPage,
   'industry-medical-practices': IndustryMedicalPracticesPage,
   privacy: PrivacyPage,
   process: ProcessPage,
@@ -66,8 +58,6 @@ export const pageComponents: Record<string, ComponentType> = {
   'service-agentic-ai': ServiceAgenticAIPage,
   'service-ai-automations': ServiceAIAutomationsPage,
   'service-ai-integration': ServiceAIIntegrationPage,
-  'service-api-integrations': ServiceAPIIntegrationsPage,
-  'service-llm-applications': ServiceLLMApplicationsPage,
   'service-vertical-ai': ServiceVerticalAIPage,
   security: SecurityPage,
   terms: TermsPage,

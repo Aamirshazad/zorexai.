@@ -1,5 +1,5 @@
 /**
- * The nine industry deep-dive pages, in one place.
+ * The six industry deep-dive pages, in one place.
  *
  * Shared between the industries index, the site footer, and any future cross-
  * links so the set can never drift apart. Titles must match the destination
@@ -33,14 +33,6 @@ export const industries: Industry[] = [
     icon: 'ShoppingCart',
   },
   {
-    href: '/industry-b2b-finance',
-    name: 'B2B Finance',
-    title: 'How AI Is Transforming B2B Finance Operations',
-    meta: 'AP/AR • Compliance • Reconciliation',
-    oneLine: 'Autonomous processing, validation, and reconciliation of financial data, so your team keeps the judgment work.',
-    icon: 'Landmark',
-  },
-  {
     href: '/industry-b2b-saas',
     name: 'B2B SaaS',
     title: 'Embedded AI Engineering for B2B SaaS',
@@ -65,28 +57,12 @@ export const industries: Industry[] = [
     icon: 'Megaphone',
   },
   {
-    href: '/industry-law-firms',
-    name: 'Law Firms',
-    title: 'Enterprise AI Engineering for Law Firms',
-    meta: 'Litigation • Corporate • Legal Tech',
-    oneLine: 'Private, secure AI inside your own infrastructure: e-discovery and contract review without privilege concerns.',
-    icon: 'Gavel',
-  },
-  {
     href: '/industry-logistics',
     name: 'Logistics & Supply Chain',
     title: 'Autonomous Operations for Complex Supply Chains',
     meta: 'Freight • 3PL • Warehousing',
     oneLine: 'Unify EDI feeds, parse unstructured freight documents, and resolve routing exceptions autonomously.',
     icon: 'Truck',
-  },
-  {
-    href: '/industry-manufacturing',
-    name: 'Manufacturing',
-    title: 'Predictive AI for Modern Manufacturing',
-    meta: 'Production • Quality Control • Maintenance',
-    oneLine: 'Vision-based defect detection and predictive maintenance, so downtime is prevented rather than repaired.',
-    icon: 'Cog',
   },
   {
     href: '/industry-medical-practices',
