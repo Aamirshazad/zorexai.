@@ -27,7 +27,7 @@ export default function NotFound() {
             <Icon name="ArrowLeft" className="mr-1 size-4" aria-hidden />
             Back to Home
           </Link>
-          <Link className="btn-ghost w-full sm:w-auto" href="/contact">
+          <Link className="btn-ghost w-full sm:w-auto" href="/contact#book">
             Book a Strategy Call
           </Link>
         </div>

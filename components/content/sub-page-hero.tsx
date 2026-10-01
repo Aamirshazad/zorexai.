@@ -39,7 +39,7 @@ export function SubPageHero({
   body,
   bodySecondary,
   ctaLabel = 'Book a Strategy Call',
-  ctaHref = '/contact',
+  ctaHref = '/contact#book',
   secondaryLabel = 'See Our Work',
   secondaryHref = '/case-studies',
   icon,

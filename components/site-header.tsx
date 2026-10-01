@@ -213,7 +213,7 @@ export function SiteHeader() {
             );
           })}
 
-          <Link href="/contact" className="nav-cta ml-3">
+          <Link href="/contact#book" className="nav-cta ml-3">
             Book a Strategy Call
           </Link>
         </div>
@@ -297,7 +297,7 @@ export function SiteHeader() {
               );
             })}
 
-            <Link href="/contact" onClick={closeMenu} className="nav-cta mt-4 mb-2">
+            <Link href="/contact#book" onClick={closeMenu} className="nav-cta mt-4 mb-2">
               Book a Strategy Call
             </Link>
           </div>

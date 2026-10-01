@@ -70,7 +70,7 @@ export default function PageContent() {
                 scoped to your workflows: six sectors below, and the four capabilities those engagements draw on.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-                <Link className="btn-ink w-full sm:w-auto" href="/contact">
+                <Link className="btn-ink w-full sm:w-auto" href="/contact#book">
                   Book a Strategy Call
                   <Icon name="ArrowRight" className="ml-1 size-4" aria-hidden />
                 </Link>

@@ -38,7 +38,7 @@ export function FinalCta({ heading, body, secondaryLabel, secondaryHref }: Final
           <li className="chip chip-grain">No obligation</li>
         </ul>
         <div className="reveal reveal-delay-3 flex flex-col sm:flex-row items-center justify-center gap-3">
-          <Link className="btn-ink w-full sm:w-auto !bg-white !text-ink hover:!bg-white/90" href="/contact">
+          <Link className="btn-ink w-full sm:w-auto !bg-white !text-ink hover:!bg-white/90" href="/contact#book">
             Book a Strategy Call
             <Icon name="ArrowRight" className="ml-1 size-4" aria-hidden />
           </Link>

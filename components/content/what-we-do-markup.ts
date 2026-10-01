@@ -92,7 +92,7 @@ export const whatWeDoMarkup = `
           </g>
         </svg>
       </div>
-        <a class="btn" style="margin-top:28px;" href="/contact">Talk about an assessment</a>
+        <a class="btn" style="margin-top:28px;" href="/contact#book">Talk about an assessment</a>
       </article>
       <article class="offer" id="offer-2">
         <p class="mono" style="color:var(--blue);">02</p>
@@ -126,26 +126,26 @@ export const whatWeDoMarkup = `
       <article class="offer" id="offer-3">
         <p class="mono" style="color:var(--blue);">03</p>
         <h3 class="offer-h">AI Training</h3>
-        <p class="lead" style="margin-top:12px;">From AI-curious to AI-capable.</p>
-        <p class="body">Hands-on and strategic. Three tracks - one for every level of your organization - built and delivered by practitioners who ship AI in production. Not tool training: your people build real agentic workflows on the same stack we use ourselves.</p>
+        <p class="lead" style="margin-top:12px;">From AI-curious to AI-capable - built for SMBs to growing enterprises.</p>
+        <p class="body">Hands-on, outcome-driven enablement tailored for small SMBs through to medium and large businesses. Built and delivered by practitioners who ship AI in production every day. Not generic tool tutorials: your people learn to deploy real workflows and automations directly into your operations.</p>
       <div class="phases">
         <div class="phase">
           <div class="phase-no">01</div>
-          <h3>AI Executive</h3>
-          <p>For boards and C-suites. Half day to two days. The judgment to make AI investment decisions, evaluate opportunities, set governance - and lead adoption with confidence.</p>
+          <h3>Business Leaders &amp; Owners</h3>
+          <p>For SMB owners, founders, and business leaders. Strategic clarity to evaluate high-ROI opportunities, make confident technology investments, establish security guardrails, and lead AI adoption with measurable impact.</p>
         </div>
         <div class="phase">
           <div class="phase-no">02</div>
-          <h3>AI Super User</h3>
-          <p>For leadership teams and non-technical staff. Two-day intensive that turns them into power users who redesign their daily work with AI - and ship one agentic workflow of their own.</p>
+          <h3>AI Super Users &amp; Teams</h3>
+          <p>For managers, department leads, and operations teams. Intensive sessions that turn your key staff into power users who redesign workflows with AI - shipping tailored agentic automations that save hours every week.</p>
         </div>
         <div class="phase">
           <div class="phase-no">03</div>
-          <h3>AI Builder</h3>
-          <p>For technical teams. Intensive, hands-on program for building production AI systems - from architecture to deployment to evaluation, with the guardrails that make them governable.</p>
+          <h3>Employee Enablement</h3>
+          <p>For employees and frontline teams across your company. Practical, accessible training that eliminates repetitive busywork, builds daily AI fluency, and empowers your workforce to safely use and build practical automations in their everyday work.</p>
         </div>
       </div>
-        <a class="btn" style="margin-top:28px;" href="/contact">Talk about enablement</a>
+        <a class="btn" style="margin-top:28px;" href="/contact#book">Talk about enablement</a>
       </article>
     </div>
   </div>

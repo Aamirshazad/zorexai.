@@ -9,7 +9,6 @@ import { FourPhases } from '@/components/content/four-phases';
 import { StartingPoint } from '@/components/content/starting-point';
 import { Philosophy } from '@/components/content/philosophy';
 import { WhatWeDo } from '@/components/content/what-we-do';
-import { SmartForm } from '@/components/ui/smart-form';
 import { company } from '@/content/company';
 import { services } from '@/content/services';
 
@@ -119,7 +118,7 @@ export default function PageContent() {
         </Reveal>
         <Reveal delay={0.24}>
           <div className="flex flex-col sm:flex-row items-center justify-start gap-3">
-            <Link className="btn-ink w-full sm:w-auto" href="/contact">Book a Strategy Call<Icon name="ArrowRight" className="ml-1 size-4" aria-hidden /> </Link>
+            <Link className="btn-ink w-full sm:w-auto" href="/contact#book">Book a Strategy Call<Icon name="ArrowRight" className="ml-1 size-4" aria-hidden /> </Link>
             <Link className="btn-ghost w-full sm:w-auto" href="/case-studies">See Our Work</Link>
           </div>
         </Reveal>
@@ -262,66 +261,30 @@ export default function PageContent() {
     </div>
   </section>
 
-  {/* ── Lead magnet in-app submission, no off-site redirect ────── */}
-  <section className="py-section-padding px-5 sm:px-8">
-    <div className="max-w-3xl mx-auto">
+  {/* ── Final CTA boxed card ─────── */}
+  <section className="py-section-padding px-5 sm:px-8" id="book">
+    <div className="max-w-4xl mx-auto">
       <Reveal>
-        <div className="grain grain-charcoal rounded-[22px] text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 border rounded-full font-semibold text-[10px] uppercase tracking-[0.14em] mb-8 border-[var(--grain-chip-bd)] bg-[var(--grain-chip)]">
-            <Icon name="CircleHelp" className="text-sm icon-fill opacity-70" aria-hidden />
-            <span className="opacity-80">Free Resource</span>
+        <div className="grain grain-charcoal rounded-[22px] text-center py-12 sm:py-16 px-6 sm:px-12">
+          <h2 className="display-type text-white mb-6" style={{ fontSize: 'clamp(28px, 4.4vw, 48px)' }}>
+            The demo is easy.<br /><span className="opacity-60">Production is where the truth shows up.</span>
+          </h2>
+          <p className="mc-body text-[15px] mb-8 max-w-2xl mx-auto">
+            Book an executive briefing. In {company.callLength} you&apos;ll know where you stand &mdash; and what to do first.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+            <span className="chip chip-grain">Free</span>
+            <span className="chip chip-grain">{company.callLength}</span>
+            <span className="chip chip-grain">No obligation</span>
           </div>
-          <h2 className="section-title text-white mb-6">Not Ready for a Strategy Call? Start With the Problem.</h2>
-          <p className="mc-body mb-10 max-w-xl mx-auto">Use the same readiness checklist we run in an audit to find where repetitive work, disconnected systems, or slow decisions are costing you the most.</p>
-          <SmartForm
-            id="lead-magnet-form"
-            subject="AI Readiness Checklist Request"
-            className="flex flex-col sm:flex-row items-center gap-3 max-w-lg mx-auto"
-            submitLabel="Send Me the Checklist"
-            submitClassName="btn-ink w-full sm:w-auto !bg-white !text-ink hover:!bg-white/90"
-            successTitle="On its way."
-            /* The previous copy promised the asset "in the next few minutes",
-               which was never true: the form posts to Formspree and a person
-               sends the next reply. It now describes what actually happens. */
-            successBody="We send these ourselves, so expect it within one business day. If it raises a question, reply to that email and you will reach an engineer rather than a queue."
-          >
-            <label htmlFor="lead-magnet-email" className="sr-only">Business email</label>
-            <input
-              id="lead-magnet-email"
-              className="flex-1 w-full px-5 h-12 rounded-[10px] border border-[var(--grain-chip-bd)] bg-[var(--grain-chip)] text-white placeholder:text-white/40 focus:ring-2 focus:ring-white/60 focus:border-transparent outline-none text-sm"
-              name="email" placeholder="your@email.com" autoComplete="email" inputMode="email" required={true} type="email"
-            />
-          </SmartForm>
-          <p className="mc-body opacity-60 text-xs mt-4">One email, sent by a person. No list, no sequence, unsubscribe by replying.</p>
-        </div>
-      </Reveal>
-    </div>
-  </section>
-
-  {/* ── Final CTA full-bleed grain-teal ─────── */}
-  <section className="cta-bleed grain grain-teal" id="book">
-    <div className="max-w-4xl mx-auto text-center">
-      <Reveal>
-        <h2 className="display-type text-white mb-8" style={{ fontSize: 'clamp(32px, 5vw, 56px)' }}>
-          The demo is easy.<br /><span className="opacity-60">Production is where the truth shows up.</span>
-        </h2>
-      </Reveal>
-      <Reveal delay={0.1}>
-        <p className="mc-body text-[15px] mb-8 max-w-2xl mx-auto">
-          Book an executive briefing. In {company.callLength} you&apos;ll know where you stand &mdash; and what to do first.
-        </p>
-      </Reveal>
-      <Reveal delay={0.18}>
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
-          <span className="chip chip-grain">Free</span>
-          <span className="chip chip-grain">{company.callLength}</span>
-          <span className="chip chip-grain">No obligation</span>
-        </div>
-      </Reveal>
-      <Reveal delay={0.26}>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-          <Link className="btn-ink w-full sm:w-auto !bg-white !text-ink hover:!bg-white/90" href="/contact">Book an Executive Briefing<Icon name="ArrowRight" className="ml-1 size-4" aria-hidden /> </Link>
-          <Link className="btn-ghost w-full sm:w-auto !border-white/30 !text-white hover:!bg-white/10" href="/case-studies">See Client Results</Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Link className="btn-ink w-full sm:w-auto !bg-white !text-ink hover:!bg-white/90" href="/contact#book">
+              Book an Executive Briefing<Icon name="ArrowRight" className="ml-1 size-4" aria-hidden />
+            </Link>
+            <Link className="btn-ghost w-full sm:w-auto !border-white/30 !text-white hover:!bg-white/10" href="/case-studies">
+              See Client Results
+            </Link>
+          </div>
         </div>
       </Reveal>
     </div>

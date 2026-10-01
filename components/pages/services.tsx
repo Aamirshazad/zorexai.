@@ -41,7 +41,7 @@ export default function PageContent() {
         <h1 className="display-type mb-6">AI systems, engineered <span className="opacity-60">for the work you actually run.</span></h1>
         <p className="reveal reveal-delay-2 body-ink max-w-2xl mb-12">Four services, one operating model. We map the workflow that consumes your team&apos;s time, then design, build, deploy, and keep improving the system that runs it.</p>
         <div className="reveal reveal-delay-3 flex flex-col sm:flex-row items-center justify-center gap-3">
-          <Link className="btn-ink w-full sm:w-auto" href="/contact">Book a Strategy Call<Icon name="ArrowRight" className="ml-1 size-4" aria-hidden /></Link>
+          <Link className="btn-ink w-full sm:w-auto" href="/contact#book">Book a Strategy Call<Icon name="ArrowRight" className="ml-1 size-4" aria-hidden /></Link>
           <Link className="btn-ghost w-full sm:w-auto" href="/case-studies">See Our Work</Link>
         </div>
       </div>

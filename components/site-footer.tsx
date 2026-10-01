@@ -37,7 +37,7 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-[1280px] gap-12 px-5 sm:px-8 lg:grid-cols-[1.2fr_1fr]">
         <div>
           <Link href="/" className="text-2xl font-semibold tracking-tight text-ink transition-opacity hover:opacity-80">Zorex<span className="text-ink-3"> AI</span></Link>
-          <p className="body-ink mt-4 max-w-xl">An AI software company. We design, build, deploy, and continuously improve AI systems for real business functions.</p>
+          <p className="body-ink mt-4 max-w-xl">Zorex AI works with SMB leaders on AI strategy, enablement, and production systems.</p>
           <a className="footer-link group gap-2 text-sm font-medium text-ink transition-colors hover:text-ink-2" href={`mailto:${company.email}`}>
             <Icon name="Mail" className="size-4 transition-transform group-hover:-translate-y-0.5" aria-hidden />
             {company.email}
@@ -63,7 +63,7 @@ export function SiteFooter() {
             ))}
           </div>
 
-          <Link href="/contact" className="nav-cta mt-8">
+          <Link href="/contact#book" className="nav-cta mt-8">
             <Icon name="CalendarCheck2" className="size-4" aria-hidden />
             Book a Strategy Call
           </Link>

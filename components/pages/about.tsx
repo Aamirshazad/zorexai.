@@ -103,7 +103,7 @@ export default function PageContent() {
                 {company.description}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-                <Link className="btn-ink w-full sm:w-auto" href="/contact">
+                <Link className="btn-ink w-full sm:w-auto" href="/contact#book">
                   Book a Strategy Call
                   <Icon name="ArrowRight" className="ml-1 size-4" aria-hidden />
                 </Link>
@@ -145,61 +145,6 @@ export default function PageContent() {
           </div>
         </section>
 
-        {/* ── What we build ────────────────────────────────────────────── */}
-        <section className="py-section-padding px-5 sm:px-8 border-t border-[var(--line)]" id="what-we-build">
-          <div className="max-w-container-max mx-auto">
-            <div className="reveal mb-12 max-w-[640px] sm:mb-16">
-              <span className="eyebrow mb-4 block">What We Build</span>
-              <h2 className="section-title mb-4">Three systems. One operating model.</h2>
-              <p className="lede mt-5">
-                Every engagement is one of these three shapes. The audit decides which, and the delivery model stays the
-                same from there.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
-              {[
-                {
-                  href: '/service-agentic-ai',
-                  icon: 'Bot' as const,
-                  title: 'AI Agent Development',
-                  body: 'Agents that understand an objective, work through the steps, use your tools, and return a completed outcome instead of another answer.',
-                  cta: 'Explore AI Agent Development',
-                },
-                {
-                  href: '/service-ai-integration',
-                  icon: 'PlugZap' as const,
-                  title: 'AI Integration',
-                  body: 'Connecting AI to the systems you already run: CRM, ERP, support desk, and data, without rip-and-replace.',
-                  cta: 'Explore Integration',
-                },
-                {
-                  href: '/service-vertical-ai',
-                  icon: 'Layers3' as const,
-                  title: 'AI Vertical System Development',
-                  body: 'Purpose-built AI systems designed around your industry, its terminology, rules, and workflows.',
-                  cta: 'Explore Vertical AI',
-                },
-              ].map((item, index) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`reveal${index > 0 ? ` reveal-delay-${index}` : ''} card-lift group flex flex-col rounded-[20px] border border-[var(--line)] bg-panel p-8 no-underline`}
-                >
-                  <span className="mb-6 flex size-10 items-center justify-center rounded-full border border-[var(--line-strong)]">
-                    <Icon name={item.icon} className="text-sm text-ink" aria-hidden />
-                  </span>
-                  <h3 className="mc-title mb-3 text-xl text-ink">{item.title}</h3>
-                  <p className="mc-body mb-6">{item.body}</p>
-                  <span className="mt-auto inline-flex items-center gap-2 text-sm font-medium text-ink group-hover:gap-3 transition-all">
-                    {item.cta}
-                    <Icon name="ArrowRight" className="size-4" aria-hidden />
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* ── How we build ─────────────────────────────────────────────── */}
         <section className="py-section-padding px-5 sm:px-8 border-t border-[var(--line)]" id="how-we-build">
