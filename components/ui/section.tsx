@@ -55,7 +55,7 @@ export function SectionShell({
   );
 }
 
-/* The eyebrow is the site's section label: an uppercase Instrument Sans line at
+/* The eyebrow is the site's section label: an uppercase Google Sans Flex line at
    0.16em tracking. It previously referenced `.docket-bar` / `.docket-rule`,
    which were never defined in globals.css — so the "DocketBar device" described
    here rendered as an unstyled span on every page that used SectionHeading.

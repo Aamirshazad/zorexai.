@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Icon } from '@/components/ui/icon';
+import { company } from '@/content/company';
 
 const footerColumns = [
   {
@@ -37,9 +38,9 @@ export function SiteFooter() {
         <div>
           <Link href="/" className="text-2xl font-semibold tracking-tight text-ink transition-opacity hover:opacity-80">Zorex<span className="text-ink-3"> AI</span></Link>
           <p className="body-ink mt-4 max-w-xl">An AI software company. We design, build, deploy, and continuously improve AI systems for real business functions.</p>
-          <a className="footer-link group gap-2 text-sm font-medium text-ink transition-colors hover:text-ink-2" href="mailto:hello@zorex.com">
+          <a className="footer-link group gap-2 text-sm font-medium text-ink transition-colors hover:text-ink-2" href={`mailto:${company.email}`}>
             <Icon name="Mail" className="size-4 transition-transform group-hover:-translate-y-0.5" aria-hidden />
-            hello@zorex.com
+            {company.email}
           </a>
         </div>
         <div className="lg:justify-self-end">

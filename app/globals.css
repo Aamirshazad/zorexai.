@@ -7,60 +7,59 @@
   /* rewrites. New pages use the --ink/--page-wash tokens below.         */
   /* ------------------------------------------------------------------ */
   --color-primary: #141414;
-  --color-primary-container: #141414;
+  --color-primary-container: #1c1d1a;
   --color-on-primary: #ffffff;
   --color-on-primary-container: #c9c9c9;
-  --color-primary-fixed: #e5ece5;
-  --color-primary-fixed-dim: #b3b3b3;
+  --color-primary-fixed: #dee9e9;
+  --color-primary-fixed-dim: #b3c7c7;
   --color-on-primary-fixed: #141414;
-  --color-on-primary-fixed-variant: #2a2a2c;
+  --color-on-primary-fixed-variant: #283a3a;
   --color-secondary: #141414;
-  --color-secondary-container: #eaeee8;
+  --color-secondary-container: #dee9e9;
   --color-on-secondary: #ffffff;
   --color-on-secondary-container: #141414;
-  --color-secondary-fixed: #e5ece5;
-  --color-secondary-fixed-dim: #d6ddd2;
-  --color-tertiary: #343836;
-  --color-tertiary-container: #2e3230;
+  --color-secondary-fixed: #dee9e9;
+  --color-secondary-fixed-dim: #cfe0e0;
+  --color-tertiary: #1c1d1a;
+  --color-tertiary-container: #141414;
   --color-on-tertiary: #ffffff;
   --color-on-tertiary-container: #c9c9c9;
   --color-on-tertiary-fixed: #141414;
-  --color-on-tertiary-fixed-variant: #2a2a2c;
-  --color-surface: #f3f6f1;
-  --color-surface-bright: #f3f6f1;
-  --color-surface-dim: #e5ece5;
-  --color-surface-container: #eaeee8;
-  --color-surface-container-low: #f3f6f1;
-  --color-surface-container-high: #e5ece5;
-  --color-surface-container-highest: #dee9e0;
+  --color-on-tertiary-fixed-variant: #283a3a;
+  --color-surface: #eef4f4;
+  --color-surface-bright: #eef4f4;
+  --color-surface-dim: #dee9e9;
+  --color-surface-container: #e6eeee;
+  --color-surface-container-low: #eef4f4;
+  --color-surface-container-high: #dee9e9;
+  --color-surface-container-highest: #d3e2e2;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-variant: #e5ece5;
+  --color-surface-variant: #e6eeee;
   --color-on-surface: #141414;
   --color-on-surface-variant: #5b5b5b;
   --color-surface-tint: #45525a;
-  --color-outline: #6e6e6e;
-  --color-outline-variant: #d8dcd4;
+  --color-outline: #7a7a7a;
+  --color-outline-variant: #d3e2e2;
   --color-error: #ba1a1a;
   --color-error-container: #ffdad6;
   --color-on-error: #ffffff;
   --color-on-error-container: #93000a;
-  --color-inverse-surface: #343836;
+  --color-inverse-surface: #1c1d1a;
   --color-inverse-on-surface: #ffffff;
-  --color-inverse-primary: #c4d2d3;
+  --color-inverse-primary: #cfe0e0;
   /* Sand-tone accent for icons sitting on ink/charcoal chips (was gold). */
   --color-accent-gold: #e2ded1;
-  --color-accent-tan: #f3f6f1;
+  --color-accent-tan: #eef4f4;
   --color-accent-navy: #141414;
-  /* imagine.art-style ink scale (home page, header, footer). */
+  /* imagine.art ink scale (home page, header, footer). */
   --color-ink: #141414;
-  --color-ink-heading: #2a2a2c;
+  --color-ink-heading: #283a3a;
   --color-ink-2: #5b5b5b;
-  /* Kept in step with --ink-3 in :root (see the note there): #686868 is the
-     value that clears WCAG AA on both the page wash and the sage tile. */
-  --color-ink-3: #686868;
-  --color-page-wash: #f3f6f1;
+  /* Muted ink matches imagine.art's #7a7a7a label tone. */
+  --color-ink-3: #7a7a7a;
+  --color-page-wash: #eef4f4;
   --color-panel: #ffffff;
-  --color-panel-2: #eaeee8;
+  --color-panel-2: #dee9e9;
   --spacing-section-padding: 120px;
   --spacing-container-max: 1280px;
   --spacing-card-gap: 32px;
@@ -68,14 +67,14 @@
   --spacing-gutter: 24px;
   --spacing-stack-sm: 8px;
   --spacing-stack-lg: 24px;
-  /* Instrument Sans carries all headings/labels across the site now;
-     body text keeps Manrope for continuity on long-form copy. */
-  --font-family-headline-xl: 'Instrument Sans', Manrope, ui-sans-serif, system-ui, sans-serif;
-  --font-family-headline-lg: 'Instrument Sans', Manrope, ui-sans-serif, system-ui, sans-serif;
-  --font-family-headline-md: 'Instrument Sans', Manrope, ui-sans-serif, system-ui, sans-serif;
-  --font-family-body-md: Manrope, ui-sans-serif, system-ui, sans-serif;
-  --font-family-body-lg: Manrope, ui-sans-serif, system-ui, sans-serif;
-  --font-family-label-sm: 'Instrument Sans', Manrope, ui-sans-serif, system-ui, sans-serif;
+  /* One typeface site-wide, matching imagine.art: Google Sans Flex (self-hosted
+     via next/font/local; exposed as --font-gsf). */
+  --font-family-headline-xl: var(--font-gsf), 'Google Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-family-headline-lg: var(--font-gsf), 'Google Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-family-headline-md: var(--font-gsf), 'Google Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-family-body-md: var(--font-gsf), 'Google Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-family-body-lg: var(--font-gsf), 'Google Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-family-label-sm: var(--font-gsf), 'Google Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
 :root {
@@ -85,21 +84,20 @@
   /* New names so the legacy Material tokens (used by other pages)       */
   /* remain untouched.                                                   */
   /* ------------------------------------------------------------------ */
-  --page-wash: #f3f6f1;
+  /* imagine.art business palette — cool teal wash, teal-charcoal headings.
+     Source: https://www.imagine.art/business/solutions computed styles. */
+  --page-wash: #eef4f4;
   --panel: #ffffff;
-  --panel-2: #eaeee8;
-  /* Sage tile surface for the capabilities-style bento (imagine.art --tile). */
-  --tile: #e5ece5;
+  --panel-2: #dee9e9;
+  /* Mint tile surface for the capabilities-style bento (imagine.art --tile). */
+  --tile: #dee9e9;
   --ink: #141414;
-  --ink-heading: #2a2a2c;
+  --ink-heading: #283a3a;
   --ink-2: #5b5b5b;
-  /* WCAG AA on EVERY surface, not just one. #6e6e6e reaches 4.68:1 on the page
-     wash (#f3f6f1) but only 4.24:1 on the sage tile (#e5ece5) used by .tile and
-     the bento sections — a real AA failure on every muted line sitting on sage.
-     #686868 clears 4.63:1 on sage and 5.11:1 on the wash, and stays lighter than
-     --ink-2 (#5b5b5b) so the three-step muted hierarchy still reads. */
-  --ink-3: #686868;
-  --line: #00000014;
+  /* Muted ink matches imagine.art's #7a7a7a label tone; still clears AA on both
+     the page wash (#eef4f4) and the mint tile (#dee9e9). */
+  --ink-3: #7a7a7a;
+  --line: #00000017;
   --line-strong: #00000024;
   --line-tertiary: #0000003;
 }
@@ -132,16 +130,16 @@ html::-webkit-scrollbar {
 
 body {
   margin: 0;
-  background: #f3f6f1;
+  background: #eef4f4;
   color: #141414;
   overflow-x: clip;
-  font-family: Manrope, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-gsf), 'Google Sans', 'Helvetica Neue', Arial, sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: #d6ddd2;
+  background: #cfe0e0;
   color: #141414;
 }
 
@@ -455,13 +453,15 @@ body {
 /* imagine.art-style UI layer typography, grain panels, ink buttons  */
 /* ------------------------------------------------------------------ */
 
-/* Typography scale (Instrument Sans applied via .font-ui in layout). */
+/* Typography scale — one family site-wide (Google Sans Flex), exactly matching
+   the imagine.art business page. Applied broadly, so the wordmark, nav, headings
+   and labels all inherit it; body copy uses the same family via body{}. */
 .font-ui {
-  font-family: var(--font-instrument), Manrope, ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-gsf), 'Google Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .display-type {
-  font-size: clamp(40px, 6vw, 72px);
+  font-size: clamp(34px, 4.6vw, 52px);
   font-weight: 500;
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -470,10 +470,10 @@ body {
 }
 
 .section-title {
-  font-size: clamp(28px, 4vw, 44px);
+  font-size: clamp(28px, 4vw, 48px);
   font-weight: 500;
-  line-height: 1.12;
-  letter-spacing: -0.02em;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
   text-wrap: balance;
   color: var(--ink-heading);
 }
@@ -493,6 +493,7 @@ body {
   gap: 8px;
   font-size: 11px;
   font-weight: 600;
+  line-height: 1.5;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--ink-3);
@@ -500,8 +501,9 @@ body {
 
 /* Body copy on washed surfaces. */
 .body-ink {
-  font-size: 14.5px;
+  font-size: 16px;
   line-height: 1.6;
+  letter-spacing: -0.01em;
   color: var(--ink-2);
 }
 
@@ -511,6 +513,7 @@ body {
   max-width: 46ch;
   font-size: 18px;
   line-height: 1.65;
+  letter-spacing: -0.01em;
   color: var(--ink-2);
 }
 
@@ -552,7 +555,7 @@ body {
   max-width: none;
   object-fit: cover;
   /* The source clip carries a pure-white background (#ffffff) while the page
-     wash is #f3f6f1, so the video painted as a visible white rectangle. Multiply
+     wash is #eef4f4, so the video painted as a visible white rectangle. Multiply
      blends white down to the page colour (255 x backdrop = backdrop) so the
      background matches the page exactly, while the wave strokes stay visible. */
   mix-blend-mode: multiply;
@@ -601,25 +604,25 @@ body {
 }
 
 .grain-mineral {
-  --grain-1: #c4d2d3; --grain-2: #bccbcd; --grain-3: #b2c3c5;
+  --grain-1: #cfe0e0; --grain-2: #c6d9d9; --grain-3: #bcd2d2;
   --grain-fg: #16201f;
   --grain-chip: #0000000f; --grain-chip-bd: #0000001a;
 }
 
 .grain-sand {
-  --grain-1: #e2ded1; --grain-2: #dad6c7; --grain-3: #d2cebd;
-  --grain-fg: #221f16;
+  --grain-1: #e4eded; --grain-2: #dbe7e7; --grain-3: #d2e0e0;
+  --grain-fg: #172323;
   --grain-chip: #0000000f; --grain-chip-bd: #0000001a;
 }
 
 .grain-charcoal {
-  --grain-1: #343836; --grain-2: #2e3230; --grain-3: #272b29;
+  --grain-1: #1c1d1a; --grain-2: #181916; --grain-3: #141512;
   --grain-fg: #fff;
   --grain-chip: #ffffff1a; --grain-chip-bd: #ffffff29;
 }
 
 .grain-olive {
-  --grain-1: #545a54; --grain-2: #4d534d; --grain-3: #454b45;
+  --grain-1: #2f3b3b; --grain-2: #293535; --grain-3: #232f2f;
   --grain-fg: #fff;
   --grain-chip: #ffffff1a; --grain-chip-bd: #ffffff29;
 }
@@ -631,7 +634,7 @@ body {
 }
 
 .grain-steel {
-  --grain-1: #45525a; --grain-2: #3d4a52; --grain-3: #36434a;
+  --grain-1: #33454d; --grain-2: #2c3d44; --grain-3: #26363c;
   --grain-fg: #fff;
   --grain-chip: #ffffff1a; --grain-chip-bd: #ffffff29;
 }
@@ -981,7 +984,7 @@ a.mc-card:focus-visible .mc-arrow {
 }
 
 .btn-ink:hover {
-  background: #2a2a2c;
+  background: #283a3a;
   opacity: 0.92;
 }
 

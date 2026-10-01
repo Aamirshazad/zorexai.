@@ -7,15 +7,14 @@
 /* site.                                                                */
 
 .ph-scope {
-  --bg: var(--page-wash, #f3f6f1);
-  --ink: #111111;
-  --muted: #6f6f6f;
+  --bg: var(--page-wash, #eef4f4);
+  --ink: #141414;
+  --ink-heading: var(--ink-heading, #283a3a);
+  --muted: #7a7a7a;
   /* Was the donor's IBM blue (#0f62fe). Remapped to the site ink so this
-     ported band matches the page's ink/sage palette instead of standing out. */
+     ported band matches the imagine.art ink/teal palette instead of standing out. */
   --blue: #141414;
-  --font: var(--font-plex-sans, 'IBM Plex Sans'), 'Helvetica Neue', Arial, ui-sans-serif, system-ui, sans-serif;
-  --serif: var(--font-plex-serif, 'IBM Plex Serif'), Georgia, 'Times New Roman', serif;
-  --mono: var(--font-plex-mono, 'IBM Plex Mono'), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font: var(--font-gsf, 'Google Sans Flex'), 'Helvetica Neue', Arial, ui-sans-serif, system-ui, sans-serif;
   --max: 1180px;
   --gap: 96px;
 
@@ -38,9 +37,9 @@
 .ph-scope h1,
 .ph-scope h2,
 .ph-scope h3,
-.ph-scope h4 { font-family: var(--serif); font-weight: 400; letter-spacing: normal; line-height: 1.25; }
-.ph-scope h2.sec { font-size: clamp(28px, 4vw, 48px); font-weight: 400; letter-spacing: normal; line-height: 1.15; max-width: 24ch; text-wrap: balance; }
-.ph-scope .sec-label { display: flex; align-items: center; gap: 12px; color: var(--muted); font-family: var(--mono); font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 18px; }
+.ph-scope h4 { font-family: var(--font); font-weight: 500; letter-spacing: -0.015em; line-height: 1.1; color: var(--ink-heading); }
+.ph-scope h2.sec { font-size: clamp(28px, 4vw, 48px); font-weight: 500; letter-spacing: -0.015em; line-height: 1.1; max-width: 24ch; text-wrap: balance; color: var(--ink-heading); }
+.ph-scope .sec-label { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-family: var(--font); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; line-height: 1.5; margin-bottom: 18px; }
 
 .ph-scope .bx-dot,
 .ph-scope .bx-accent { color: var(--blue); }

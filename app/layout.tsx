@@ -1,58 +1,32 @@
 import type { Metadata, Viewport } from 'next';
-import { IBM_Plex_Mono, IBM_Plex_Sans, IBM_Plex_Serif, Instrument_Sans, Manrope } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import { RevealObserver } from '@/components/ui/reveal-observer';
 import { SITE_URL } from '@/lib/site-data';
 
-const manrope = Manrope({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-manrope',
-  preload: true,
-});
-
-const instrumentSans = Instrument_Sans({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-instrument',
-  preload: true,
-});
-
 /*
- * IBM Plex Sans / Serif / Mono are used by exactly one section — the ported
- * "What we do" band (see components/content/what-we-do.css). They are loaded
- * with `preload: false` so the files are only fetched on pages that render it.
+ * Google Sans Flex — the single typeface the whole site now runs on, matching
+ * the imagine.art business theme 1:1 (their stylesheet declares
+ * "Google Sans Flex", weight 1 1000). It is a Google proprietary variable font
+ * that is not on the Google Fonts API, so the woff2 is self-hosted here and
+ * loaded with next/font/local. The Latin + Latin-ext subsets live in app/fonts.
  */
-const plexSans = IBM_Plex_Sans({
-  subsets: ['latin'],
+const googleSansFlex = localFont({
+  src: './fonts/google-sans-flex-latin.woff2',
+  weight: '100 1000',
+  style: 'normal',
+  variable: '--font-gsf',
   display: 'swap',
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-plex-sans',
-  preload: false,
-});
-
-const plexSerif = IBM_Plex_Serif({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['400', '500'],
-  variable: '--font-plex-serif',
-  preload: false,
-});
-
-const plexMono = IBM_Plex_Mono({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['400', '500'],
-  variable: '--font-plex-mono',
-  preload: false,
+  preload: true,
+  fallback: ['Google Sans', 'Helvetica Neue', 'Arial', 'sans-serif'],
 });
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#f3f6f1',
+  themeColor: '#eef4f4',
   colorScheme: 'light',
 };
 
@@ -97,7 +71,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html
       lang="en"
-      className={`${manrope.className} ${instrumentSans.variable} ${plexSans.variable} ${plexSerif.variable} ${plexMono.variable}`}
+      className={`${googleSansFlex.className} ${googleSansFlex.variable}`}
     >
       <body>
         <RevealObserver />

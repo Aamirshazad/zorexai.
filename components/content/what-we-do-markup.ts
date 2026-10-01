@@ -86,7 +86,7 @@ export const whatWeDoMarkup = `
               <text class="sa-st-lab" x="444" y="65"><tspan class="sa-st-ltr">B</tspan><tspan dx="5">·</tspan><tspan dx="5">BUILD THE ROADMAP</tspan></text><text class="sa-st-sub" x="444" y="78">five pillars · 3 workshops</text><text class="sa-st-sub" x="444" y="91">implementation talk</text>
             </g>
           </g>
-          <g class="sa-mono" font-family="'IBM Plex Mono', monospace" font-weight="500" font-size="11" letter-spacing="1.2" fill="var(--muted)">
+          <g class="sa-mono" font-family="var(--font-gsf), 'Google Sans', sans-serif" font-weight="500" font-size="11" letter-spacing="1.2" fill="var(--muted)">
             <text class="sa-co sa-base" style="--t:0.15s" x="40" y="404">SCATTERED AI EXPERIMENTS</text>
             <text class="sa-co sa-base" style="--t:5.7s" x="700" y="404" text-anchor="end">3 WORKSHOPS &#183; 5 STEPS &#183; A FEW WEEKS</text>
           </g>

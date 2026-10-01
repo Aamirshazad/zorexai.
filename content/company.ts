@@ -41,9 +41,9 @@ export const company = {
   /** How the team is structured. Buyers ask this before they ask anything else. */
   structure: 'Remote-first, senior-only. No junior bench, no subcontracted delivery.',
   coverage: 'Working hours overlap US Eastern and Central European time.',
-  email: 'hello@zorex.com',
+  email: 'aamirshazad0099@gmail.com',
   linkedin: 'https://linkedin.com/company/zorex-ai',
-  calendly: 'https://calendly.com/zorexai/30min',
+  calendly: 'https://calendly.com/aamirshazad0099/30min',
   callLength: '30 minutes',
   /**
    * Adjectival form for sentences like "a 30-minute call". Kept separate from

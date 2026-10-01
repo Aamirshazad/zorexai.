@@ -1,9 +1,7 @@
 import Script from 'next/script';
-import Link from 'next/link';
 import { Icon } from '@/components/ui/icon';
 import { Reveal } from '@/components/ui/reveal';
 import { Breadcrumbs } from '@/components/ui/breadcrumbs';
-import { SmartForm } from '@/components/ui/smart-form';
 import { company, whatHappensNext, whatToPrepare } from '@/content/company';
 
 export default function PageContent() {
@@ -87,71 +85,22 @@ export default function PageContent() {
   <section className="max-w-container-max mx-auto px-5 sm:px-8 py-section-padding">
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
       <div className="lg:col-span-7 space-y-8">
-        <div className="reveal bg-panel rounded-[22px] p-8 border border-[var(--line)]">
-          <div className="flex items-center justify-between mb-8 pb-6 border-b border-[var(--line)]">
-            <h2 className="font-ui text-xl font-medium text-ink">Strategy Session</h2>
-            <span className="font-ui text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-3">{company.callLength} • Free • No obligation</span>
+        <div className="reveal bg-panel rounded-[22px] p-6 sm:p-8 border border-[var(--line)] shadow-sm">
+          <div className="flex items-center justify-between mb-6 pb-5 border-b border-[var(--line)]">
+            <div>
+              <h2 className="font-ui text-xl font-medium text-ink">Schedule a Strategy Call</h2>
+              <p className="font-ui text-xs text-ink-2 mt-1">Select a day and time that works best for you.</p>
+            </div>
+            <span className="font-ui text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-3 shrink-0 ml-4">{company.callLength} • Free</span>
           </div>
-          <SmartForm
-            id="strategy-form"
-            subject="Strategy Call Request (Website)"
-            className="space-y-10"
-            submitLabel="Confirm Strategy Call"
-            submitClassName="btn-ink w-full font-ui"
-            successTitle="Request received."
-            successBody="We read these ourselves, so expect a reply within one business day with a time to talk. If you'd rather pick a time right now, the calendar below is live."
-          >
-            <div className="space-y-6">
-              <h3 className="font-ui text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-3">01. Contact Details</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="block font-ui text-sm text-ink">Full Name *</label>
-                  <input className="w-full px-4 py-3 rounded-[10px] border border-[var(--line-strong)] bg-[var(--page-wash)] focus:ring-2 focus:ring-ink/70 focus:border-transparent transition-all outline-none font-ui text-sm" id="name" name="name" placeholder="John Doe" autoComplete="name" required={true} type="text" />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="email" className="block font-ui text-sm text-ink">Business Email *</label>
-                  <input className="w-full px-4 py-3 rounded-[10px] border border-[var(--line-strong)] bg-[var(--page-wash)] focus:ring-2 focus:ring-ink/70 focus:border-transparent transition-all outline-none font-ui text-sm" id="email" name="email" placeholder="j.doe@company.com" autoComplete="email" inputMode="email" required={true} type="email" />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="company" className="block font-ui text-sm text-ink">Company Name</label>
-                  <input className="w-full px-4 py-3 rounded-[10px] border border-[var(--line-strong)] bg-[var(--page-wash)] focus:ring-2 focus:ring-ink/70 focus:border-transparent transition-all outline-none font-ui text-sm" id="company" name="company" placeholder="Your Company" autoComplete="organization" type="text" />
-                </div>
-              </div>
-            </div>
-            <div className="space-y-6">
-              <h3 className="font-ui text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-3">02. Discovery &amp; Qualification</h3>
-              <div className="space-y-6">
-                <div className="space-y-2">
-                  <label htmlFor="bottleneck" className="block font-ui text-sm text-ink">What is the primary operational bottleneck you&apos;re looking to solve with AI?</label>
-                  <textarea className="w-full px-4 py-3 rounded-[10px] border border-[var(--line-strong)] bg-[var(--page-wash)] focus:ring-2 focus:ring-ink/70 focus:border-transparent transition-all outline-none resize-none font-ui text-sm" id="bottleneck" name="bottleneck" placeholder="Describe your current challenges and goals..." rows={4} />
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-end">
-                  <div className="space-y-2">
-                    <label htmlFor="ai_adoption" className="block font-ui text-sm text-ink">Current AI adoption</label>
-                    <select className="w-full px-4 py-3 rounded-[10px] border border-[var(--line-strong)] bg-[var(--page-wash)] focus:ring-2 focus:ring-ink/70 focus:border-transparent transition-all outline-none font-ui text-sm" id="ai_adoption" name="ai_adoption" defaultValue="none">
-                      <option value="none">We haven&apos;t used AI yet</option>
-                      <option value="some">We use some AI tools but nothing custom</option>
-                      <option value="advanced">We have AI in place and want to go further</option>
-                    </select>
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="timeline" className="block font-ui text-sm text-ink">When are you looking to move?</label>
-                    <select className="w-full px-4 py-3 rounded-[10px] border border-[var(--line-strong)] bg-[var(--page-wash)] focus:ring-2 focus:ring-ink/70 focus:border-transparent transition-all outline-none font-ui text-sm" id="timeline" name="timeline" defaultValue="1-3">
-                      <option value="immediate">As soon as possible</option>
-                      <option value="1-3">Next 1–3 months</option>
-                      <option value="3-6">3–6 months</option>
-                      <option value="exploring">Just exploring for now</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <p className="text-center font-ui text-xs text-ink-3 mt-4">
-              By submitting, you agree to our <Link className="underline underline-offset-2" href="/terms">terms</Link> and
-              acknowledge our <Link className="underline underline-offset-2" href="/privacy">privacy policy</Link>. All
-              conversations are confidential, and we will sign an NDA before any technical discussion.
-            </p>
-          </SmartForm>
+          <div className="overflow-x-auto">
+            <div
+              className="calendly-inline-widget"
+              data-url={`${company.calendly}?hide_gdpr_banner=1&background_color=eef4f4&text_color=141414&primary_color=141414`}
+              style={{ minWidth: '320px', height: '650px' }}
+            ></div>
+            <Script id="calendly-widget" src="https://assets.calendly.com/assets/external/widget.js" strategy="lazyOnload" />
+          </div>
         </div>
       </div>
 
@@ -213,46 +162,6 @@ export default function PageContent() {
         </div>
       </div>
     </div>
-  </section>
-
-  {/* ── Calendly direct booking, behind an opt-in disclosure ──────── */}
-  {/* The page previously ran a full qualifying form and a 700px embedded
-      calendar side by side, which split attention at the highest-intent moment
-      and made the primary action ambiguous. The calendar is still here for
-      people who already know they want a slot, but it is now a deliberate
-      choice: closed by default, one click to open, and the form stays the
-      default path. */}
-  <section className="max-w-container-max mx-auto px-5 sm:px-8 pb-section-padding">
-    <details className="reveal group rounded-[22px] border border-[var(--line)] bg-panel">
-      <summary className="flex cursor-pointer list-none flex-col gap-3 p-8 sm:flex-row sm:items-center sm:justify-between">
-        <span className="flex items-center gap-3">
-          <span className="flex size-10 shrink-0 items-center justify-center rounded-full border border-[var(--line-strong)]">
-            <Icon name="CalendarCheck2" className="size-4 text-ink" aria-hidden />
-          </span>
-          <span>
-            <span className="block font-ui text-lg font-medium text-ink">Prefer to book directly?</span>
-            <span className="block font-ui text-sm text-ink-2">Skip the form and pick a time that suits you.</span>
-          </span>
-        </span>
-        <span
-          aria-hidden="true"
-          className="font-ui text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-3 transition-transform group-open:rotate-45"
-        >
-          +
-        </span>
-      </summary>
-      {/* Calendly's inline embed ships a 320px min-width, which is wider than
-          the panel on phones at 360px and below. The wrapper scrolls instead of
-          letting the booking form be clipped on the right. */}
-      <div className="border-t border-[var(--line)] p-8 pt-6 overflow-x-auto">
-        <div
-          className="calendly-inline-widget"
-          data-url={`${company.calendly}?hide_gdpr_banner=1&background_color=f3f6f1&text_color=141414&primary_color=141414`}
-          style={{ minWidth: '320px', height: '700px' }}
-        ></div>
-        <Script id="calendly-widget" src="https://assets.calendly.com/assets/external/widget.js" strategy="lazyOnload" />
-      </div>
-    </details>
   </section>
 </main>
   </>;

@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent, type ReactNode } from 'react';
 import { Icon } from '@/components/ui/icon';
+import { company } from '@/content/company';
 
 /**
  * In-app Formspree submission.
@@ -115,8 +116,8 @@ export function SmartForm({
         <p className="mb-4 rounded-[10px] border border-[var(--line-strong)] bg-panel-2 px-4 py-3 text-sm" role="alert">
           That didn&apos;t send — likely a network hiccup on our side, not something you did. Try again, or email us
           directly at{' '}
-          <a className="font-medium underline underline-offset-2" href="mailto:hello@zorex.com">
-            hello@zorex.com
+          <a className="font-medium underline underline-offset-2" href={`mailto:${company.email}`}>
+            {company.email}
           </a>
           .
         </p>
