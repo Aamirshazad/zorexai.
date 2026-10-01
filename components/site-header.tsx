@@ -49,8 +49,6 @@ const menus: {
 
 const simpleLinks = [
   { href: '/case-studies', label: 'Case Studies' },
-  { href: '/process', label: 'Process' },
-  { href: '/blog', label: 'Insights' },
   { href: '/about', label: 'About' },
 ];
 

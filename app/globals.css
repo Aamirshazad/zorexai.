@@ -520,9 +520,10 @@ body {
 }
 
 /* Hero waves video — right side only.
-   The container clips to the right side of the screen.
-   The video is scaled and anchored right so only the right arc
-   of the wave is visible, completely hiding the left arc. */
+   The container clips to the right side of the screen and the video is anchored
+   right, so the wave ring sits in the right half and its left edge is masked
+   away. The clip's white background is multiplied down to the page wash so it
+   blends into the page behind the headline. */
 .hero-media {
   position: absolute;
   top: 0;
@@ -532,6 +533,11 @@ body {
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
+  /* Backdrop for the video's blend mode. This wrapper has z-index:0, which
+     forms an isolated stacking context, so mix-blend-mode on the video can only
+     blend against this box — not the page behind it. Painting the page wash here
+     lets the multiply blend resolve white down to the exact page colour. */
+  background: var(--page-wash);
 }
 
 .hero-media video {
@@ -545,6 +551,11 @@ body {
   aspect-ratio: 1 / 1;
   max-width: none;
   object-fit: cover;
+  /* The source clip carries a pure-white background (#ffffff) while the page
+     wash is #f3f6f1, so the video painted as a visible white rectangle. Multiply
+     blends white down to the page colour (255 x backdrop = backdrop) so the
+     background matches the page exactly, while the wave strokes stay visible. */
+  mix-blend-mode: multiply;
   mask-image: linear-gradient(90deg, transparent 0%, black 20%);
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 20%);
 }
