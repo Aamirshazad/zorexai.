@@ -100,15 +100,15 @@ export default function PageContent() {
   return <>
 <main className="font-ui bg-page-wash">
   {/* ── Hero ─────────────────────────────────────────────────────── */}
-  <section className="relative px-5 sm:px-8 pt-40 sm:pt-52 pb-28 sm:pb-40 overflow-hidden">
+  <section className="relative px-5 sm:px-8 pt-32 sm:pt-40 pb-28 sm:pb-36 lg:min-h-[85vh] flex items-center overflow-hidden">
     <div className="hero-media" aria-hidden="true">
       <video autoPlay muted loop playsInline preload="auto" disablePictureInPicture>
         <source src="/videos/hero-waves-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
         <source src="/videos/hero-waves.mp4" type="video/mp4" />
       </video>
     </div>
-    <div className="max-w-container-max mx-auto relative z-10">
-      <div className="flex flex-col items-center max-w-4xl mx-auto text-center">
+    <div className="max-w-container-max w-full mx-auto relative z-10">
+      <div className="flex flex-col items-start max-w-3xl text-left mr-auto">
         <h1 className="display-type mb-6" id="hero-headline">
           We are building a future where AI <span className="opacity-60">makes humans more capable and impactful.</span>
         </h1>
@@ -118,7 +118,7 @@ export default function PageContent() {
           </p>
         </Reveal>
         <Reveal delay={0.24}>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div className="flex flex-col sm:flex-row items-center justify-start gap-3">
             <Link className="btn-ink w-full sm:w-auto" href="/contact">Book a Strategy Call<Icon name="ArrowRight" className="ml-1 size-4" aria-hidden /> </Link>
             <Link className="btn-ghost w-full sm:w-auto" href="/case-studies">See Our Work</Link>
           </div>

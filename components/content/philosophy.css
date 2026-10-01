@@ -10,7 +10,9 @@
   --bg: var(--page-wash, #f3f6f1);
   --ink: #111111;
   --muted: #6f6f6f;
-  --blue: #0f62fe;
+  /* Was the donor's IBM blue (#0f62fe). Remapped to the site ink so this
+     ported band matches the page's ink/sage palette instead of standing out. */
+  --blue: #141414;
   --font: var(--font-plex-sans, 'IBM Plex Sans'), 'Helvetica Neue', Arial, ui-sans-serif, system-ui, sans-serif;
   --serif: var(--font-plex-serif, 'IBM Plex Serif'), Georgia, 'Times New Roman', serif;
   --mono: var(--font-plex-mono, 'IBM Plex Mono'), ui-monospace, SFMono-Regular, Menlo, monospace;
