@@ -1,58 +1,35 @@
 import Link from 'next/link';
 import { Icon, type IconName } from '@/components/ui/icon';
 
-type PhaseTag = { icon: IconName; label: string };
-
 const phases: Array<{
   number: string;
   icon: IconName;
   title: string;
   copy: string;
-  tags: PhaseTag[];
 }> = [
   {
     number: '1',
     icon: 'ShieldCheck',
     title: 'Zero-Trust & Data Security',
     copy: 'Client data is never used to train external models. Systems deploy within private VPC boundaries with strict role-based access control, cryptographic isolation, and enterprise compliance.',
-    tags: [
-      { icon: 'ShieldCheck', label: 'VPC boundary' },
-      { icon: 'Lock', label: 'Zero public training' },
-      { icon: 'Database', label: 'Role-based access' },
-    ],
   },
   {
     number: '2',
     icon: 'Boxes',
     title: 'Deterministic Guardrails',
     copy: 'Zero hallucinations or unchecked agent actions. We enforce structured JSON schemas, programmatic validation rules, and automatic fallback pipelines before any output executes.',
-    tags: [
-      { icon: 'Boxes', label: 'Structured schemas' },
-      { icon: 'FolderCheck', label: 'Deterministic rules' },
-      { icon: 'Bug', label: 'Fallback pipelines' },
-    ],
   },
   {
     number: '3',
     icon: 'Network',
     title: 'Native System Integration',
     copy: 'Direct bidirectional connectors into your core tools - CRM, ERP, messaging, and internal databases. Intelligence flows where your work already happens, with no rip-and-replace.',
-    tags: [
-      { icon: 'Network', label: 'CRM & ERP hooks' },
-      { icon: 'Database', label: 'Live data flow' },
-      { icon: 'Handshake', label: 'No rip-and-replace' },
-    ],
   },
   {
     number: '4',
     icon: 'Users',
     title: 'Human-in-the-Loop Governance',
     copy: 'Autonomous speed for routine tasks with explicit human checkpoints for sensitive actions, financial transactions, and edge cases, backed by full tamper-proof audit trails.',
-    tags: [
-      { icon: 'FileCheck2', label: 'Human approval' },
-      { icon: 'TrendingUp', label: 'Audit logging' },
-      { icon: 'BookOpen', label: 'Complete oversight' },
-    ],
   },
 ];
 
@@ -86,18 +63,10 @@ export function FourPhases({ showProcessLink = false }: { showProcessLink?: bool
                 </span>
               </div>
 
-              {/* title + copy + tags */}
+              {/* title + copy */}
               <div className="max-w-2xl">
                 <h3 className="mc-title text-xl md:text-2xl text-balance">{phase.title}</h3>
                 <p className="mc-body mt-2 max-w-xl">{phase.copy}</p>
-                <div className="mt-5 flex flex-wrap gap-2 border-t border-[var(--line)] pt-5">
-                  {phase.tags.map((tag) => (
-                    <span key={tag.label} className="chip">
-                      <Icon name={tag.icon} className="text-[14px]" aria-hidden />
-                      {tag.label}
-                    </span>
-                  ))}
-                </div>
               </div>
             </li>
           ))}
