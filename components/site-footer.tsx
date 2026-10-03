@@ -38,7 +38,7 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-[1280px] gap-12 px-5 sm:px-8 lg:grid-cols-[1.2fr_1fr]">
         <div>
           <Link href="/" className="text-2xl font-semibold tracking-tight text-ink transition-opacity hover:opacity-80">Zorex<span className="text-ink-3"> AI</span></Link>
-          <p className="body-ink mt-4 max-w-xl">Zorex AI works with SMB leaders on AI strategy, enablement, and production systems.</p>
+          <p className="body-ink mt-4 max-w-xl">We take AI from idea to daily use in your business.</p>
           <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">
             <a className="footer-link group gap-2 text-sm font-medium text-ink transition-colors hover:text-ink-2" href={`mailto:${company.email}`}>
               <Icon name="Mail" className="size-4 transition-transform group-hover:-translate-y-0.5" aria-hidden />

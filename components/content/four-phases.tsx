@@ -39,11 +39,11 @@ export function FourPhases({ showProcessLink = false }: { showProcessLink?: bool
       <div className="max-w-container-max mx-auto">
         <div className="reveal mb-12 flex max-w-3xl flex-col gap-4 sm:mb-14 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
-            <span className="eyebrow mb-4 block">The Four Phases</span>
+            <span className="eyebrow mb-4 block">Production Principles</span>
             <h2 className="section-title">
-              A clear path <span className="h-muted">from audit to ownership.</span>
+              Four principles <span className="h-muted">every build is held to.</span>
             </h2>
-            <p className="lede mt-5">Every deployment is built on four core production principles: zero-trust security, deterministic guardrails, native software integration, and human-in-the-loop governance.</p>
+            <p className="lede mt-5">Every deployment is built on four core principles: zero-trust security, deterministic guardrails, native software integration, and human-in-the-loop governance.</p>
           </div>
         </div>
         <ol className="reveal reveal-delay-1 flex flex-col">
@@ -59,7 +59,7 @@ export function FourPhases({ showProcessLink = false }: { showProcessLink?: bool
                 </span>
                 <span className="flex items-center gap-1.5 font-ui text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-3">
                   <Icon name={phase.icon} className="size-3.5" aria-hidden />
-                  Phase
+                  Principle
                 </span>
               </div>
 

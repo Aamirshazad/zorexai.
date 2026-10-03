@@ -92,7 +92,7 @@ export const whatWeDoMarkup = `
           </g>
         </svg>
       </div>
-        <a class="btn" style="margin-top:28px;" href="/contact#book">Talk about an assessment</a>
+        <a class="btn" style="margin-top:28px;" href="/contact#book">Book a Strategy Call</a>
       </article>
       <article class="offer" id="offer-2">
         <p class="mono" style="color:var(--blue);">02</p>
@@ -150,7 +150,7 @@ export const whatWeDoMarkup = `
           <p>We check that each person can use it well and knows when to step in. Then they carry on without us, and your named owner knows who to ask if something changes.</p>
         </div>
       </div>
-        <a class="btn" style="margin-top:28px;" href="/contact#book">Talk about enablement</a>
+        <a class="btn" style="margin-top:28px;" href="/contact#book">Book a Strategy Call</a>
       </article>
     </div>
   </div>

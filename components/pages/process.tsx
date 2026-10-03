@@ -56,7 +56,7 @@ export default function PageContent() {
           </div>
         </section>
 
-        {/* ── The sequence: one shared process model site-wide ─────────── */}
+        {/* ── Production principles: one shared model site-wide ────────── */}
         <FourPhases />
 
         {/* ── What you are signing up for ──────────────────────────────── */}

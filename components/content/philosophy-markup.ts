@@ -5,8 +5,13 @@
 export const philosophyMarkup = `
   <div class="wrap">
     <div class="ph-stack">
-      <div class="sec-label">Our Philosophy</div>
-      <h2 class="sec ph-line"><span class="ph-l">We are building a future where AI</span> <span class="ph-l">makes <span class="bx-accent">humans</span> more capable and impactful<span class="bx-dot">.</span></span></h2>
+      <div class="sec-label">Our Approach</div>
+      <h2 class="sec ph-title">Forward Deployed Engineering</h2>
+      <div class="ph-body">
+        <p>Forward deployed engineering is how Zorex AI brings AI into production for complex, real-world use cases.</p>
+        <p>Instead of starting with a general product, FDE teams work directly with customers to solve a specific problem, validate impact, and then identify patterns that can scale.</p>
+        <p>This approach helps organizations move from AI experimentation to reliable deployment.</p>
+      </div>
     </div>
   </div>
 `;

@@ -49,7 +49,26 @@
 .ph-scope .ph-stack .sec-label { justify-content: center; }
 .ph-scope h2.sec.ph-line { max-width: none; margin: 18px auto 0; font-size: clamp(26px, 3.4vw, 44px); text-wrap: initial; }
 .ph-scope .ph-line .ph-l { display: block; }
+.ph-scope h2.sec.ph-title { max-width: 28ch; margin: 0 auto; font-size: clamp(28px, 3.8vw, 44px); text-wrap: balance; }
+
+.ph-scope .ph-body {
+  max-width: 680px;
+  margin: 24px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: center;
+}
+
+.ph-scope .ph-body p {
+  font-size: clamp(16px, 1.2vw, 18px);
+  line-height: 1.65;
+  color: var(--soft, #5b5b5b);
+  font-weight: 400;
+  text-wrap: pretty;
+}
 
 @media (max-width: 720px) {
   .ph-scope .ph-line .ph-l { display: inline; }
+  .ph-scope .ph-body { text-align: left; }
 }

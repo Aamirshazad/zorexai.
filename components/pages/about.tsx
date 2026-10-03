@@ -47,7 +47,7 @@ const corePillars: { number: string; icon: IconName; title: string; subtitle: st
     subtitle: 'From scattered experiments to an adopted roadmap',
     body: 'We audit workflows alongside your people using our CLIMB method. Pinpoint high-impact bottlenecks, evaluate real ROI, and define an actionable implementation roadmap.',
     href: '/contact#book',
-    cta: 'Discuss an assessment',
+    cta: 'Book a Strategy Call',
   },
   {
     number: '02',
@@ -65,7 +65,7 @@ const corePillars: { number: string; icon: IconName; title: string; subtitle: st
     subtitle: 'From AI-curious to AI-capable across all levels',
     body: 'Practical, hands-on enablement for business leaders, super-user managers, and frontline employees to safely build, manage, and scale AI workflows.',
     href: '/contact#book',
-    cta: 'Talk about enablement',
+    cta: 'Book a Strategy Call',
   },
 ];
 

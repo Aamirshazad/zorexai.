@@ -9,8 +9,8 @@ import { FourPhases } from '@/components/content/four-phases';
 import { StartingPoint } from '@/components/content/starting-point';
 import { Philosophy } from '@/components/content/philosophy';
 import { WhatWeDo } from '@/components/content/what-we-do';
+import { FeaturedCaseStudy } from '@/components/content/featured-case-study';
 import { company } from '@/content/company';
-import { services } from '@/content/services';
 
 const marqueeItems = [
   'Agentic AI Systems',
@@ -21,42 +21,36 @@ const marqueeItems = [
   'Decision Support',
 ];
 
-/** Grain surfaces, cycled across the service cards (mirrors the services page). */
-const grains = ['grain-olive', 'grain-teal', 'grain-steel', 'grain-mineral', 'grain-sand', 'grain-charcoal'];
 
 const engagements: Array<{
   icon: IconName;
   title: string;
   sub: string;
   duration: string;
-  note: string;
-  items: string[];
+  body: string;
   featured?: boolean;
 }> = [
   {
     icon: 'Rocket',
-    title: 'Focused Improvement Sprint',
-    sub: 'Single automation or integration',
-    duration: '1-2 Weeks',
-    note: 'Scoped after discovery call',
-    items: ['One core automation', 'Full documentation', '30-day support'],
+    title: 'Starter Sprint',
+    sub: 'Solve One Core Bottleneck',
+    duration: '2–3 Weeks',
+    body: 'We take one painful manual process (invoice processing, lead triage, client onboarding) and deploy a working AI system for it.',
   },
   {
     icon: 'Brain',
-    title: 'Full System Deployment',
-    sub: 'End-to-end AI system deployment',
-    duration: '2-5 Weeks',
-    note: 'Scoped after discovery call',
-    items: ['Multi-system integration', 'Custom LLM / agentic system', 'Training & handoff', '90-day support'],
+    title: 'Full Operational Deployment',
+    sub: 'End-to-End System Integration',
+    duration: '4–8 Weeks',
+    body: 'We automate a complete business workflow across multiple departments with custom controls and team onboarding.',
     featured: true,
   },
   {
     icon: 'Network',
-    title: 'Ongoing Optimization',
-    sub: 'Retained AI engineering capacity',
+    title: 'Continuous Partnership',
+    sub: 'Ongoing Management & Improvement',
     duration: 'Ongoing',
-    note: 'Monthly retainer, scoped to your needs',
-    items: ['Dedicated AI architect', 'Continuous optimization', 'Priority response'],
+    body: 'We maintain, optimize, and expand your systems as your business grows — acting as your dedicated AI department.',
   },
 ];
 
@@ -72,18 +66,18 @@ const engagements: Array<{
 const principles = [
   {
     number: '01',
-    title: 'Start with the work',
-    body: 'Not a model and not a tool. Start with the work that consumes people, creates delays, and caps how far the business can scale.',
+    title: 'Build',
+    body: 'Deploy directly with client teams to solve specific, high-impact operational problems in live production environments.',
   },
   {
     number: '02',
-    title: 'Design the system around it',
-    body: 'Context, actions, tools, and controls coordinated so the business executes with less friction, rather than more software to manage.',
+    title: 'Prove',
+    body: 'Validate system reliability, edge-case handling, and measurable business performance under real-world constraints.',
   },
   {
     number: '03',
-    title: 'Aim for better execution',
-    body: 'The goal was never more AI. It is a business function that runs reliably without somebody chasing it every week.',
+    title: 'Generalize',
+    body: 'Identify repeatable patterns and evolve them into scalable product capabilities, modular SDKs, and core platform tools.',
   },
 ];
 
@@ -113,7 +107,7 @@ export default function PageContent() {
         </h1>
         <Reveal delay={0.16}>
           <p className="body-ink max-w-2xl mb-10" id="hero-description">
-            Zorex works with SMB leaders on AI strategy, enablement, and production systems.
+            We partner with organizations to solve high-impact problems using AI—starting from first principles and deploying systems in real-world environments.
           </p>
         </Reveal>
         <Reveal delay={0.24}>
@@ -146,39 +140,10 @@ export default function PageContent() {
   {/* ── What We Do two ways to work with us (from the HITL advisory page) ── */}
   <WhatWeDo />
 
-  {/* ── What We Automate: the four services, same card UI as /services ── */}
-  <section className="py-section-padding px-5 sm:px-8" id="services">
-    <div className="max-w-container-max mx-auto">
-      <ScrollReveal className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 sm:mb-16 gap-8">
-        <div className="max-w-2xl">
-          <span className="eyebrow mb-4 block">What We Automate</span>
-          <h2 className="section-title">We build systems around the work that matters most.</h2>
-          <p className="body-ink mt-4">We start with the workflow, the business outcome, and the constraints. Then we design the system around your existing operation.</p>
-        </div>
-        <Link className="footer-link gap-2 border-b border-[var(--line-strong)] pb-0.5 text-sm font-medium text-ink transition-colors hover:border-ink" href="/services">See All Services<Icon name="ArrowRight" className="size-4" aria-hidden /> </Link>
-      </ScrollReveal>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {services.map((service, i) => (
-          <Link key={service.href} className={`reveal ${i % 3 === 1 ? 'reveal-delay-1' : i % 3 === 2 ? 'reveal-delay-2' : ''} grain ${grains[i % grains.length]} mc-card no-underline flex flex-col`} href={service.href}>
-            <span className="mc-arrow" aria-hidden="true"><Icon name="ArrowRight" className="size-4" /></span>
-            <div className="flex flex-col h-full">
-              <span className="mc-label">0{i + 1} Service</span>
-              <h3 className="mc-title text-2xl mb-3">{service.name}</h3>
-              <p className="mc-body mb-8">{service.oneLine}</p>
-              <div className="mt-auto flex flex-col gap-2.5">
-                {service.includes.slice(0, 3).map((tag) => (
-                  <span key={tag} className="chip chip-grain w-fit">{tag}</span>
-                ))}
-                <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium group-hover:gap-3 transition-all">Explore<Icon name="ArrowRight" className="size-4" aria-hidden /></span>
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
-    </div>
-  </section>
+  {/* ── Featured Case Studies (Case Studies 1 & 3) ── */}
+  <FeaturedCaseStudy />
 
-  {/* ── The four phases ──────────────────────────────────────────── */}
+  {/* ── Production principles ────────────────────────────────────── */}
   <FourPhases showProcessLink />
 
   {/* ── Point of view: one statement band, not three more cards ───── */}
@@ -189,8 +154,11 @@ export default function PageContent() {
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
             <div>
               <span className="mc-label">How We Think About AI</span>
-              <p className="display-type mt-6" style={{ fontSize: 'clamp(26px, 3.2vw, 40px)' }}>
-                The business function comes first. <span className="opacity-60">The technology follows.</span>
+              <h2 className="display-type mt-6" style={{ fontSize: 'clamp(26px, 3.2vw, 40px)' }}>
+                From deployment <span className="opacity-60">to real product solutions</span>
+              </h2>
+              <p className="mt-5 text-[15px] leading-relaxed text-white/80 max-w-xl">
+                By solving real customer problems, our forward deployed engineering teams identify repeatable patterns that evolve into product capabilities. This cycle—build, prove, generalize—connects deployment to product development across Agent SDK, AI-assisted authoring systems, model benchmarking and reliability tools, and more.
               </p>
             </div>
             <dl className="flex flex-col divide-y divide-white/15 border-t border-white/15 lg:border-t-0">
@@ -231,13 +199,8 @@ export default function PageContent() {
                   <div className="size-12 rounded-full border border-[var(--grain-chip-bd)] bg-[var(--grain-chip)] flex items-center justify-center mx-auto mb-6"><Icon name={plan.icon} className="text-lg" aria-hidden /></div>
                   <h3 className="mc-title text-xl mb-1">{plan.title}</h3>
                   <p className="mc-body text-[13px] mb-4">{plan.sub}</p>
-                  <p className="text-3xl font-medium mb-1">{plan.duration}</p>
-                  <p className="mc-body text-xs mb-6">{plan.note}</p>
-                  <ul className="space-y-2.5 text-left text-[13.5px] leading-[1.55] mt-auto">
-                    {plan.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2"><Icon name="CircleCheck" className="size-4 mt-0.5 shrink-0 opacity-90" aria-hidden />{item}</li>
-                    ))}
-                  </ul>
+                  <p className="text-3xl font-medium mb-6">{plan.duration}</p>
+                  <p className="mc-body text-[13.5px] leading-[1.6] mt-auto">{plan.body}</p>
                 </div>
               </div>
             );
@@ -247,13 +210,8 @@ export default function PageContent() {
               <div className="size-12 rounded-full border border-[var(--line-strong)] flex items-center justify-center mx-auto mb-6"><Icon name={plan.icon} className="text-ink text-lg" aria-hidden /></div>
               <h3 className="mc-title text-xl mb-1">{plan.title}</h3>
               <p className="mc-body text-[13px] mb-4">{plan.sub}</p>
-              <p className="text-2xl font-medium text-ink mb-1">{plan.duration}</p>
-              <p className="mc-body text-xs mb-6">{plan.note}</p>
-              <ul className="space-y-2.5 text-left text-[13.5px] leading-[1.55] mt-auto">
-                {plan.items.map((item) => (
-                  <li key={item} className="flex items-start gap-2"><Icon name="CircleCheck" className="text-ink-2 size-4 mt-0.5 shrink-0" aria-hidden /><span className="text-ink-2">{item}</span></li>
-                ))}
-              </ul>
+              <p className="text-2xl font-medium text-ink mb-6">{plan.duration}</p>
+              <p className="mc-body text-[13.5px] leading-[1.6] mt-auto">{plan.body}</p>
             </div>
           );
         })}
@@ -270,7 +228,7 @@ export default function PageContent() {
             The demo is easy.<br /><span className="opacity-60">Production is where the truth shows up.</span>
           </h2>
           <p className="mc-body text-[15px] mb-8 max-w-2xl mx-auto">
-            Book an executive briefing. In {company.callLength} you&apos;ll know where you stand &mdash; and what to do first.
+            Book a strategy call. In {company.callLength} you&apos;ll know where you stand &mdash; and what to do first.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
             <span className="chip chip-grain">Free</span>
@@ -279,7 +237,7 @@ export default function PageContent() {
           </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link className="btn-ink w-full sm:w-auto !bg-white !text-ink hover:!bg-white/90" href="/contact#book">
-              Book an Executive Briefing<Icon name="ArrowRight" className="ml-1 size-4" aria-hidden />
+              Book a Strategy Call<Icon name="ArrowRight" className="ml-1 size-4" aria-hidden />
             </Link>
             <Link className="btn-ghost w-full sm:w-auto !border-white/30 !text-white hover:!bg-white/10" href="/case-studies">
               See Client Results
