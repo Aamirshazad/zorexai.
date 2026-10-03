@@ -97,28 +97,28 @@ export const whatWeDoMarkup = `
       <article class="offer" id="offer-2">
         <p class="mono" style="color:var(--blue);">02</p>
         <h3 class="offer-h">AI Development</h3>
-        <p class="lead" style="margin-top:12px;">From validated strategy to production AI systems.</p>
-        <p class="body">Once the roadmap is clear, we design, build, and deploy the systems that execute it. Every engagement starts with the workflow, the business outcome, and the constraints - then we architect the solution around your existing operation. We ship working systems, not prototypes: production-grade, integrated with your tools, maintained after launch.</p>
+        <p class="lead" style="margin-top:12px;">From idea to agentic system in production.</p>
+        <p class="body">Once the right use case is chosen, our forward-deployed engineers work inside your workflows, alongside your team, to build an agentic system that changes how the work runs. The aim is a faster, redesigned process, and where it fits, a new product or service you can offer customers. We handle the whole route: use case, build, security review, and handover, until the system is in real daily use, not left as a pilot.</p>
       <div class="phases">
         <div class="phase">
           <div class="phase-no">01</div>
-          <h3>Workflow Audit</h3>
-          <p>We analyze your operational processes to isolate high-leverage bottlenecks. We define concrete outcomes, data readiness, and security boundaries under mutual NDA before writing a line of code.</p>
+          <h3>Use Case Selection</h3>
+          <p>We confirm the right use case with your team, including the business outcome, the data involved, and the limits on what the system may touch. It needs a named project and a named owner on your side before anything is built.</p>
         </div>
         <div class="phase">
           <div class="phase-no">02</div>
-          <h3>System Design</h3>
-          <p>We design the complete system architecture around your stack: workflow logic, model selection, data flow security, and zero-trust integrations connecting directly into your CRM, ERP, and operational tools.</p>
+          <h3>Agentic System Build</h3>
+          <p>We build the agentic system to run a process end to end, connected to the tools you already use. It is built as a governed, production-ready solution, designed to scale, not as a demo. The process is redesigned around it, not patched.</p>
         </div>
         <div class="phase">
           <div class="phase-no">03</div>
-          <h3>Agent Engineering</h3>
-          <p>We build custom autonomous agents and cognitive pipelines with programmatic guardrails, fallback routines, and human oversight on critical decisions - rigorously tested on real data.</p>
+          <h3>Security Review and Realistic-Case Testing</h3>
+          <p>Before go-live, we run a security review and rehearse the system on realistic cases from your own operation, including the messy ones. We agree the pass standard with you up front, and it goes live only when it meets it. Sensitive actions keep a person in the loop.</p>
         </div>
         <div class="phase">
           <div class="phase-no">04</div>
-          <h3>Production Deployment</h3>
-          <p>A phased, supervised rollout into your live operations with full documentation, thorough team handoff, and ongoing monitoring to ensure systems run reliably from day one.</p>
+          <h3>Handover and Adoption</h3>
+          <p>We roll it out, train your team, and hand over to your named owner with simple documentation. We stay until the system is in real daily use, then measure results against where you started.</p>
         </div>
       </div>
         <a class="btn" style="margin-top:28px;" href="/services">Explore our services</a>
@@ -126,23 +126,28 @@ export const whatWeDoMarkup = `
       <article class="offer" id="offer-3">
         <p class="mono" style="color:var(--blue);">03</p>
         <h3 class="offer-h">AI Training</h3>
-        <p class="lead" style="margin-top:12px;">From AI-curious to AI-capable - built for SMBs to growing enterprises.</p>
-        <p class="body">Hands-on, outcome-driven enablement tailored for small SMBs through to medium and large businesses. Built and delivered by practitioners who ship AI in production every day. Not generic tool tutorials: your people learn to deploy real workflows and automations directly into your operations.</p>
+        <p class="lead" style="margin-top:12px;">From a new system to a team that uses it with confidence.</p>
+        <p class="body">A system only pays off when the people it was built for actually use it. After we've chosen the project and built the system, we train the business people who will work with it every day. They learn on your own system and your own real work, from people who've done this before, with practice before they rely on it. No technical background needed.</p>
       <div class="phases">
         <div class="phase">
           <div class="phase-no">01</div>
-          <h3>Business Leaders &amp; Owners</h3>
-          <p>For SMB owners, founders, and business leaders. Strategic clarity to evaluate high-ROI opportunities, make confident technology investments, establish security guardrails, and lead AI adoption with measurable impact.</p>
+          <h3>See how it works</h3>
+          <p>A short, hands-on start. Your team sees what the system does, what it handles on its own, and where a person still decides. They learn what it's good at, where it can get things wrong, and how to spot a problem.</p>
         </div>
         <div class="phase">
           <div class="phase-no">02</div>
-          <h3>AI Super Users &amp; Teams</h3>
-          <p>For managers, department leads, and operations teams. Intensive sessions that turn your key staff into power users who redesign workflows with AI - shipping tailored agentic automations that save hours every week.</p>
+          <h3>Practice on your own cases</h3>
+          <p>Your team tries the system on real examples from your daily work, including the awkward ones, with us beside them. They get feedback and build confidence before anything depends on it.</p>
         </div>
         <div class="phase">
           <div class="phase-no">03</div>
-          <h3>Employee Enablement</h3>
-          <p>For employees and frontline teams across your company. Practical, accessible training that eliminates repetitive busywork, builds daily AI fluency, and empowers your workforce to safely use and build practical automations in their everyday work.</p>
+          <h3>Use it for real, with support</h3>
+          <p>Your team starts using it in live work, with us on hand for the first weeks to answer questions and fix small issues. They see the time savings in their own week.</p>
+        </div>
+        <div class="phase">
+          <div class="phase-no">04</div>
+          <h3>Check you're ready</h3>
+          <p>We check that each person can use it well and knows when to step in. Then they carry on without us, and your named owner knows who to ask if something changes.</p>
         </div>
       </div>
         <a class="btn" style="margin-top:28px;" href="/contact#book">Talk about enablement</a>

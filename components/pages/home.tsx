@@ -109,7 +109,7 @@ export default function PageContent() {
     <div className="max-w-container-max w-full mx-auto relative z-10">
       <div className="flex flex-col items-start max-w-3xl text-left mr-auto">
         <h1 className="display-type mb-6" id="hero-headline">
-          We are building a future where AI <span className="opacity-60">makes humans more capable and impactful.</span>
+          We take AI from idea <span className="opacity-60">to daily use in your business.</span>
         </h1>
         <Reveal delay={0.16}>
           <p className="body-ink max-w-2xl mb-10" id="hero-description">

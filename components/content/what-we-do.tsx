@@ -5,7 +5,7 @@ import './what-we-do.css';
 import { whatWeDoMarkup } from './what-we-do-markup';
 
 /**
- * "What we do" — two ways to work with us.
+ * "What we do" — three ways to work with us.
  *
  * A deliberate 1:1 port of the same band on the sister site
  * (https://hitl.es/advisory): the sticky offer index with its scroll-driven
