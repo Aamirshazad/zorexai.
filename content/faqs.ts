@@ -32,7 +32,7 @@ export const generalFaq: Faq[] = [
   {
     question: 'Do you work with companies outside the industries you list?',
     answer:
-      'Yes. The six industry pages are the sectors where we have already built and where the domain vocabulary and compliance rules are well understood. The process is the same elsewhere: map the workflow, design the system around it, and confirm the constraints before anything is built.',
+      'Yes. The four industry pages are the sectors where we have already built and where the domain vocabulary and compliance rules are well understood. The process is the same elsewhere: map the workflow, design the system around it, and confirm the constraints before anything is built.',
   },
   {
     question: 'How much does an AI system cost?',

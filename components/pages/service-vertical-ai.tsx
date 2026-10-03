@@ -15,7 +15,6 @@ const industries: { icon: IconName; title: string; body: string }[] = [
   { icon: 'Landmark', title: 'Financial Services', body: 'Customer operations, research, document-heavy processes, internal knowledge and operational workflows.' },
   { icon: 'Stethoscope', title: 'Healthcare', body: 'Administrative and information-heavy processes, with professional judgment and sensitive decisions kept under human control.' },
   { icon: 'Gavel', title: 'Legal', body: 'Document workflows, research, knowledge management, matter preparation and repetitive operational work.' },
-  { icon: 'Building2', title: 'Real Estate', body: 'Property information, lead management, customer communication, document processing and transaction workflows.' },
   { icon: 'Truck', title: 'Logistics', body: 'Order workflows, supplier communication, operational coordination, research and exception handling.' },
   { icon: 'BriefcaseBusiness', title: 'Professional Services', body: 'Research, document workflows, client operations, internal knowledge and repetitive administrative work.' },
 ];
@@ -61,7 +60,7 @@ export default function PageContent() {
           <div className="bg-panel border border-[var(--line)] rounded-[20px] p-6 mt-8">
             <p className="text-xs text-ink-2 uppercase tracking-widest mb-5">For example</p>
             <ul className="space-y-3 text-sm text-ink-2">
-              {['A real estate business may need AI that understands properties, listings, leads, documents and transactions.', 'A logistics company may need AI that understands orders, suppliers, shipments and operational exceptions.', 'A legal organisation may need AI around documents, research, matters and client workflows.', 'A financial organisation may need AI around customer operations, financial information and business processes.'].map((line) => (
+              {['A logistics company may need AI that understands orders, suppliers, shipments and operational exceptions.', 'A legal organisation may need AI around documents, research, matters and client workflows.', 'A financial organisation may need AI around customer operations, financial information and business processes.'].map((line) => (
                 <li key={line} className="flex items-start gap-2">
                   <Icon name="ChevronRight" className="mt-0.5 size-4 shrink-0 text-ink-3" aria-hidden />
                   <span>{line}</span>

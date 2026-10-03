@@ -128,20 +128,6 @@
     "kind": "industry"
   },
   {
-    "route": "industry-b2b-saas",
-    "title": "AI for B2B SaaS Operations | Zorex AI",
-    "description": "Explore AI systems for B2B SaaS workflows across sales, customer operations, support, reporting, and internal business processes.",
-    "ogImage": "/og-default.jpg",
-    "kind": "industry"
-  },
-  {
-    "route": "industry-commercial-real-estate",
-    "title": "AI for Commercial Real Estate | Zorex AI",
-    "description": "Explore AI systems for commercial real estate workflows, including research, document-heavy operations, lead processes, and internal execution.",
-    "ogImage": "/og-default.jpg",
-    "kind": "industry"
-  },
-  {
     "route": "industry-digital-marketing",
     "title": "AI for Digital Marketing Operations | Zorex AI",
     "description": "Explore AI systems for digital marketing workflows, from research and content operations to campaign execution, reporting, and customer response.",

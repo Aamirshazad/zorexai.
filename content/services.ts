@@ -76,6 +76,6 @@ export const services: Service[] = [
     summary:
       'A system shaped around one industry’s vocabulary, processes, regulations and operational patterns instead of a generic assistant added to the business.',
     includes: ['Industry terminology and knowledge', 'Sector-specific workflows', 'Decision support with human judgment', 'A foundation that scales over time'],
-    bestFor: 'Financial services, healthcare, legal, real estate, logistics, and professional services.',
+    bestFor: 'Financial services, healthcare, legal, logistics, and professional services.',
   },
 ];

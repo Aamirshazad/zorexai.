@@ -17,7 +17,7 @@ import { services } from '@/content/services';
  * The page now presents the two axes separately and labels them, which is what
  * the hero always claimed it did:
  *
- *   by sector      the six industry pages, from content/industries.ts
+ *   by sector      the four industry pages, from content/industries.ts
  *   by capability  the four services, from content/services.ts
  *
  * It also loses the Unsplash photograph that was captioned "Real-time
@@ -67,7 +67,7 @@ export default function PageContent() {
               </h1>
               <p className="body-ink max-w-2xl mb-10">
                 Route by the sector you operate in, or by the function you run. Both paths lead to the same systems,
-                scoped to your workflows: six sectors below, and the four capabilities those engagements draw on.
+                scoped to your workflows: four sectors below, and the four capabilities those engagements draw on.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <Link className="btn-ink w-full sm:w-auto" href="/contact#book">
@@ -103,19 +103,19 @@ export default function PageContent() {
           <div className="max-w-container-max mx-auto">
             <div className="reveal mb-12 max-w-[640px] sm:mb-16">
               <span className="eyebrow mb-4 block">By Sector</span>
-              <h2 className="section-title mb-4">Six sectors we have built in.</h2>
+              <h2 className="section-title mb-4">Four sectors we have built in.</h2>
               <p className="lede mt-5">
                 Each page covers the workflows that recur in that sector, the constraints that shape the design, and how
                 a system is usually scoped there.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+            <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
               {industries.map((industry, index) => (
                 <Link
                   key={industry.href}
                   href={industry.href}
-                  className={`reveal${index % 3 > 0 ? ` reveal-delay-${index % 3}` : ''} tile grain ${grains[index % grains.length]} mc-card no-underline`}
+                  className={`reveal${index % 2 > 0 ? ` reveal-delay-${index % 2}` : ''} tile grain ${grains[index % grains.length]} mc-card no-underline`}
                 >
                   <span className="tile-n">{String(index + 1).padStart(2, '0')}</span>
                   <span className="mc-arrow">
@@ -154,15 +154,22 @@ export default function PageContent() {
                     <Icon name="ArrowRight" className="size-4" aria-hidden />
                   </Link>
                 </div>
-                <ul className="grid grid-cols-1 gap-x-10 gap-y-1 list-none sm:grid-cols-2">
+                <ul className="grid grid-cols-1 gap-4 list-none sm:grid-cols-2">
                   {services.map((service) => (
                     <li key={service.href}>
                       <Link
                         href={service.href}
-                        className="group flex min-h-[44px] items-center justify-between gap-3 border-b border-[var(--line)] py-2 text-[14.5px] text-ink-2 transition-colors hover:text-ink"
+                        className="group mc-card flex h-full flex-col rounded-[18px] border border-[var(--line)] bg-page-wash p-5 no-underline transition-colors hover:border-[var(--line-strong)]"
                       >
-                        {service.name}
-                        <Icon name="ArrowRight" className="size-4 shrink-0 text-ink-3 group-hover:text-ink transition-colors" aria-hidden />
+                        <span className="mb-4 flex size-10 items-center justify-center rounded-[14px] bg-panel-2 text-ink">
+                          <Icon name={service.icon} className="text-[18px]" aria-hidden />
+                        </span>
+                        <span className="mc-title">{service.name}</span>
+                        <span className="mc-body">{service.oneLine}</span>
+                        <span className="mt-auto inline-flex items-center gap-2 pt-5 text-xs font-medium text-ink-2 transition-all group-hover:gap-3 group-hover:text-ink">
+                          Explore
+                          <Icon name="ArrowRight" className="size-3.5" aria-hidden />
+                        </span>
                       </Link>
                     </li>
                   ))}

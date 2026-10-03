@@ -15,8 +15,6 @@ import FaqPage from '@/components/pages/faq';
 import HomePage from '@/components/pages/home';
 import IndustriesPage from '@/components/pages/industries';
 import IndustryB2BEcommercePage from '@/components/pages/industry-b2b-ecommerce';
-import IndustryB2BSaaSPage from '@/components/pages/industry-b2b-saas';
-import IndustryCommercialRealEstatePage from '@/components/pages/industry-commercial-real-estate';
 import IndustryDigitalMarketingPage from '@/components/pages/industry-digital-marketing';
 import IndustryLogisticsPage from '@/components/pages/industry-logistics';
 import IndustryMedicalPracticesPage from '@/components/pages/industry-medical-practices';
@@ -47,8 +45,6 @@ export const pageComponents: Record<string, ComponentType> = {
   faq: FaqPage,
   industries: IndustriesPage,
   'industry-b2b-ecommerce': IndustryB2BEcommercePage,
-  'industry-b2b-saas': IndustryB2BSaaSPage,
-  'industry-commercial-real-estate': IndustryCommercialRealEstatePage,
   'industry-digital-marketing': IndustryDigitalMarketingPage,
   'industry-logistics': IndustryLogisticsPage,
   'industry-medical-practices': IndustryMedicalPracticesPage,

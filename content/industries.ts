@@ -1,5 +1,5 @@
 /**
- * The six industry deep-dive pages, in one place.
+ * The four industry deep-dive pages, in one place.
  *
  * Shared between the industries index, the site footer, and any future cross-
  * links so the set can never drift apart. Titles must match the destination
@@ -31,22 +31,6 @@ export const industries: Industry[] = [
     meta: 'Wholesale • Distribution • B2B Portals',
     oneLine: 'Contract pricing, multi-stage approvals, and bulk-order cycles. Built for wholesale complexity, not consumer chatbots.',
     icon: 'ShoppingCart',
-  },
-  {
-    href: '/industry-b2b-saas',
-    name: 'B2B SaaS',
-    title: 'Embedded AI Engineering for B2B SaaS',
-    meta: 'Product Integration • Churn Prediction • Customer Success',
-    oneLine: 'Agentic features embedded deep in your product, not a bolted-on API wrapper.',
-    icon: 'Cloud',
-  },
-  {
-    href: '/industry-commercial-real-estate',
-    name: 'Commercial Real Estate',
-    title: 'How AI Is Accelerating Deal Velocity in Commercial Real Estate',
-    meta: 'Brokerage • Underwriting • Asset Management',
-    oneLine: 'Lease abstraction, underwriting extraction, and off-market sourcing, so analysts analyze instead of gather.',
-    icon: 'Building2',
   },
   {
     href: '/industry-digital-marketing',
