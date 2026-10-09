@@ -545,7 +545,8 @@ body {
 
 .hero-media video {
   position: absolute;
-  top: 52%;
+  top: 54%;
+  padding-top: 1.5rem;
   right: 2vw;
   transform: translateY(-50%);
   height: 100%;
