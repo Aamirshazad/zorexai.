@@ -101,7 +101,7 @@ export default function PageContent() {
       </video>
     </div>
     <div className="max-w-container-max w-full mx-auto relative z-10">
-      <div className="flex flex-col items-start max-w-3xl text-left mr-auto">
+      <div className="flex flex-col items-start max-w-3xl text-left mr-auto -mt-6 sm:-mt-10">
         <h1 className="display-type mb-6" id="hero-headline">
           We take AI from idea <span className="opacity-60">to daily use in your business.</span>
         </h1>
