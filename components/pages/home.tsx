@@ -93,7 +93,7 @@ export default function PageContent() {
   return <>
 <main className="font-ui bg-page-wash">
   {/* ── Hero ─────────────────────────────────────────────────────── */}
-  <section className="relative px-5 sm:px-8 pt-32 sm:pt-40 pb-20 sm:pb-24 min-h-screen flex items-center overflow-hidden">
+  <section className="relative px-5 sm:px-8 pt-32 sm:pt-40 pb-32 sm:pb-40 lg:min-h-[90vh] flex items-center overflow-hidden">
     <div className="hero-media" aria-hidden="true">
       <video autoPlay muted loop playsInline preload="auto" disablePictureInPicture className="pt-6 sm:pt-8">
         <source src="/videos/hero-waves-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
@@ -101,7 +101,7 @@ export default function PageContent() {
       </video>
     </div>
     <div className="max-w-container-max w-full mx-auto relative z-10">
-      <div className="flex flex-col items-start max-w-3xl text-left mr-auto -mt-6 sm:-mt-10">
+      <div className="flex flex-col items-start max-w-3xl text-left mr-auto">
         <h1 className="display-type mb-6" id="hero-headline">
           We take AI from idea <span className="opacity-60">to daily use in your business.</span>
         </h1>
